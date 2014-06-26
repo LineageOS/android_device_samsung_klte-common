@@ -249,7 +249,7 @@ public:
     {
         return mLocApi->getZppFix(zppLoc, tech_mask);
     }
-
+    enum loc_api_adapter_err setXtraVersionCheck(int check);
     virtual void handleEngineDownEvent();
     virtual void handleEngineUpEvent();
     virtual void reportPosition(UlpLocation &location,
@@ -298,6 +298,7 @@ public:
     {
         return mLocApi->getGpsLock();
     }
+
 };
 
 #endif //LOC_API_ENG_ADAPTER_H
