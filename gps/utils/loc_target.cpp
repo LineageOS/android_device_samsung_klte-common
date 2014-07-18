@@ -205,8 +205,13 @@ unsigned int loc_get_target(void)
         read_a_line(id_dep, rd_id, LINE_LEN);
     }
 
-      if(( !memcmp(baseband, STR_APQ, LENGTH(STR_APQ)) ) ||
-        (!memcmp(baseband, STR_AUTO, LENGTH(STR_AUTO))) ) {
+    if( !memcmp(baseband, STR_AUTO, LENGTH(STR_AUTO)) )
+    {
+          gTarget = TARGET_AUTO;
+          goto detected;
+    }
+
+    if( !memcmp(baseband, STR_APQ, LENGTH(STR_APQ)) ){
         if( !memcmp(rd_id, MPQ8064_ID_1, LENGTH(MPQ8064_ID_1))
             && IS_STR_END(rd_id[LENGTH(MPQ8064_ID_1)]) )
             gTarget = TARGET_MPQ;

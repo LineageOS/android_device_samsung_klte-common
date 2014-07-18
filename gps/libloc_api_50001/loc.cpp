@@ -197,6 +197,7 @@ extern "C" const GpsInterface* get_gps_interface()
     switch (gnssType)
     {
     case GNSS_GSS:
+    case GNSS_AUTO:
         //APQ8064
         gps_conf.CAPABILITIES &= ~(GPS_CAPABILITY_MSA | GPS_CAPABILITY_MSB);
         gss_fd = open("/dev/gss", O_RDONLY);
@@ -241,8 +242,9 @@ SIDE EFFECTS
 static int loc_init(GpsCallbacks* callbacks)
 {
     int retVal = -1;
-    ENTRY_LOG();
+    unsigned int target = (unsigned int) -1;
     LOC_API_ADAPTER_EVENT_MASK_T event;
+    ENTRY_LOG();
 
     if (NULL == callbacks) {
         LOC_LOGE("loc_init failed. cb = NULL\n");
@@ -258,6 +260,15 @@ static int loc_init(GpsCallbacks* callbacks)
             LOC_API_ADAPTER_BIT_STATUS_REPORT |
             LOC_API_ADAPTER_BIT_NMEA_1HZ_REPORT |
             LOC_API_ADAPTER_BIT_NI_NOTIFY_VERIFY_REQUEST;
+
+    target = loc_get_target();
+
+    /*For "auto" platform enable Measurement report and SV Polynomial report*/
+    if(GNSS_AUTO == getTargetGnssType(target))
+    {
+        event |= LOC_API_ADAPTER_BIT_GNSS_MEASUREMENT_REPORT |
+                LOC_API_ADAPTER_BIT_GNSS_SV_POLYNOMIAL_REPORT;
+    }
 
     LocCallbacks clientCallbacks = {local_loc_cb, /* location_cb */
                                     callbacks->status_cb, /* status_cb */
