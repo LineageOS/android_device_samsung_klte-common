@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2014, The CyanogenMod Project
+** Copyright 2011, The CyanogenMod Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -21,6 +21,9 @@
     <!-- Use ZSL mode for Qualcomm cameras -->
     <bool name="enableZSL">true</bool>
 
+    <!-- Enable the histogram -->
+    <bool name="enableHistogram">false</bool>
+
     <!-- Scene detection mode list -->
     <string-array name="asdModes">
         <item>normal</item>
@@ -35,4 +38,5 @@
         <item>mix_illuminant</item>
         <item>indoor</item>
     </string-array>
+
 </resources>
