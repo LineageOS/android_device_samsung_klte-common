@@ -29,8 +29,7 @@ key 114   VOLUME_DOWN       WAKE_DROPPED
 key 172   HOME              WAKE_DROPPED
 key 528   FOCUS             WAKE_DROPPED
 key 766   CAMERA            WAKE_DROPPED
-key 116	  POWER             WAKE_DROPPED
+key 116   POWER             WAKE_DROPPED
 key 139   MENU
 key 158   BACK
-key 252   ACTIVE
 key 254   APP_SWITCH
