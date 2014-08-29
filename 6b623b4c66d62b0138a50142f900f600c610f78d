@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a1b2928_4e25c2a9",
+        "filename": "overlay/packages/apps/Settings/res/values/bools.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2014-08-29T12:06:37Z",
+      "side": 1,
+      "message": "Trailing whitespace",
+      "revId": "6b623b4c66d62b0138a50142f900f600c610f78d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a1b2928_ae3a96cb",
+        "filename": "overlay/packages/apps/Settings/res/values/bools.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2014-08-29T12:06:37Z",
+      "side": 1,
+      "message": "Trailing whitespace",
+      "revId": "6b623b4c66d62b0138a50142f900f600c610f78d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
