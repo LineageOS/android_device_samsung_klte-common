@@ -516,8 +516,8 @@
 	<path name="rec-stereo-mic">
 		<ctl name="Main Mic Delay" value="4" />
 		<path name="sub-main-mic" />
-		<ctl name="DEC2 Volume" value="95" />
-		<ctl name="DEC4 Volume" value="94" />
+		<ctl name="DEC2 Volume" value="106" />
+		<ctl name="DEC4 Volume" value="105" />
 	</path>
 
 	<path name="rec-high-gain-main-mic">
@@ -538,8 +538,8 @@
 
 	<path name="rec-high-gain-stereo-mic">
 		<path name="sub-3rd-mic" />
-		<ctl name="DEC2 Volume" value="87" />
-		<ctl name="DEC4 Volume" value="87" />
+		<ctl name="DEC2 Volume" value="93" />
+		<ctl name="DEC4 Volume" value="93" />
 	</path>
 
 	<path name="rec-NS-mic-interview">
