@@ -906,7 +906,7 @@ on boot
 
     # NFC_NXP
     setprop ro.nfc.port "I2C"
-    chmod 0600 /dev/pn547
+    chmod 0660 /dev/pn547
     chown nfc nfc /dev/pn547
 
     # NFC_BROADCOM
