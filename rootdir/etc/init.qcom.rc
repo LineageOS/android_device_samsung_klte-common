@@ -952,9 +952,6 @@ on boot
     # Permissions for gpio_keys
     chown system radio /sys/class/sec/sec_key/hall_irq_ctrl
 
-    # IR_LED
-    chown system radio /sys/class/sec/sec_ir/ir_send
-    chown system radio /sys/class/sec/sec_ir/ir_send_result
     # Permission for HALL IC
     chown system radio /sys/class/sec/sec_key/hall_detect
     # Define TCP buffer sizes for various networks
