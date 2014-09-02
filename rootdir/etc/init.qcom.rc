@@ -321,6 +321,7 @@ on post-fs-data
     chmod 0644 /efs/redata.bin
     chown radio radio /efs/h2k.dat
     chmod 0644 /efs/h2k.dat
+    chown system system /efs/drm/h2k
 
     # DRK permission
     mkdir /efs/prov 0770 radio system
