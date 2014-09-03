@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a1b2928_2004cabe",
+        "filename": "audio/mixer_paths.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2014-09-03T18:28:42Z",
+      "side": 1,
+      "message": "see they are identical\n\nlook here: http://pastebin.com/VqYHrcmB\nline 519 and 520",
+      "revId": "bd3c1f221e2a96b56ab023d9f778ba6d2dfb1617",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
