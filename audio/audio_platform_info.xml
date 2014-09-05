@@ -25,27 +25,74 @@
 <!-- OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN -->
 <!-- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                          -->
 <audio_platform_info>
+    <acdb_ids>
+        <!-- Output devices -->
+        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15" />
+        <device name="SND_DEVICE_OUT_SPEAKER_REVERSE" acdb_id="15" />
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" acdb_id="19" />
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="15" />
+        <device name="SND_DEVICE_OUT_BT_SCO" acdb_id="48" />
+        <device name="SND_DEVICE_OUT_BT_SCO_WB" acdb_id="50" />
+        <device name="SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES" acdb_id="17" />
+        <device name="SND_DEVICE_OUT_VOICE_TTY_VCO_HEADPHONES" acdb_id="17" />
+        <device name="SND_DEVICE_OUT_VOICE_TTY_HCO_HANDSET" acdb_id="7" />
+        <device name="SND_DEVICE_OUT_USB_HEADSET" acdb_id="98" />
 
-    <!-- Output devices -->
-    <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15" />
-    <device name="SND_DEVICE_OUT_SPEAKER_REVERSE" acdb_id="15" />
-    <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" acdb_id="19" />
-    <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="15" />
-    <device name="SND_DEVICE_OUT_BT_SCO" acdb_id="48" />
-    <device name="SND_DEVICE_OUT_BT_SCO_WB" acdb_id="50" />
-    <device name="SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES" acdb_id="17" />
-    <device name="SND_DEVICE_OUT_VOICE_TTY_VCO_HEADPHONES" acdb_id="17" />
-    <device name="SND_DEVICE_OUT_VOICE_TTY_HCO_HANDSET" acdb_id="7" />
-    <device name="SND_DEVICE_OUT_USB_HEADSET" acdb_id="98" />
+        <!-- Input devices -->
+        <device name="SND_DEVICE_IN_HANDSET_DMIC" acdb_id="4" />
+        <device name="SND_DEVICE_IN_SPEAKER_DMIC" acdb_id="11" />
+        <device name="SND_DEVICE_IN_BT_SCO_MIC" acdb_id="49" />
+        <device name="SND_DEVICE_IN_BT_SCO_MIC_WB" acdb_id="51" />
+        <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="56" />
+        <device name="SND_DEVICE_IN_VOICE_DMIC" acdb_id="4" />
+        <device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC" acdb_id="11" />
+        <device name="SND_DEVICE_IN_VOICE_REC_MIC" acdb_id="53" />
+    </acdb_ids>
 
-    <!-- Input devices -->
-    <device name="SND_DEVICE_IN_HANDSET_DMIC" acdb_id="4" />
-    <device name="SND_DEVICE_IN_SPEAKER_DMIC" acdb_id="11" />
-    <device name="SND_DEVICE_IN_BT_SCO_MIC" acdb_id="49" />
-    <device name="SND_DEVICE_IN_BT_SCO_MIC_WB" acdb_id="51" />
-    <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="56" />
-    <device name="SND_DEVICE_IN_VOICE_DMIC" acdb_id="4" />
-    <device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC" acdb_id="11" />
-    <device name="SND_DEVICE_IN_VOICE_REC_MIC" acdb_id="53" />
+    <backend_names>
+        <!-- empty -->
+    </backend_names>
 
+    <pcm_ids>
+        <!-- empty -->
+    </pcm_ids>
+
+    <device_names>
+        <!-- Output devices -->
+        <device name="SND_DEVICE_OUT_HEADPHONES" alias="headset" />
+        <device name="SND_DEVICE_OUT_VOICE_HANDSET" alias="voice-call-handset" />
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" alias="voice-call-speaker" />
+        <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" alias="voice-call-headset" />
+        <device name="SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES" alias="TTY-full" />
+        <device name="SND_DEVICE_OUT_VOICE_TTY_VCO_HEADPHONES" alias="TTY-headset" />
+        <device name="SND_DEVICE_OUT_VOICE_TTY_HCO_HANDSET" alias="TTY-handset" />
+
+        <!-- Input devices -->
+        <device name="SND_DEVICE_IN_HANDSET_MIC" alias="rec-main-mic" />
+        <device name="SND_DEVICE_IN_HANDSET_DMIC" alias="voice-call-main-mic" />
+        <device name="SND_DEVICE_IN_HANDSET_DMIC_NS" alias="voice-call-NS-mic-handset" />
+        <device name="SND_DEVICE_IN_HANDSET_DMIC_AEC" alias="voice-call-main-mic" />
+        <device name="SND_DEVICE_IN_HANDSET_DMIC_AEC_NS" alias="voice-call-main-mic" />
+        <device name="SND_DEVICE_IN_SPEAKER_MIC" alias="rec-sub-mic" />
+        <device name="SND_DEVICE_IN_SPEAKER_DMIC" alias="voice-call-sub-mic" />
+        <device name="SND_DEVICE_IN_SPEAKER_DMIC_NS" alias="voice-call-NS-mic-speaker" />
+        <device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC" alias="voice-call-sub-mic" />
+        <device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC_NS" alias="voice-call-sub-mic" />
+        <device name="SND_DEVICE_IN_HEADSET_MIC" alias="rec-headset-mic" />
+        <device name="SND_DEVICE_IN_HEADSET_MIC_FLUENCE" alias="rec-main-mic" />
+        <device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC" alias="voice-call-sub-mic" />
+        <device name="SND_DEVICE_IN_VOICE_HEADSET_MIC" alias="voice-call-headset-mic" />
+        <device name="SND_DEVICE_IN_CAMCORDER_MIC" alias="rec-stereo-mic" />
+        <device name="SND_DEVICE_IN_VOICE_DMIC" alias="voice-call-main-mic" />
+        <device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC" alias="voice-call-sub-mic" />
+        <device name="SND_DEVICE_IN_VOICE_TTY_FULL_HEADSET_MIC" alias="TTY-full-mic" />
+        <device name="SND_DEVICE_IN_VOICE_TTY_VCO_HANDSET_MIC" alias="TTY-vco-mic" />
+        <device name="SND_DEVICE_IN_VOICE_TTY_HCO_HEADSET_MIC" alias="TTY-headset-mic" />
+        <device name="SND_DEVICE_IN_VOICE_REC_MIC" alias="vr-main-mic" />
+        <device name="SND_DEVICE_IN_VOICE_REC_HEADSET_MIC" alias="vr-headset-mic" />
+        <device name="SND_DEVICE_IN_VOICE_REC_MIC_NS" alias="svoice-NS-mic" />
+        <device name="SND_DEVICE_IN_VOICE_REC_DMIC_STEREO" alias="vr-sub-mic" />
+        <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC" alias="rec-stereo-mic" />
+        <device name="SND_DEVICE_IN_SPEAKER_STEREO_DMIC" alias="rec-stereo-mic" />
+    </device_names>
 </audio_platform_info>
