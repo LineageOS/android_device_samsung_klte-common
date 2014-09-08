@@ -193,6 +193,10 @@ on post-fs-data
     chmod 666 /sys/class/leds/torch-sec1/brightness
     chown system camera /sys/class/leds/torch-sec1/brightness
 
+    #Vibrator strength control
+    chown root system /sys/vibrator/pwm_val
+    chmod 0664 /sys/vibrator/pwm_val
+
     #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     mkdir /data/system 0775 system system
 
