@@ -65,6 +65,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Power HAL
 TARGET_POWERHAL_VARIANT := qcom
 
+# Power HAL extension
+TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(LOCAL_PATH)/power/power_ext.c
+
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/klte-common/recovery/recovery_keys.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
