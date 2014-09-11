@@ -230,7 +230,7 @@ EOF
 
 LOCAL_PATH := \$(call my-dir)
 
-ifneq (\$(filter klte kltespr,\$(TARGET_DEVICE)),)
+ifneq (\$(filter klte kltespr klteusc,\$(TARGET_DEVICE)),)
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := libHevcSwDecoder
