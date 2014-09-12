@@ -194,6 +194,10 @@ on post-fs-data
     chmod 0660 /sys/class/leds/torch-sec1/brightness
     chown system camera /sys/class/leds/torch-sec1/brightness
 
+    # Touchscreen
+    chmod 0660 /sys/class/input/input2/enabled
+    chown system system /sys/class/input/input2/enabled
+
     # Vibrator
     chmod 0644 /sys/class/timed_output/vibrator/pwm_value
     chown root system /sys/class/timed_output/vibrator/pwm_value

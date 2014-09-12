@@ -21,7 +21,11 @@
 #define LOG_TAG "PowerHAL_H_Ext"
 #include <utils/Log.h>
 
-#define TSP_POWER "/sys/class/input/input1/enabled"
+/* touchkeys */
+#define TK_POWER "/sys/class/input/input1/enabled"
+
+/* touchscreen */
+#define TS_POWER "/sys/class/input/input2/enabled"
 
 static void sysfs_write(char *path, char *s) {
     char buf[80];
@@ -45,5 +49,6 @@ static void sysfs_write(char *path, char *s) {
 
 void cm_power_set_interactive_ext(int on) {
     ALOGD("%s: %s input devices", __func__, on ? "enabling" : "disabling");
-    sysfs_write(TSP_POWER, on ? "1" : "0");
+    sysfs_write(TK_POWER, on ? "1" : "0");
+    sysfs_write(TS_POWER, on ? "1" : "0");
 }
