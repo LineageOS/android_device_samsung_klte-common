@@ -52,9 +52,6 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 # CMHW
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
 
-# GPS
-TARGET_NO_RPC := true
-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
