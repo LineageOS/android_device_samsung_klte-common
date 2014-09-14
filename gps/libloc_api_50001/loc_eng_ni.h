@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2013, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2009,2011,2014 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -9,7 +9,7 @@
  *       copyright notice, this list of conditions and the following
  *       disclaimer in the documentation and/or other materials provided
  *       with the distribution.
- *     * Neither the name of The Linux Foundation, nor the names of its
+ *     * Neither the name of The Linux Foundation nor the names of its
  *       contributors may be used to endorse or promote products derived
  *       from this software without specific prior written permission.
  *
@@ -27,38 +27,33 @@
  *
  */
 
-#ifndef __LOC_H__
-#define __LOC_H__
+#ifndef LOC_ENG_NI_H
+#define LOC_ENG_NI_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
+#include <stdbool.h>
+#include <LocEngAdapter.h>
 
-#include <ctype.h>
-#include <cutils/properties.h>
-#include "hardware/gps.h"
-#include <gps_extended.h>
-
-typedef void (*loc_location_cb_ext) (UlpLocation* location, void* locExt);
-typedef void (*loc_sv_status_cb_ext) (GpsSvStatus* sv_status, void* svExt);
-typedef void* (*loc_ext_parser)(void* data);
+#define LOC_NI_NO_RESPONSE_TIME            20                      /* secs */
+#define LOC_NI_NOTIF_KEY_ADDRESS           "Address"
+#define GPS_NI_RESPONSE_IGNORE             4
 
 typedef struct {
-    loc_location_cb_ext location_cb;
-    gps_status_callback status_cb;
-    loc_sv_status_cb_ext sv_status_cb;
-    gps_nmea_callback nmea_cb;
-    gps_set_capabilities set_capabilities_cb;
-    gps_acquire_wakelock acquire_wakelock_cb;
-    gps_release_wakelock release_wakelock_cb;
-    gps_create_thread create_thread_cb;
-    loc_ext_parser location_ext_parser;
-    loc_ext_parser sv_ext_parser;
-    gps_request_utc_time request_utc_time_cb;
-} LocCallbacks;
+    pthread_t               thread;            /* NI thread */
+    int                     respTimeLeft;       /* examine time for NI response */
+    bool                    respRecvd;   /* NI User reponse received or not from Java layer*/
+    void*                   rawRequest;
+    int                     reqID;         /* ID to check against response */
+    GpsUserResponseType     resp;
+    pthread_cond_t          tCond;
+    pthread_mutex_t         tLock;
+    LocEngAdapter*          adapter;
+} loc_eng_ni_session_s_type;
 
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
+typedef struct {
+    loc_eng_ni_session_s_type session;    /* SUPL NI Session */
+    loc_eng_ni_session_s_type sessionEs;  /* Emergency SUPL NI Session */
+    int reqIDCounter;
+} loc_eng_ni_data_s_type;
 
-#endif //__LOC_H__
+
+#endif /* LOC_ENG_NI_H */

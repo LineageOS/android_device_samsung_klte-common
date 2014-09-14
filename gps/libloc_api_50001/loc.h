@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2013, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -26,34 +26,41 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
-#ifndef LOC_ENG_DATA_SERVER_H
-#define LOC_ENG_DATA_SERVER_H
 
-#include "loc_eng_dmn_conn_thread_helper.h"
+#ifndef __LOC_H__
+#define __LOC_H__
 
-#ifdef _ANDROID_
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
 
-#define GPSONE_LOC_API_Q_PATH "/data/misc/gpsone_d/gpsone_loc_api_q"
-#define GPSONE_LOC_API_RESP_Q_PATH "/data/misc/gpsone_d/gpsone_loc_api_resp_q"
-#define QUIPC_CTRL_Q_PATH "/data/misc/gpsone_d/quipc_ctrl_q"
-#define MSAPM_CTRL_Q_PATH "/data/misc/gpsone_d/msapm_ctrl_q"
-#define MSAPU_CTRL_Q_PATH "/data/misc/gpsone_d/msapu_ctrl_q"
+#include <ctype.h>
+#include <cutils/properties.h>
+#include "hardware/gps.h"
+#include <gps_extended.h>
 
-#else
+#define XTRA_DATA_MAX_SIZE 100000 /*bytes*/
 
-#define GPSONE_LOC_API_Q_PATH "/tmp/gpsone_loc_api_q"
-#define GPSONE_LOC_API_RESP_Q_PATH "/tmp/gpsone_loc_api_resp_q"
-#define QUIPC_CTRL_Q_PATH "/tmp/quipc_ctrl_q"
-#define MSAPM_CTRL_Q_PATH "/tmp/msapm_ctrl_q"
-#define MSAPU_CTRL_Q_PATH "/tmp/msapu_ctrl_q"
+typedef void (*loc_location_cb_ext) (UlpLocation* location, void* locExt);
+typedef void (*loc_sv_status_cb_ext) (GpsSvStatus* sv_status, void* svExt);
+typedef void* (*loc_ext_parser)(void* data);
 
-#endif
+typedef struct {
+    loc_location_cb_ext location_cb;
+    gps_status_callback status_cb;
+    loc_sv_status_cb_ext sv_status_cb;
+    gps_nmea_callback nmea_cb;
+    gps_set_capabilities set_capabilities_cb;
+    gps_acquire_wakelock acquire_wakelock_cb;
+    gps_release_wakelock release_wakelock_cb;
+    gps_create_thread create_thread_cb;
+    loc_ext_parser location_ext_parser;
+    loc_ext_parser sv_ext_parser;
+    gps_request_utc_time request_utc_time_cb;
+} LocCallbacks;
 
-int loc_eng_dmn_conn_loc_api_server_launch(thelper_create_thread   create_thread_cb,
-    const char * loc_api_q_path, const char * ctrl_q_path, void *agps_handle);
-int loc_eng_dmn_conn_loc_api_server_unblock(void);
-int loc_eng_dmn_conn_loc_api_server_join(void);
-int loc_eng_dmn_conn_loc_api_server_data_conn(int, int);
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
 
-#endif /* LOC_ENG_DATA_SERVER_H */
-
+#endif //__LOC_H__

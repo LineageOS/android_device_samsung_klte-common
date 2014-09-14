@@ -97,6 +97,7 @@ public:
     virtual bool requestNiNotify(GpsNiNotification &notify,
                                  const void* data);
     inline virtual bool isInSession() { return false; }
+    ContextBase* getContext() const { return mContext; }
 };
 
 } // namespace loc_core
