@@ -74,8 +74,7 @@ LOCAL_SHARED_LIBRARIES := \
     libloc_eng \
     libloc_core \
     libgps.utils \
-    libdl \
-    libandroid_runtime
+    libdl
 
 LOCAL_SRC_FILES += \
     loc.cpp \
@@ -84,6 +83,10 @@ LOCAL_SRC_FILES += \
 LOCAL_CFLAGS += \
     -fno-short-enums \
     -D_ANDROID_ \
+
+ifeq ($(TARGET_USES_QCOM_BSP), true)
+LOCAL_CFLAGS += -DTARGET_USES_QCOM_BSP
+endif
 
 ## Includes
 LOCAL_C_INCLUDES:= \
