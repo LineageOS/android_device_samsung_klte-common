@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a1b2928_e3ac83ef",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2014-09-17T19:27:09Z",
+      "side": 1,
+      "message": "Might as well get rid of all the tabs here.",
+      "revId": "b9887ab3d14eda01b8f74d1829e8b40a6d2c33cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
