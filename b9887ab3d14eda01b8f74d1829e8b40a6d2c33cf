@@ -16,6 +16,24 @@
       "revId": "b9887ab3d14eda01b8f74d1829e8b40a6d2c33cf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a1b2928_63eeb323",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 7434
+      },
+      "writtenOn": "2014-09-17T19:37:29Z",
+      "side": 1,
+      "message": "I\u0027m just following with every other\n\"/dev/block/platform/msm_sdcc.1/by-name\" fields.. :P",
+      "parentUuid": "7a1b2928_e3ac83ef",
+      "revId": "b9887ab3d14eda01b8f74d1829e8b40a6d2c33cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
