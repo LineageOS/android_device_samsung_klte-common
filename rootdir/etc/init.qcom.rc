@@ -922,6 +922,7 @@ on boot
     setprop ro.nfc.port "I2C"
     chmod 0660 /dev/pn547
     chown nfc nfc /dev/pn547
+    symlink /dev/pn547 /dev/pn544
 
     # NFC_BROADCOM
     chmod 0600 /dev/bcm2079x
