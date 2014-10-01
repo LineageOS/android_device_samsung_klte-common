@@ -407,7 +407,10 @@ typedef struct {
 
 typedef struct {
     RIL_CallState   state;
-    int             index;      /* Connection Index for use with, eg, AT+CHLD */
+    char            index;      /* Connection Index for use with, eg, AT+CHLD */
+    char            call_id;    /* Samsung call_id */
+    char            foo1;       /* Samsung */
+    char            foo2;       /* Samsung */
     int             toa;        /* type of address, eg 145 = intl */
     char            isMpty;     /* nonzero if is mpty call */
     char            isMT;       /* nonzero if call is mobile terminated */
@@ -417,8 +420,11 @@ typedef struct {
     char            isVoicePrivacy;     /* nonzero if CDMA voice privacy mode is active */
     char *          number;     /* Remote party number */
     int             numberPresentation; /* 0=Allowed, 1=Restricted, 2=Not Specified/Unknown 3=Payphone */
-    char *          name;       /* Remote party name */
+    char            call_type;  /* Samsung*/
+    char            call_domain;/* Samsung*/
     int             namePresentation; /* 0=Allowed, 1=Restricted, 2=Not Specified/Unknown 3=Payphone */
+    char *          csv;        /* Samsung */
+    char *          name;       /* Remote party name */
     RIL_UUS_Info *  uusInfo;    /* NULL or Pointer to User-User Signaling Information */
 } RIL_Call;
 
