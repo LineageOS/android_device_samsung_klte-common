@@ -21,6 +21,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.premium_enabled=0 \
     ro.qc.sdk.izat.service_mask=0x0
 
+# Input
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.input.noresample=1
+
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.netmgrd.qos.enable=true \
