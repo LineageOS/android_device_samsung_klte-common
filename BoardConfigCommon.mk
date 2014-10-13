@@ -47,6 +47,7 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 
 # CMHW
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
+BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
