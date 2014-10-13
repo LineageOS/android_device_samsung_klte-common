@@ -194,6 +194,10 @@ on post-fs-data
     chmod 0660 /sys/class/leds/torch-sec1/brightness
     chown system camera /sys/class/leds/torch-sec1/brightness
 
+    # Touchkeys
+    chmod 0660 /sys/class/sec/sec_touchkey/keypad_enable
+    chown system system /sys/class/sec/sec_touchkey/keypad_enable
+
     # Touchscreen
     chmod 0660 /sys/class/input/input2/enabled
     chown system system /sys/class/input/input2/enabled
