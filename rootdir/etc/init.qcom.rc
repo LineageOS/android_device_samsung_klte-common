@@ -734,6 +734,8 @@ on boot
     chown system system /sys/class/sec/sec_touchkey/brightness
     chmod 0660 /sys/class/sec/tsp/input/enabled
     chown system system /sys/class/sec/tsp/input/enabled
+    chmod 0660 /sys/class/sec/sec_touchkey/keypad_enable
+    chown system system /sys/class/sec/sec_touchkey/keypad_enable
 
     # Permissions for Camera
    chown root system /sys/class/camera/rear/rear_camantibanding
