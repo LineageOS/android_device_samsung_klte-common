@@ -157,7 +157,7 @@
 	<ctl name="ES705 RX1 Enable" value="0" />
 	<ctl name="ES705 RX2 Enable" value="0" />
 	<ctl name="ES705-AP Tx Channels" value="One" />
-	<ctl name="ES705 Voice Wakeup Enable" value="0" />
+	<ctl name="ES705 Voice Wakeup Enable" value="1" />
 	<ctl name="ES705 Voice LPM Enable" value="0" />
 	<ctl name="Internal Route Config" value="5" />
 
