@@ -961,6 +961,8 @@ on boot
     chown system radio /sys/devices/virtual/sec/bamdmux/waketime
 
     # Permissions for gpio_keys
+    chmod 0660 /sys/class/input/input16/enabled
+    chown system system /sys/class/input/input16/enabled
     chown system radio /sys/class/sec/sec_key/wakeup_keys
     write /sys/class/sec/sec_key/wakeup_keys 116,172
 
