@@ -576,7 +576,7 @@
 
 	<path name="vr-sub-mic">
 		<path name="sub-mic" />
-		<ctl name="DEC4 Volume" value="101" />
+		<ctl name="DEC4 Volume" value="106" />
 	</path>
 
 	<path name="vr-headset-mic">
