@@ -1,5 +1,6 @@
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
+    av.offload.enable=false \
     persist.audio.fluence.speaker=true \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=false \
