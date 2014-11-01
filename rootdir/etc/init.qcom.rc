@@ -962,7 +962,7 @@ on boot
 
     # Permissions for gpio_keys
     chown system radio /sys/class/sec/sec_key/wakeup_keys
-    write /sys/class/sec/sec_key/wakeup_keys 116,172
+    write /sys/class/sec/sec_key/wakeup_keys 114,115,116,172
 
     # Permissions for gpio_keys
     chown system radio /sys/class/sec/sec_key/hall_irq_ctrl
