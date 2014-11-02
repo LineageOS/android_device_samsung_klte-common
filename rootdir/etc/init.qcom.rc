@@ -967,9 +967,6 @@ on boot
     # Permissions for gpio_keys
     chown system radio /sys/class/sec/sec_key/hall_irq_ctrl
 
-    # Permission for HALL IC
-    chown system radio /sys/class/sec/sec_key/hall_detect
-    # Define TCP buffer sizes for various networks
     # ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.default 4096,87380,704512,4096,16384,110208
     setprop net.tcp.buffersize.wifi    524288,1048576,4525824,524288,1048576,4525824
@@ -1022,11 +1019,6 @@ on boot
     chown system radio /sys/class/sec/sec_touchkey/glove_mode
     chown system radio /sys/class/sec/sec_touchkey/flip_mode
     chown system radio /sys/class/sec/sec_touchkey/boost_level
-
-    # permission for Input Device(Wacom).
-    chmod 0660 /sys/class/input/input4/enabled
-    chown system system /sys/class/input/input4/enabled
-    chown system system /sys/class/input/input18/enabled
 
     # permissions for bluetooth.
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
