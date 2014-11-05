@@ -33,14 +33,17 @@ on early-init
 
     mkdir /firmware 0771 system system
     mkdir /firmware-modem 0771 system system
+
+    mkdir /persist 0771 system system
+
+    mkdir /efs 0771 system radio
+
+    mkdir /persdata 0755 system system
+    mkdir /persdata/absolute 0750 system system
+
     symlink /data/tombstones /tombstones
 
 on init
-    mkdir /efs 0771 system radio
-
-    # Set permissions for persist partition
-    mkdir /persist 0771 system system
-
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage 0550 system sdcard_r
     mkdir /storage/emulated 0555 root root
@@ -75,45 +78,11 @@ on fs
     write /sys/devices/msm_sdcc.3/mmc_host/mmc2/power/control on
 
     mount_all fstab.qcom
+
     restorecon_recursive /persist
-    setprop ro.crypto.fuse_sdcard true
-
-    # Keeping following partitions outside fstab file. As user may not have
-    # these partition flashed on the device. Failure to mount any partition in fstab file
-    # results in failure to launch late-start class.
-
-    # wait /dev/block/platform/msm_sdcc.1/by-name/cache
-    # check_fs /dev/block/platform/msm_sdcc.1/by-name/cache ext4
-    # mount ext4 /dev/block/platform/msm_sdcc.1/by-name/cache /cache nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
-
-    wait /dev/block/platform/msm_sdcc.1/by-name/persist
-    # check_fs /dev/block/platform/msm_sdcc.1/by-name/persist ext4
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
-
-    wait /dev/block/platform/msm_sdcc.1/by-name/efs
-    # check_fs /dev/block/platform/msm_sdcc.1/by-name/efs ext4
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/efs /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
-    chown system radio /efs
-    chmod 0771 /efs
     restorecon -R /efs
 
-    # wait /dev/block/platform/msm_sdcc.1/by-name/apnhlos
-    # mount vfat /dev/block/platform/msm_sdcc.1/by-name/apnhlos /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
-
-    # wait /dev/block/platform/msm_sdcc.1/by-name/modem
-    # mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware-modem ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
-
-    mkdir /persdata 0755 system system
-    mkdir /persdata/absolute 0750 system system
-
-    wait /dev/block/platform/msm_sdcc.1/by-name/persdata
-    # check_fs /dev/block/platform/msm_sdcc.1/by-name/persdata ext4
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persdata /persdata/absolute nosuid nodev barrier=1
-
-    chown system system /persdata
-    chmod 0755 /persdata
-    chown system system /persdata/absolute
-    chmod 0750 /persdata/absolute
+    setprop ro.crypto.fuse_sdcard true
 
     write /sys/kernel/boot_adsp/boot 1
     setprop qcom.audio.init complete
