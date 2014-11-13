@@ -105,7 +105,12 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     libnetcmdiface \
-    macloader
+    dhcpcd.conf \
+    hostapd \
+    hostapd_default.conf \
+    libwpa_client \
+    macloader \
+    wpa_supplicant
 
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
