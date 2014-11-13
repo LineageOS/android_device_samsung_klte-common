@@ -22,6 +22,16 @@ TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
+# Dex-preoptimization
+ifeq ($(HOST_OS),linux)
+  ifeq ($(TARGET_BUILD_VARIANT),user)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x00000000
