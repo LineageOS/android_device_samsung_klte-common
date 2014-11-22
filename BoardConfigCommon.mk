@@ -47,6 +47,7 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Camera
 BOARD_USES_LEGACY_MMAP := true
+USE_DEVICE_SPECIFIC_CAMERA := true
 
 # CMHW
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
