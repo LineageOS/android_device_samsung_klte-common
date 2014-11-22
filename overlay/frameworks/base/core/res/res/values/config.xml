@@ -236,6 +236,12 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">19</integer>
 
+    <!-- Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">4</integer>
+
+    <!-- Whether UI for multi user should be shown -->
+    <bool name="config_enableMultiUserUI">true</bool>
+
     <bool name="config_enableWifiDisplay">true</bool>
 
     <!-- Panel auto-brightness configuration value -->
