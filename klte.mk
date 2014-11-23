@@ -82,6 +82,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     NfcNci \
+    nfc_nci.msm8974 \
     Tag
 
 # Ramdisk
