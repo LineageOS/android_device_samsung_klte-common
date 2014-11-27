@@ -39,9 +39,6 @@ on early-init
 
     mkdir /efs 0771 system radio
 
-    mkdir /persdata 0755 system system
-    mkdir /persdata/absolute 0750 system system
-
     symlink /data/tombstones /tombstones
 
 on init
@@ -80,8 +77,36 @@ on fs
 
     mount_all fstab.qcom
 
+    # Keeping following partitions outside fstab file. As user may not have
+    # these partition flashed on the device. Failure to mount any partition in fstab file
+    # results in failure to launch late-start class.
+
+    wait /dev/block/platform/msm_sdcc.1/by-name/persist
+    check_fs /dev/block/platform/msm_sdcc.1/by-name/persist ext4
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
+
+    wait /dev/block/platform/msm_sdcc.1/by-name/efs
+    check_fs /dev/block/platform/msm_sdcc.1/by-name/efs ext4
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/efs /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
+    chown system radio /efs
+    chmod 0771 /efs
+
     restorecon_recursive /persist
     restorecon -R /efs
+
+#For Absolute Persistence Partition
+
+     mkdir /persdata 0755 system system
+     mkdir /persdata/absolute 0750 system system
+
+     wait /dev/block/platform/msm_sdcc.1/by-name/persdata
+     check_fs /dev/block/platform/msm_sdcc.1/by-name/persdata ext4
+     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persdata /persdata/absolute nosuid nodev barrier=1
+
+     chown system system /persdata
+     chmod 0755 /persdata
+     chown system system /persdata/absolute
+     chmod 0750 /persdata/absolute
 
     setprop ro.crypto.fuse_sdcard true
 
