@@ -35,12 +35,7 @@ on early-init
     mkdir /firmware 0771 system system
     mkdir /firmware-modem 0771 system system
 
-    mkdir /persist 0771 system system
-
     mkdir /efs 0771 system radio
-
-    mkdir /persdata 0755 system system
-    mkdir /persdata/absolute 0750 system system
 
     symlink /data/tombstones /tombstones
 
@@ -80,7 +75,6 @@ on fs
 
     mount_all fstab.qcom
 
-    restorecon_recursive /persist
     restorecon_recursive /efs
 
     setprop ro.crypto.fuse_sdcard true
@@ -139,10 +133,6 @@ on post-fs-data
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
-    # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
-    # We chown/chmod /persist again so because mount is run as root + defaults
-    chown system system /persist
-    chmod 0771 /persist
     chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
