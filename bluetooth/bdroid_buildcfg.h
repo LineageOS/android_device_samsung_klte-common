@@ -19,5 +19,6 @@
 #define _BDROID_BUILDCFG_H
 
 #define BTM_DEF_LOCAL_NAME   "Samsung Galaxy S5"
+#define BTA_DISABLE_DELAY 100 /* in milliseconds */
 
 #endif
