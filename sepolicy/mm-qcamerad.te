@@ -1,0 +1,5 @@
+allow mm-qcamerad media_rw_data_file:dir search;
+allow mm-qcamerad qdsp_device:chr_file { open read ioctl };
+allow mm-qcamerad sysfs_camera:dir search;
+allow mm-qcamerad sysfs_camera:file { getattr open read write };
+type_transition mm-qcamerad system_data_file:sock_file camera_socket "cam_socket3";
