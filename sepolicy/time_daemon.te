@@ -1,0 +1,3 @@
+allow time_daemon system_server:dir search;
+allow time_daemon system_server:file { open read };
+allow time_daemon time_data_file:file { getattr append };

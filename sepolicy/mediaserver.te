@@ -1,0 +1,2 @@
+allow mediaserver sysfs_camera:dir search;
+allow mediaserver sysfs_camera:file { getattr open read };
