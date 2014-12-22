@@ -18,6 +18,7 @@
 /data/misc/gsiff_ctrl_q                                 u:object_r:location_data_file:s0
 
 # NFC
+/dev/bcm2079x                                           u:object_r:nfc_device:s0
 /dev/pn547                                              u:object_r:nfc_device:s0
 
 # SEC
