@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aa08908_f5744efe",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2014-12-24T22:17:11Z",
+      "side": 1,
+      "message": "delete this line..",
+      "range": {
+        "startLine": 64,
+        "startChar": 59,
+        "endLine": 64,
+        "endChar": 72
+      },
+      "revId": "d96250b28d0b7c618ffab8a7f704896097592900",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa08908_5560c235",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2014-12-24T22:17:11Z",
+      "side": 1,
+      "message": "revert this line here",
+      "revId": "d96250b28d0b7c618ffab8a7f704896097592900",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
