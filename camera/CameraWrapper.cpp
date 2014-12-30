@@ -122,6 +122,9 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
         params.set(KEY_VIDEO_HFR_VALUES, tmp);
     }
 
+    /* Enforce video-snapshot-supported to true */
+    params.set(android::CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
+
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
 
