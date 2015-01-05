@@ -17,7 +17,6 @@
 #define CAMERA_PARAMETERS_EXTRA_C \
 const char CameraParameters::KEY_DIS[] = "dis"; \
 const char CameraParameters::DIS_DISABLE[] = "disable"; \
-\
 const char CameraParameters::KEY_DYNAMIC_RANGE_CONTROL[] = "dynamic-range-control"; \
 const char CameraParameters::KEY_SUPPORTED_DYNAMIC_RANGE_CONTROL[] = "dynamic-range-control-values"; \
 const char CameraParameters::DRC_ON[] = "on"; \
@@ -25,25 +24,22 @@ const char CameraParameters::DRC_OFF[] = "off"; \
 \
 const char CameraParameters::KEY_PHASE_AF[] = "phase-af"; \
 const char CameraParameters::KEY_SUPPORTED_PHASE_AF[] = "phase-af-values"; \
-const char CameraParameters::PAF_OFF[] = "off"; \
 const char CameraParameters::PAF_ON[] = "on"; \
+const char CameraParameters::PAF_OFF[] = "off"; \
 \
 const char CameraParameters::KEY_RT_HDR[] = "rt-hdr"; \
 const char CameraParameters::KEY_SUPPORTED_RT_HDR[] = "rt-hdr-values"; \
 const char CameraParameters::RTHDR_ON[] = "on"; \
 const char CameraParameters::RTHDR_OFF[] = "off"; \
-\
 const char CameraParameters::KEY_SUPPORTED_ISO_MODES[] = "iso-values"; \
 const char CameraParameters::KEY_FACE_DETECTION[] = "face-detection"; \
 const char CameraParameters::KEY_SUPPORTED_FACE_DETECTION[] = "face-detection-values"; \
 const char CameraParameters::FACE_DETECTION_OFF[] = "off"; \
 const char CameraParameters::FACE_DETECTION_ON[] = "on"; \
-\
 const char CameraParameters::KEY_ZSL[] = "zsl"; \
 const char CameraParameters::KEY_SUPPORTED_ZSL_MODES[] = "zsl-values"; \
 const char CameraParameters::ZSL_ON[] = "on"; \
 const char CameraParameters::ZSL_OFF[] = "off"; \
-\
 const char CameraParameters::KEY_ISO_MODE[] = "iso"; \
 const char CameraParameters::KEY_CAMERA_MODE[] = "camera-mode"; \
 const char CameraParameters::KEY_SAMSUNG_CAMERA_MODE[] = "cam_mode"; \
@@ -126,18 +122,13 @@ const char CameraParameters::PIXEL_FORMAT_YUV420SP_ADRENO[] = "yuv420sp-adreno";
 const char CameraParameters::PIXEL_FORMAT_RAW[] = "raw"; \
 const char CameraParameters::PIXEL_FORMAT_YV12[] = "yuv420p"; \
 const char CameraParameters::PIXEL_FORMAT_NV12[] = "nv12"; \
-\
 int CameraParameters::getInt64(const char *key) const { return -1; }; \
 const char *CameraParameters::getPreviewFrameRateMode() const { return get(KEY_PREVIEW_FRAME_RATE_MODE); }; \
 void CameraParameters::setPreviewFrameRateMode(const char *mode) { set(KEY_PREVIEW_FRAME_RATE_MODE, mode); }; \
 void CameraParameters::getMeteringAreaCenter(int *x, int *y) const { }; \
 void CameraParameters::setTouchIndexAec(int x, int y) { }; \
 void CameraParameters::setTouchIndexAf(int x, int y) { }; \
-void CameraParameters::setPreviewFpsRange(int minFPS, int maxFPS) { }; \
-\
-/* LAST_LINE OF CAMERA_PARAMETERS_EXTRA_C, every line before this one *MUST* have
- * a backslash \ at the end of the line or else everything will break.
- */
+void CameraParameters::setPreviewFpsRange(int minFPS, int maxFPS) { };
 
 #define CAMERA_PARAMETERS_EXTRA_H \
     static const char KEY_DIS[]; \
@@ -163,12 +154,10 @@ void CameraParameters::setPreviewFpsRange(int minFPS, int maxFPS) { }; \
     static const char KEY_SUPPORTED_FACE_DETECTION[]; \
     static const char FACE_DETECTION_OFF[]; \
     static const char FACE_DETECTION_ON[]; \
-    \
     static const char KEY_ZSL[]; \
     static const char KEY_SUPPORTED_ZSL_MODES[]; \
     static const char ZSL_OFF[]; \
     static const char ZSL_ON[]; \
-    \
     static const char KEY_ISO_MODE[]; \
     static const char KEY_CAMERA_MODE[]; \
     static const char KEY_SAMSUNG_CAMERA_MODE[]; \
@@ -251,15 +240,10 @@ void CameraParameters::setPreviewFpsRange(int minFPS, int maxFPS) { }; \
     static const char PIXEL_FORMAT_RAW[]; \
     static const char PIXEL_FORMAT_YV12[]; \
     static const char PIXEL_FORMAT_NV12[]; \
-\
     int getInt64(const char *key) const; \
     const char *getPreviewFrameRateMode() const; \
     void setPreviewFrameRateMode(const char *mode); \
     void getMeteringAreaCenter(int *x, int *y) const; \
     void setTouchIndexAec(int x, int y); \
     void setTouchIndexAf(int x, int y); \
-    void setPreviewFpsRange(int minFPS, int maxFPS); \
-    \
-    /* LAST_LINE OF CAMERA_PARAMETERS_EXTRA_H, every line before this one *MUST* have
-     * a backslash \ at the end of the line or else everything will break.
-     */
+    void setPreviewFpsRange(int minFPS, int maxFPS);
