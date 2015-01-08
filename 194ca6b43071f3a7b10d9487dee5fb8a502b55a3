@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aa08908_8c7de3b3",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-01-08T09:56:58Z",
+      "side": 1,
+      "message": "Needs a - prefix for the makefile target to work.",
+      "revId": "194ca6b43071f3a7b10d9487dee5fb8a502b55a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa08908_ac825f92",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-01-08T09:56:58Z",
+      "side": 1,
+      "message": "Needs a - prefix for the makefile target to work.",
+      "revId": "194ca6b43071f3a7b10d9487dee5fb8a502b55a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa08908_4c73fbe7",
+        "filename": "setup-makefiles.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-01-08T09:56:58Z",
+      "side": 1,
+      "message": "This needs to be removed if you wish to make this a not-makefile target, that said, you may not want to do that.",
+      "revId": "194ca6b43071f3a7b10d9487dee5fb8a502b55a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
