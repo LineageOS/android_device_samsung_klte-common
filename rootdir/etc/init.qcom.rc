@@ -188,7 +188,7 @@ on post-fs-data
     chown system system /data/fota
 
     #Create directory for hostapd
-    mkdir /data/hostapd 0770 system wifi
+    mkdir /data/hostapd 0771 system wifi
     #Provide the access to hostapd.conf only to root and group
     chmod 0660 /data/hostapd/hostapd.conf
 
@@ -1247,7 +1247,7 @@ on property:sys.boot_completed=1
     # Post boot services
     start mpdecision
 
-service hostapd /system/bin/hostapd -dddd /data/hostapd/hostapd.conf
+service hostapd /system/bin/hostapd -dd /data/misc/wifi/hostapd.conf
     class late_start
     user root
     group root
