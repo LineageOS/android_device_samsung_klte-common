@@ -267,8 +267,10 @@ lib/hw/sensors.msm8974.so
 lib/hw/sensorhubs.msm8974.so
 
 # Time services
+-app/TimeService/TimeService.apk
 bin/time_daemon
 -vendor/lib/libtime_genoff.so
+-lib/libTimeService.so
 
 # Wi-Fi
 etc/wifi/bcmdhd_apsta.bin
