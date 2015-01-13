@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a9d85d2_8d09a1e0",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 8640
+      },
+      "writtenOn": "2015-01-13T15:29:58Z",
+      "side": 1,
+      "message": "If you put the - in front you must have a make file target in SetupMakefiles.sh because it removes it from PRODUCT_COPY_FILES\n\nThat being said I don\u0027t think libTimeService needs BUILD_PREBUILT",
+      "revId": "58a69ac7405a7e72dfd45997222b71ed200d0a38",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
