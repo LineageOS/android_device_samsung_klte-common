@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fad55976_10a02c90",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-01-21T16:32:39Z",
+      "side": 1,
+      "message": "tabs",
+      "revId": "36ac250d6699df202a57c5328ad4edcd370d549a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fad55976_50aaa471",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-01-21T16:32:39Z",
+      "side": 1,
+      "message": "WTF? There should be a better way to surface this.",
+      "revId": "36ac250d6699df202a57c5328ad4edcd370d549a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fad55976_70ad2888",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-01-21T16:32:39Z",
+      "side": 1,
+      "message": "Move this part into a separate commit.",
+      "revId": "36ac250d6699df202a57c5328ad4edcd370d549a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
