@@ -205,6 +205,9 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+on property:persist.radio.multisim.config=dsds
+    start ril-daemon2
+
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
@@ -1100,6 +1103,14 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
+
+service ril-daemon2 /system/bin/rild -s rild1 -ds rild-debug1 -l /system/lib/libsec-ril-dsds.so
+    class main
+    socket rild1 stream 660 root radio
+    socket rild-debug1 stream 660 radio system
+    user root
+    disabled
+    group radio cache inet misc audio log qcom_diag sdcard_r shell sdcard_rw system drmrpc
 
 service dhcpcd_wlan0 /system/bin/dhcpcd -aABDKL
     class main
