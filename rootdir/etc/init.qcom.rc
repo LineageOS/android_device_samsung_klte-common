@@ -1101,6 +1101,21 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
+# for multi rild
+service ril-daemon1 /system/bin/rild -l /system/lib/libsec-ril-dsds.so -c 1
+    class main
+    socket rild1 stream 660 root radio
+    socket rild-debug1 stream 660 radio system
+    user root
+    disabled
+    group radio cache inet misc audio log qcom_diag
+
+# Properties start here
+on property:persist.radio.multisim.config=dsds
+    symlink rild1 /dev/socket/rild2
+    symlink rild-debug1 /dev/socket/rild-debug2
+    start ril-daemon1
+
 service dhcpcd_wlan0 /system/bin/dhcpcd -aABDKL
     class main
     disabled
