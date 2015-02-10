@@ -41,3 +41,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
+
+# Tethering
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
+
