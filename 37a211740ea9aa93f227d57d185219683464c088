@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_cfa53fb6",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-02-11T17:22:25Z",
+      "side": 1,
+      "message": "I\u0027m not sure you want to use CameraParameters2, it\u0027s meant for newer camera ABI linkage.",
+      "revId": "37a211740ea9aa93f227d57d185219683464c088",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
