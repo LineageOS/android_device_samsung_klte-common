@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_84c7a944",
+        "filename": "system_prop.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-02-12T18:16:59Z",
+      "side": 1,
+      "message": "Tethering should be placed above WiFi, or you can just move this property into the wifi section.",
+      "revId": "2a44992319f73ad506e8902e5c03c31e13103fe3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
