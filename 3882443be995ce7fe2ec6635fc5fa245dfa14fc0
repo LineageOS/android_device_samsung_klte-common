@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_24b6bddc",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-02-12T18:04:01Z",
+      "side": 1,
+      "message": "I think this whole section can be removed.",
+      "revId": "3882443be995ce7fe2ec6635fc5fa245dfa14fc0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
