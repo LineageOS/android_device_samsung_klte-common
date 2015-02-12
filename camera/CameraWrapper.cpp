@@ -110,6 +110,15 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
     params.dump();
 #endif
 
+    const char *videoSizeValues = params.get(
+            android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
+    if (videoSizeValues) {
+        char videoSizes[strlen(videoSizeValues) + 10 + 1];
+        sprintf(videoSizes, "3840x2160,%s", videoSizeValues);
+        params.set(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
+                videoSizes);
+    }
+
     /* If the vendor has HFR values but doesn't also expose that
      * this can be turned off, fixup the params to tell the Camera
      * that it really is okay to turn it off.
