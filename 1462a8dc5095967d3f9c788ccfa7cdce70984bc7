@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_1a05d0c1",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 12116
+      },
+      "writtenOn": "2015-02-13T16:29:18Z",
+      "side": 1,
+      "message": "Wouldn\u0027t these values be better defines as final int\u0027s, so they can be variables here instead of magic numbers?",
+      "revId": "1462a8dc5095967d3f9c788ccfa7cdce70984bc7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
