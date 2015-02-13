@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_5ae748e4",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-02-13T20:21:52Z",
+      "side": 1,
+      "message": "I don\u0027t think this block (AcceptCall) is needed its for 4.4.4 libs which we arent using and i dont think is even offered. Should we leave this in place for futureproofing or no?",
+      "revId": "5da1cdb16a00cf5208e7aed562c8b58e444cc116",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
