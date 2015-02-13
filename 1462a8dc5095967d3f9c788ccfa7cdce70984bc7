@@ -16,6 +16,24 @@
       "revId": "1462a8dc5095967d3f9c788ccfa7cdce70984bc7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_7af68cd8",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-02-13T16:31:27Z",
+      "side": 1,
+      "message": "I honestly have no idea. RIL confuses the hell out of me. I cleaned up all the old msm8960 stuff with shareefs commit. If you think it is more correct and know how to do it be my guest and upload a new patchset :) Ethan any thoughts on this?",
+      "parentUuid": "bacf61ea_1a05d0c1",
+      "revId": "1462a8dc5095967d3f9c788ccfa7cdce70984bc7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
