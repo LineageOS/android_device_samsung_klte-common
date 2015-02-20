@@ -118,6 +118,24 @@
       "revId": "5da1cdb16a00cf5208e7aed562c8b58e444cc116",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_a4b0db8c",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 6568
+      },
+      "writtenOn": "2015-02-20T19:13:33Z",
+      "side": 1,
+      "message": "Matt and I did some testing. Without this fix I get the \"ring of death\"  that is described above.",
+      "parentUuid": "bacf61ea_24950be4",
+      "revId": "5da1cdb16a00cf5208e7aed562c8b58e444cc116",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
