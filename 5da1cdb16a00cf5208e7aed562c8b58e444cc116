@@ -2,6 +2,91 @@
   "comments": [
     {
       "key": {
+        "uuid": "bacf61ea_84ff9733",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-02-20T17:38:50Z",
+      "side": 1,
+      "message": "Not sure about the need for AMRWB",
+      "revId": "5da1cdb16a00cf5208e7aed562c8b58e444cc116",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_44a47f56",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-02-20T17:38:50Z",
+      "side": 1,
+      "message": "I\u0027m kind of skeptical of this code here, isn\u0027t CDMA reading subscriptions just fine?",
+      "revId": "5da1cdb16a00cf5208e7aed562c8b58e444cc116",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_649f0304",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-02-20T17:38:50Z",
+      "side": 1,
+      "message": "Why did this function get moved?",
+      "revId": "5da1cdb16a00cf5208e7aed562c8b58e444cc116",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_049a8714",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-02-20T17:38:50Z",
+      "side": 1,
+      "message": "Is this the only change necessary for CDMA?",
+      "revId": "5da1cdb16a00cf5208e7aed562c8b58e444cc116",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_c4f98f4f",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-02-20T17:38:50Z",
+      "side": 1,
+      "message": "Is there a reason all this code got moved around? It seems like this is making the diff unnecessarily large.",
+      "revId": "5da1cdb16a00cf5208e7aed562c8b58e444cc116",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bacf61ea_5ae748e4",
         "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
         "patchSetId": 22
@@ -13,6 +98,23 @@
       "writtenOn": "2015-02-13T20:21:52Z",
       "side": 1,
       "message": "I don\u0027t think this block (AcceptCall) is needed its for 4.4.4 libs which we arent using and i dont think is even offered. Should we leave this in place for futureproofing or no?",
+      "revId": "5da1cdb16a00cf5208e7aed562c8b58e444cc116",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_24950be4",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-02-20T17:38:50Z",
+      "side": 1,
+      "message": "I\u0027m not aware of this being necessary.",
       "revId": "5da1cdb16a00cf5208e7aed562c8b58e444cc116",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
