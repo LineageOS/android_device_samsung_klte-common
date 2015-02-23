@@ -16,6 +16,24 @@
       "revId": "5a9ba191f5d31b8f4a761f20a90b0fa29b362ea1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_502b9530",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 12116
+      },
+      "writtenOn": "2015-02-23T10:51:32Z",
+      "side": 1,
+      "message": "If this change is needed at all, this is correct. I still don\u0027t agree that any change to this file is necessary.",
+      "parentUuid": "bacf61ea_10311da3",
+      "revId": "5a9ba191f5d31b8f4a761f20a90b0fa29b362ea1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
