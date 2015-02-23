@@ -19,10 +19,11 @@ package com.android.internal.telephony;
 import static com.android.internal.telephony.RILConstants.*;
 
 import android.content.Context;
-import android.telephony.Rlog;
+import android.media.AudioManager;
 import android.os.Message;
 import android.os.Parcel;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.Rlog;
 import android.telephony.SignalStrength;
 import com.android.internal.telephony.cdma.CdmaInformationRecords;
 import com.android.internal.telephony.cdma.CdmaInformationRecords.CdmaSignalInfoRec;
@@ -40,6 +41,10 @@ import java.util.Collections;
 public class KlteRIL extends RIL {
 
     private static final int RIL_REQUEST_DIAL_EMERGENCY = 10016;
+
+    private static final int RIL_UNSOL_AM = 11010;
+    private static final int RIL_UNSOL_WB_AMR_STATE = 11017;
+    private static final int RIL_UNSOL_RESPONSE_HANDOVER = 11021;
 
     private boolean mIsGsm = false;
 
@@ -82,6 +87,37 @@ public class KlteRIL extends RIL {
         if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
 
         send(rr);
+    }
+
+    @Override
+    protected void
+    processUnsolicited (Parcel p) {
+        Object ret;
+        int dataPosition = p.dataPosition(); // save off position within the Parcel
+        int response = p.readInt();
+
+        switch(response) {
+            case RIL_UNSOL_AM:
+                ret = responseString(p);
+                String amCommand = (String) ret;
+                executeAm(amCommand);
+                break;
+            case RIL_UNSOL_WB_AMR_STATE:
+                ret = responseInts(p);
+                int[] amrState = (int[]) ret;
+                enableWbAmr(amrState[0] == 1);
+                break;
+            case RIL_UNSOL_RESPONSE_HANDOVER:
+                ret = responseVoid(p);
+                break;
+            default:
+                // Rewind the Parcel
+                p.setDataPosition(dataPosition);
+
+                // Forward responses that we are not overriding to the super class
+                super.processUnsolicited(p);
+                return;
+        }
     }
 
     @Override
@@ -290,5 +326,24 @@ public class KlteRIL extends RIL {
         if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
 
         send(rr);
+    }
+
+    private void
+    executeAm(String cmd) {
+        /* NOTE: Arbitrary command execution over the network is really scary */
+        String amCmd = "am " + cmd;
+        if (RILJ_LOGD) riljLog("Executing: " + amCmd);
+        try {
+            Runtime.getRuntime().exec(amCmd);
+        } catch (Exception e) {
+            if (RILJ_LOGD) riljLog("Failed to execute: " + amCmd + ": " + e.toString());
+        }
+    }
+
+    private void
+    enableWbAmr(boolean enable) {
+        if (RILJ_LOGD) riljLog("setWbAmr(): " + enable);
+        AudioManager am = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        am.setParameters(enable ? "wide_voice_enable=true" : "wide_voice_enable=false");
     }
 }
