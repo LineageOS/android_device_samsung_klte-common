@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_76797293",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-02-23T17:37:39Z",
+      "side": 1,
+      "message": "None of this is needed your bringing back an old bug by doing this",
+      "revId": "4ef0fd4a71c62775c0ff3f825d5cc0a754f7c618",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
