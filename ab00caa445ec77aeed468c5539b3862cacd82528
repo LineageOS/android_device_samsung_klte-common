@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_d6396a43",
+        "filename": "BoardConfigCommon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 11089
+      },
+      "writtenOn": "2015-03-02T06:42:42Z",
+      "side": 1,
+      "message": "Maybe you should remove this 4 flags up there because they are deprected",
+      "revId": "ab00caa445ec77aeed468c5539b3862cacd82528",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
