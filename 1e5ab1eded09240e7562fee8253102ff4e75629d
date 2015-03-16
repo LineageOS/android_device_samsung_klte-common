@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_a85f3374",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-16T12:32:39Z",
+      "side": 1,
+      "message": "Use spaces, like the rest of the file.",
+      "revId": "1e5ab1eded09240e7562fee8253102ff4e75629d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_8864f749",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-16T12:32:39Z",
+      "side": 1,
+      "message": "Fix indentation.",
+      "revId": "1e5ab1eded09240e7562fee8253102ff4e75629d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_e8592b90",
+        "filename": "sepolicy/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-16T12:32:39Z",
+      "side": 1,
+      "message": "These items should probably be moved to system_server.te now.",
+      "revId": "1e5ab1eded09240e7562fee8253102ff4e75629d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_c85eef75",
+        "filename": "sepolicy/ueventd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-16T12:32:39Z",
+      "side": 1,
+      "message": "This line should go above sysfs_vibeamp",
+      "revId": "1e5ab1eded09240e7562fee8253102ff4e75629d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_08512763",
+        "filename": "sepolicy/vold.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-16T12:32:39Z",
+      "side": 1,
+      "message": "This line should go above mmc_block_device.",
+      "revId": "1e5ab1eded09240e7562fee8253102ff4e75629d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
