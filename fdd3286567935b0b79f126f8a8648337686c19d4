@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_6b5535c5",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-16T19:36:27Z",
+      "side": 1,
+      "message": "If this is over 100 chars you ought to break it up with a newline.",
+      "revId": "fdd3286567935b0b79f126f8a8648337686c19d4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
