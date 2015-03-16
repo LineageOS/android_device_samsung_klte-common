@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5ac665da_ab9a8dc3",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-16T15:10:08Z",
+      "side": 1,
+      "message": "IccCardApplicationStatus appStatus \u003d null;",
+      "range": {
+        "startLine": 90,
+        "startChar": 33,
+        "endLine": 90,
+        "endChar": 42
+      },
+      "revId": "2a92d59341b19a33163476aa91175f4529c15e57",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac665da_6877fb02",
         "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
         "patchSetId": 2
@@ -13,6 +36,24 @@
       "writtenOn": "2015-03-16T12:29:20Z",
       "side": 1,
       "message": "Why is this part of the change needed? You are relying on appStatus.app_type right below this anyway. Unless Sprint is always going to set numApplications to 0, it shouldn\u0027t be necessary to do this. Even then there would be a better way to check for Sprint below.",
+      "revId": "2a92d59341b19a33163476aa91175f4529c15e57",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_6b6255da",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-16T15:10:08Z",
+      "side": 1,
+      "message": "It is to prevent a compile error: appstatus not initialized.   you can revert this change",
+      "parentUuid": "5ac665da_6877fb02",
       "revId": "2a92d59341b19a33163476aa91175f4529c15e57",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -48,6 +89,29 @@
       "side": 1,
       "message": "so are you saying replace that line with what you pasted here?",
       "parentUuid": "5ac665da_086ac71a",
+      "revId": "2a92d59341b19a33163476aa91175f4529c15e57",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_eba48509",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 883
+      },
+      "writtenOn": "2015-03-16T15:10:08Z",
+      "side": 1,
+      "message": "if (appStatus !\u003d null \u0026\u0026 numApplications \u003d\u003d 1 \u0026\u0026 !mIsGsm \u0026\u0026 appStatus.app_type \u003d\u003d appStatus.AppTypeFromRILInt(2)) {",
+      "range": {
+        "startLine": 129,
+        "startChar": 8,
+        "endLine": 129,
+        "endChar": 100
+      },
       "revId": "2a92d59341b19a33163476aa91175f4529c15e57",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
