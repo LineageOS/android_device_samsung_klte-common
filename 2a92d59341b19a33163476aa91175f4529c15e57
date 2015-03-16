@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_6877fb02",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-16T12:29:20Z",
+      "side": 1,
+      "message": "Why is this part of the change needed? You are relying on appStatus.app_type right below this anyway. Unless Sprint is always going to set numApplications to 0, it shouldn\u0027t be necessary to do this. Even then there would be a better way to check for Sprint below.",
+      "revId": "2a92d59341b19a33163476aa91175f4529c15e57",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_086ac71a",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-16T12:29:20Z",
+      "side": 1,
+      "message": "if (numApplications \u003d\u003d 1 \u0026\u0026 ...) {",
+      "revId": "2a92d59341b19a33163476aa91175f4529c15e57",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
