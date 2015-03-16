@@ -1,0 +1,4 @@
+allow mpdecision socket_device:dir rw_dir_perms;
+allow mpdecision socket_device:sock_file { write create setattr };
+allow mpdecision thermal_socket:sock_file write;
+allow mpdecision thermal-engine:unix_stream_socket connectto;

@@ -1,0 +1,1 @@
+allow init kernel:system syslog_read;
