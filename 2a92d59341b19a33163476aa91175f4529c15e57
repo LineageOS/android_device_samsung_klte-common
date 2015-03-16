@@ -33,6 +33,24 @@
       "revId": "2a92d59341b19a33163476aa91175f4529c15e57",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_6b4b755a",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-03-16T14:45:19Z",
+      "side": 1,
+      "message": "so are you saying replace that line with what you pasted here?",
+      "parentUuid": "5ac665da_086ac71a",
+      "revId": "2a92d59341b19a33163476aa91175f4529c15e57",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
