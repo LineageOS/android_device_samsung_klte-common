@@ -2,3 +2,5 @@ allow system_app shell_data_file:dir search;
 allow system_app sysfs_display:file { getattr open read write };
 allow system_app sysfs_vibeamp:dir search;
 allow system_app sysfs_vibeamp:file { getattr open read write };
+allow system_app sysfs_sec:dir search;
+allow system_app sysfs_sec:file { getattr open read write };
