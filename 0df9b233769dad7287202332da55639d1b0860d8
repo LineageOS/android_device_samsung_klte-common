@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_cb5b892d",
+        "filename": "sepolicy/system_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-03-16T14:43:23Z",
+      "side": 1,
+      "message": "still dont know what you want done here",
+      "revId": "0df9b233769dad7287202332da55639d1b0860d8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
