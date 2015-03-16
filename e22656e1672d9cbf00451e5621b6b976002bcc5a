@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_2b4b3d2d",
+        "filename": "sepolicy/system_app.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-16T19:35:29Z",
+      "side": 1,
+      "message": "sysfs_display, sysfs_vibeamp are used by CMHW, which should go under system_server now, this might be a duplicate.",
+      "revId": "e22656e1672d9cbf00451e5621b6b976002bcc5a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
