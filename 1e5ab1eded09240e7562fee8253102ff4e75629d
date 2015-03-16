@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "5ac665da_6b3415de",
+        "filename": "sepolicy/system_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-03-16T14:31:40Z",
+      "side": 1,
+      "message": "which lines exactly? all below line 2? or the ones i added?",
+      "parentUuid": "5ac665da_e8592b90",
+      "revId": "1e5ab1eded09240e7562fee8253102ff4e75629d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac665da_c85eef75",
         "filename": "sepolicy/ueventd.te",
         "patchSetId": 1
