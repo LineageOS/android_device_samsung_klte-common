@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5ac665da_aea0dba6",
+        "filename": "sepolicy/system_app.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-17T07:53:32Z",
+      "side": 1,
+      "message": "Also, is this one of those things that needs to be moved to system_server as well? I see the entries there already.",
+      "parentUuid": "5ac665da_8ed7df22",
+      "revId": "783984cab64e0857d7a9d8c31fba8d1f20d01cc7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac665da_eedc9348",
         "filename": "sepolicy/time_daemon.te",
         "patchSetId": 10
