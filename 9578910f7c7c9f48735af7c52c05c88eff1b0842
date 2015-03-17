@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_2ec4eb90",
+        "filename": "cmhw/org/cyanogenmod/hardware/DisplayColorCalibration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-17T07:01:45Z",
+      "side": 1,
+      "message": "2015",
+      "revId": "9578910f7c7c9f48735af7c52c05c88eff1b0842",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_0ec12f81",
+        "filename": "sepolicy/system_server.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-03-17T07:01:45Z",
+      "side": 1,
+      "message": "Is there an equivalent entry that needs to be removed from system_app.te?",
+      "revId": "9578910f7c7c9f48735af7c52c05c88eff1b0842",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
