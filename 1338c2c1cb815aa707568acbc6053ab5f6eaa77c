@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_ae73bbb3",
+        "filename": "sepolicy/rild.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-03-17T05:59:01Z",
+      "side": 1,
+      "message": "Ethan do you know why we need this? i mean we saw it in the log but if i\u0027m right isnt zygote dalvik? i dont know what it would want with the rild daemon",
+      "revId": "1338c2c1cb815aa707568acbc6053ab5f6eaa77c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
