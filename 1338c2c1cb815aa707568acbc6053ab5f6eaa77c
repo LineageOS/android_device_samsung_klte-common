@@ -52,6 +52,23 @@
       "revId": "1338c2c1cb815aa707568acbc6053ab5f6eaa77c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_2e722b7d",
+        "filename": "sepolicy/system_server.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-03-17T07:07:22Z",
+      "side": 1,
+      "message": "think this needs getattr",
+      "revId": "1338c2c1cb815aa707568acbc6053ab5f6eaa77c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
