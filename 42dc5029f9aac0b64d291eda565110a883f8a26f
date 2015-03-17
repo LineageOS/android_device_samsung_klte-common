@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_eee773aa",
+        "filename": "sepolicy/system_app.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-03-17T08:28:56Z",
+      "side": 1,
+      "message": "pretty sure these needed here because of the high touch sensitivity stuff. These were the first ones i added and it was the whole reason i started searching though sepolicies so i think they are ok here?\n\nits trying to read \n\n/sys/devices/virtual/sec/tsp(/",
+      "revId": "42dc5029f9aac0b64d291eda565110a883f8a26f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_ceec3792",
+        "filename": "sepolicy/time_daemon.te",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-03-17T08:28:56Z",
+      "side": 1,
+      "message": "this is trying to access data type i\u0027m pretty sure",
+      "revId": "42dc5029f9aac0b64d291eda565110a883f8a26f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
