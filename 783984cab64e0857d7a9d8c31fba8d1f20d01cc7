@@ -37,6 +37,42 @@
     },
     {
       "key": {
+        "uuid": "5ac665da_2eca2b50",
+        "filename": "sepolicy/system_app.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-03-17T08:20:01Z",
+      "side": 1,
+      "message": "possibly this could be removed but i\u0027m not 100% if the touch screen toggles in language and input are part of system_server.te like the rest of the cmhw stuff or not.",
+      "parentUuid": "5ac665da_aea0dba6",
+      "revId": "783984cab64e0857d7a9d8c31fba8d1f20d01cc7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_0ea00f90",
+        "filename": "sepolicy/system_app.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-03-17T08:20:01Z",
+      "side": 1,
+      "message": "iirc the dir its trying to access is:\n\n/sys/devices/virtual/sec/tsp/ that dir is for the high touch sensitivity and hover modes.\n\ni\u0027d need patrick to test as i dont have a device on me right now",
+      "parentUuid": "5ac665da_8ed7df22",
+      "revId": "783984cab64e0857d7a9d8c31fba8d1f20d01cc7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac665da_eedc9348",
         "filename": "sepolicy/time_daemon.te",
         "patchSetId": 10
@@ -48,6 +84,24 @@
       "writtenOn": "2015-03-17T07:42:55Z",
       "side": 1,
       "message": "Also here, does it mention what directory time_daemon wants access to?",
+      "revId": "783984cab64e0857d7a9d8c31fba8d1f20d01cc7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_8e087f93",
+        "filename": "sepolicy/time_daemon.te",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2015-03-17T08:20:01Z",
+      "side": 1,
+      "message": "this i dont remember... it might be\n\n\t/data/time/\n\nbut i know without these the damn clock is always wrong after a reboot",
+      "parentUuid": "5ac665da_eedc9348",
       "revId": "783984cab64e0857d7a9d8c31fba8d1f20d01cc7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
