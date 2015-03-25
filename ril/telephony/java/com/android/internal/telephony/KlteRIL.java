@@ -271,6 +271,14 @@ public class KlteRIL extends RIL {
             lteSignalStrength &= 0xff;
         }
 
+        /** Samsung ignores the signal-to-noise ratio values when
+         *  calculating the value for getLteLevel(). Set the snr value to
+         *  INVALID, or max int, so only the rsrp or the rssi 
+         *  values are used for the signal level that is used to
+         *  display the bars in the signal cluster.
+         */
+        lteRssnr = SignalStrength.INVALID;
+
         if (RILJ_LOGD)
             riljLog("gsmSignalStrength:" + gsmSignalStrength + " gsmBitErrorRate:" + gsmBitErrorRate +
                     " cdmaDbm:" + cdmaDbm + " cdmaEcio:" + cdmaEcio + " evdoDbm:" + evdoDbm +
