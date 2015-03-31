@@ -41,34 +41,10 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on init
-    mkdir /mnt/shell/emulated 0700 shell shell
-    mkdir /storage 0550 system sdcard_r
-    mkdir /storage/emulated 0555 root root
 
-    #External storage directories
-    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
-
-    mkdir /storage/sdcard0 0700 root root
-    mkdir /storage/sdcard1 0700 root root
-    mkdir /storage/usbdisk 0700 root root
-
-    export EXTERNAL_STORAGE /storage/emulated/legacy
-    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbdisk
-    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
-    export EMULATED_STORAGE_TARGET /storage/emulated
-
-    # for backwards compatibility
-    symlink /storage/emulated/legacy /sdcard
-    symlink /storage/emulated/legacy /mnt/sdcard
-    symlink /storage/emulated/legacy /storage/sdcard0
-    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
-    symlink /storage/sdcard1 /extSdCard
-    symlink /storage/sdcard1 /mnt/extSdCard
-    symlink /storage/sdcard1 /external_sd
-    symlink /storage/usbdisk /usbdisk
-    symlink /storage/usbdisk /mnt/usbdisk
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
 
 on fs
     write /sys/devices/msm_sdcc.1/mmc_host/mmc1/power/control on
@@ -77,8 +53,6 @@ on fs
     mount_all fstab.qcom
 
     restorecon_recursive /efs
-
-    setprop ro.crypto.fuse_sdcard true
 
     write /sys/kernel/boot_adsp/boot 1
     setprop qcom.audio.init complete
@@ -89,10 +63,6 @@ on post-fs
     chmod 0664 /sys/block/mmcblk0/bkops_en
 
 on post-fs-data
-    # we will remap this as /mnt/sdcard with the sdcard fuse tool
-    mkdir /data/media 0775 media_rw media_rw
-    chown media_rw media_rw /data/media
-
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
     # Create the directories used by the Wireless subsystem
@@ -1249,21 +1219,6 @@ service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
     class main
     user root
     oneshot
-
-service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
-    class late_start
-
-service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
-    class late_start
-    disabled
-
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
-    class late_start
-    disabled
-
-service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/usbdisk /storage/usbdisk
-    class late_start
-    disabled
 
 on property:persist.sys.ssr.restart_level=1
     write /sys/module/subsystem_restart/parameters/restart_level 1
