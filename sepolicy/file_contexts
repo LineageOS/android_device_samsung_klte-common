@@ -1,3 +1,5 @@
+# Audience
+/dev/ttyHS3                                             u:object_r:audio_device:s0
 
 # Bluetooth
 /dev/btlock                                             u:object_r:bluetooth_device:s0
