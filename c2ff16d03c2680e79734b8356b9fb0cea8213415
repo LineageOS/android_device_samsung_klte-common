@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac665da_35bc176c",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-04-05T13:31:07Z",
+      "side": 1,
+      "message": "Is /data/firmware actually accessed?",
+      "revId": "c2ff16d03c2680e79734b8356b9fb0cea8213415",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
