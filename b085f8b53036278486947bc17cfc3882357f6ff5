@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5ac665da_3563771c",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-04-05T13:58:26Z",
+      "side": 1,
+      "message": "All that\u0027s needed for this patchset is to change u:object_r:serial_device:s0 to u:object_r:audio_device:s0",
+      "parentUuid": "5ac665da_55bb9372",
+      "revId": "b085f8b53036278486947bc17cfc3882357f6ff5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac665da_b5b0078d",
         "filename": "sepolicy/mediaserver.te",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-04-05T13:32:26Z",
       "side": 1,
       "message": "This is probably unnecessary if you correctly label ttyHS3.",
+      "revId": "b085f8b53036278486947bc17cfc3882357f6ff5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac665da_1568fbf4",
+        "filename": "sepolicy/mediaserver.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-04-05T13:58:26Z",
+      "side": 1,
+      "message": "Remove this line.",
+      "parentUuid": "5ac665da_b5b0078d",
       "revId": "b085f8b53036278486947bc17cfc3882357f6ff5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
