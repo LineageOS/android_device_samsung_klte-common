@@ -16,6 +16,24 @@
       "revId": "525338a62bfce39b1b24d15237f8cd5fe8e985d5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_9f87f311",
+        "filename": "overlay/frameworks/base/core/res/res/values/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 12116
+      },
+      "writtenOn": "2015-05-05T00:27:56Z",
+      "side": 1,
+      "message": "https://github.com/CyanogenMod/android_frameworks_base/blob/cm-12.1/core/res/res/values/strings.xml#L5108",
+      "parentUuid": "9a89bdaa_bf783791",
+      "revId": "525338a62bfce39b1b24d15237f8cd5fe8e985d5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
