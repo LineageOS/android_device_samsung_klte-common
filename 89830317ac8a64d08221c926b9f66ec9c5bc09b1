@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_340c4642",
+        "filename": "system_prop.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-09T09:17:36Z",
+      "side": 1,
+      "message": "mms is alphabetically before ril_class",
+      "revId": "89830317ac8a64d08221c926b9f66ec9c5bc09b1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
