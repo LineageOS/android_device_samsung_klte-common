@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_f4fe5404",
+        "filename": "doze/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-14T04:03:56Z",
+      "side": 1,
+      "message": "You can use the configpanel package to add a controls in settings also.",
+      "revId": "0d82a1473fe6468423555674ce08132b5b7276ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_14049813",
+        "filename": "doze/src/com/cyanogenmod/kltedoze/KlteDozeService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-14T04:03:56Z",
+      "side": 1,
+      "message": "You don\u0027t want to have a static context here.",
+      "revId": "0d82a1473fe6468423555674ce08132b5b7276ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_34099c2d",
+        "filename": "doze/src/com/cyanogenmod/kltedoze/KlteProximitySensor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-14T04:03:56Z",
+      "side": 1,
+      "message": "Might be better to have this as an inner class of the DozeService. This is essentially a thin wrapper on top of the Android Sensor class.",
+      "revId": "0d82a1473fe6468423555674ce08132b5b7276ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_b1069e1e",
+        "filename": "klte.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-14T04:03:56Z",
+      "side": 1,
+      "message": "D comes before G",
+      "revId": "0d82a1473fe6468423555674ce08132b5b7276ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a89bdaa_d103220e",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-14T04:03:56Z",
+      "side": 1,
+      "message": "You probably want the overlay option to disable pulse on pickup as well.",
+      "revId": "0d82a1473fe6468423555674ce08132b5b7276ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
