@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_bac4b340",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-15T16:42:35Z",
+      "side": 1,
+      "message": "Might as well just remove this line altogether. git will preserve the information in history for you anyway.",
+      "revId": "f70ba5dda9dffe5d4f46fba0256f345e0d9a89a9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
