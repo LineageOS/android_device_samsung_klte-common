@@ -16,6 +16,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter klte kltedv kltespr klteusc kltevzw,$(TARGET_DEVICE)),)
+ifneq ($(filter klte kltechnduo kltedv kltespr klteusc kltevzw,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
