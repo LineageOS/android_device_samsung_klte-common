@@ -60,10 +60,6 @@ PRODUCT_PACKAGES += \
     camera.msm8974 \
     libxml2
 
-# Doze
-PRODUCT_PACKAGES += \
-    KlteDoze
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8974
