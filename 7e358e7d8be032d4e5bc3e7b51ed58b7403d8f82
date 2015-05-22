@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_1b6af780",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-05-22T09:59:28Z",
+      "side": 1,
+      "message": "I would prefer the governor/CPU online state + mpdecision remained similar.",
+      "revId": "7e358e7d8be032d4e5bc3e7b51ed58b7403d8f82",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
