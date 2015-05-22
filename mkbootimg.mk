@@ -8,7 +8,7 @@ LOCAL_PATH := $(call my-dir)
 KERNEL_CONFIG := $(KERNEL_OUT)/.config
 G2_DTS_NAMES := msm8974
 
-G2_DTS_FILES = $(wildcard $(TOP)/$(TARGET_KERNEL_SOURCE)/arch/arm/boot/dts/msm8974pro/msm8974pro-ac-sec-kkor*.dts),$(wildcard $(TOP)/$(TARGET_KERNEL_SOURCE)/arch/arm/boot/dts/msm8974pro/msm8974pro-ac-sec-k-*.dts),$(wildcard $(TOP)/$(TARGET_KERNEL_SOURCE)/arch/arm/boot/dts/msm8974pro/msm8974pro-ac-sec-kchn*.dts)
+G2_DTS_FILES = $(wildcard $(TOP)/$(TARGET_KERNEL_SOURCE)/arch/arm/boot/dts/msm8974pro/msm8974pro-ac-sec-*.dts)
 G2_DTS_FILE = $(lastword $(subst /, ,$(1)))
 DTB_FILE = $(addprefix $(KERNEL_OUT)/arch/arm/boot/,$(patsubst %.dts,%.dtb,$(call G2_DTS_FILE,$(1))))
 ZIMG_FILE = $(addprefix $(KERNEL_OUT)/arch/arm/boot/,$(patsubst %.dts,%-zImage,$(call G2_DTS_FILE,$(1))))
@@ -18,7 +18,9 @@ define append-g2-dtb
 mkdir -p $(KERNEL_OUT)/arch/arm/boot;\
 $(foreach G2_DTS_NAME, $(G2_DTS_NAMES), \
    $(foreach d, $(G2_DTS_FILES), \
-      cat $(KERNEL_ZIMG) $(call DTB_FILE,$(d)) > $(call ZIMG_FILE,$(d));))
+      if [ -e $(call DTB_FILE,$(d)) ]; then \
+         cat $(KERNEL_ZIMG) $(call DTB_FILE,$(d)) > $(call ZIMG_FILE,$(d)); \
+         else cat $(KERNEL_ZIMG) > $(call ZIMG_FILE,$(d)); fi;))
 endef
 
 
