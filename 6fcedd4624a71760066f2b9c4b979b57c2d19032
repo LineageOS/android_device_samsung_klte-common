@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_dea07d93",
+        "filename": "mkbootimg.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2015-05-23T00:22:09Z",
+      "side": 0,
+      "message": "g2 huh?\n\n#kangallthethings!  \u003d)",
+      "revId": "6fcedd4624a71760066f2b9c4b979b57c2d19032",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
