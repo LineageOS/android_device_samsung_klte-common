@@ -35,8 +35,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.netmgrd.qos.enable=true \
     persist.radio.add_power_save=1 \
     persist.radio.lte_vrat_report=1 \
-    ro.telephony.mms_data_profile=5 \
-    ro.telephony.ril_class=KlteRIL
+    ro.telephony.mms_data_profile=5
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
