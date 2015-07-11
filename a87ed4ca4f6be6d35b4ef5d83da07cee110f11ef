@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f013ff3_84278cb7",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-07-11T16:12:32Z",
+      "side": 1,
+      "message": "This doesn\u0027t need to be declared and initialized independently.\n\nif (!isLollipopRadio) boolean isVideo \u003d (0 !\u003d p.readInt());",
+      "revId": "a87ed4ca4f6be6d35b4ef5d83da07cee110f11ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f013ff3_642c8099",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-07-11T16:12:32Z",
+      "side": 1,
+      "message": "Use {\u0027s\n\nif (...) {\n    //\n} else {\n   //\n}",
+      "revId": "a87ed4ca4f6be6d35b4ef5d83da07cee110f11ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f013ff3_4421849f",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-07-11T16:12:32Z",
+      "side": 1,
+      "message": "Seems to be 6 spaces here instead of 4",
+      "revId": "a87ed4ca4f6be6d35b4ef5d83da07cee110f11ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f013ff3_242678b9",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-07-11T16:12:32Z",
+      "side": 1,
+      "message": "3 here, not 4",
+      "revId": "a87ed4ca4f6be6d35b4ef5d83da07cee110f11ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f013ff3_043b7cd1",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-07-11T16:12:32Z",
+      "side": 1,
+      "message": "Use braces here as well\n\nif (...) {\n    //\n} else {\n    //\n}\n\nor a ternary and do \n\nrr \u003d RILRequest.obtain((isLollipopRadio\n        ? RIL_REQUEST_DIAL_EMERGENCY_LL\n        : RIL_REQUEST_DIAL_EMERGENCY), result);",
+      "revId": "a87ed4ca4f6be6d35b4ef5d83da07cee110f11ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
