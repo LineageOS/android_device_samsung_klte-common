@@ -22,6 +22,7 @@ import android.content.Context;
 import android.telephony.Rlog;
 import android.os.Message;
 import android.os.Parcel;
+import android.os.SystemProperties;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SignalStrength;
 import com.android.internal.telephony.cdma.CdmaInformationRecords;
@@ -40,6 +41,9 @@ import java.util.Collections;
 public class KlteRIL extends RIL {
 
     private static final int RIL_REQUEST_DIAL_EMERGENCY = 10016;
+    private static final int RIL_REQUEST_DIAL_EMERGENCY_LL = 10001;
+    private static final int RIL_UNSOL_ON_SS_LL = 11055;
+    private static final String SIM_NUMBER_PROP = "ro.multisim.simslotcount";
 
     private boolean mIsGsm = false;
 
@@ -166,6 +170,9 @@ public class KlteRIL extends RIL {
         int voiceSettings;
         ArrayList<DriverCall> response;
         DriverCall dc;
+        boolean isLLril = false;
+
+        isLLril = Integer.valueOf( SystemProperties.get(SIM_NUMBER_PROP, "1") ).intValue() == 2;
 
         num = p.readInt();
         response = new ArrayList<DriverCall>(num);
@@ -187,7 +194,9 @@ public class KlteRIL extends RIL {
             voiceSettings = p.readInt();
             dc.isVoice = (0 != voiceSettings);
             if (mIsGsm) {
-                boolean isVideo = (0 != p.readInt());   // Samsung CallDetails
+                boolean isVideo;
+                if(!isLLril)
+                    isVideo = (0 != p.readInt());   // Samsung CallDetails
                 int call_type = p.readInt();            // Samsung CallDetails
                 int call_domain = p.readInt();          // Samsung CallDetails
                 String csv = p.readString();            // Samsung CallDetails
@@ -197,7 +206,9 @@ public class KlteRIL extends RIL {
             int np = p.readInt();
             dc.numberPresentation = DriverCall.presentationFromCLIP(np);
             dc.name = p.readString();
-            dc.namePresentation = p.readInt();
+            if(!isLLril)
+                dc.namePresentation = p.readInt();
+            else dc.namePresentation = DriverCall.presentationFromCLIP(p.readInt());
             int uusInfoPresent = p.readInt();
             if (uusInfoPresent == 1) {
                 dc.uusInfo = new UUSInfo();
@@ -309,11 +320,41 @@ public class KlteRIL extends RIL {
         mIsGsm = (phoneType != RILConstants.CDMA_PHONE);
     }
 
+    @Override
+    protected void
+    processUnsolicited (Parcel p) {
+        Object ret;
+        int dataPosition = p.dataPosition();
+        int response = p.readInt();
+        int newResponse = response;
+        boolean isLLril = false;
+
+        isLLril = Integer.valueOf( SystemProperties.get(SIM_NUMBER_PROP, "1") ).intValue() == 2;
+        if(isLLril){
+            switch(response) {
+                 case RIL_UNSOL_ON_SS_LL:
+                    newResponse = RIL_UNSOL_ON_SS;
+                    break;
+            }
+            if (newResponse != response) {
+                p.setDataPosition(dataPosition);
+                p.writeInt(newResponse);
+            }
+        }
+        p.setDataPosition(dataPosition);
+        super.processUnsolicited(p);
+    }
+
     private void
     dialEmergencyCall(String address, int clirMode, Message result) {
         RILRequest rr;
 
-        rr = RILRequest.obtain(RIL_REQUEST_DIAL_EMERGENCY, result);
+        boolean isLLril = false;
+
+        isLLril = Integer.valueOf( SystemProperties.get(SIM_NUMBER_PROP, "1") ).intValue() == 2;
+
+        if(isLLril) rr = RILRequest.obtain(RIL_REQUEST_DIAL_EMERGENCY_LL, result);
+        else rr = RILRequest.obtain(RIL_REQUEST_DIAL_EMERGENCY, result);
         rr.mParcel.writeString(address);
         rr.mParcel.writeInt(clirMode);
         rr.mParcel.writeInt(0);        // CallDetails.call_type
