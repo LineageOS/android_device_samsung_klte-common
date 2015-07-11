@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f013ff3_c1b7c63a",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-07-11T06:49:11Z",
+      "side": 1,
+      "message": "You should have a more descriptive property name if you wish this to distinguish lollipop radio libraries. Don\u0027t re-use this to mean something by proxy.",
+      "range": {
+        "startLine": 46,
+        "startChar": 54,
+        "endLine": 46,
+        "endChar": 62
+      },
+      "revId": "aff80bf02f963c4c4bfa5e40eea16b56d18fea9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f013ff3_a1b4ba36",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-07-11T06:49:11Z",
+      "side": 1,
+      "message": "I see you\u0027re re-using this system property fetch logic in several places. Why not make this a class variable, or even statically initialize it?\n\nprivate static final String RIL_VERSION_PROPERTY \u003d \"ro.sec_ril.version\";\nstatic boolean isLollipopRadio \u003d SystemProperties.get(RIL_VERSION_PROPERTY) \u003d\u003d \"lp\";",
+      "range": {
+        "startLine": 175,
+        "startChar": 26,
+        "endLine": 175,
+        "endChar": 33
+      },
+      "revId": "aff80bf02f963c4c4bfa5e40eea16b56d18fea9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
