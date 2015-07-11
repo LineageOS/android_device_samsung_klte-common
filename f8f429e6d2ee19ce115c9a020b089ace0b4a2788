@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f013ff3_c1e5863a",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-07-11T07:20:45Z",
+      "side": 1,
+      "message": "Make this a variable a member of the class. That way you don\u0027t have to keep checking it.",
+      "range": {
+        "startLine": 173,
+        "startChar": 23,
+        "endLine": 173,
+        "endChar": 38
+      },
+      "revId": "f8f429e6d2ee19ce115c9a020b089ace0b4a2788",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
