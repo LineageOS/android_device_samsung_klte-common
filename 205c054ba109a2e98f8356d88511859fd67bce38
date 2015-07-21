@@ -22,6 +22,24 @@
       "revId": "205c054ba109a2e98f8356d88511859fd67bce38",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df140735_b97f5faa",
+        "filename": "audio/mixer_paths.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 7134
+      },
+      "writtenOn": "2015-07-21T05:09:59Z",
+      "side": 1,
+      "message": "Dual Sims variant will use custom audio hal to support the sim2",
+      "parentUuid": "df140735_39aa2f85",
+      "revId": "205c054ba109a2e98f8356d88511859fd67bce38",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
