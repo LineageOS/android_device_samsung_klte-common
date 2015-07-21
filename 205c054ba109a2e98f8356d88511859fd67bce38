@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df140735_39aa2f85",
+        "filename": "audio/mixer_paths.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-07-21T00:02:54Z",
+      "side": 1,
+      "message": "Isn\u0027t all of this unused with the CM audio HAL?",
+      "range": {
+        "startLine": 288,
+        "startChar": 27,
+        "endLine": 288,
+        "endChar": 29
+      },
+      "revId": "205c054ba109a2e98f8356d88511859fd67bce38",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
