@@ -21,7 +21,7 @@
 *
 */
 
-//#define LOG_NDEBUG 0
+#define LOG_NDEBUG 0
 
 #define LOG_TAG "CameraWrapper"
 #include <cutils/log.h>
@@ -99,6 +99,13 @@ static int check_vendor_module()
 
 #define KEY_VIDEO_HFR_VALUES "video-hfr-values"
 
+static bool is_4k_video(android::CameraParameters &params) {
+    int video_width, video_height;
+    params.getVideoSize(&video_width, &video_height);
+    ALOGV("%s : VideoSize is %x", __FUNCTION__, video_width * video_height);
+    return video_width * video_height > 1920 * 1080;
+}
+
 static char *camera_fixup_getparams(int __attribute__((unused)) id,
     const char *settings)
 {
@@ -109,6 +116,10 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
     ALOGV("%s: original parameters:", __FUNCTION__);
     params.dump();
 #endif
+
+    //Hide nv12-venus from Android.
+    if (strcmp (params.getPreviewFormat(), "nv12-venus") == 0)
+          params.set("preview-format", "yuv420sp");
 
     const char *videoSizeValues = params.get(
             android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
@@ -182,7 +193,8 @@ static char *camera_fixup_setparams(int id, const char *settings)
 /*******************************************************************
  * implementation of camera_device_ops functions
  *******************************************************************/
-
+static char *camera_get_parameters(struct camera_device *device);
+static int camera_set_parameters(struct camera_device *device, const char *params);
 static int camera_set_preview_window(struct camera_device *device,
         struct preview_stream_ops *window)
 {
@@ -299,6 +311,19 @@ static int camera_start_recording(struct camera_device *device)
 
     if (!device)
         return EINVAL;
+
+    android::CameraParameters parameters;
+    parameters.unflatten(android::String8(camera_get_parameters(device)));
+
+    if (is_4k_video(parameters)) {
+        ALOGV("%s : UHD detected, switching preview-format to nv12-venus", __FUNCTION__);
+        parameters.set("preview-format", "nv12-venus");
+        camera_set_parameters(device, strdup(parameters.flatten().string()));
+    }
+
+    android::CameraParameters parameters2;
+    parameters2.unflatten(android::String8(VENDOR_CALL(device, get_parameters)));
+    parameters2.dump();
 
     return VENDOR_CALL(device, start_recording);
 }
