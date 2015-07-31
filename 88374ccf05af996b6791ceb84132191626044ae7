@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf091321_18cbda53",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-07-31T01:40:05Z",
+      "side": 1,
+      "message": "Why not check for 4K resolutions themselves?",
+      "revId": "88374ccf05af996b6791ceb84132191626044ae7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf091321_b8c18e31",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-07-31T01:40:05Z",
+      "side": 1,
+      "message": "There\u0027s probably a constant you can use for the formats, or if not, then you can define one.",
+      "revId": "88374ccf05af996b6791ceb84132191626044ae7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf091321_98dc8a19",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-07-31T01:40:05Z",
+      "side": 1,
+      "message": "There should be a camera parameter for this already.",
+      "revId": "88374ccf05af996b6791ceb84132191626044ae7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf091321_f8cca662",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-07-31T01:40:05Z",
+      "side": 1,
+      "message": "Same as above.",
+      "revId": "88374ccf05af996b6791ceb84132191626044ae7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
