@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "bf091321_f884a6b3",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2015-07-31T01:51:46Z",
+      "side": 1,
+      "message": "actually nvm encoderprofile sets the wxh to 3840x2160, ill just check for that.",
+      "parentUuid": "bf091321_38a33e52",
+      "revId": "88374ccf05af996b6791ceb84132191626044ae7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf091321_b8c18e31",
         "filename": "camera/CameraWrapper.cpp",
         "patchSetId": 6
