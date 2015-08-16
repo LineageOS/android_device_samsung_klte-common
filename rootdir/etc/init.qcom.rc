@@ -54,7 +54,6 @@ on init
 
 on fs
     mount_all fstab.qcom
-    write /proc/sys/vm/swappiness 100
     swapon_all fstab.qcom
 
     restorecon_recursive /efs
