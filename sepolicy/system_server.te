@@ -5,4 +5,3 @@ allow system_server sysfs_sec:dir search;
 allow system_server sysfs_sec:file { getattr open read write };
 allow system_server sysfs_vibeamp:dir search;
 allow system_server sysfs_vibeamp:file { getattr open read write };
-allow system_server time_daemon:unix_stream_socket connectto;
