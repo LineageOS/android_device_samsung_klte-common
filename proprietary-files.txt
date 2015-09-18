@@ -239,6 +239,9 @@ etc/firmware/a330_pm4.fw
 bin/irsc_util
 etc/sec_config
 
+# IPv6 Tethering
+bin/radish
+
 # Media
 vendor/lib/libDivxDrm.so
 vendor/lib/libExtendedExtractor.so
