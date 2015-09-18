@@ -1170,7 +1170,6 @@ service wifi-crda /system/bin/sh /system/etc/init.crda.sh
     oneshot
 
 on property:sys.boot_completed=1
-    write /sys/block/mmcblk0/queue/scheduler fiops
 
     # Configure the hardware properly
     write /sys/module/lpm_resources/enable_low_power/l2 4
@@ -1238,6 +1237,9 @@ on property:sys.boot_completed=1
     write /sys/module/cpu_boost/parameters/sync_threshold 1728000
     write /sys/module/cpu_boost/parameters/input_boost_freq 1497600
     write /sys/module/cpu_boost/parameters/input_boost_ms 40
+
+    # Set iosched
+    setprop sys.io.scheduler bfq
 
     # Post boot services
     start mpdecision
