@@ -1025,9 +1025,9 @@ service qseecomd /system/bin/qseecomd
     group system
 
 service mpdecision /system/bin/mpdecision --avg_comp
+    class late_start
     user root
-    group system
-    disabled
+    group root system
 
 service thermal-engine /system/bin/thermal-engine
     class core
