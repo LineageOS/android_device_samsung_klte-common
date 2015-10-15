@@ -1,6 +1,0 @@
-allow time_daemon system_app:dir search;
-allow time_daemon system_app:file { read open };
-allow time_daemon system_server:dir search;
-allow time_daemon system_server:file { open read };
-allow time_daemon time_data_file:dir remove_name;
-allow time_daemon time_data_file:file { getattr append unlink };
