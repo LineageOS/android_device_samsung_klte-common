@@ -1,3 +1,0 @@
-allow rild proc_net:file { write };
-allow rild sysfs_sec:file { getattr open read write };
-allow rild zygote_exec:file execute;
