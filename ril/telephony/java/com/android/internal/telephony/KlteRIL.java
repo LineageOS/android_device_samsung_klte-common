@@ -191,7 +191,7 @@ public class KlteRIL extends RIL {
             dc.als = p.readInt();
             voiceSettings = p.readInt();
             dc.isVoice = (0 != voiceSettings);
-            if (mIsGsm) {
+            if (mIsGsm || isLollipopRadio) {
                 boolean isVideo;
                 if (!isLollipopRadio)
                     isVideo = (0 != p.readInt());       // Samsung CallDetails
