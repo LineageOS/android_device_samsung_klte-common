@@ -6,5 +6,9 @@
   {
     "repository": "android_kernel_samsung_klte",
     "target_path": "kernel/samsung/klte"
+  },
+  {
+    "repository": "android_external_stlport",
+    "target_path": "external/stlport"
   }
 ]
