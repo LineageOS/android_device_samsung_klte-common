@@ -37,7 +37,7 @@ const char CameraParameters::KEY_ZSL[] = "zsl"; \
 const char CameraParameters::ZSL_ON[] = "on"; \
 const char CameraParameters::ZSL_OFF[] = "off"; \
 \
-int CameraParameters::getInt64(const char *key) const { return -1; } \
+int CameraParameters::getInt64(__attribute__((__unused__)) const char *key) const { return -1; } \
 \
 /* LAST_LINE OF CAMERA_PARAMETERS_EXTRA_C, every line before this one *MUST* have
  * a backslash \ at the end of the line or else everything will break.
