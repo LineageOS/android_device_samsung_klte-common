@@ -98,6 +98,10 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
+# Radio
+PRODUCT_PACKAGES += \
+    libril_shim
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \

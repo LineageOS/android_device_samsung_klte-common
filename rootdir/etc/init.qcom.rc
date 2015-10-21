@@ -29,6 +29,8 @@ import init.qcom.usb.rc
 import init.target.rc
 
 on early-init
+    export LD_SHIM_LIBS /system/lib/libril.so|libril_shim.so
+
     # Increase max readahead size to 512 KB
     write /sys/block/mmcblk0/queue/read_ahead_kb 512
     write /sys/block/mmcblk0/queue/scheduler noop
