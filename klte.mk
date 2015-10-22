@@ -101,7 +101,8 @@ PRODUCT_PACKAGES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    librilsym
+    librilsym \
+    librmtsym
 
 # Ramdisk
 PRODUCT_PACKAGES += \
