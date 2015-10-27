@@ -59,7 +59,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     camera.msm8974 \
     libboringssl-compat \
-    libstlport \
     libxml2
 
 # Doze
