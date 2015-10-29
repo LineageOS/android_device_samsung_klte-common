@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f2577a7_3a60c1ce",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-10-29T11:34:56Z",
+      "side": 1,
+      "message": "Doing a check for isLollipopRadio, then checking on !isLollipopRadio is weird to me. Maybe this can be organized a little better to be easier to read?",
+      "revId": "2e5174d59726234492e4e4ceb9364a0bc3704c90",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
