@@ -68,6 +68,7 @@ BOARD_RIL_CLASS := ../../../device/samsung/klte-common/ril
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/klte-common/recovery/recovery_keys.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_USES_MMCUTILS := true
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
