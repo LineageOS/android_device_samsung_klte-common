@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_ae7ff7a9",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-11-03T03:50:19Z",
+      "side": 1,
+      "message": "Trailing whitespace.",
+      "revId": "019b515666177f464adcb6c6535e570f26d1c798",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
