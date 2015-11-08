@@ -41,6 +41,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.netmgrd.qos.enable=true \
+    persist.data.qmi.adb_logmask=0 \
     persist.radio.add_power_save=1 \
     persist.radio.lte_vrat_report=1 \
     ro.telephony.mms_data_profile=5 \
