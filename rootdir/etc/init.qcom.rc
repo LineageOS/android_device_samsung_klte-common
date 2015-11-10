@@ -267,6 +267,8 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
 on early-boot
+    start timekeep
+
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
@@ -930,10 +932,12 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-passive-client stream 0666 system system
    group root
 
-service time_daemon /system/bin/time_daemon
-    class late_start
+service timekeep /system/bin/timekeep restore
     user root
     group root
+    disabled
+    oneshot
+    seclabel u:r:timekeep:s0
 
 service audiod /system/bin/audiod
     class late_start
