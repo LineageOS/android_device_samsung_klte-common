@@ -1,9 +1,13 @@
+# Activity recognition
+vendor/lib/hw/activity_recognition.msm8974.so
+vendor/lib/libsensor1.so
+vendor/lib/libsensor_reg.so
+
 # Audio
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
-vendor/lib/libcsd-client.so
 etc/firmware/audience-es705-fw.bin
 etc/firmware/audience-es705-vs.bin
 etc/Bluetooth_cal.acdb
@@ -21,6 +25,11 @@ vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 vendor/lib/libscve.so
 vendor/lib/libscve_stub.so
+vendor/lib/rfsa/adsp/libadsp_fd_skel.so
+vendor/lib/rfsa/adsp/libdspCV_skel.so
+vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
+vendor/lib/rfsa/adsp/libfastcvadsp.so
+vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
 # Camera
 bin/mm-qcamera-daemon
@@ -66,7 +75,6 @@ vendor/lib/libmmcamera_imx240.so
 vendor/lib/libmmcamera_s5k2p2xx.so
 vendor/lib/libmmcamera_s5k8b1yx.so
 vendor/lib/liboemcamera.so
-vendor/lib/libsensor1.so
 
 # Camera chromatix
 lib/C16QL_libchromatix_s5k2p2xx_default_video.so
@@ -256,21 +264,24 @@ vendor/lib/libOmxWmaDec.so
 vendor/lib/libSHIMDivxDrm.so
 
 # Perf
-vendor/lib/libqc-opt.so
+vendor/lib/libqti-perfd-client.so
 
 # Postprocessing
 vendor/lib/libdisp-aba.so
 -vendor/lib/libmm-abl.so
 vendor/lib/libmm-abl-oem.so
 
+# Qualcomm
+vendor/lib/libxml.so
+
 # Sensors
 lib/hw/sensors.msm8974.so
-lib/hw/sensorhubs.msm8974.so
+lib/libhr.so
 
 # Time services
 -app/TimeService/TimeService.apk
 bin/time_daemon
-lib/libTimeService.so
+vendor/lib/libTimeService.so
 -vendor/lib/libtime_genoff.so
 
 # Wi-Fi
