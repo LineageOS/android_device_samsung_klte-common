@@ -3,7 +3,6 @@ vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
-vendor/lib/libcsd-client.so
 etc/firmware/audience-es705-fw.bin
 etc/firmware/audience-es705-vs.bin
 etc/Bluetooth_cal.acdb
@@ -218,12 +217,10 @@ vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/libadreno_utils.so
 vendor/lib/libC2D2.so
-vendor/lib/libc2d30.so
 vendor/lib/libc2d30-a3xx.so
 vendor/lib/libCB.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-qcom.so
-vendor/lib/libOpenVG.so
 vendor/lib/libOpenCL.so
 vendor/lib/libRSDriver_adreno.so
 vendor/lib/librs_adreno.so
@@ -258,7 +255,7 @@ vendor/lib/libOmxWmaDec.so
 vendor/lib/libSHIMDivxDrm.so
 
 # Perf
-vendor/lib/libqc-opt.so
+vendor/lib/libqti-perfd-client.so
 
 # Postprocessing
 vendor/lib/libdisp-aba.so
@@ -272,7 +269,7 @@ lib/hw/sensorhubs.msm8974.so
 # Time services
 -app/TimeService/TimeService.apk
 bin/time_daemon
-lib/libTimeService.so
+vendor/lib/libTimeService.so
 -vendor/lib/libtime_genoff.so
 
 # Wi-Fi
