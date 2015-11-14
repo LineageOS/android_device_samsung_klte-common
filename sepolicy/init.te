@@ -1,1 +1,1 @@
-allow init kernel:system syslog_read;
+allow init sysfs_sec:lnk_file r_file_perms;

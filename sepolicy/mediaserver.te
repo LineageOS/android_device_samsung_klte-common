@@ -1,2 +1,3 @@
 allow mediaserver sysfs_camera:dir search;
 allow mediaserver sysfs_camera:file { getattr open read };
+allow mediaserver system_file:file execmod; # for libmmjpeg

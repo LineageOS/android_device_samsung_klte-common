@@ -1,4 +1,4 @@
-allow wpa bluetooth_device:chr_file { open read write };
+allow wpa bluetooth_device:chr_file rw_file_perms;
 allow wpa efs_file:dir search;
 allow wpa wifi_efs_file:dir search;
-allow wpa wifi_efs_file:file { open read };
+allow wpa wifi_efs_file:file r_file_perms;

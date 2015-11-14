@@ -1,2 +1,2 @@
-allow bluetooth bluetooth_device:chr_file { open write };
+allow bluetooth bluetooth_device:chr_file rw_file_perms;
 allow bluetooth proc_bluetooth_writable:dir search;
