@@ -1130,8 +1130,6 @@ service macloader /system/bin/macloader
     oneshot
 
 on property:init.svc.macloader=stopped
-    chown system root /data/.cid.info
-    chmod 0664 /data/.cid.info
     chown system root /data/.rev
     chmod 0664 /data/.rev
 
