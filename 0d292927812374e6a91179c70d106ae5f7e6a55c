@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f96bb07_3e9d4959",
+        "filename": "klte.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-08T23:40:04Z",
+      "side": 1,
+      "message": "This should be moved to msm8974-common.",
+      "revId": "0d292927812374e6a91179c70d106ae5f7e6a55c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
