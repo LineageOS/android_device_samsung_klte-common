@@ -61,6 +61,10 @@ PRODUCT_PACKAGES += \
     libstlport \
     libxml2
 
+#Divx
+PRODUCT_PACKAGES += \
+    libdivxdrmdecrypt
+
 # Doze
 PRODUCT_PACKAGES += \
     SamsungDoze
