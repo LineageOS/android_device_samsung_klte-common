@@ -206,10 +206,13 @@ vendor/lib/libthermalioctl.so
 # DRM
 bin/qseecomd
 vendor/lib/drm/libdrmwvmplugin.so
+vendor/lib/lib/libDivxDrm.so
 vendor/lib/libdrmdecrypt.so
 vendor/lib/libdrmdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
+vendor/lib/libmmosal.so
+vendor/lib/libSHIMDivxDrm.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
