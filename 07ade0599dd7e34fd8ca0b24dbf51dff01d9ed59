@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f96bb07_fef5a184",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-09T00:05:34Z",
+      "side": 1,
+      "message": "Commit title should probably read more like \"Re-add libdivxdrmdecrypt dependencies\"",
+      "revId": "07ade0599dd7e34fd8ca0b24dbf51dff01d9ed59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
