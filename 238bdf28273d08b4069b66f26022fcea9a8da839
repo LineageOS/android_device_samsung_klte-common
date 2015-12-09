@@ -16,6 +16,24 @@
       "revId": "238bdf28273d08b4069b66f26022fcea9a8da839",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f96bb07_9e91fdf4",
+        "filename": "sepolicy/bluetooth.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 5531
+      },
+      "writtenOn": "2015-12-09T01:05:06Z",
+      "side": 1,
+      "message": "allow bluetooth wifi_data_file:file r_file_perms;",
+      "parentUuid": "7f96bb07_3eb6a9db",
+      "revId": "238bdf28273d08b4069b66f26022fcea9a8da839",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
