@@ -1019,7 +1019,7 @@ service rmt_storage /system/bin/rmt_storage
 service qmuxd /system/bin/qmuxd
     class core
     user radio
-    group radio audio bluetooth gps qcom_diag log qcom_diag
+    group radio audio bluetooth gps qcom_diag log
 
 service netmgrd /system/bin/netmgrd
     class main
