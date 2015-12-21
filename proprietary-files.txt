@@ -203,6 +203,9 @@ bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
+# Consumerir
+system/lib/hw/consumerir.default.so
+
 # DRM
 bin/qseecomd
 vendor/lib/drm/libdrmwvmplugin.so
