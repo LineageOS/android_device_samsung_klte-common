@@ -3,7 +3,7 @@ type macloader_exec, exec_type, file_type;
 init_daemon_domain(macloader)
 
 allow macloader efs_file:dir search;
-allow macloader self:capability { chown dac_override fowner };
+allow macloader self:capability { chown dac_override fowner fsetid };
 allow macloader wifi_data_file:file create_file_perms;
 allow macloader wifi_efs_file:dir search;
 allow macloader wifi_efs_file:file r_file_perms;
