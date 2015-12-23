@@ -216,6 +216,7 @@ on post-fs-data
     chown system radio /sys/class/sensors/accelerometer_sensor/reactive_alert
     chown system radio /sys/class/sensors/accelerometer_sensor/vendor
     chown system radio /sys/class/sensors/accelerometer_sensor/name
+    chown system radio /sys/class/sensors/accelerometer_sensor/selftest
 
     chown system radio /sys/class/sensors/gyro_sensor/power_on
     chown system radio /sys/class/sensors/gyro_sensor/temperature
@@ -230,6 +231,10 @@ on post-fs-data
     chown system radio /sys/class/sensors/magnetic_sensor/adc
     chown system radio /sys/class/sensors/magnetic_sensor/dac
     chown system radio /sys/class/sensors/magnetic_sensor/status
+    chown system input /dev/alps_io
+    chown system input /system/etc/param.dat
+    chown system input /system/etc/alp_cal.dat
+    chown system system /system/etc/calib_SI_matrix_data_file.dat
 
     chown system radio /sys/class/sensors/proximity_sensor/state
     chown system radio /sys/class/sensors/proximity_sensor/raw_data
@@ -734,6 +739,7 @@ on boot
     chown system input /dev/alps_io
     chown system input /system/etc/param.dat
     chown system input /system/etc/alp_cal.dat
+    chown system system /system/etc/calib_SI_matrix_data_file.dat
 
     # Temphumidity_sensor
     chown system radio /sys/class/sensors/temphumidity_sensor/vendor
@@ -742,6 +748,7 @@ on boot
     chown system radio /sys/class/sensors/temphumidity_sensor/engine_ver2
     chown system radio /sys/class/sensors/temphumidity_sensor/cp_thm
     chown system radio /sys/class/sensors/temphumidity_sensor/send_accuracy
+    chown system radio /sys/class/sensors/temphumidity_sensor/batt_temperature
 
     # Grip_sensor
     chown system radio /sys/class/sensors/grip_sensor/vendor
@@ -763,8 +770,20 @@ on boot
     chown system radio /sys/class/sensors/hrm_sensor/led_current
     chown system radio /sys/class/sensors/hrm_sensor/int_pin_check
     chown system radio /sys/class/sensors/hrm_sensor/lib_ver
+    chown system radio /sys/class/sensors/hrm_sensor/hrm_flush
+    chown system radio /sys/class/sensors/hrm_sensor/eol_lib_ver
+    chown system radio /sys/class/sensors/hrm_sensor/elf_lib_ver
+    chown system radio /sys/class/sensors/hrm_sensor/adpd_reg_read
+    chown system radio /sys/class/sensors/hrm_sensor/adpd_reg_write
+    chown system radio /sys/class/sensors/hrm_sensor/adpd_mode
+    chown system radio /sys/class/sensors/hrm_sensor/adpd_configuration
+    chown system radio /sys/class/sensors/hrm_sensor/adpd_stat
     chown system radio /sys/class/sensors/hrm_sensor/name
     chown system radio /sys/class/sensors/hrm_sensor/vendor
+    chown system radio /sys/class/sensors/hrm_sensor/device_id
+
+    # UV_sensor
+    chown system radio /sys/class/sensors/uv_sensor/raw_data
 
     # SensorHub
     chown system radio /sys/class/sensors/ssp_sensor/enable
@@ -773,16 +792,22 @@ on boot
     chown system radio /sys/class/sensors/ssp_sensor/mcu_test
     chown system radio /sys/class/sensors/ssp_sensor/mcu_reset
     chown system radio /sys/class/sensors/ssp_sensor/mcu_update
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_update2
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_update_ums
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_dump
     chown system radio /sys/class/sensors/ssp_sensor/mcu_sleep_test
     chown system radio /sys/class/sensors/ssp_sensor/ori_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/mag_poll_delay
+    chown system radio /sys/class/sensors/ssp_sensor/uncal_mag_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/temp_humi_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/accel_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/rot_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/game_rot_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/step_det_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/gyro_poll_delay
+    chown system radio /sys/class/sensors/ssp_sensor/uncalib_gyro_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/ssp_flush
+    chown system radio /sys/class/sensors/ssp_sensor/shake_cam
     chmod 0600 /dev/batch_io
     chown system system /dev/batch_io
     chmod 0600 /dev/ssp_sensorhub
