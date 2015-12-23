@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f7f9b97_c0aa2f18",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-23T23:33:35Z",
+      "side": 1,
+      "message": "This can go in ueventd.qcom, also this section is a duplicate of lines 739-742.",
+      "revId": "b26e23b398996f39e52f831c91f1ef3d0d3a4344",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f7f9b97_e0a72b4f",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-23T23:33:35Z",
+      "side": 1,
+      "message": "This is an unrelated change.",
+      "revId": "b26e23b398996f39e52f831c91f1ef3d0d3a4344",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f7f9b97_a0c293e8",
+        "filename": "rootdir/etc/ueventd.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-23T23:33:35Z",
+      "side": 1,
+      "message": "Not sensor related.",
+      "revId": "b26e23b398996f39e52f831c91f1ef3d0d3a4344",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f7f9b97_40b7ff87",
+        "filename": "rootdir/etc/ueventd.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-23T23:33:35Z",
+      "side": 1,
+      "message": "Not sensor related.",
+      "revId": "b26e23b398996f39e52f831c91f1ef3d0d3a4344",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f7f9b97_60bc7b69",
+        "filename": "rootdir/etc/ueventd.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-23T23:33:35Z",
+      "side": 1,
+      "message": "Definitely not sensor related.",
+      "revId": "b26e23b398996f39e52f831c91f1ef3d0d3a4344",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f7f9b97_00b10790",
+        "filename": "rootdir/etc/ueventd.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-23T23:33:35Z",
+      "side": 1,
+      "message": "Not sensor related.",
+      "revId": "b26e23b398996f39e52f831c91f1ef3d0d3a4344",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f7f9b97_20ae832e",
+        "filename": "rootdir/etc/ueventd.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-23T23:33:35Z",
+      "side": 1,
+      "message": "Gah, tabs, be consistent with the rest of the file.",
+      "revId": "b26e23b398996f39e52f831c91f1ef3d0d3a4344",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
