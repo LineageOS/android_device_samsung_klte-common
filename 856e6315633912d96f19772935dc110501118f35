@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f7f9b97_406cdf07",
+        "filename": "system_prop.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-23T23:34:50Z",
+      "side": 1,
+      "message": "This can go in a separate commit with correct authorship. Also, I wasn\u0027t aware 8974 needed this.",
+      "revId": "856e6315633912d96f19772935dc110501118f35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f7f9b97_a067f325",
+        "filename": "system_prop.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-23T23:34:50Z",
+      "side": 1,
+      "message": "Is this relevant for our QMI libraries?",
+      "revId": "856e6315633912d96f19772935dc110501118f35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
