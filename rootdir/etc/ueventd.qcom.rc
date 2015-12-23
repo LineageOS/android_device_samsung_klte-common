@@ -156,7 +156,15 @@
 /dev/tsc_mux0             0660   media       media
 /dev/tsc_ci0              0660   media       media
 
+# NFC
+/dev/bcm2079x             0600   nfc         nfc
+/dev/pn547                0660   nfc         nfc
+
+# Vibrator
+/dev/tspdrv               0660   root        shell
+
 # sensors
+/dev/alps_io              0660   input       system
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
 /sys/devices/f9925000.i2c/i2c-0/0-* enable          0660     input     system
 /sys/devices/f9925000.i2c/i2c-0/0-* poll_delay      0660     input     system
@@ -180,6 +188,7 @@
 /dev/uio2                 0660   system     system
 
 # sensorhub
+/dev/batch_io             0660   system     system
 /dev/ssp_sensorhub        0660   system     system
 /dev/iio:device*		  0660	 system	system
 /sys/devices/f9967000.spi/spi_master/spi32766/spi32766.0/iio:device*   buffer/enable 0660	  system	system
