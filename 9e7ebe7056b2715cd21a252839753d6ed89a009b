@@ -16,6 +16,23 @@
       "revId": "9e7ebe7056b2715cd21a252839753d6ed89a009b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f7f9b97_b353cfe2",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-24T02:07:01Z",
+      "side": 1,
+      "message": "This only configures wifi TCP buffer size, the others are just removed.",
+      "revId": "9e7ebe7056b2715cd21a252839753d6ed89a009b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
