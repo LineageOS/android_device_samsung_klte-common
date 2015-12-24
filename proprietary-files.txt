@@ -204,7 +204,7 @@ vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
 # Consumerir
-system/lib/hw/consumerir.default.so
+lib/hw/consumerir.default.so
 
 # DRM
 bin/qseecomd
