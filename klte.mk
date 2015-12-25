@@ -62,6 +62,14 @@ PRODUCT_PACKAGES += \
     libstlport \
     libxml2
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
+# Allows healthd to boot directly from charger mode rather than initiating a reboot.
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.enable_boot_charger_mode=1
+
 # Doze
 PRODUCT_PACKAGES += \
     SamsungDoze

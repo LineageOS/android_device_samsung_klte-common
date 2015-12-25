@@ -1151,13 +1151,17 @@ on property:sys.boot_completed=1
     # Post boot services
     start mpdecision
 
-service charger /charger
+service charger /sbin/healthd -c
     class charger
+    seclabel u:r:healthd:s0
 
 service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
     class main
     user root
     oneshot
+    
+on charger
+    stop bootlogo
 
 on property:persist.sys.ssr.restart_level=1
     write /sys/module/subsystem_restart/parameters/restart_level 1
