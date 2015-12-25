@@ -44,6 +44,11 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
+# Charger
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_DISABLE_INIT_BLANK := true
+BOARD_HEALTHD_CUSTOM_CHARGER_RES := $(PLATFORM_PATH)/charger/images
+
 # CMHW
 BOARD_HARDWARE_CLASS += device/samsung/klte-common/cmhw
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw

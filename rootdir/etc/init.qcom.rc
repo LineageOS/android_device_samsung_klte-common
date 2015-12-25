@@ -210,53 +210,6 @@ on post-fs-data
     chmod 0775 /efs/.files/.dm33
     chmod 0775 /efs/.files/.mp301
 
-    # sensors
-    chown system radio /sys/class/sensors/accelerometer_sensor/raw_data
-    chown system radio /sys/class/sensors/accelerometer_sensor/calibration
-    chown system radio /sys/class/sensors/accelerometer_sensor/reactive_alert
-    chown system radio /sys/class/sensors/accelerometer_sensor/vendor
-    chown system radio /sys/class/sensors/accelerometer_sensor/name
-
-    chown system radio /sys/class/sensors/gyro_sensor/power_on
-    chown system radio /sys/class/sensors/gyro_sensor/temperature
-    chown system radio /sys/class/sensors/gyro_sensor/vendor
-    chown system radio /sys/class/sensors/gyro_sensor/name
-    chown system radio /sys/class/sensors/gyro_sensor/selftest
-
-    chown system radio /sys/class/sensors/magnetic_sensor/raw_data
-    chown system radio /sys/class/sensors/magnetic_sensor/vendor
-    chown system radio /sys/class/sensors/magnetic_sensor/name
-    chown system radio /sys/class/sensors/magnetic_sensor/selftest
-    chown system radio /sys/class/sensors/magnetic_sensor/adc
-    chown system radio /sys/class/sensors/magnetic_sensor/dac
-    chown system radio /sys/class/sensors/magnetic_sensor/status
-
-    chown system radio /sys/class/sensors/proximity_sensor/state
-    chown system radio /sys/class/sensors/proximity_sensor/raw_data
-    chown system radio /sys/class/sensors/proximity_sensor/prox_avg
-    chown system radio /sys/class/sensors/proximity_sensor/prox_cal
-    chown system radio /sys/class/sensors/proximity_sensor/prox_cal2
-    chown system radio /sys/class/sensors/proximity_sensor/prox_offset_pass
-    chown system radio /sys/class/sensors/proximity_sensor/prox_thresh
-    chown system radio /sys/class/sensors/proximity_sensor/thresh_high
-    chown system radio /sys/class/sensors/proximity_sensor/thresh_low
-    chown system radio /sys/class/sensors/proximity_sensor/vendor
-    chown system radio /sys/class/sensors/proximity_sensor/name
-
-    chown system radio /sys/class/sensors/light_sensor/lux
-    chown system radio /sys/class/sensors/light_sensor/raw_data
-    chown system radio /sys/class/sensors/light_sensor/vendor
-    chown system radio /sys/class/sensors/light_sensor/name
-
-    chown system radio /sys/class/sensors/grip_sensor/reset
-    chown system radio /sys/class/sensors/grip_sensor/raw_data
-    chown system radio /sys/class/sensors/grip_sensor/threshold
-    chown system radio /sys/class/sensors/grip_sensor/calibration
-    chown system radio /sys/class/sensors/grip_sensor/onoff
-    chown system radio /sys/class/sensors/grip_sensor/vendor
-    chown system radio /sys/class/sensors/grip_sensor/name
-    chown system radio /sys/class/sensors/grip_sensor/erase_cal
-
     # h2k permission
     chmod 0644 /efs/redata.bin
     chown radio radio /efs/h2k.dat
@@ -728,12 +681,13 @@ on boot
     chown system radio /sys/class/sensors/magnetic_sensor/selftest
     chown system radio /sys/class/sensors/magnetic_sensor/raw_data
     chown system radio /sys/class/sensors/magnetic_sensor/adc
+    chown system radio /sys/class/sensors/magnetic_sensor/dac
     chown system radio /sys/class/sensors/magnetic_sensor/vendor
     chown system radio /sys/class/sensors/magnetic_sensor/name
     chown system radio /sys/class/sensors/magnetic_sensor/status
-    chown system input /dev/alps_io
     chown system input /system/etc/param.dat
     chown system input /system/etc/alp_cal.dat
+    chown system system /system/etc/calib_SI_matrix_data_file.dat
 
     # Temphumidity_sensor
     chown system radio /sys/class/sensors/temphumidity_sensor/vendor
@@ -742,15 +696,18 @@ on boot
     chown system radio /sys/class/sensors/temphumidity_sensor/engine_ver2
     chown system radio /sys/class/sensors/temphumidity_sensor/cp_thm
     chown system radio /sys/class/sensors/temphumidity_sensor/send_accuracy
+    chown system radio /sys/class/sensors/temphumidity_sensor/batt_temperature
 
     # Grip_sensor
     chown system radio /sys/class/sensors/grip_sensor/vendor
     chown system radio /sys/class/sensors/grip_sensor/name
     chown system radio /sys/class/sensors/grip_sensor/raw_data
+    chown system radio /sys/class/sensors/grip_sensor/reset
     chown system radio /sys/class/sensors/grip_sensor/calibration
     chown system radio /sys/class/sensors/grip_sensor/threshold
     chown system radio /sys/class/sensors/grip_sensor/thresh_touch_check
     chown system radio /sys/class/sensors/grip_sensor/onoff
+    chown system radio /sys/class/sensors/grip_sensor/erase_cal
 
     # HRM_sensor
     chown system radio /sys/class/sensors/hrm_sensor/eol_test
@@ -763,8 +720,20 @@ on boot
     chown system radio /sys/class/sensors/hrm_sensor/led_current
     chown system radio /sys/class/sensors/hrm_sensor/int_pin_check
     chown system radio /sys/class/sensors/hrm_sensor/lib_ver
+    chown system radio /sys/class/sensors/hrm_sensor/hrm_flush
+    chown system radio /sys/class/sensors/hrm_sensor/eol_lib_ver
+    chown system radio /sys/class/sensors/hrm_sensor/elf_lib_ver
+    chown system radio /sys/class/sensors/hrm_sensor/adpd_reg_read
+    chown system radio /sys/class/sensors/hrm_sensor/adpd_reg_write
+    chown system radio /sys/class/sensors/hrm_sensor/adpd_mode
+    chown system radio /sys/class/sensors/hrm_sensor/adpd_configuration
+    chown system radio /sys/class/sensors/hrm_sensor/adpd_stat
     chown system radio /sys/class/sensors/hrm_sensor/name
     chown system radio /sys/class/sensors/hrm_sensor/vendor
+    chown system radio /sys/class/sensors/hrm_sensor/device_id
+
+    # UV_sensor
+    chown system radio /sys/class/sensors/uv_sensor/raw_data
 
     # SensorHub
     chown system radio /sys/class/sensors/ssp_sensor/enable
@@ -773,34 +742,24 @@ on boot
     chown system radio /sys/class/sensors/ssp_sensor/mcu_test
     chown system radio /sys/class/sensors/ssp_sensor/mcu_reset
     chown system radio /sys/class/sensors/ssp_sensor/mcu_update
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_update2
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_update_ums
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_dump
     chown system radio /sys/class/sensors/ssp_sensor/mcu_sleep_test
     chown system radio /sys/class/sensors/ssp_sensor/ori_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/mag_poll_delay
+    chown system radio /sys/class/sensors/ssp_sensor/uncal_mag_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/temp_humi_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/accel_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/rot_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/game_rot_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/step_det_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/gyro_poll_delay
+    chown system radio /sys/class/sensors/ssp_sensor/uncalib_gyro_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/ssp_flush
-    chmod 0600 /dev/batch_io
-    chown system system /dev/batch_io
-    chmod 0600 /dev/ssp_sensorhub
-    chown system system /dev/ssp_sensorhub
+    chown system radio /sys/class/sensors/ssp_sensor/shake_cam
 
     # IIO devices for SensorHub
-    chmod 0600 /dev/iio:device0
-    chown system system /dev/iio:device0
-    chmod 0600 /dev/iio:device1
-    chown system system /dev/iio:device1
-    chmod 0600 /dev/iio:device2
-    chown system system /dev/iio:device2
-    chmod 0600 /dev/iio:device3
-    chown system system /dev/iio:device3
-    chmod 0600 /dev/iio:device4
-    chown system system /dev/iio:device4
-    chmod 0600 /dev/iio:device5
-    chown system system /dev/iio:device5
     chown system system /sys/bus/iio/devices/iio:device0/buffer/length
     chown system system /sys/bus/iio/devices/iio:device0/buffer/enable
     chown system system /sys/bus/iio/devices/iio:device1/buffer/length
@@ -841,13 +800,9 @@ on boot
     chown system radio /sys/class/sec/sec_barcode_emul/barcode_ver_check
 
     # NFC_NXP
-    chmod 0660 /dev/pn547
-    chown nfc nfc /dev/pn547
     symlink /dev/pn547 /dev/pn544
 
     # NFC_BROADCOM
-    chmod 0600 /dev/bcm2079x
-    chown nfc nfc /dev/bcm2079x
     mkdir /data/nfc
     mkdir /data/nfc/param
     chmod 0700 /data/nfc
@@ -902,8 +857,6 @@ on boot
     mkdir /data/misc/radio/hatp 0775 radio system
 
     # Vibetonz
-    chmod 0660 /dev/tspdrv
-    chown root shell /dev/tspdrv
     chown system system /sys/class/timed_output/vibrator/pwm_value
     chmod 0660 /sys/class/timed_output/vibrator/pwm_value
     chown system system /sys/class/timed_output/vibrator/pwm_max
@@ -1198,13 +1151,17 @@ on property:sys.boot_completed=1
     # Post boot services
     start mpdecision
 
-service charger /charger
+service charger /sbin/healthd -c
     class charger
+    seclabel u:r:healthd:s0
 
 service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
     class main
     user root
     oneshot
+    
+on charger
+    stop bootlogo
 
 on property:persist.sys.ssr.restart_level=1
     write /sys/module/subsystem_restart/parameters/restart_level 1
