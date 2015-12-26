@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f7f9b97_872d2948",
+        "filename": "sepolicy/healthd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-12-26T03:57:18Z",
+      "side": 1,
+      "message": "Woah, this is excessively broad. Also, shouldn\u0027t these be common to all QC devices?",
+      "revId": "279607a2ca3b9e8b0f79ec8eda7bd7ec250fc14f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
