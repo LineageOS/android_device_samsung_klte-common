@@ -1,1 +1,2 @@
 genfscon proc /bluetooth/sleep u:object_r:proc_bluetooth_writable:s0
+genfscon exfat / u:object_r:sdcard_external:s0
