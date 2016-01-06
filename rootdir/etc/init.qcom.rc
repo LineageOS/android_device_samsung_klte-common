@@ -59,6 +59,10 @@ on fs
     write /sys/kernel/boot_adsp/boot 1
     setprop qcom.audio.init complete
 
+    # Adaptive LMK
+    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+
 on post-fs
     # for controlling write performance boosting
     chown system radio /sys/block/mmcblk0/bkops_en
