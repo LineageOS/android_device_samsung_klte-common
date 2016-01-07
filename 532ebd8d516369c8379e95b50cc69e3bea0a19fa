@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_4d3ae7e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-07T02:26:16Z",
+      "side": 1,
+      "message": "adaptive",
+      "revId": "532ebd8d516369c8379e95b50cc69e3bea0a19fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fce034c_ad358bf9",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-07T02:26:16Z",
+      "side": 1,
+      "message": "Trailing whitespace",
+      "revId": "532ebd8d516369c8379e95b50cc69e3bea0a19fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
