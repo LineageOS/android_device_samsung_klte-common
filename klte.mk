@@ -61,7 +61,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     camera.msm8974 \
     libstlport \
-    libxml2
+    libxml2 \
+    Snap
 
 # Doze
 PRODUCT_PACKAGES += \
