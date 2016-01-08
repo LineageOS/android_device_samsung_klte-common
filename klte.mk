@@ -58,6 +58,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    Snap \
     camera.msm8974 \
     libstlport \
     libxml2
