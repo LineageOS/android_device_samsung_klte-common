@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_be8e0c25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-09T01:44:02Z",
+      "side": 1,
+      "message": "s/add/use",
+      "revId": "eb5f1b6a6d65edd6b46da6d4f4a157eb9558231f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fce034c_1e740035",
+        "filename": "klte.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-09T01:44:02Z",
+      "side": 1,
+      "message": "S comes after L",
+      "revId": "eb5f1b6a6d65edd6b46da6d4f4a157eb9558231f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
