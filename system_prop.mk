@@ -15,7 +15,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.pcm.24bit.enable=true \
     av.streaming.offload.enable=true \
     audio.offload.multiple.enabled=false \
-    mm.enable.smoothstreaming=true
+    mm.enable.smoothstreaming=true \
+    audio.deep_buffer.media=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
