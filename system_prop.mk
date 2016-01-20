@@ -4,13 +4,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    av.offload.enable=false \
+    audio.offload.video=true \
     persist.audio.fluence.speaker=true \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=false \
     ro.qc.sdk.audio.fluencetype=fluence \
     use.voice.path.for.pcm.voip=false \
-    use.dedicated.device.for.voip=true
+    use.dedicated.device.for.voip=true \
+    audio.offload.pcm.16bit.enable=true \
+    audio.offload.pcm.24bit.enable=true \
+    av.streaming.offload.enable=true \
+    audio.offload.multiple.enabled=false \
+    mm.enable.smoothstreaming=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
