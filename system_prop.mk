@@ -4,6 +4,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
+    af.fast_track_multiplier=1 \
     av.offload.enable=false \
     persist.audio.fluence.speaker=true \
     persist.audio.fluence.voicecall=true \
