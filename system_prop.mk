@@ -12,7 +12,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype=fluence \
     use.voice.path.for.pcm.voip=false \
     use.dedicated.device.for.voip=true \
-    audio.deep_buffer.media=true
+    audio.deep_buffer.media=true \
+    audio.offload.pcm.16bit.enable=true \
+    audio.offload.pcm.24bit.enable=true \
+    audio.offload.multiple.enabled=false \
+    audio.offload.buffer.size.kb=32
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
