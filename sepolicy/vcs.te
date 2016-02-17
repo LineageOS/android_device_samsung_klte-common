@@ -1,0 +1,37 @@
+type vcs, domain;
+type vcs_exec, exec_type, file_type;
+type vcs_data_file, file_type, data_file_type;
+type validity_device, dev_type;
+type vfsspi_device, dev_type;
+
+# vcs
+init_daemon_domain(vcs)
+binder_use(vcs)
+
+allow fingerprintd system_app:unix_stream_socket { connectto read write setopt };
+
+allow vcs system_app:process signull;
+allow vcs vcs_data_file:dir create_dir_perms;
+allow vcs vcs_data_file:file create_file_perms;
+
+allow vcs validity_device:dir create_dir_perms;
+allow vcs validity_device:file create_file_perms;
+allow vcs validity_device:fifo_file create_file_perms;
+
+allow vcs vfsspi_device:chr_file create_file_perms;
+
+allow system_app vcs:process signull;
+allow system_app vcs_data_file:dir r_dir_perms;
+allow system_app vcs_data_file:file r_file_perms;
+
+allow system_app validity_device:dir r_dir_perms;
+allow system_app validity_device:file r_file_perms;
+allow system_app validity_device:fifo_file create_file_perms;
+
+allow vcs tee_device:chr_file create_file_perms;
+allow vcs firmware_file:dir r_dir_perms;
+allow vcs firmware_file:file r_file_perms;
+
+allow ueventd vfsspi_device:chr_file create_file_perms;
+allow tee vcs_data_file:dir create_dir_perms;
+allow tee vcs_data_file:file create_file_perms;

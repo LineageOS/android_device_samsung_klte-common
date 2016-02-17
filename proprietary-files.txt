@@ -221,6 +221,14 @@ vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
+# Fingerprint
+bin/vcsFPService
+lib/libfpasmtztransport.so
+lib/libvalAuth.so
+lib/libvcsfp.so
+lib/libvfmClient.so
+lib/libvfmtztransport.so
+
 # Graphics
 vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/libEGL_adreno.so
