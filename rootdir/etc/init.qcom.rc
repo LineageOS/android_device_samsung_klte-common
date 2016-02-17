@@ -438,7 +438,11 @@ on boot
     chown system system /sys/class/input/input0/enabled
 
     # Fingerprint
-    mkdir /dev/validity 0775 system system
+    mkdir /dev/validity 0770 system system
+    mkdir /data/validity 0770 system system
+
+    # Fingerprint_sensor
+    chown system radio /sys/class/fingerprint/fingerprint/type_check
 
     # SEC DVFS sysfs node
     chown radio system /sys/power/cpufreq_max_limit
@@ -929,6 +933,11 @@ service adsprpcd /system/bin/adsprpcd
     user media
     group media
 
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group input
+
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class main
     user camera
@@ -1163,6 +1172,12 @@ service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
     class main
     user root
     oneshot
+
+# SENSOR FRAMEWORK : starts fingerprintService
+service vcsFPService /system/bin/vcsFPService
+    class late_start
+    user system
+    group system
 
 on property:persist.sys.ssr.restart_level=1
     write /sys/module/subsystem_restart/parameters/restart_level 1
