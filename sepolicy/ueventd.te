@@ -1,3 +1,4 @@
 allow ueventd sysfs_camera:file rw_file_perms;
 allow ueventd sysfs_sec:file rw_file_perms;
 allow ueventd sysfs_vibeamp:file rw_file_perms;
+allow ueventd vcs_device:chr_file create_file_perms;
