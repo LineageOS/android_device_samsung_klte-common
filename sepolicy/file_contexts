@@ -19,6 +19,12 @@
 # EFS
 /dev/block/bootdevice/by-name/efs                       u:object_r:modem_efs_partition_device:s0
 
+# Fingerprint
+/system/bin/vcsFPService                                u:object_r:vcs_exec:s0
+/data/validity(/.*)?                                    u:object_r:vcs_data_file:s0
+/dev/validity(/.*)?                                     u:object_r:vcs_device:s0
+/dev/vfsspi                                             u:object_r:vcs_device:s0
+
 # Macloader
 /system/bin/macloader                                   u:object_r:macloader_exec:s0
 
