@@ -147,6 +147,9 @@
 /dev/ttyGS0               0660   system     system
 /dev/i2c-5                0660   media       media
 
+# Fingerprint
+/dev/vfsspi               0660   system     system
+
 # DVB devices
 /dev/dvb/adapter0/demux*  0440   media       media
 /dev/dvb/adapter0/dvr*    0660   media       media

@@ -438,7 +438,11 @@ on boot
     chown system system /sys/class/input/input0/enabled
 
     # Fingerprint
-    mkdir /dev/validity 0775 system system
+    mkdir /dev/validity 0770 system system
+    mkdir /data/validity 0770 system system
+
+    # Fingerprint_sensor
+    chown system radio /sys/class/fingerprint/fingerprint/type_check
 
     # SEC DVFS sysfs node
     chown radio system /sys/power/cpufreq_max_limit
@@ -923,6 +927,17 @@ on boot
     restorecon /efs/gyro_cal_data
 
 # Services begin here
+
+# SENSOR FRAMEWORK : starts fingerprintService
+service vcsFPService /system/bin/vcsFPService
+    class late_start
+    user system
+    group system
+
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group input
 
 service adsprpcd /system/bin/adsprpcd
     class main

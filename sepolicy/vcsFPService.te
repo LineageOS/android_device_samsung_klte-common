@@ -1,0 +1,28 @@
+type vcsFPService, domain;
+type vcsFPService_exec, exec_type, file_type;
+type vcsFPService_data_file, file_type, data_file_type;
+
+# vcsFPService
+init_daemon_domain(vcsFPService)
+binder_use(vcsFPService)
+
+allow fingerprintd system_app:unix_stream_socket { connectto read write setopt };
+
+allow vcsFPService vcsFPService_data_file:dir create_dir_perms;
+allow vcsFPService vcsFPService_data_file:file create_file_perms;
+allow vcsFPService vcsFPService_data_file:chr_file create_file_perms;
+allow vcsFPService vcsFPService_data_file:fifo_file create_file_perms;
+allow vcsFPService system_app:process signull;
+
+allow system_app vcsFPService_data_file:dir r_dir_perms;
+allow system_app vcsFPService_data_file:file r_file_perms;
+allow system_app vcsFPService_data_file:fifo_file create_file_perms;
+allow system_app vcsFPService:process signull;
+
+allow vcsFPService tee_device:chr_file create_file_perms;
+allow vcsFPService firmware_file:dir r_dir_perms;
+allow vcsFPService firmware_file:file r_file_perms;
+
+allow ueventd vcsFPService_data_file:chr_file create_file_perms;
+allow tee vcsFPService_data_file:dir create_dir_perms;
+allow tee vcsFPService_data_file:file create_file_perms;
