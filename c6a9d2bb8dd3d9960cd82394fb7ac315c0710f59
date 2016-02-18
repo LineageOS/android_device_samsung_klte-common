@@ -59,6 +59,24 @@
     },
     {
       "key": {
+        "uuid": "ffb9cba7_0eedb2ee",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 7134
+      },
+      "writtenOn": "2016-02-18T07:00:38Z",
+      "side": 1,
+      "message": "/dev/validity will not be make by kernel so we should mkdir it.",
+      "parentUuid": "ffb9cba7_ce2c7a9b",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffb9cba7_ae27c6b6",
         "filename": "rootdir/etc/init.qcom.rc",
         "patchSetId": 1
