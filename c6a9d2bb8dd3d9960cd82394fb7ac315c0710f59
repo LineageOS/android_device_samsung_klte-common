@@ -179,6 +179,24 @@
     },
     {
       "key": {
+        "uuid": "ffb9cba7_69b1c8e1",
+        "filename": "validityservice/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "Yes, as he moved the code into the application object (see android:name above). A better approach IMHO would be starting the service in the boot completed receiver and letting the application object alone.",
+      "parentUuid": "ffb9cba7_4e388ad2",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffb9cba7_ee34dee0",
         "filename": "validityservice/res/values-zh-rCN/strings.xml",
         "patchSetId": 1
@@ -196,6 +214,58 @@
     },
     {
       "key": {
+        "uuid": "ffb9cba7_c9bc74bd",
+        "filename": "validityservice/res/values-zh-rCN/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "I\u0027d rather vote for nuking this file completely and letting Crowdin do the job.",
+      "parentUuid": "ffb9cba7_ee34dee0",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_c9e1d4d2",
+        "filename": "validityservice/src/com/validity/fingerprint/ConfigReader.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "This class is unused.",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_69e6a8eb",
+        "filename": "validityservice/src/com/validity/fingerprint/ConsumerInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "This class is essentially unused (after removing the unused methods in FingerprintCore that use it)",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffb9cba7_ae4ca676",
         "filename": "validityservice/src/com/validity/fingerprint/EnrollUser.java",
         "patchSetId": 1
@@ -207,6 +277,227 @@
       "writtenOn": "2016-02-18T04:15:57Z",
       "side": 1,
       "message": "Whitespace",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_89ebdcae",
+        "filename": "validityservice/src/com/validity/fingerprint/SecurityPolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "This class seems unused.",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_29d0b0f7",
+        "filename": "validityservice/src/com/validity/fingerprint/SensorInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "This class seems unused.",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_49cde45b",
+        "filename": "validityservice/src/com/validity/fingerprint/SensorTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "This class seems unused.",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_e9d93822",
+        "filename": "validityservice/src/com/validity/fingerprint/SensorTestSNRInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "This class seems unused.",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_09d7ecef",
+        "filename": "validityservice/src/com/validity/fingerprint/VLog.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "All of those indirections seem a little pointless - why not call Log.* directly?",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_49c88454",
+        "filename": "validityservice/src/com/validity/fingerprint/ValidityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "The whole class needs a lot of coding style overhaul: http://source.android.com/source/code-style.html#java-style-rules",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_29cbd053",
+        "filename": "validityservice/src/com/validity/fingerprint/ValidityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "Isn\u0027t this variable essentially used as a boolean?",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_e9c4d842",
+        "filename": "validityservice/src/com/validity/fingerprint/ValidityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "You\u0027ll probably land here in case fingerprintd (and your HAL) dies, in which case you want to close/stop the thread and the streams.",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_a9dca018",
+        "filename": "validityservice/src/com/validity/fingerprint/ValidityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "Better init str with null (and rename it to \u0027response\u0027 or something like that) and check for it being !\u003d null here.",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_09c28c34",
+        "filename": "validityservice/src/com/validity/fingerprint/ValidityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "Stream closing missing here (in a finally block) - or rather keep the OutputStreamWriter in a member variable of the class and shut it down in the IOException case mentioned above",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_a905807c",
+        "filename": "validityservice/src/com/validity/fingerprint/VcsData.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "This class seems unused",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_c90a3489",
+        "filename": "validityservice/src/com/validity/fingerprint/VcsStringArray.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "This class is essentially unused when removing the unused getUserList method from FingerprintCore",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_69ff8867",
+        "filename": "validityservice/src/com/validity/fingerprint/VcsTemplateIds.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-02-18T15:40:50Z",
+      "side": 1,
+      "message": "This class is essentially unused when removing the unused getEnrolledTemplateIdByFinger and getEnrolledTemplateIds methods from FingerprintCore.",
       "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
