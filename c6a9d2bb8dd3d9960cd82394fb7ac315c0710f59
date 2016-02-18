@@ -42,6 +42,40 @@
     },
     {
       "key": {
+        "uuid": "ffb9cba7_ce2c7a9b",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-18T04:15:57Z",
+      "side": 1,
+      "message": "mkdir? Is this supposed to be a chown?",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_ae27c6b6",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-18T04:15:57Z",
+      "side": 1,
+      "message": "Services are alphabetized, place these in the correct locations.",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffb9cba7_53d91581",
         "filename": "sepolicy/file_contexts",
         "patchSetId": 1
@@ -53,6 +87,108 @@
       "writtenOn": "2016-02-18T01:15:59Z",
       "side": 1,
       "message": "no tabs",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_6e21ce9f",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-18T04:15:57Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be a data file, these are typically devices, and should not be labeled as data. It\u0027s also weird to have camel case in the SELinux label. You should consider using the existing formatting (underscores).",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_8e2682b7",
+        "filename": "validityservice/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-18T04:15:57Z",
+      "side": 1,
+      "message": "2016",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_2e3bd6d1",
+        "filename": "validityservice/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-18T04:15:57Z",
+      "side": 1,
+      "message": "2016",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_4e388ad2",
+        "filename": "validityservice/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-18T04:15:57Z",
+      "side": 1,
+      "message": "This is commented out...?",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_ee34dee0",
+        "filename": "validityservice/res/values-zh-rCN/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-18T04:15:57Z",
+      "side": 1,
+      "message": "2016",
+      "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_ae4ca676",
+        "filename": "validityservice/src/com/validity/fingerprint/EnrollUser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-18T04:15:57Z",
+      "side": 1,
+      "message": "Whitespace",
       "revId": "c6a9d2bb8dd3d9960cd82394fb7ac315c0710f59",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
