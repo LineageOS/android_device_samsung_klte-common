@@ -20,4 +20,6 @@
 
 #define BTM_DEF_LOCAL_NAME   "Samsung Galaxy S5"
 
+#define BTM_WBS_INCLUDED TRUE
+
 #endif
