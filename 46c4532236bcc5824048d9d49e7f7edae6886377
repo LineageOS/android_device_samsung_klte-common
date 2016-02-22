@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_fb27b7b5",
+        "filename": "validityservice/src/com/validity/fingerprint/ValidityService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-22T03:58:46Z",
+      "side": 1,
+      "message": "You shouldn\u0027t use _, you use camel case for the member variables.",
+      "revId": "46c4532236bcc5824048d9d49e7f7edae6886377",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
