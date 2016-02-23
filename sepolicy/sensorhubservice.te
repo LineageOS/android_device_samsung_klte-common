@@ -1,0 +1,12 @@
+type sensorhubservice, domain;
+type sensorhubservice_exec, exec_type, file_type;
+
+init_daemon_domain(sensorhubservice)
+
+binder_use(sensorhubservice)
+
+allow sensorhubservice self:process execmem;
+allow sensorhubservice sensorhub_service:service_manager add;
+allow sensorhubservice input_device:dir r_dir_perms;
+allow sensorhubservice input_device:chr_file rw_file_perms;
+allow sensorhubservice sensorhub_dev:chr_file rw_file_perms;

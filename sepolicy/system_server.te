@@ -1,5 +1,6 @@
 allow system_server efs_file:dir search;
 allow system_server sensors_efs_file:file r_file_perms;
+allow system_server sensorhub_dev:chr_file r_file_perms;
 allow system_server sysfs_display:file rw_file_perms;
 allow system_server sysfs_sec:dir search;
 allow system_server sysfs_sec:file rw_file_perms;

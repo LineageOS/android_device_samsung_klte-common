@@ -41,6 +41,7 @@
 /efs/FactoryApp/baro_delta                              u:object_r:sensors_efs_file:s0
 /efs/gyro_cal_data                                      u:object_r:sensors_efs_file:s0
 /efs/prox_cal                                           u:object_r:sensors_efs_file:s0
+/system/bin/sensorhubservice                            u:object_r:sensorhubservice_exec:s0
 
 # Thermal
 /system/bin/thermal-engine                              u:object_r:thermal-engine_exec:s0

@@ -287,6 +287,13 @@ vendor/lib/libxml.so
 lib/hw/sensors.msm8974.so
 lib/libhr.so
 
+### Sensorhub
+bin/sensorhubservice
+lib/libgnustl_shared.so
+lib/libsensorhub.so
+lib/libsensorhubservice.so
+lib/hw/sensorhubs.msm8974.so
+
 # Time services
 -app/TimeService/TimeService.apk
 bin/time_daemon
