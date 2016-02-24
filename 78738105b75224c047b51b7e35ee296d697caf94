@@ -16,6 +16,40 @@
       "revId": "78738105b75224c047b51b7e35ee296d697caf94",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_e364e9bb",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-24T01:03:45Z",
+      "side": 1,
+      "message": "This definitely should not be labeled as \"system_file\". You\u0027ll want to define your own domain here.",
+      "revId": "78738105b75224c047b51b7e35ee296d697caf94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_83596dff",
+        "filename": "sepolicy/init.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-24T01:03:45Z",
+      "side": 1,
+      "message": "Don\u0027t do this. This is wrong.",
+      "revId": "78738105b75224c047b51b7e35ee296d697caf94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
