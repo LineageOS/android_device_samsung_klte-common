@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_03549dc9",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-24T01:02:53Z",
+      "side": 1,
+      "message": "Don\u0027t need this whitespace change",
+      "revId": "78738105b75224c047b51b7e35ee296d697caf94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
