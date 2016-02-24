@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_86aadb82",
+        "filename": "validityservice/src/com/validity/fingerprint/Fingerprint.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-24T02:38:36Z",
+      "side": 1,
+      "message": "Can this be merged into FingerprintCore as well? The inheritance setup is a little weird to me.",
+      "range": {
+        "startLine": 24,
+        "startChar": 33,
+        "endLine": 24,
+        "endChar": 48
+      },
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_e6a5d7b6",
+        "filename": "validityservice/src/com/validity/fingerprint/FingerprintCore.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-24T02:38:36Z",
+      "side": 1,
+      "message": "This is weird, any reason you need a separate VcsEvents class, instead of placing the constants in this class?",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 46
+      },
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_c6a0d3a8",
+        "filename": "validityservice/src/com/validity/fingerprint/VcsByteArray.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-24T02:38:36Z",
+      "side": 1,
+      "message": "Same here, why not just use byte[] ?",
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_06c90b77",
+        "filename": "validityservice/src/com/validity/fingerprint/VcsInt.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-24T02:38:36Z",
+      "side": 1,
+      "message": "Is there a reason you can\u0027t just use an int instead of this class?",
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_66cc8789",
+        "filename": "validityservice/src/com/validity/fingerprint/VcsStringArray.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-24T02:38:36Z",
+      "side": 1,
+      "message": "Is there some reason you can\u0027t just use a regular string array instead of this class?",
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
