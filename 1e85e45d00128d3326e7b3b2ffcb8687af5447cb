@@ -2,6 +2,148 @@
   "comments": [
     {
       "key": {
+        "uuid": "ffb9cba7_d7e87f17",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-25T04:44:44Z",
+      "side": 1,
+      "message": "You may want to just have a vcs_device type, and label both /dev/validity and /dev/vfsspi as vcs_device to simplify your rules.",
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_97f20706",
+        "filename": "sepolicy/vcs.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-25T04:44:44Z",
+      "side": 1,
+      "message": "vcs_data_file and the below dev_types should go in file.te",
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_f7ed8325",
+        "filename": "sepolicy/vcs.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-25T04:44:44Z",
+      "side": 1,
+      "message": "You probably want to put this in fingerprintd.te",
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_b7f70bf6",
+        "filename": "sepolicy/vcs.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-25T04:44:44Z",
+      "side": 1,
+      "message": "These should go in system_app.te",
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_17e61746",
+        "filename": "sepolicy/vcs.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-25T04:44:44Z",
+      "side": 1,
+      "message": "Allow create_file_perms for chr_file is weird. What tee_device is this creating? Maybe you want a type_transition to a vcs device file type instead?",
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_57dc8f73",
+        "filename": "sepolicy/vcs.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-25T04:44:44Z",
+      "side": 1,
+      "message": "Should go in ueventd.te",
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_77d99381",
+        "filename": "sepolicy/vcs.te",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-25T04:44:44Z",
+      "side": 1,
+      "message": "Should go in tee.te. What is labeled as \u0027tee\u0027 that is requesting this?",
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_f7d6e34f",
+        "filename": "validityservice/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-02-25T04:44:44Z",
+      "side": 1,
+      "message": "Duplicate of line 20",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "1e85e45d00128d3326e7b3b2ffcb8687af5447cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffb9cba7_86aadb82",
         "filename": "validityservice/src/com/validity/fingerprint/Fingerprint.java",
         "patchSetId": 5
