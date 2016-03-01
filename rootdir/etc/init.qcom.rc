@@ -126,7 +126,7 @@ on post-fs-data
     chmod 0664 /sys/class/leds/button-backlight/max_brightness
 
     # Torch
-    chmod 0660 /sys/class/leds/torch-sec1/brightness
+    chmod 0666 /sys/class/leds/torch-sec1/brightness
     chown system camera /sys/class/leds/torch-sec1/brightness
 
     # Touchscreen
