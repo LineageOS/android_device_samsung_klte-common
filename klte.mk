@@ -131,7 +131,6 @@ PRODUCT_PACKAGES += \
     macloader
 
 PRODUCT_PACKAGES += \
-    dhcpcd.conf \
     hostapd.accept \
     hostapd.deny \
     hostapd \
