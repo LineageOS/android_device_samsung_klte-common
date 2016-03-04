@@ -22,11 +22,7 @@ import java.io.File;
 
 public class VibratorHW {
 
-    private static String LEVEL_PATH = "/sys/class/timed_output/vibrator/pwm_value";
-    private static String LEVEL_MAX_PATH = "/sys/class/timed_output/vibrator/pwm_max";
-    private static String LEVEL_MIN_PATH = "/sys/class/timed_output/vibrator/pwm_min";
-    private static String LEVEL_DEFAULT_PATH = "/sys/class/timed_output/vibrator/pwm_default";
-    private static String LEVEL_THRESHOLD_PATH = "/sys/class/timed_output/vibrator/pwm_threshold";
+    private static String LEVEL_PATH = "/sys/class/timed_output/vibrator/intensity";
 
     public static boolean isSupported() {
         File f = new File(LEVEL_PATH);
@@ -34,62 +30,31 @@ public class VibratorHW {
     }
 
     public static int getMaxIntensity()  {
-        File f = new File(LEVEL_MAX_PATH);
-
-        if(f.exists()) {
-            return Integer.parseInt(FileUtils.readOneLine(LEVEL_MAX_PATH));
-        } else {
-            return 100;
-        }
+        return 10000;
     }
 
     public static int getMinIntensity()  {
-        File f = new File(LEVEL_MIN_PATH);
-
-        if(f.exists()) {
-            return Integer.parseInt(FileUtils.readOneLine(LEVEL_MIN_PATH));
-        } else {
-            return 0;
-        }
+        return 0;
     }
 
     public static int getWarningThreshold()  {
-        File f = new File(LEVEL_THRESHOLD_PATH);
-
-        if(f.exists()) {
-            return Integer.parseInt(FileUtils.readOneLine(LEVEL_THRESHOLD_PATH));
-        } else {
-            return 75;
-        }
+        return 9000;
     }
 
     public static int getCurIntensity()  {
         File f = new File(LEVEL_PATH);
+        String actualIntensity = FileUtils.readOneLine(LEVEL_PATH).replace("intensity: ", "");
 
-        if(f.exists()) {
-            return Integer.parseInt(FileUtils.readOneLine(LEVEL_PATH));
-        } else {
-            return 0;
-        }
+        return f.exists() ? Integer.parseInt(actualIntensity) : 0;
     }
 
     public static int getDefaultIntensity()  {
-        File f = new File(LEVEL_DEFAULT_PATH);
-
-        if(f.exists()) {
-            return Integer.parseInt(FileUtils.readOneLine(LEVEL_DEFAULT_PATH));
-        } else {
-            return 50;
-        }
+        return 7500;
     }
 
     public static boolean setIntensity(int intensity)  {
         File f = new File(LEVEL_PATH);
 
-        if(f.exists()) {
-            return FileUtils.writeLine(LEVEL_PATH, String.valueOf(intensity));
-        } else {
-            return false;
-        }
+        return f.exists() && FileUtils.writeLine(LEVEL_PATH, String.valueOf(intensity));
     }
 }
