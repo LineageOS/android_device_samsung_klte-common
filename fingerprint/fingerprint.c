@@ -373,12 +373,12 @@ static int fingerprint_remove(struct fingerprint_device *device,
     if (fid == 0) {
         // Delete all fingerprints
         command[2] = 21;
+        int fingermask = getfingermask(vdev);
         pthread_mutex_lock(&vdev->lock);
         ret = sendcommand(vdev, command, 3);
         pthread_mutex_unlock(&vdev->lock);
         if (ret == 0){
             pthread_mutex_lock(&vdev->lock);
-            int fingermask = getfingermask(vdev);
             pthread_mutex_unlock(&vdev->lock);
             int idx = 0;
             for (idx = 0; idx < MAX_NUM_FINGERS; idx++)
@@ -396,10 +396,8 @@ static int fingerprint_remove(struct fingerprint_device *device,
         vdev->listener.state = STATE_IDLE;
         pthread_mutex_unlock(&vdev->lock);
 
-        if (ret == 0) {
-            send_remove_notice(vdev, fid);
-        }
-
+        // Always send remove notice
+        send_remove_notice(vdev, fid);
     }
     pthread_mutex_lock(&vdev->lock);
 
