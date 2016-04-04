@@ -1083,12 +1083,6 @@ on property:init.svc.macloader=stopped
     chown system root /data/.rev
     chmod 0664 /data/.rev
 
-service wifi-crda /system/bin/sh /system/etc/init.crda.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-
 on property:sys.boot_completed=1
     setprop sys.io.scheduler bfq
 
