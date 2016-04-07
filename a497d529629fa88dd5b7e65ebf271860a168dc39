@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_b8c28c84",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-07T16:10:23Z",
+      "side": 1,
+      "message": "This is default for ext4",
+      "range": {
+        "startLine": 11,
+        "startChar": 97,
+        "endLine": 11,
+        "endChar": 106
+      },
+      "revId": "a497d529629fa88dd5b7e65ebf271860a168dc39",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_58bfd8fa",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-07T16:10:23Z",
+      "side": 1,
+      "message": "This is default for ext4",
+      "range": {
+        "startLine": 11,
+        "startChar": 107,
+        "endLine": 11,
+        "endChar": 119
+      },
+      "revId": "a497d529629fa88dd5b7e65ebf271860a168dc39",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
