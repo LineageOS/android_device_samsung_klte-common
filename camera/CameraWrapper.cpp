@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014, The CyanogenMod Project
+ * Copyright (C) 2016, The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@
 #include <hardware/hardware.h>
 #include <hardware/camera.h>
 #include <camera/Camera.h>
-#include <camera/CameraParameters.h>
+#include <camera/CameraParameters2.h>
 
 static android::Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
@@ -40,7 +40,6 @@ static char **fixed_set_params = NULL;
 
 static int camera_device_open(const hw_module_t *module, const char *name,
                 hw_device_t **device);
-static int camera_device_close(hw_device_t *device);
 static int camera_get_number_of_cameras(void);
 static int camera_get_camera_info(int camera_id, struct camera_info *info);
 
@@ -105,7 +104,7 @@ static int check_vendor_module()
 // framework has no idea what it is
 #define PIXEL_FORMAT_NV12_VENUS "nv12-venus"
 
-static bool is_4k_video(android::CameraParameters &params) {
+static bool is4k(android::CameraParameters2 &params) {
     int video_width, video_height;
     params.getVideoSize(&video_width, &video_height);
     ALOGV("%s : VideoSize is %x", __FUNCTION__, video_width * video_height);
@@ -115,7 +114,7 @@ static bool is_4k_video(android::CameraParameters &params) {
 static char *camera_fixup_getparams(int __attribute__((unused)) id,
     const char *settings)
 {
-    android::CameraParameters params;
+    android::CameraParameters2 params;
     params.unflatten(android::String8(settings));
 
 #if !LOG_NDEBUG
@@ -160,7 +159,7 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
 
 static char *camera_fixup_setparams(int id, const char *settings)
 {
-    android::CameraParameters params;
+    android::CameraParameters2 params;
     params.unflatten(android::String8(settings));
 
 #if !LOG_NDEBUG
@@ -315,10 +314,10 @@ static int camera_start_recording(struct camera_device *device)
     if (!device)
         return EINVAL;
 
-    android::CameraParameters parameters;
+    android::CameraParameters2 parameters;
     parameters.unflatten(android::String8(camera_get_parameters(device)));
 
-    if (is_4k_video(parameters)) {
+    if (is4k(parameters)) {
         ALOGV("%s : UHD detected, switching preview-format to nv12-venus", __FUNCTION__);
         parameters.setPreviewFormat(PIXEL_FORMAT_NV12_VENUS);
         camera_set_parameters(device, strdup(parameters.flatten().string()));
