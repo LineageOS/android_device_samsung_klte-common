@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_94e9941b",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-11T19:41:33Z",
+      "side": 0,
+      "message": "I\u0027m OK with yanking this out, it\u0027s regarded as slightly dangerous anyway.",
+      "range": {
+        "startLine": 11,
+        "startChar": 113,
+        "endLine": 11,
+        "endChar": 133
+      },
+      "revId": "2fdf05cb9c2d3278dc3b863f4fc200978bcf1876",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

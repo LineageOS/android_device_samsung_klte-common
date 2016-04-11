@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_7481784a",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-11T19:41:33Z",
+      "side": 1,
+      "message": "f2fs defaults background_gc to on",
+      "range": {
+        "startLine": 10,
+        "startChar": 108,
+        "endLine": 10,
+        "endChar": 124
+      },
+      "revId": "124a65907f512867969206a80d69cbb19ba319f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_d4914c9b",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-11T19:41:33Z",
+      "side": 1,
+      "message": "nodiratime is implied by noatime",
+      "range": {
+        "startLine": 10,
+        "startChar": 97,
+        "endLine": 10,
+        "endChar": 107
+      },
+      "revId": "124a65907f512867969206a80d69cbb19ba319f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_f48c8880",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-11T19:41:33Z",
+      "side": 1,
+      "message": "If we\u0027re modifying this, maybe we don\u0027t want to panic on error? ;)",
+      "range": {
+        "startLine": 11,
+        "startChar": 113,
+        "endLine": 11,
+        "endChar": 125
+      },
+      "revId": "124a65907f512867969206a80d69cbb19ba319f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_b4ecd029",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-11T19:41:33Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 12,
+        "startChar": 97,
+        "endLine": 12,
+        "endChar": 124
+      },
+      "revId": "124a65907f512867969206a80d69cbb19ba319f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_34d8e07d",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-11T19:41:33Z",
+      "side": 1,
+      "message": "I don\u0027t have a problem with matching the options specified on /data, but the comment about errors\u003dpanic stands.",
+      "range": {
+        "startLine": 13,
+        "startChar": 89,
+        "endLine": 13,
+        "endChar": 135
+      },
+      "revId": "124a65907f512867969206a80d69cbb19ba319f6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
