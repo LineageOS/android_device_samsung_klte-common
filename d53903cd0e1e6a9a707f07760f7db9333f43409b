@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_5ed24b5e",
+        "filename": "overlay/vendor/cmsdk/cm/res/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-05-11T18:09:23Z",
+      "side": 1,
+      "message": "Looks like you didn\u0027t close this.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 11
+      },
+      "revId": "d53903cd0e1e6a9a707f07760f7db9333f43409b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
