@@ -8,6 +8,9 @@ vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
+vendor/lib/soundfx/libqcbassboost.so
+vendor/lib/soundfx/libqcreverb.so
+vendor/lib/soundfx/libqcvirt.so
 etc/firmware/audience-es705-fw.bin
 etc/firmware/audience-es705-vs.bin
 etc/Bluetooth_cal.acdb
@@ -17,6 +20,10 @@ etc/Handset_cal.acdb
 etc/Hdmi_cal.acdb
 etc/Headset_cal.acdb
 etc/Speaker_cal.acdb
+lib/libaudiosa.so
+lib/libmysound.so
+lib/soundfx/libaudioeffectoffload.so
+lib/soundfx/libaudiosa_sec.so
 
 # ADSP
 bin/adsprpcd
