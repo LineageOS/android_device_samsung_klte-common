@@ -34,6 +34,7 @@ TARGET_KERNEL_SOURCE := kernel/samsung/klte
 
 # Audio
 BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
+USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/vnd_klte.txt
