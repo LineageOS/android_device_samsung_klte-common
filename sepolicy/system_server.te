@@ -5,4 +5,6 @@ allow system_server sysfs_sec:dir search;
 allow system_server sysfs_sec:file rw_file_perms;
 allow system_server sysfs_vibeamp:dir search;
 allow system_server sysfs_vibeamp:file rw_file_perms;
+allow system_server wifi_efs_file:dir search;
 allow system_server wifi_efs_file:file r_file_perms;
+allow system_server app_data_file:file rename;
