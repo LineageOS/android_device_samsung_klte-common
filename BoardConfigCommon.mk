@@ -44,6 +44,9 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
+# Clang
+USE_CLANG_PLATFORM_BUILD := true
+
 # CMHW
 BOARD_HARDWARE_CLASS += device/samsung/klte-common/cmhw
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
