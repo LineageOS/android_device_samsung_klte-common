@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_d34f0932",
+        "filename": "configs/media_profiles.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-05-16T05:47:45Z",
+      "side": 1,
+      "message": "do we need all the different profiles?",
+      "revId": "f1c4d2003582add95b6f514aa39fe84e5f51eed2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
