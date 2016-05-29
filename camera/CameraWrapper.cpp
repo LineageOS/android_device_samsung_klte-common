@@ -33,7 +33,9 @@
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
 
-static android::Mutex gCameraWrapperLock;
+using namespace android;
+
+static Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
 static char **fixed_set_params = NULL;
@@ -105,7 +107,7 @@ static int check_vendor_module()
 // framework has no idea what it is
 #define PIXEL_FORMAT_NV12_VENUS "nv12-venus"
 
-static bool is_4k_video(android::CameraParameters &params) {
+static bool is_4k_video(CameraParameters &params) {
     int video_width, video_height;
     params.getVideoSize(&video_width, &video_height);
     ALOGV("%s : VideoSize is %x", __FUNCTION__, video_width * video_height);
@@ -115,8 +117,8 @@ static bool is_4k_video(android::CameraParameters &params) {
 static char *camera_fixup_getparams(int __attribute__((unused)) id,
     const char *settings)
 {
-    android::CameraParameters params;
-    params.unflatten(android::String8(settings));
+    CameraParameters params;
+    params.unflatten(String8(settings));
 
 #if !LOG_NDEBUG
     ALOGV("%s: original parameters:", __FUNCTION__);
@@ -128,11 +130,11 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
           params.setPreviewFormat(params.PIXEL_FORMAT_YUV420SP);
 
     const char *videoSizeValues = params.get(
-            android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
+            CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
     if (videoSizeValues) {
         char videoSizes[strlen(videoSizeValues) + 10 + 1];
         sprintf(videoSizes, "3840x2160,%s", videoSizeValues);
-        params.set(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
+        params.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
                 videoSizes);
     }
 
@@ -148,9 +150,9 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
     }
 
     /* Enforce video-snapshot-supported to true */
-    params.set(android::CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
+    params.set(CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
 
-    android::String8 strParams = params.flatten();
+    String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
 
 #if !LOG_NDEBUG
@@ -163,25 +165,25 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
 
 static char *camera_fixup_setparams(int id, const char *settings)
 {
-    android::CameraParameters params;
-    params.unflatten(android::String8(settings));
+    CameraParameters params;
+    params.unflatten(String8(settings));
 
 #if !LOG_NDEBUG
     ALOGV("%s: original parameters:", __FUNCTION__);
     params.dump();
 #endif
 
-    const char *recordingHint = params.get(android::CameraParameters::KEY_RECORDING_HINT);
+    const char *recordingHint = params.get(CameraParameters::KEY_RECORDING_HINT);
     bool isVideo = recordingHint && !strcmp(recordingHint, "true");
 
     if (isVideo) {
-        params.set(android::CameraParameters::KEY_DIS, android::CameraParameters::DIS_DISABLE);
-        params.set(android::CameraParameters::KEY_ZSL, android::CameraParameters::ZSL_OFF);
+        params.set(CameraParameters::KEY_DIS, CameraParameters::DIS_DISABLE);
+        params.set(CameraParameters::KEY_ZSL, CameraParameters::ZSL_OFF);
     } else {
-        params.set(android::CameraParameters::KEY_ZSL, android::CameraParameters::ZSL_ON);
+        params.set(CameraParameters::KEY_ZSL, CameraParameters::ZSL_ON);
     }
 
-    android::String8 strParams = params.flatten();
+    String8 strParams = params.flatten();
 
     if (fixed_set_params[id])
         free(fixed_set_params[id]);
@@ -318,8 +320,8 @@ static int camera_start_recording(struct camera_device *device)
     if (!device)
         return EINVAL;
 
-    android::CameraParameters parameters;
-    parameters.unflatten(android::String8(camera_get_parameters(device)));
+    CameraParameters parameters;
+    parameters.unflatten(String8(camera_get_parameters(device)));
 
     if (is_4k_video(parameters)) {
         ALOGV("%s : UHD detected, switching preview-format to nv12-venus", __FUNCTION__);
@@ -492,7 +494,7 @@ static int camera_device_close(hw_device_t *device)
 
     ALOGV("%s", __FUNCTION__);
 
-    android::Mutex::Autolock lock(gCameraWrapperLock);
+    Mutex::Autolock lock(gCameraWrapperLock);
 
     if (!device) {
         ret = -EINVAL;
@@ -536,7 +538,7 @@ static int camera_device_open(const hw_module_t *module, const char *name,
     wrapper_camera_device_t *camera_device = NULL;
     camera_device_ops_t *camera_ops = NULL;
 
-    android::Mutex::Autolock lock(gCameraWrapperLock);
+    Mutex::Autolock lock(gCameraWrapperLock);
 
     ALOGV("camera_device open");
 
