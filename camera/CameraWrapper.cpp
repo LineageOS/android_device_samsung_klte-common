@@ -151,6 +151,11 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
 
     /* Enforce video-snapshot-supported to true */
     params.set(CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
+    
+    /* Disable 352x288 preview sizes, the combination of this preview 
+     * size and larger resolutions stalls the HAL */
+    params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
+            "1920x1080,1440x1080,1280x720,720x480,640x480,320x240");
 
     String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
