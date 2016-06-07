@@ -940,14 +940,17 @@ service qseecomd /system/bin/qseecomd
     group system
 
 service mpdecision /system/bin/mpdecision --avg_comp
-    user root
-    group system
-    disabled
+   class main
+   user root
+   disabled
 
-service thermal-engine /system/bin/thermal-engine
-    class core
-    user root
-    group radio system
+service thermal-engine /system/vendor/bin/thermal-engine
+   class main
+   user root
+   socket thermal-send-client stream 0666 system system
+   socket thermal-recv-client stream 0660 system system
+   socket thermal-recv-passive-client stream 0666 system system
+   group root
 
 service time_daemon /system/bin/time_daemon
     class late_start
