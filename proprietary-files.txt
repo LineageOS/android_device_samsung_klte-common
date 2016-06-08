@@ -1,7 +1,5 @@
 # Activity recognition
-vendor/lib/hw/activity_recognition.msm8974.so
 vendor/lib/libsensor1.so
-vendor/lib/libsensor_reg.so
 
 # Audio
 vendor/lib/libacdbloader.so
@@ -23,13 +21,6 @@ bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
-vendor/lib/libscve.so
-vendor/lib/libscve_stub.so
-vendor/lib/rfsa/adsp/libadsp_fd_skel.so
-vendor/lib/rfsa/adsp/libdspCV_skel.so
-vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
-vendor/lib/rfsa/adsp/libfastcvadsp.so
-vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
 # Camera
 bin/mm-qcamera-daemon
@@ -208,8 +199,6 @@ lib/hw/consumerir.default.so
 
 # DRM
 bin/qseecomd
-vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/libdrmdecrypt.so
 vendor/lib/libdrmdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
@@ -276,9 +265,6 @@ vendor/lib/libSHIMDivxDrm.so
 vendor/lib/libqti-perfd-client.so
 
 # Postprocessing
-vendor/lib/libdisp-aba.so
--vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
 
 # Qualcomm
 vendor/lib/libxml.so
@@ -299,5 +285,11 @@ etc/wifi/bcmdhd_mfg.bin
 etc/wifi/bcmdhd_sta.bin
 etc/wifi/cred.conf
 etc/wifi/nvram_mfg.txt
+etc/wifi/nvram_mfg.txt_a0
+etc/wifi/nvram_mfg.txt_muratafem1
+etc/wifi/nvram_mfg.txt_semco3rd
 etc/wifi/nvram_net.txt
+etc/wifi/nvram_net.txt_a0
+etc/wifi/nvram_net.txt_muratafem1
+etc/wifi/nvram_net.txt_semco3rd
 etc/wifi/wpa_supplicant.conf
