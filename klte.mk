@@ -167,6 +167,7 @@ PRODUCT_PACKAGES += \
     hostapd.deny \
     libnetcmdiface \
     macloader \
+    wificond \
     wpa_supplicant \
     wpa_supplicant.conf
 
