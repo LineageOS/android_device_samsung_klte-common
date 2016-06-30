@@ -944,10 +944,11 @@ service mpdecision /system/bin/mpdecision --avg_comp
     group system
     disabled
 
-service thermal-engine /system/bin/thermal-engine
-    class core
+# OSS thermal management
+service thermanager /system/bin/thermanager /system/etc/thermanager.xml
+    class late_start
     user root
-    group radio system
+    group root
 
 service time_daemon /system/bin/time_daemon
     class late_start
