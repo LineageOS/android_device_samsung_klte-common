@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_317d751c",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-07-10T15:19:41Z",
+      "side": 1,
+      "message": "I don\u0027t think this is right... You shouldn\u0027t be changing the context of this.",
+      "revId": "a7374e38febeebb6dc14f14eaad3df48e7666ea1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
