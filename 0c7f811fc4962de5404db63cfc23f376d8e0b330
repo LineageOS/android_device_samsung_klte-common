@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_d11e616f",
+        "filename": "audio/mixer_paths.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-07-10T21:42:54Z",
+      "side": 1,
+      "message": "We should be consistent with tabs vs. spaces in a given file. This one appears to use tabs throughout.",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 4
+      },
+      "revId": "0c7f811fc4962de5404db63cfc23f376d8e0b330",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_7113ed67",
+        "filename": "audio/mixer_paths.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-07-10T21:42:54Z",
+      "side": 1,
+      "message": "here too...",
+      "revId": "0c7f811fc4962de5404db63cfc23f376d8e0b330",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_9118e981",
+        "filename": "audio/mixer_paths.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-07-10T21:42:54Z",
+      "side": 1,
+      "message": "and here",
+      "revId": "0c7f811fc4962de5404db63cfc23f376d8e0b330",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_310d753e",
+        "filename": "audio/mixer_paths.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-07-10T21:42:54Z",
+      "side": 1,
+      "message": "There are a lot of mic gain values turned down. A common complaint with KLTE is low volume on recording and on some calls/VOIP/etc. Were we clipping with all the new stuff?",
+      "range": {
+        "startLine": 587,
+        "startChar": 33,
+        "endLine": 587,
+        "endChar": 35
+      },
+      "revId": "0c7f811fc4962de5404db63cfc23f376d8e0b330",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
