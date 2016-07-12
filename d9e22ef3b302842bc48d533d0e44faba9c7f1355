@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_024ca9c5",
+        "filename": "sepolicy/bluetooth.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-07-12T00:32:19Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with this, someone want to explain this one?",
+      "range": {
+        "startLine": 4,
+        "startChar": 40,
+        "endLine": 4,
+        "endChar": 46
+      },
+      "revId": "d9e22ef3b302842bc48d533d0e44faba9c7f1355",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_a2c6f515",
+        "filename": "sepolicy/platform_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-07-12T00:32:19Z",
+      "side": 1,
+      "message": "Yeah, these are probably necessary.",
+      "revId": "d9e22ef3b302842bc48d533d0e44faba9c7f1355",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_c2cbf11b",
+        "filename": "sepolicy/surfaceflinger.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-07-12T00:32:19Z",
+      "side": 1,
+      "message": "Again, what\u0027s this mean?",
+      "range": {
+        "startLine": 1,
+        "startChar": 45,
+        "endLine": 1,
+        "endChar": 51
+      },
+      "revId": "d9e22ef3b302842bc48d533d0e44faba9c7f1355",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_62d0fdca",
+        "filename": "sepolicy/system_server.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-07-12T00:32:19Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 11,
+        "startChar": 44,
+        "endLine": 11,
+        "endChar": 50
+      },
+      "revId": "d9e22ef3b302842bc48d533d0e44faba9c7f1355",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_82d5f9bb",
+        "filename": "sepolicy/untrusted_app.te",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-07-12T00:32:19Z",
+      "side": 0,
+      "message": "Both of these should never have been merged to begin with. untrusted_app domain should never get any more permissions.",
+      "revId": "9ac995b9019be031468f857e795b6bd0b6ae24b4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
