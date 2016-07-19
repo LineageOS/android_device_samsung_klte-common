@@ -122,6 +122,11 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
     ALOGV("%s: original parameters:", __FUNCTION__);
     params.dump();
 
+    params.set(CameraParameters::KEY_SUPPORTED_SCENE_MODES, "auto");
+
+    const char *recordHint = params.get(CameraParameters::KEY_RECORDING_HINT);
+    bool videoMode = recordHint ? !strcmp(recordHint, "true") : false;
+
     //Hide nv12-venus from Android.
     if (strcmp (params.getPreviewFormat(), PIXEL_FORMAT_NV12_VENUS) == 0)
           params.setPreviewFormat(params.PIXEL_FORMAT_YUV420SP);
@@ -146,14 +151,19 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
         params.set(KEY_VIDEO_HFR_VALUES, hfrModes);
     }
 
-    /* Enforce video-snapshot-supported to true */
-    params.set(CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
+    /* Enforce video-stabilization-supported and video-snapshot-supported to true */
+    if (videoMode) {
+        params.set(CameraParameters::KEY_VIDEO_STABILIZATION_SUPPORTED, "true");
+        params.set(CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
+    }
 
     ALOGV("%s: Fixed parameters:", __FUNCTION__);
     params.dump();
 
     String8 strParams = params.flatten();
-    return strdup(strParams.string());
+    char *ret = strdup(strParams.string());
+
+    return ret;
 }
 
 static char *camera_fixup_setparams(int id, const char *settings)
@@ -166,13 +176,6 @@ static char *camera_fixup_setparams(int id, const char *settings)
 
     const char *recordingHint = params.get(CameraParameters::KEY_RECORDING_HINT);
     bool isVideo = recordingHint && !strcmp(recordingHint, "true");
-
-    if (isVideo) {
-        params.set(CameraParameters::KEY_DIS, CameraParameters::DIS_DISABLE);
-        params.set(CameraParameters::KEY_ZSL, CameraParameters::ZSL_OFF);
-    } else {
-        params.set(CameraParameters::KEY_ZSL, CameraParameters::ZSL_ON);
-    }
 
     ALOGV("%s: Fixed parameters:", __FUNCTION__);
     params.dump();
