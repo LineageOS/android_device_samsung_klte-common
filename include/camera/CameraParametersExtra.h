@@ -15,9 +15,6 @@
  */
 
 #define CAMERA_PARAMETERS_EXTRA_C \
-const char CameraParameters::KEY_DIS[] = "dis"; \
-const char CameraParameters::DIS_DISABLE[] = "disable"; \
-\
 const char CameraParameters::KEY_DYNAMIC_RANGE_CONTROL[] = "dynamic-range-control"; \
 const char CameraParameters::KEY_SUPPORTED_DYNAMIC_RANGE_CONTROL[] = "dynamic-range-control-values"; \
 const char CameraParameters::DRC_ON[] = "on"; \
@@ -33,10 +30,6 @@ const char CameraParameters::KEY_SUPPORTED_RT_HDR[] = "rt-hdr-values"; \
 const char CameraParameters::RTHDR_ON[] = "on"; \
 const char CameraParameters::RTHDR_OFF[] = "off"; \
 \
-const char CameraParameters::KEY_ZSL[] = "zsl"; \
-const char CameraParameters::ZSL_ON[] = "on"; \
-const char CameraParameters::ZSL_OFF[] = "off"; \
-\
 int CameraParameters::getInt64(__attribute__((__unused__)) const char *key) const { return -1; } \
 \
 /* LAST_LINE OF CAMERA_PARAMETERS_EXTRA_C, every line before this one *MUST* have
@@ -44,9 +37,6 @@ int CameraParameters::getInt64(__attribute__((__unused__)) const char *key) cons
  */
 
 #define CAMERA_PARAMETERS_EXTRA_H \
-    static const char KEY_DIS[]; \
-    static const char DIS_DISABLE[]; \
-    \
     static const char KEY_DYNAMIC_RANGE_CONTROL[]; \
     static const char KEY_SUPPORTED_DYNAMIC_RANGE_CONTROL[]; \
     static const char DRC_ON[]; \
@@ -61,10 +51,6 @@ int CameraParameters::getInt64(__attribute__((__unused__)) const char *key) cons
     static const char KEY_SUPPORTED_RT_HDR[]; \
     static const char RTHDR_ON[]; \
     static const char RTHDR_OFF[]; \
-    \
-    static const char KEY_ZSL[]; \
-    static const char ZSL_ON[]; \
-    static const char ZSL_OFF[]; \
     \
     int getInt64(const char *key) const; \
     \
