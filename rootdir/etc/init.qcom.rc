@@ -138,18 +138,6 @@ on post-fs-data
     chmod 0660 /sys/class/input/input2/enabled
     chown system system /sys/class/input/input2/enabled
 
-    # Vibrator
-    chmod 0644 /sys/class/timed_output/vibrator/pwm_value
-    chown root system /sys/class/timed_output/vibrator/pwm_value
-    chmod 0644 /sys/class/timed_output/vibrator/pwm_max
-    chown root system /sys/class/timed_output/vibrator/pwm_max
-    chmod 0644 /sys/class/timed_output/vibrator/pwm_min
-    chown root system /sys/class/timed_output/vibrator/pwm_min
-    chmod 0644 /sys/class/timed_output/vibrator/pwm_default
-    chown root system /sys/class/timed_output/vibrator/pwm_default
-    chmod 0644 /sys/class/timed_output/vibrator/pwm_threshold
-    chown root system /sys/class/timed_output/vibrator/pwm_threshold
-
     #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     mkdir /data/system 0775 system system
 
@@ -575,7 +563,6 @@ on boot
     chown system radio /sys/class/tcon/tcon/black_test
     chown system radio /sys/class/tcon/tcon/tcon_test
 
-    chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/leds/keyboard-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/button-backlight/brightness
@@ -586,7 +573,6 @@ on boot
     chown system system /sys/class/leds/red/device/grpfreq
     chown system system /sys/class/leds/red/device/grppwm
     chown system system /sys/class/leds/red/device/blink
-    chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/module/sco/parameters/disable_esco
     chown system system /sys/kernel/ipv4/tcp_wmem_min
     chown system system /sys/kernel/ipv4/tcp_wmem_def
@@ -859,17 +845,18 @@ on boot
     chmod 0644 /efs/h2k.dat
     mkdir /data/misc/radio/hatp 0775 radio system
 
-    # Vibetonz
-    chown system system /sys/class/timed_output/vibrator/pwm_value
+    # Vibrator
     chmod 0660 /sys/class/timed_output/vibrator/pwm_value
+    chown system system /sys/class/timed_output/vibrator/pwm_value
+    chmod 0440 /sys/class/timed_output/vibrator/pwm_max
     chown system system /sys/class/timed_output/vibrator/pwm_max
-    chmod 0660 /sys/class/timed_output/vibrator/pwm_max
+    chmod 0440 /sys/class/timed_output/vibrator/pwm_min
     chown system system /sys/class/timed_output/vibrator/pwm_min
-    chmod 0660 /sys/class/timed_output/vibrator/pwm_min
+    chmod 0440 /sys/class/timed_output/vibrator/pwm_default
     chown system system /sys/class/timed_output/vibrator/pwm_default
-    chmod 0660 /sys/class/timed_output/vibrator/pwm_default
+    chmod 0440 /sys/class/timed_output/vibrator/pwm_threshold
     chown system system /sys/class/timed_output/vibrator/pwm_threshold
-    chmod 0660 /sys/class/timed_output/vibrator/pwm_threshold
+    chown system system /sys/class/timed_output/vibrator/enable
 
     # Panel color temperature
     chmod 0660 /sys/class/lcd/panel/panel_colors
