@@ -78,9 +78,10 @@ on post-fs-data
 
     # Create the directories used by the Wireless subsystem
     mkdir /data/misc/wifi 0770 wifi wifi
+    chmod 0660 /data/misc/wifi/wpa_supplicant.conf
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    mkdir /data/misc/dhcp 0775 dhcp dhcp
 
     # Create the directories used by CnE subsystem
     mkdir /data/connectivity 0771 system system
@@ -95,7 +96,7 @@ on post-fs-data
     chmod 0664 /data/.ant.info
 
     # for WIFI Version
-       write /data/.wifiver.info 0
+    write /data/.wifiver.info 0
     chown system root /data/.wifiver.info
     chmod 0664 /data/.wifiver.info
 
@@ -110,7 +111,6 @@ on post-fs-data
     chown system wifi /efs/wifi/.mac.info
     chmod 0660 /efs/wifi/.mac.info
     restorecon /efs/wifi/.mac.info
-    chmod 0660 /efs/wifi/.mac.cob
 
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
@@ -869,6 +869,7 @@ on boot
     chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
     chown system radio /sys/class/sec/sec_touchkey/glove_mode
     chown system radio /sys/class/sec/sec_touchkey/flip_mode
+    chown system radio /sys/class/sec/sec_touchkey/1mm_mode
     chown system radio /sys/class/sec/sec_touchkey/boost_level
 
     # permissions for bluetooth.
@@ -1159,7 +1160,3 @@ on property:persist.sys.ssr.restart_level=3
 
 on property:service.bootanim.exit=1
     #write /sys/module/rmnet_usb/parameters/dump_ctrl_msg 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb0/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb1/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb2/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb3/accept_ra 2
