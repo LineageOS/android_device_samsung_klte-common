@@ -1,0 +1,1 @@
+allow sensorservice mediaserver:service_manager {find};
