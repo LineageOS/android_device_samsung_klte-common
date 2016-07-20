@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_d49f164e",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-07-20T17:56:21Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we combine this into one conditional block?\n\nAnd fix the indent. :)",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 160,
+        "endChar": 5
+      },
+      "revId": "a32fecf588f223b18c263c45a0b31224893a03cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
