@@ -1,2 +1,0 @@
-allow untrusted_app battery_service:service_manager find;
-allow untrusted_app healthd_service:service_manager find;
