@@ -193,6 +193,8 @@ cameradata/Master1.bin
 cameradata/cal_data_LSCmaster.bin
 cameradata/datapattern_420sp.yuv
 cameradata/datapattern_front_420sp.yuv
+etc/F16QL_s5k2p2xx_module_info.xml
+etc/F16QS_imx240_module_info.xml
 etc/firmware/cpp_firmware_v1_1_1.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
