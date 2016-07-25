@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_0f3fd125",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2016-07-25T10:40:05Z",
+      "side": 1,
+      "message": "If the if statement is only for one line, remove the curly braces",
+      "revId": "23169a970e633fe75031c770d82190537bd4901e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
