@@ -151,9 +151,8 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
         params.set(KEY_VIDEO_HFR_VALUES, hfrModes);
     }
 
-    /* Enforce video-stabilization-supported and video-snapshot-supported to true */
+    /* Enforce video-snapshot-supported to true */
     if (videoMode) {
-        params.set(CameraParameters::KEY_VIDEO_STABILIZATION_SUPPORTED, "true");
         params.set(CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
     }
 
