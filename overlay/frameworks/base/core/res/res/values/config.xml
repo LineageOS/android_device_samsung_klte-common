@@ -296,4 +296,7 @@
         <item>ehrpd:4094,87380,1048576,4096,16384,262144</item>
     </string-array>
 
+    <!-- Enable blur support -->
+    <bool name="config_ui_blur_enabled">true</bool>
+
 </resources>
