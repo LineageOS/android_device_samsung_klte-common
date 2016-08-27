@@ -12,12 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# inherit from common msm8974
--include device/samsung/msm8974-common/BoardConfigCommon.mk
+# inherit from qcom-common
+-include device/samsung/qcom-common/BoardConfigCommon.mk
 
 LOCAL_PATH := device/samsung/klte-common
 
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+
+# Platform
+TARGET_BOARD_PLATFORM := msm8974
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
+
+# Architecture
+TARGET_CPU_VARIANT := krait
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
@@ -33,9 +40,11 @@ TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/klte
 
 # Audio
+BOARD_USES_ALSA_AUDIO := true
 BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
 
 # Bluetooth
+BOARD_HAVE_BLUETOOTH := true
 BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/vnd_klte.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
@@ -44,8 +53,31 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
+# Charger
+BOARD_BATTERY_DEVICE_NAME := "battery"
+BOARD_CHARGING_CMDLINE_NAME := "androidboot.bootchg"
+BOARD_CHARGING_CMDLINE_VALUE := "true"
+
 # CMHW
 BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
+
+# Display
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
+
+# Shader cache config options
+# Maximum size of the  GLES Shaders that can be cached for reuse.
+# Increase the size if shaders of size greater than 12KB are used.
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+
+# Maximum GLES shader cache size for each app to store the compiled shader
+# binaries. Decrease the size if RAM or Flash Storage size is a limitation
+# of the device.
+MAX_EGL_CACHE_SIZE := 2048*1024
+
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_msm8974
+TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8974
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -81,6 +113,9 @@ BOARD_SEPOLICY_DIRS += \
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
+# Time services
+BOARD_USES_QC_TIME_SERVICES := true
+
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI := true
 BOARD_WLAN_DEVICE := bcmdhd
@@ -95,6 +130,3 @@ WIFI_DRIVER_MODULE_AP_ARG   := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin 
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/etc/wifi/bcmdhd_apsta.bin"
-
-# inherit from the proprietary version
--include vendor/samsung/klte-common/BoardConfigVendor.mk

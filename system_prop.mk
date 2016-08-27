@@ -6,18 +6,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     audio_hal.period_size=192 \
+    audio.deep_buffer.media=true \
     audio.offload.video=true \
+    audio.offload.pcm.16bit.enable=true \
+    audio.offload.pcm.24bit.enable=true \
+    audio.offload.multiple.enabled=false \
+    audio.offload.gapless.enabled=false \
+    audio.offload.buffer.size.kb=32 \
+    av.offload.enable=true \
     persist.audio.fluence.speaker=true \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=false \
     ro.qc.sdk.audio.fluencetype=fluence \
     use.voice.path.for.pcm.voip=false \
-    use.dedicated.device.for.voip=true \
-    audio.deep_buffer.media=true \
-    audio.offload.pcm.16bit.enable=true \
-    audio.offload.pcm.24bit.enable=true \
-    audio.offload.multiple.enabled=false \
-    audio.offload.buffer.size.kb=32
+    use.dedicated.device.for.voip=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -26,6 +28,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdcp2.rx=tz \
+    ro.opengles.version=196608 \
     ro.qualcomm.cabl=1 \
     ro.secwvk=144 \
     ro.sf.lcd_density=480
@@ -51,6 +54,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.qmi.adb_logmask=0 \
     persist.radio.add_power_save=1 \
     persist.radio.lte_vrat_report=1 \
+    persist.rild.nitz_plmn="" \
+    persist.rild.nitz_long_ons_0="" \
+    persist.rild.nitz_long_ons_1="" \
+    persist.rild.nitz_long_ons_2="" \
+    persist.rild.nitz_long_ons_3="" \
+    persist.rild.nitz_short_ons_0="" \
+    persist.rild.nitz_short_ons_1="" \
+    persist.rild.nitz_short_ons_2="" \
+    persist.rild.nitz_short_ons_3="" \
     ro.telephony.mms_data_profile=5 \
     ro.telephony.ril_class=KlteRIL
 
@@ -61,6 +73,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
+
+# Time Services
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.timed.enable=true
 
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
