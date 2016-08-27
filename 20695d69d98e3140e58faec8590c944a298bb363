@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_217e7ee4",
+        "filename": "klte.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-08-27T06:52:35Z",
+      "side": 1,
+      "message": "As we are actually talking about keys we should check if updates are needed here! and wtf is keypad_8960 doing here?",
+      "range": {
+        "startLine": 128,
+        "startChar": 3,
+        "endLine": 132,
+        "endChar": 104
+      },
+      "revId": "20695d69d98e3140e58faec8590c944a298bb363",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
