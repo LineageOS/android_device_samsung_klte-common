@@ -122,8 +122,6 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
     ALOGV("%s: original parameters:", __FUNCTION__);
     params.dump();
 
-    params.set(CameraParameters::KEY_SUPPORTED_SCENE_MODES, "auto");
-
     const char *recordHint = params.get(CameraParameters::KEY_RECORDING_HINT);
     bool videoMode = recordHint ? !strcmp(recordHint, "true") : false;
 
@@ -173,8 +171,31 @@ static char *camera_fixup_setparams(int id, const char *settings)
     ALOGV("%s: original parameters:", __FUNCTION__);
     params.dump();
 
+    bool wasTorch = false;
+    if (fixed_set_params[id]) {
+        /* When torch mode is switched off, it is important not to set ZSL, to
+           avoid a segmentation violation in libcameraservice.so. Hence, check
+           if the last call to setparams enabled torch mode */
+        CameraParameters old_params;
+        old_params.unflatten(String8(fixed_set_params[id]));
+
+        const char *old_flashMode = old_params.get(CameraParameters::KEY_FLASH_MODE);
+        wasTorch = old_flashMode && !strcmp(old_flashMode, CameraParameters::FLASH_MODE_TORCH);
+    }
+
     const char *recordingHint = params.get(CameraParameters::KEY_RECORDING_HINT);
     bool isVideo = recordingHint && !strcmp(recordingHint, "true");
+    const char *flashMode = params.get(CameraParameters::KEY_FLASH_MODE);
+    bool isTorch = flashMode && !strcmp(flashMode, CameraParameters::FLASH_MODE_TORCH);
+
+    if (!isTorch && !wasTorch) {
+        if (isVideo) {
+            params.set(CameraParameters::KEY_DIS, CameraParameters::DIS_DISABLE);
+            params.set(CameraParameters::KEY_ZSL, CameraParameters::ZSL_OFF);
+        } else {
+            params.set(CameraParameters::KEY_ZSL, CameraParameters::ZSL_ON);
+        }
+    }
 
     ALOGV("%s: Fixed parameters:", __FUNCTION__);
     params.dump();
