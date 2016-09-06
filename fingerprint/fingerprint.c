@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (C) 2016 The Android Open Source Project
  * Copyright (C) 2016 The Mokee Project
  * Copyright (C) 2016 The CyanogenMod Project
  *
@@ -21,71 +21,288 @@
 
 #include <errno.h>
 #include <endian.h>
+#include <fcntl.h>
 #include <inttypes.h>
 #include <malloc.h>
+#include <signal.h>
+#include <sqlite3.h>
 #include <string.h>
-#include <cutils/log.h>
-#include <cutils/sockets.h>
-#include <hardware/hardware.h>
-#include <hardware/fingerprint.h>
 #include <unistd.h>
 
+#include <cutils/log.h>
+#include <sys/ioctl.h>
+
+#include <hardware/hardware.h>
+#include <hardware/fingerprint.h>
+
 #include "fp_klte.h"
+#include "fingerprint_tz.h"
+#include "hash.h"
 
-#define MAX_COMM_CHARS 128
-#define MAX_NUM_FINGERS 5
-#define SOCKET_NAME_SEND "validityservice"
-#define SOCKET_NAME_RECEIVE "validityservice_callback"
+typedef struct vcs_fingerprint_device_t {
+    fingerprint_device_t device;  // "inheritance"
+    uint64_t op_id;
+    uint64_t challenge;
+    uint64_t user_id;
+    uint64_t group_id;
+    uint64_t secure_user_id;
+    uint64_t authenticator_id;
+    uint32_t active_gid;
+    sqlite3 *db;
+    pthread_mutex_t lock;
+} vcs_fingerprint_device_t;
 
-/******************************************************************************/
-static void checkinit(vcs_fingerprint_device_t* vdev) { //wait for hal connect validity service
-    while(!vdev->init)
-        sleep(1);
-}
+extern trust_zone_t tz;
+vcs_sensor_t sensor;
 
-static int sendcommand(vcs_fingerprint_device_t* vdev, uint8_t* command, int num) {
-    int ret = -1;
-    char answer[255];
-    if (fd_write(vdev->send_fd, command, num) != num) {
-        ALOGE("cannot send command to service");
-        //close(vdev->send_fd);
+/***************************************Sensor***************************************/
+int sensor_uninit() {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    int ret = 0;
+    if (!sensor.init)
         return ret;
-    }
-    if (fd_read(vdev->send_fd, answer, 255))
-        ret = atoi(answer);
+    ioctl(sensor.fd, VFSSPI_IOCTL_RESET_SPI_CONFIGURATION);
+    ioctl(sensor.fd, VFSSPI_IOCTL_DISABLE_SPI_CLOCK);
+    ioctl(sensor.fd, VFSSPI_IOCTL_DEVICE_SUSPEND);
+    ioctl(sensor.fd, VFSSPI_IOCTL_POWER_OFF);
+    sensor.init = false;
     return ret;
 }
 
-static int getfingermask(vcs_fingerprint_device_t* vdev) {
-    uint8_t command_getlist[2] = {CALL_GET_ENROLLED_FINGER_LIST, (uint8_t)vdev->active_gid};
-    return sendcommand(vdev, command_getlist, 2);
+int sensor_init() {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    int ret = 0;
+    int clock = 0;
+    if (sensor.init)
+        return ret;
+    ioctl(sensor.fd, VFSSPI_IOCTL_POWER_ON);
+    clock = 65535;
+    ioctl(sensor.fd, VFSSPI_IOCTL_SET_CLK, &clock);
+    ioctl(sensor.fd, VFSSPI_IOCTL_DEVICE_RESET);
+    ioctl(sensor.fd, VFSSPI_IOCTL_SET_SPI_CONFIGURATION);
+    clock = 4800;
+    ioctl(sensor.fd, VFSSPI_IOCTL_SET_CLK, &clock);
+    sensor.init = true;
+    return ret;
 }
 
-static int initService(vcs_fingerprint_device_t* vdev) {
+void sensor_process_signal(int signum) {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    int ret = -EINVAL;
-    while (vdev->send_fd <= 0) {
-        vdev->send_fd = socket_local_client(SOCKET_NAME_SEND, ANDROID_SOCKET_NAMESPACE_ABSTRACT,SOCK_STREAM);
-        if (vdev->send_fd < 0) {
-            ALOGW("cannot open validity service!");
-            sleep(1);
+    ALOGV("%s: signal %d received", __FUNCTION__, signum);
+    int flag = 0;
+    if (tz.timeout.timeout_thread) {
+        pthread_mutex_lock(&tz.timeout.lock);
+        pthread_cond_signal(&tz.timeout.cond);
+        pthread_mutex_unlock(&tz.timeout.lock);
+        //pthread_join(tz.timeout.timeout_thread, NULL);
+        tz.timeout.timeout_thread = 0;
+    }
+    pthread_mutex_lock(&sensor.lock);
+    if (get_tz_state() != STATE_IDLE && get_tz_state() != STATE_CANCEL)
+        sensor.signal = true;
+    ioctl(sensor.fd, VFSSPI_IOCTL_SET_DRDY_INT, &flag);
+    pthread_cond_signal(&sensor.cond);
+    pthread_mutex_unlock(&sensor.lock);
+}
+
+int sensor_register() {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    struct vfsspi_iocRegSignal usrSignal;
+    int ret = 0;
+    struct sigaction sa_usr;
+    sa_usr.sa_flags = 0;
+    sa_usr.sa_handler = sensor_process_signal;
+    sigaction(SIGUSR2, &sa_usr, NULL);
+    usrSignal.userPID = getpid();
+    usrSignal.signalID = SIGUSR2;
+    ioctl(sensor.fd, VFSSPI_IOCTL_REGISTER_DRDY_SIGNAL, &usrSignal);
+    return ret;
+}
+
+int sensor_capture_start() {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    int ret = 0;
+    int flag = 1;
+    ret = ioctl(sensor.fd, VFSSPI_IOCTL_SET_DRDY_INT, &flag);
+    return ret;
+}
+
+/***************************************Database***************************************/
+int db_check_and_create_table(void* device) {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    char* errmsg;
+    int ret = 0;
+    char cmd[MAX_DATABASE_CMD];
+    sprintf(cmd, "create table gid_%d(id integer, data blob, payload blob)", vdev->active_gid);
+    ret = sqlite3_exec(vdev->db, cmd, NULL, NULL, &errmsg);
+    return ret;
+}
+
+int db_convert_old_db(vcs_fingerprint_device_t* vdev) {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    int ret = 0;
+    sqlite3 *db;
+    sqlite3_stmt *stat;
+    char cmd[MAX_DATABASE_CMD];
+    int idx = 0;
+
+    memset(tz.finger, 0, MAX_NUM_FINGERS * sizeof(finger_t));
+    ret = sqlite3_open(SAMSUNG_FP_DB_PATH, &db);
+    if (ret != SQLITE_OK) {
+        ALOGE("Open samsung finger database failed!");
+        return -1;
+    }
+
+    sprintf(cmd, "select * from enrollments");
+    sqlite3_prepare(db, cmd, -1, &stat, 0);
+    while(1) {
+        int ret = sqlite3_step(stat);
+        if (ret != SQLITE_ROW) {
+            break;
+        }
+        int id = sqlite3_column_int(stat, 1);
+        const void *data = sqlite3_column_blob(stat, 2);
+        int len = sqlite3_column_bytes(stat, 2);
+        memcpy(tz.finger[id].data, data, len);
+        ALOGV("read fingerprint data from samsung fp database: id=%d", id);
+        tz.finger[id].exist = true;
+    }
+    sqlite3_finalize(stat);
+
+    memset(cmd, 0, MAX_DATABASE_CMD);
+    sprintf(cmd, "select * from properties");
+    sqlite3_prepare(db, cmd, -1, &stat, 0);
+    sqlite3_step(stat);
+    const void *payload = sqlite3_column_blob(stat, 2);
+    int len = sqlite3_column_bytes(stat, 2);
+    for (idx = 1; idx <= MAX_NUM_FINGERS; idx++) {
+        if (tz.finger[idx].exist) {
+            memcpy(tz.finger[idx].payload, payload, len);
+			db_write_to_db(vdev, false, idx);
         }
     }
-    uint8_t command[1] = {CALL_INITSERVICE};
+    sqlite3_finalize(stat);
 
-    ret = sendcommand(vdev, command, 1);
-    vdev->authenticator_id = getfingermask(vdev);
-    vdev->init = true;
+    ret = sqlite3_close(db);
+    if (ret != SQLITE_OK) {
+        ALOGE("Close samsung finger database failed!");
+        return -1;
+    }
+
+    ret = remove(SAMSUNG_FP_DB_PATH);
+    if (ret) {
+        ALOGE("Cannot remove Samsung fingerprint database");
+    }
     return ret;
 }
 
-static void send_error_notice(vcs_fingerprint_device_t* vdev, fingerprint_error_t error_info) {
+int db_read_to_tz(void* device) {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    char* errmsg;
+    int ret = 0;
+    char cmd[MAX_DATABASE_CMD];
+    sqlite3_stmt *stat;
+
+    db_check_and_create_table(vdev);
+
+    if (!access(SAMSUNG_FP_DB_PATH, 0)) {
+        ALOGI("Samsung fingerprint database exist! Convert it");
+        return db_convert_old_db(vdev);
+    }
+
+    memset(tz.finger, 0, MAX_NUM_FINGERS * sizeof(finger_t));
+    sprintf(cmd, "select * from gid_%d", vdev->active_gid);
+    sqlite3_prepare(vdev->db, cmd, -1, &stat, 0);
+    while(1) {
+        int ret = sqlite3_step(stat);
+        if (ret != SQLITE_ROW) {
+            break;
+        }
+        int id = sqlite3_column_int(stat, 0);
+        const void *data = sqlite3_column_blob(stat, 1);
+        memcpy(tz.finger[id].data, data, FINGER_DATA_MAX_LENGTH);
+        const void *payload = sqlite3_column_blob(stat, 2);
+        memcpy(tz.finger[id].payload, payload, PAYLOAD_MAX_LENGTH);
+        ALOGV("read fingerprint data from database: id=%d", id);
+        tz.finger[id].exist = true;
+    }
+    sqlite3_finalize(stat);
+
+    return 0;
+}
+
+int db_write_to_db(void* device, bool remove, int fid) {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    char* errmsg;
+    int ret = 0;
+    char cmd[MAX_DATABASE_CMD];
+    sqlite3_stmt *stat;
+    if (remove) {
+        sprintf(cmd, "delete from gid_%d where id=%d", vdev->active_gid, fid);
+        ret = sqlite3_exec(vdev->db, cmd, NULL, NULL, &errmsg);
+        if (ret != SQLITE_OK) {
+            ALOGE("Remove finger from database failed!");
+        }
+        memset(&tz.finger[fid], 0, sizeof(finger_t));
+    } else {
+        sprintf(cmd, "insert into gid_%d(id, data, payload) values( %d, ?, ?)", vdev->active_gid, fid);
+        sqlite3_prepare(vdev->db, cmd, -1, &stat, 0);
+        sqlite3_bind_blob(stat, 1, tz.finger[fid].data, (int)FINGER_DATA_MAX_LENGTH, NULL);
+        sqlite3_bind_blob(stat, 2, tz.finger[fid].payload, (int)PAYLOAD_MAX_LENGTH, NULL);
+        ret = sqlite3_step(stat);
+        sqlite3_finalize(stat);
+    }
+    return ret;
+}
+
+int db_init(void* device) {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    int ret = 0;
+    ret = sqlite3_open(FINGER_DATABASE_FILENAME, &vdev->db);
+    if (ret != SQLITE_OK) {
+        ALOGE("Open finger database failed!");
+        return -1;
+    }
+    return db_read_to_tz(vdev);
+}
+
+int db_uninit(void* device) {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    int ret = 0;
+    ret = sqlite3_close(vdev->db);
+    if (ret != SQLITE_OK) {
+        ALOGE("Close finger database failed!");
+    }
+    return ret;
+}
+
+/***************************************notice***************************************/
+fingerprint_acquired_info_t convert_ret_to_acquired_info(int acquired_ret) { //TODO
+    ALOGV("----------------> %s ----------------->acquired_ret=%d", __FUNCTION__, acquired_ret);
+    fingerprint_acquired_info_t ret = FINGERPRINT_ACQUIRED_GOOD;
+    switch (acquired_ret) {
+        case 0:
+            break;
+        default:
+            ret = FINGERPRINT_ACQUIRED_INSUFFICIENT;
+    }
+    return ret;
+}
+
+void send_error_notice(void* device, int error_info_int) {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    fingerprint_error_t error_info = (fingerprint_error_t)error_info_int;
 
     fingerprint_msg_t msg = {0};
     msg.type = FINGERPRINT_ERROR;
     msg.data.error = error_info;
-    ALOGI("error_info=%d", (int)error_info);
+    ALOGV("recevied error notice! error_info=%d", (int)error_info);
 
     pthread_mutex_lock(&vdev->lock);
     vdev->device.notify(&msg);
@@ -94,8 +311,10 @@ static void send_error_notice(vcs_fingerprint_device_t* vdev, fingerprint_error_
     return;
 }
 
-static void send_acquired_notice(vcs_fingerprint_device_t* vdev, fingerprint_acquired_info_t acquired_info) {
+void send_acquired_notice(void* device, int acquired_ret) {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    fingerprint_acquired_info_t acquired_info = convert_ret_to_acquired_info(acquired_ret);
 
     fingerprint_msg_t acqu_msg = {0};
     acqu_msg.type = FINGERPRINT_ACQUIRED;
@@ -109,21 +328,20 @@ static void send_acquired_notice(vcs_fingerprint_device_t* vdev, fingerprint_acq
     return;
 }
 
-static void send_enroll_notice(vcs_fingerprint_device_t* vdev, int fid, int remaining) {
+void send_enroll_notice(void* device, int fid, int remaining) {
     ALOGV("----------------> %s -----------------> fid %d", __FUNCTION__, fid);
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
 
     if (fid == 0) {
-        ALOGD("Fingerprint ID is zero (invalid)");
+        ALOGE("Fingerprint ID is zero (invalid)");
         return;
     }
     if (vdev->secure_user_id == 0) {
-        ALOGD("Secure user ID is zero (invalid)");
+        ALOGE("Secure user ID is zero (invalid)");
         return;
     }
 
     pthread_mutex_lock(&vdev->lock);
-
-    vdev->listener.state = STATE_SCAN;
 
     fingerprint_msg_t msg = {0};
     msg.type = FINGERPRINT_TEMPLATE_ENROLLING;
@@ -136,8 +354,9 @@ static void send_enroll_notice(vcs_fingerprint_device_t* vdev, int fid, int rema
     return;
 }
 
-static void send_authenticated_notice(vcs_fingerprint_device_t* vdev, int fid) {
+void send_authenticated_notice(void* device, int fid) {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
 
     send_acquired_notice(vdev, FINGERPRINT_ACQUIRED_GOOD);
 
@@ -163,8 +382,9 @@ static void send_authenticated_notice(vcs_fingerprint_device_t* vdev, int fid) {
     return;
 }
 
-static void send_remove_notice(vcs_fingerprint_device_t* vdev, int fid) {
+void send_remove_notice(void* device, int fid) {
     ALOGV("----------------> %s ----------------->fid=%d", __FUNCTION__, fid);
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
 
     fingerprint_msg_t msg = {0};
     msg.type = FINGERPRINT_TEMPLATE_REMOVED;
@@ -177,20 +397,14 @@ static void send_remove_notice(vcs_fingerprint_device_t* vdev, int fid) {
     return;
 }
 
-/******************************************************************************/
-
-static uint64_t get_64bit_rand() {
-    ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    uint64_t r = (((uint64_t)rand()) << 32) | ((uint64_t)rand());
-    return r != 0 ? r : 1;
-}
+/***************************************HAL function***************************************/
 
 static uint64_t fingerprint_get_auth_id(struct fingerprint_device* device) {
     vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
     uint64_t authenticator_id = 0;
     pthread_mutex_lock(&vdev->lock);
-    vdev->authenticator_id = getfingermask(vdev);
+    vdev->authenticator_id = hash_file(FINGER_DATABASE_FILENAME);
     authenticator_id = vdev->authenticator_id;
     pthread_mutex_unlock(&vdev->lock);
 
@@ -199,9 +413,11 @@ static uint64_t fingerprint_get_auth_id(struct fingerprint_device* device) {
 
 static int fingerprint_set_active_group(struct fingerprint_device *device, uint32_t gid,
         const char __unused *path) {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
     vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
     pthread_mutex_lock(&vdev->lock);
     vdev->active_gid = gid;
+    db_read_to_tz(vdev);
     pthread_mutex_unlock(&vdev->lock);
 
     return 0;
@@ -215,33 +431,24 @@ static int fingerprint_authenticate(struct fingerprint_device *device,
     int ret = 0;
     ALOGI("auth: op_id=%llu ",operation_id);
 
-    checkinit(vdev);
-
     pthread_mutex_lock(&vdev->lock);
 
     vdev->op_id = operation_id;
-    vdev->listener.state = STATE_SCAN;
-    uint8_t command[2] = {CALL_IDENTIFY, (uint8_t)vdev->active_gid};
-    ret = sendcommand(vdev, command, 2);
+    ret = vcs_start_authenticate(vdev);
 
     pthread_mutex_unlock(&vdev->lock);
 
-    // Always return successful
-    return 0;
+    return ret;
 }
 
 static int fingerprint_enroll(struct fingerprint_device *device,
         const hw_auth_token_t *hat,
         uint32_t __unused gid,
-        uint32_t __unused timeout_sec) {
-    ALOGD("fingerprint_enroll");
+        uint32_t timeout_sec) {
+    ALOGV("----------------> %s ----------------->", __FUNCTION__);
     vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
     int ret = -EINVAL;
-    int fingermask = 0;
     int idx = 1;
-    uint8_t command[3] = {CALL_ENROLL, (uint8_t)vdev->active_gid, 0};
-
-    checkinit(vdev);
 
     if (!hat) {
         ALOGW("%s: null auth token", __func__);
@@ -263,26 +470,21 @@ static int fingerprint_enroll(struct fingerprint_device *device,
     vdev->user_id = hat->user_id;
 
     pthread_mutex_lock(&vdev->lock);
-    vdev->listener.state = STATE_ENROLL;
 
-    fingermask = getfingermask(vdev);
-    ALOGI("fingerprint_enroll: fingermask=%d", fingermask);
-    for (idx = 1; idx <= MAX_NUM_FINGERS; idx++)
-        if (!((fingermask >> idx) & 1))
+    for (idx = 1; idx <= MAX_NUM_FINGERS; idx++) {
+        if (!tz.finger[idx].exist) {
             break;
-
-    command[2] = (uint8_t)idx;
-    ret = sendcommand(vdev, command, 3);
+        }
+    }
+    if (idx > MAX_NUM_FINGERS) {
+        send_error_notice(vdev, FINGERPRINT_ERROR_NO_SPACE);
+        pthread_mutex_unlock(&vdev->lock);
+        return -1;
+    }
+    ret = vcs_start_enroll(vdev, timeout_sec);
 
     pthread_mutex_unlock(&vdev->lock);
-    ALOGI("enroll ret=%d",ret);
-
-    // workaround
-    if (ret == 1) {
-        ret = 0;
-    }
-
-    vdev->authenticator_id = getfingermask(vdev);
+    ALOGV("enroll ret=%d",ret);
 
     return ret;
 }
@@ -292,7 +494,7 @@ static uint64_t fingerprint_pre_enroll(struct fingerprint_device *device) {
     uint64_t challenge = 0;
     vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
 
-    challenge = get_64bit_rand();
+    challenge = hash_string(tz.auth_token);
 
     pthread_mutex_lock(&vdev->lock);
     vdev->challenge = challenge;
@@ -316,15 +518,27 @@ static int fingerprint_cancel(struct fingerprint_device *device) {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
     vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
     int ret = 0;
+    int flag = 0;
 
-    checkinit(vdev);
-
-    pthread_mutex_lock(&vdev->lock);
-    vdev->listener.state = STATE_IDLE;
-
-    uint8_t command[1] = {CALL_CANCEL};
-    ret = sendcommand(vdev, command, 1);
-    pthread_mutex_unlock(&vdev->lock);
+    if (tz.timeout.timeout_thread) {
+        pthread_mutex_lock(&tz.timeout.lock);
+        pthread_cond_signal(&tz.timeout.cond);
+        pthread_mutex_unlock(&tz.timeout.lock);
+        pthread_join(tz.timeout.timeout_thread, NULL);
+        tz.timeout.timeout_thread = 0;
+    }
+    if (get_tz_state() != STATE_IDLE && get_tz_state() != STATE_CANCEL) {
+        set_tz_state(STATE_CANCEL);
+        ioctl(sensor.fd, VFSSPI_IOCTL_SET_DRDY_INT, &flag);
+        pthread_mutex_lock(&sensor.lock);
+        pthread_cond_signal(&sensor.cond);
+        pthread_mutex_unlock(&sensor.lock);
+        while (1) {
+            usleep(100000);
+            if (tz.state == STATE_IDLE)
+                break;
+        }
+    }
 
     return ret;
 }
@@ -337,17 +551,12 @@ static int fingerprint_enumerate(struct fingerprint_device *device,
         return -1;
     }
 
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
     int num = 0;
+
+    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+
     pthread_mutex_lock(&vdev->lock);
-
-    int fingermask = getfingermask(vdev);
-
-    ALOGI("fingerprint_enumerate: fingermask=%d", fingermask);
-    int idx = 0;
-    for (idx = 0; idx < MAX_NUM_FINGERS; idx++)
-        if ((fingermask >> (idx + 1)) & 1)
-            num++;
+    num = vcs_get_enrolled_finger_num();
     pthread_mutex_unlock(&vdev->lock);
 
     return num;
@@ -355,7 +564,7 @@ static int fingerprint_enumerate(struct fingerprint_device *device,
 
 static int fingerprint_remove(struct fingerprint_device *device,
         uint32_t __unused gid, uint32_t fid) {
-    int idx = 0, ret = 0;
+    int ret = 0;
     ALOGV("----------------> %s -----------------> fid %d", __FUNCTION__, fid);
     if (device == NULL) {
         ALOGE("Can't remove fingerprint (gid=%d, fid=%d); "
@@ -366,50 +575,31 @@ static int fingerprint_remove(struct fingerprint_device *device,
 
     vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
 
-    uint8_t command[3] = {CALL_REMOVE, (uint8_t)vdev->active_gid, 0};
-
-    checkinit(vdev);
-
     if (fid == 0) {
         // Delete all fingerprints
-        command[2] = 21;
-        int fingermask = getfingermask(vdev);
-        pthread_mutex_lock(&vdev->lock);
-        ret = sendcommand(vdev, command, 3);
-        pthread_mutex_unlock(&vdev->lock);
-        if (ret == 0){
-            pthread_mutex_lock(&vdev->lock);
-            pthread_mutex_unlock(&vdev->lock);
-            int idx = 0;
-            for (idx = 0; idx < MAX_NUM_FINGERS; idx++)
-                if ((fingermask >> (idx + 1)) & 1) {
-                    send_remove_notice(vdev, idx + 1);
+        int idx = 1;
+        for (idx = 1; idx <= MAX_NUM_FINGERS; idx++)
+            if (tz.finger[idx].exist) {
+                pthread_mutex_lock(&vdev->lock);
+                ret = db_write_to_db(vdev, true, idx);
+                pthread_mutex_unlock(&vdev->lock);
+                if (ret == 0) {
+                    send_remove_notice(vdev, idx);
                 }
-        }  // end if
-        vdev->listener.state = STATE_IDLE;
+            }
     } else {
         // Delete one fingerprint
         pthread_mutex_lock(&vdev->lock);
-
-        command[2] = (uint8_t)fid;
-        ret = sendcommand(vdev, command, 3);
-        vdev->listener.state = STATE_IDLE;
+        ret = db_write_to_db(vdev, true, fid);
         pthread_mutex_unlock(&vdev->lock);
+        if (ret == 0) {
+            send_remove_notice(vdev, fid);
+        }
 
-        // Always send remove notice
-        send_remove_notice(vdev, fid);
     }
-    pthread_mutex_lock(&vdev->lock);
-
-    int fingermask = getfingermask(vdev);
-    if (fingermask == 0) {  // All finger are removed
-        command[2] = 21;
-        sendcommand(vdev, command, 3);
-    }
-
-    pthread_mutex_unlock(&vdev->lock);
 
     if (ret) {
+        ALOGE("Can't remove finger %d", fid);
         send_error_notice(vdev, FINGERPRINT_ERROR_UNABLE_TO_REMOVE);
     }
 
@@ -427,84 +617,11 @@ static int set_notify_callback(struct fingerprint_device *device,
 
     vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
     pthread_mutex_lock(&vdev->lock);
-    vdev->listener.state = STATE_IDLE;
     device->notify = notify;
     pthread_mutex_unlock(&vdev->lock);
     ALOGD("fingerprint callback notification set");
 
     return 0;
-}
-
-static worker_state_t getListenerState(vcs_fingerprint_device_t* dev) {
-    ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    worker_state_t state = STATE_IDLE;
-
-    pthread_mutex_lock(&dev->lock);
-    state = dev->listener.state;
-    pthread_mutex_unlock(&dev->lock);
-
-    return state;
-}
-
-static void* listenerSocket(void* data) {
-    ALOGI("----------------> %s ----------------->", __FUNCTION__);
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)data;
-
-    while (vdev->receive_fd <= 0) {
-        vdev->receive_fd = socket_local_client(SOCKET_NAME_RECEIVE, ANDROID_SOCKET_NAMESPACE_ABSTRACT,SOCK_STREAM);
-        if (vdev->receive_fd < 0) {
-            ALOGW("listener cannot open fingerprint listener service");
-            sleep(1);
-        }
-    }
-    initService(vdev);
-    pthread_mutex_lock(&vdev->lock);
-    vdev->listener.state = STATE_IDLE;
-    pthread_mutex_unlock(&vdev->lock);
-
-    while (1) {
-        int size = 0;
-        char buffer[MAX_COMM_CHARS] = {0};
-        if (getListenerState(vdev) == STATE_EXIT) {
-            ALOGD("Received request to exit listener thread");
-            goto done;
-        }
-
-        if ((size = fd_read(vdev->receive_fd, buffer,
-                                       sizeof(buffer) - 1)) > 0) {
-            buffer[size] = '\0';
-            int type, info, info_ex;
-            sscanf(buffer, "%d:%d:%d", &type, &info, &info_ex);
-            switch (type) {
-                case 1: //error
-                    send_error_notice(vdev, info);
-                    break;
-                case 2: //enroll
-                    send_enroll_notice(vdev, info, info_ex);
-                    break;
-                case 3: //removed
-                    send_remove_notice(vdev, info);
-                    break;
-                case 4: //acquired
-                    send_acquired_notice(vdev, info);
-                    break;
-                case 5: //authenticated
-                    send_authenticated_notice(vdev, info);
-                    break;
-                default:
-                    ALOGE("unknow type:%d", type);
-            }
-        } else {
-            ALOGE("fingerprint listener receive failure");
-            break;
-        }
-    }
-
-done:
-    ALOGD("Listener exit !!");
-done_quiet:
-    close(vdev->receive_fd);
-    return NULL;
 }
 
 static int fingerprint_close(hw_device_t* device) {
@@ -516,18 +633,18 @@ static int fingerprint_close(hw_device_t* device) {
 
     vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
 
-    checkinit(vdev);
-
     pthread_mutex_lock(&vdev->lock);
-    // Ask listener thread to exit
-    vdev->listener.state = STATE_EXIT;
-    uint8_t command[1] = {CALL_CLEANUP};
-    sendcommand(vdev, command, 1);
+    db_uninit(vdev);
+    vcs_init();
+    vcs_stop_auth_session();
+    vcs_uninit();
+    sensor_uninit();
     pthread_mutex_unlock(&vdev->lock);
 
-    pthread_join(vdev->listener.thread, NULL);
     pthread_mutex_destroy(&vdev->lock);
-    close(vdev->send_fd);
+    pthread_mutex_destroy(&sensor.lock);
+    pthread_mutex_destroy(&tz.lock);
+    pthread_mutex_destroy(&tz.timeout.lock);
     free(vdev);
 
     return 0;
@@ -568,14 +685,38 @@ static int fingerprint_open(const hw_module_t* module, const char __unused *id,
     vdev->device.notify = NULL;
 
     vdev->active_gid = 0;
-    vdev->init = false;
+    memset(&tz, 0, sizeof(trust_zone_t));
 
     pthread_mutex_init(&vdev->lock, NULL);
-    if (pthread_create(&vdev->listener.thread, NULL, listenerSocket, vdev) !=
-        0)
-        return -1;
+    pthread_mutex_init(&sensor.lock, NULL);
+    pthread_mutex_init(&tz.lock, NULL);
+    pthread_mutex_init(&tz.timeout.lock, NULL);
+    pthread_cond_init(&tz.timeout.cond, NULL);
+    pthread_cond_init(&sensor.cond, NULL);
+    tz.timeout.timeout_thread = 0;
 
     *device = &vdev->device.common;
+
+    memset(&sensor, 0, sizeof(vcs_sensor_t));
+    sensor.fd = open(SENSOR_FILE_NAME, O_RDWR);
+    if (sensor.fd < 0) {
+        ALOGE("Open sensor error!");
+        return -1;
+    }
+    sensor_init();
+    sensor_register();
+    sensor_uninit();
+
+    pthread_mutex_lock(&vdev->lock);
+    sensor_init();
+    db_init(vdev);
+    vcs_init();
+    vcs_uninit();
+    vcs_init();
+    vcs_start_auth_session();
+    vcs_uninit();
+    sensor_uninit();
+    pthread_mutex_unlock(&vdev->lock);
 
     return 0;
 }
