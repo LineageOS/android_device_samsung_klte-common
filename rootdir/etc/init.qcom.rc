@@ -1121,12 +1121,6 @@ service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
     user root
     oneshot
 
-# SENSOR FRAMEWORK : starts fingerprintService
-service vcsFPService /system/bin/vcsFPService
-    class late_start
-    user system
-    group system
-
 on property:persist.sys.ssr.restart_level=1
     write /sys/module/subsystem_restart/parameters/restart_level 1
 
