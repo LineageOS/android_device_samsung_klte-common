@@ -1,6 +1,6 @@
 #
-# Copyright (C) 2016 The CyanogenMod Project
 # Copyright (C) 2016 The Mokee Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,8 +21,19 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := fingerprint.msm8974
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
-LOCAL_SRC_FILES := fingerprint.c
-LOCAL_SHARED_LIBRARIES := liblog
+LOCAL_SRC_FILES := \
+    fingerprint.c \
+    fingerprint_tz.c \
+    QSEEComAPI.c \
+    hash.c
+
+LOCAL_C_INCLUDES += \
+    external/sqlite/dist
+
+LOCAL_SHARED_LIBRARIES := \
+        liblog \
+        libsqlite
+
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
