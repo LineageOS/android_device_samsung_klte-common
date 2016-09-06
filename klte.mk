@@ -76,8 +76,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd \
-    fingerprint.msm8974 \
-    ValidityService
+    fingerprint.msm8974
 
 # Gello
 PRODUCT_PACKAGES += \
