@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (C) 2016 The Android Open Source Project
  * Copyright (C) 2016 The CyanogenMod Project
  * Copyright (C) 2016 The Mokee Project
  *
@@ -16,101 +16,30 @@
  * limitations under the License.
  */
 
-#include <hardware/hardware.h>
-#include <hardware/fingerprint.h>
+#include "fingerprint_common.h"
+#include "vfs61xx_ioctl.h"
 
-#define CALL_BASE 0
+#define FINGER_DATABASE_FILENAME "/data/validity/finger.db"
+#define SAMSUNG_FP_DB_PATH "/data/validity/template.db"
+#define SENSOR_FILE_NAME "/dev/vfsspi"
+#define MAX_DATABASE_CMD 255
 
-#define CALL_INITSERVICE 1
-#define CALL_ENROLL 2
-//userId ,fingerIndex
-#define CALL_CANCEL 3
-#define CALL_REMOVE 4
-//userId ,fingerIndex
-#define CALL_IDENTIFY 5
-//userId
-#define CALL_GET_ENROLLED_FINGER_LIST  6
-//userId
-#define CALL_CLEANUP 7
+int sensor_uninit();
+int sensor_init();
+void sensor_process_signal(int signum);
+int sensor_register();
+int sensor_capture_start();
 
-typedef enum worker_state_t {
-    STATE_IDLE = 0,
-    STATE_ENROLL,
-    STATE_SCAN,
-    STATE_EXIT
-} worker_state_t;
+int db_check_and_create_table(void* device);
+int db_read_to_tz(void *device);
+int db_write_to_db(void *device, bool remove, int fid);
+int db_init(void *device);
+int db_uninit(void *device);
 
-typedef struct worker_thread_t {
-    pthread_t thread;
-    worker_state_t state;
-} worker_thread_t;
+void send_error_notice(void* device, int error_info_int);
+void send_acquired_notice(void* device, int acquired_ret);
+void send_enroll_notice(void *device, int fid, int remaining);
+void send_authenticated_notice(void *device, int fid);
+void send_remove_notice(void *device, int fid);
 
-typedef struct vcs_fingerprint_device_t {
-    fingerprint_device_t device;  // "inheritance"
-    worker_thread_t listener;
-    uint64_t op_id;
-    uint64_t challenge;
-    uint64_t user_id;
-    uint64_t group_id;
-    uint64_t secure_user_id;
-    uint64_t authenticator_id;
-    uint32_t active_gid;
-    int send_fd;  //send to validity service
-    int receive_fd;  //recevie from validity service
-    bool init;
-    pthread_mutex_t lock;
-} vcs_fingerprint_device_t;
-
-static __inline__ int fd_write(int fd, const void* buff, int len){
-	int len2;
-	do {
-		len2 = write(fd, buff, len);
-	} while (len2 < 0 && errno == EINTR);
-	return len2;
-}
-static __inline__ int fd_read(int fd, void* buff, int len){
-	int len2;
-	do {
-		len2 = read(fd, buff, len);
-	} while (len2 < 0 && errno == EINTR);
-	return len2;
-}
-
-static void checkinit(vcs_fingerprint_device_t* vdev);
-static int sendcommand(vcs_fingerprint_device_t* vdev, uint8_t* command, int num);
-static int getfingermask(vcs_fingerprint_device_t* vdev);
-static int initService(vcs_fingerprint_device_t* vdev);
-
-static void send_error_notice(vcs_fingerprint_device_t* vdev, fingerprint_error_t error_info);
-static void send_acquired_notice(vcs_fingerprint_device_t* vdev, fingerprint_acquired_info_t acquired_info);
-static void send_enroll_notice(vcs_fingerprint_device_t* vdev, int fid, int remaining);
-static void send_authenticated_notice(vcs_fingerprint_device_t* vdev, int fid);
-static void send_remove_notice(vcs_fingerprint_device_t* vdev, int fid);
-
-static uint64_t get_64bit_rand();
-static uint64_t fingerprint_get_auth_id(struct fingerprint_device* device);
-static int fingerprint_set_active_group(struct fingerprint_device *device, uint32_t gid,
-        const char __unused *path);
-static int fingerprint_authenticate(struct fingerprint_device *device,
-    uint64_t operation_id, __unused uint32_t gid);
-static int fingerprint_enroll(struct fingerprint_device *device,
-        const hw_auth_token_t *hat,
-        uint32_t __unused gid,
-        uint32_t __unused timeout_sec);
-static uint64_t fingerprint_pre_enroll(struct fingerprint_device *device);
-static int fingerprint_post_enroll(struct fingerprint_device* device);
-static int fingerprint_cancel(struct fingerprint_device *device);
-static int fingerprint_enumerate(struct fingerprint_device *device,
-        fingerprint_finger_id_t *results, uint32_t *max_size);
-static int fingerprint_remove(struct fingerprint_device *device,
-        uint32_t __unused gid, uint32_t fid);
-static int set_notify_callback(struct fingerprint_device *device,
-                               fingerprint_notify_t notify);
-
-static worker_state_t getListenerState(vcs_fingerprint_device_t* dev);
-static void* listenerSocket(void* data);
-
-static int fingerprint_close(hw_device_t* device);
-static int fingerprint_open(const hw_module_t* module, const char __unused *id,
-                            hw_device_t** device);
 
