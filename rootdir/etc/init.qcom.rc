@@ -1065,6 +1065,12 @@ on property:sys.boot_completed=1
     # Post boot services
     start mpdecision
 
+    # Symlink telephony.db and preferred-apn.xml
+    mkdir /data/data/com.android.providers.telephony/databases 0700 radio radio
+    mkdir /data/data/com.android.providers.telephony/shared_prefs 0700 radio radio
+    symlink /data/user_de/0/com.android.providers.telephony/databases/telephony.db /data/data/com.android.providers.telephony/databases/telephony.db
+    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs/preferred-apn.xml /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
+
 service charger /charger
     class charger
     seclabel u:r:healthd:s0
