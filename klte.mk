@@ -74,10 +74,10 @@ PRODUCT_PACKAGES += \
     SamsungDoze
 
 # Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprintd \
-    fingerprint.msm8974 \
-    ValidityService
+#PRODUCT_PACKAGES += \
+#    fingerprintd \
+#    fingerprint.msm8974 \
+#    ValidityService
 
 # Gello
 PRODUCT_PACKAGES += \
