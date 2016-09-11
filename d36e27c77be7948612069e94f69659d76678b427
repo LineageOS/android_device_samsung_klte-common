@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_fa3e9627",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-09-11T17:13:00Z",
+      "side": 1,
+      "message": "prevents device from heating during boot",
+      "range": {
+        "startLine": 928,
+        "startChar": 4,
+        "endLine": 928,
+        "endChar": 14
+      },
+      "revId": "d36e27c77be7948612069e94f69659d76678b427",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

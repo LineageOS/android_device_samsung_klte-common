@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_3a350e47",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-09-11T17:13:00Z",
+      "side": 0,
+      "message": "ath even doesn\u0027t exist",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 64
+      },
+      "revId": "933fe28b6256c8cce55c488befb44150e06da48a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_5a380a3c",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-09-11T17:13:00Z",
+      "side": 0,
+      "message": "should really be at the end of post-fs-data",
+      "range": {
+        "startLine": 163,
+        "startChar": 5,
+        "endLine": 163,
+        "endChar": 36
+      },
+      "revId": "933fe28b6256c8cce55c488befb44150e06da48a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
