@@ -37,10 +37,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.premium_enabled=0 \
     ro.qc.sdk.izat.service_mask=0x0
 
-# Misc
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sdcardfs.enable=true
-
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.nfc.port=I2C
