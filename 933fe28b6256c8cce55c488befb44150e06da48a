@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "1fa4df85_30a52f05",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-09-12T13:57:59Z",
+      "side": 0,
+      "message": "Well, since these don\u0027t map properly, we\u0027re just using the default of auto power control, and I cannot think of any problems. Is there any reason we would want to force power control to be disabled (\"on\")?\n\nfor record, these would be the correct mapping:\nmsm_sdcc.1/mmc_host/mmc0\nmsm_sdcc.2/mmc_host/mmc1\nmsm_sdcc.3/mmc_host/mmc2",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 64
+      },
+      "revId": "933fe28b6256c8cce55c488befb44150e06da48a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fa4df85_5a380a3c",
         "filename": "rootdir/etc/init.qcom.rc",
         "patchSetId": 4
