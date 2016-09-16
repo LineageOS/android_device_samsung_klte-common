@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_fb03ee71",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-09-16T12:18:02Z",
+      "side": 0,
+      "message": "Are the (masked) values of 255 or 99 not actually \"invalid\"?",
+      "range": {
+        "startLine": 259,
+        "startChar": 8,
+        "endLine": 259,
+        "endChar": 73
+      },
+      "revId": "f610d41915e69e3265f2c2e81d1ec69a5423146b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

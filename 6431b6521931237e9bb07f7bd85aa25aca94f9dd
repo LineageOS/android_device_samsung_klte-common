@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_3b93c651",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-09-16T12:18:02Z",
+      "side": 1,
+      "message": "Why this change in logic -- instantiating an IccCardApplicationStatus before the loop? It seems like the new flow might actually be harder to follow for maintenance coding.\n\nAll of this seems logically equivalent. Is something really changing here?",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 13
+      },
+      "revId": "6431b6521931237e9bb07f7bd85aa25aca94f9dd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_9bfafa72",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-09-16T12:18:02Z",
+      "side": 1,
+      "message": "We have non-LTE CDMA variants (USC build - G900R4, G900R7). We shouldn\u0027t jam-set the GSM flag to true.",
+      "range": {
+        "startLine": 256,
+        "startChar": 192,
+        "endLine": 256,
+        "endChar": 196
+      },
+      "revId": "6431b6521931237e9bb07f7bd85aa25aca94f9dd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
