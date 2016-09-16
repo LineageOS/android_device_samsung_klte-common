@@ -22,6 +22,29 @@
       "revId": "d36e27c77be7948612069e94f69659d76678b427",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_fbb52ece",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-09-16T11:54:39Z",
+      "side": 1,
+      "message": "It seems to me that this is the only part of this patch that would screw with RIL/cell connectivity.\n\nWhy are we disabling?",
+      "range": {
+        "startLine": 964,
+        "startChar": 4,
+        "endLine": 964,
+        "endChar": 12
+      },
+      "revId": "d36e27c77be7948612069e94f69659d76678b427",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
