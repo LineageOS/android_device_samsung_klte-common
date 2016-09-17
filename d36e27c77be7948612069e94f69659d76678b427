@@ -45,6 +45,30 @@
       "revId": "d36e27c77be7948612069e94f69659d76678b427",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_4c8e0a2f",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-09-17T04:51:49Z",
+      "side": 1,
+      "message": "just took the values from stock but will test without disabled",
+      "parentUuid": "1fa4df85_fbb52ece",
+      "range": {
+        "startLine": 964,
+        "startChar": 4,
+        "endLine": 964,
+        "endChar": 12
+      },
+      "revId": "d36e27c77be7948612069e94f69659d76678b427",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
