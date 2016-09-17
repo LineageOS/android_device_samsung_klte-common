@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_6c9f465f",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-09-17T04:50:09Z",
+      "side": 1,
+      "message": "i think this is done because of the change in L88. so it looks like it\u0027s same but it might be needed.",
+      "range": {
+        "startLine": 105,
+        "startChar": 8,
+        "endLine": 109,
+        "endChar": 13
+      },
+      "revId": "fbb6a0d6e9a9bf97f69adb7ee0cc8eb2f9d5b715",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_8c9ac26b",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-09-17T04:50:09Z",
+      "side": 1,
+      "message": "i had a look at jf and talked to a jflteusc user and he has no porblems. jflteusc is also non-LTE CDMA variant. and cdma-flag is also set true so i don\u0027t think this is false. but we don\u0027t have a usc to test, have we?",
+      "range": {
+        "startLine": 256,
+        "startChar": 7,
+        "endLine": 256,
+        "endChar": 198
+      },
+      "revId": "fbb6a0d6e9a9bf97f69adb7ee0cc8eb2f9d5b715",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
