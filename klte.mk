@@ -79,10 +79,6 @@ PRODUCT_PACKAGES += \
     fingerprint.msm8974 \
     ValidityService
 
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
-
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
