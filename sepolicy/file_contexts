@@ -17,7 +17,7 @@
 /sys/devices/virtual/lcd/panel/power_reduce             u:object_r:sysfs_display:s0
 
 # EFS
-/dev/block/bootdevice/by-name/efs                       u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/msm_sdcc.1/by-name/efs              u:object_r:modem_efs_partition_device:s0
 
 # Fingerprint
 /system/bin/vcsFPService                                u:object_r:vcs_exec:s0

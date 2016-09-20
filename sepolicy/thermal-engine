@@ -1,0 +1,2 @@
+allow thermal-engine self:capability chown;
+allow thermal-engine socket_device:sock_file write;
