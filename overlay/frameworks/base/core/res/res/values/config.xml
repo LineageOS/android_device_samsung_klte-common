@@ -73,7 +73,7 @@
 
 
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">2</integer>
+    <integer name="config_screenBrightnessDim">10</integer>
 
     <!-- Screen brightness when dozing. -->
     <integer name="config_screenBrightnessDoze">17</integer>
@@ -88,7 +88,7 @@
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">2</integer>
+    <integer name="config_screenBrightnessSettingMinimum">10</integer>
 
     <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
          Please don't copy them, copy anything else. -->
