@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_f4176ba2",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-09-27T10:40:08Z",
+      "side": 1,
+      "message": "set right path",
+      "range": {
+        "startLine": 1049,
+        "startChar": 4,
+        "endLine": 1049,
+        "endChar": 54
+      },
+      "revId": "8ec4f35e3935d4cdf58fbb974aacfb6c046da126",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

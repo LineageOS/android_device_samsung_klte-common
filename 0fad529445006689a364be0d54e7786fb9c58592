@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_940e378b",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-09-27T10:40:08Z",
+      "side": 0,
+      "message": "is set by default",
+      "range": {
+        "startLine": 1099,
+        "startChar": 4,
+        "endLine": 1106,
+        "endChar": 49
+      },
+      "revId": "0fad529445006689a364be0d54e7786fb9c58592",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_b411f3ae",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-09-27T10:40:08Z",
+      "side": 0,
+      "message": "causing reboots. seems not to work and was removed at toher devices because it didn\u0027t work with cgrous.\n\nat least we didn\u0027t use it because of a wrong path...",
+      "range": {
+        "startLine": 1107,
+        "startChar": 4,
+        "endLine": 1107,
+        "endChar": 50
+      },
+      "revId": "0fad529445006689a364be0d54e7786fb9c58592",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
