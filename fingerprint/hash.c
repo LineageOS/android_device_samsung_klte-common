@@ -108,10 +108,10 @@ void SHA1Input(SHA1Context *context,const char *message_array,unsigned length){
 
 void SHA1ProcessMessageBlock(SHA1Context *context){
     const unsigned K[] = {0x5A827999, 0x6ED9EBA1, 0x8F1BBCDC, 0xCA62C1D6 };
-    int         t;                
-    unsigned    temp;             
-    unsigned    W[80];            
-    unsigned    A, B, C, D, E;    
+    int         t;
+    unsigned    temp;
+    unsigned    W[80];
+    unsigned    A, B, C, D, E;
 
     for(t = 0; t < 16; t++) {
     W[t] = ((unsigned) context->Message_Block[t * 4]) << 24;
@@ -119,7 +119,7 @@ void SHA1ProcessMessageBlock(SHA1Context *context){
     W[t] |= ((unsigned) context->Message_Block[t * 4 + 2]) << 8;
     W[t] |= ((unsigned) context->Message_Block[t * 4 + 3]);
     }
-    
+
     for(t = 16; t < 80; t++)  W[t] = SHA1CircularShift(1,W[t-3] ^ W[t-8] ^ W[t-14] ^ W[t-16]);
 
     A = context->Message_Digest[0];

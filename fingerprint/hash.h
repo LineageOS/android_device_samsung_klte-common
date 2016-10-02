@@ -24,13 +24,13 @@
 #define MAX_FILE_LENGTH (300000)
 
 typedef struct SHA1Context{
-	unsigned Message_Digest[5];      
-	unsigned Length_Low;             
-	unsigned Length_High;            
-	unsigned char Message_Block[64]; 
-	int Message_Block_Index;         
-	int Computed;                    
-	int Corrupted;                   
+	unsigned Message_Digest[5];
+	unsigned Length_Low;
+	unsigned Length_High;
+	unsigned char Message_Block[64];
+	int Message_Block_Index;
+	int Computed;
+	int Corrupted;
 } SHA1Context;
 
 void SHA1Reset(SHA1Context *);
