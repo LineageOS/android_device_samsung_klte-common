@@ -59,8 +59,8 @@ void set_tz_state(worker_state_t state) {
     pthread_mutex_unlock(&tz.lock);
 }
 
-/* 
- * cmd: vendorUpdateCalData 
+/*
+ * cmd: vendorUpdateCalData
  */
 int vcs_update_cal_data() {
     struct QSEECom_handle *handle = (struct QSEECom_handle *)(tz.qhandle);
@@ -105,7 +105,7 @@ int vcs_check_state() {
     return 0;
 }
 
-/* 
+/*
  * cmd: 1.vfmCaptureStart
  *      2.vfmCaptureReadData * N
  *      3.vfmCaptureProcessData
@@ -117,7 +117,7 @@ int vcs_start_capture(void *vdev, time_t t) {
     int ret = 0;
     send_cmd = (trust_zone_base_cmd_t *)handle->ion_sbuffer;
     resp = (trust_zone_normal_result_t *)(handle->ion_sbuffer + QSEECOM_ALIGN(sizeof(trust_zone_base_cmd_t)));
-    
+
     memset(send_cmd, 0, QSEECOM_ALIGN(sizeof(*send_cmd)) + QSEECOM_ALIGN(sizeof(int)));
     send_cmd->cmd = vfmCaptureStart;
     send_cmd->len = 0x1c;
@@ -224,7 +224,7 @@ void* vcs_authenticate(void* vdev) {
         if (ret == -1)
             goto out;
         trust_zone_5x_cmd_t *send_5x_cmd = NULL;
-        trust_zone_2x_result_t *resp_2x = NULL; 
+        trust_zone_2x_result_t *resp_2x = NULL;
         int idx = 1;
         send_5x_cmd = (trust_zone_5x_cmd_t *)handle->ion_sbuffer;
         resp_2x = (trust_zone_2x_result_t *)(handle->ion_sbuffer + QSEECOM_ALIGN(sizeof(trust_zone_5x_cmd_t)));
@@ -689,11 +689,11 @@ int vcs_uninit() {
     trust_zone_normal_result_t *resp = NULL;
     send_cmd = (trust_zone_base_cmd_t *)handle->ion_sbuffer;
     resp = (trust_zone_normal_result_t *)(handle->ion_sbuffer + QSEECOM_ALIGN(sizeof(trust_zone_base_cmd_t)));
-    
+
     if (tz.auth_session_opend) {
         vcs_update_auth_token();
     }
-    
+
     memset(send_cmd, 0, QSEECOM_ALIGN(sizeof(int)) + QSEECOM_ALIGN(sizeof(int)));
     send_cmd->cmd = vfmUninitialize;
     QSEECom_send_cmd(handle, send_cmd, QSEECOM_ALIGN(sizeof(int)), resp, QSEECOM_ALIGN(sizeof(int)));
