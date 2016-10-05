@@ -48,4 +48,6 @@ write_headers
 
 write_makefiles "$MY_DIR"/../$DEVICE/device-proprietary-files.txt
 
+printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8974/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
+
 write_footers
