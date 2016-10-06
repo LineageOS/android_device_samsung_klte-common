@@ -58,10 +58,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sensors=1
 
-# Storage
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=true
-
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
