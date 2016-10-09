@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_1a3d3cbb",
+        "filename": "common-proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2016-10-09T19:38:41Z",
+      "side": 1,
+      "message": "Remove the colon here for consistency, and make sure this is a comment :)",
+      "revId": "366ec0248a99c45824b7d1868d84c16f3930c5cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
