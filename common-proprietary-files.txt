@@ -202,7 +202,7 @@ etc/firmware/cpp_firmware_v1_2_0.fw
 
 # CPU
 bin/mpdecision
-bin/thermal-engine
+vendor/bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
