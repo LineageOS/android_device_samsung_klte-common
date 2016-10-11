@@ -78,10 +78,6 @@ PRODUCT_PACKAGES += \
     fingerprintd \
     fingerprint.msm8974
 
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
-
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
