@@ -306,6 +306,9 @@ on boot
     # Allow QMUX daemon to assign port open wait time
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
+    #Create NETMGR daemon socket area
+    mkdir /dev/socket/netmgr 0750 radio radio
+
     # 4.3 requires this
     chmod 0644 /proc/cmdline
 
@@ -942,6 +945,11 @@ service qmuxd /system/bin/qmuxd
     user radio
     group radio audio bluetooth gps qcom_diag log
 
+service netmgrd /system/bin/netmgrd
+    class main
+    user root
+    group radio
+
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
@@ -1032,6 +1040,10 @@ on property:init.svc.p2p_supplicant=stopped
 service macloader /system/bin/macloader
     class main
     oneshot
+
+on property:ro.use_data_netmgrd=false
+    # netmgr not supported on specific target
+    stop netmgrd
 
 on property:init.svc.macloader=stopped
     chown system root /data/.rev
