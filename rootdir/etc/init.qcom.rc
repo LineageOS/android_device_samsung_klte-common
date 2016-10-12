@@ -26,6 +26,7 @@
 #
 
 import init.qcom.usb.rc
+import init.target.rc
 
 on early-init
     export LD_SHIM_LIBS /system/lib/libril.so|libril_shim.so
