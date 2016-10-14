@@ -1033,6 +1033,9 @@ service macloader /system/bin/macloader
     class main
     oneshot
 
+on property:vold.decrypt=trigger_restart_framework
+    start macloader
+
 on property:init.svc.macloader=stopped
     chown system root /data/.rev
     chmod 0664 /data/.rev
