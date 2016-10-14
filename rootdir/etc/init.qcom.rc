@@ -1031,9 +1031,12 @@ on property:init.svc.p2p_supplicant=stopped
     stop dhcpcd
 
 service macloader /system/bin/macloader
-    class main
+    class late_start
     oneshot
     seclabel u:r:macloader:s0
+
+on property:wlan.driver.status=ok
+    start macloader
 
 on property:init.svc.macloader=stopped
     chown system root /data/.rev
