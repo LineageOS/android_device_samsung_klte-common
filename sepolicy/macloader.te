@@ -10,3 +10,6 @@ allow macloader wifi_data_file:file { create_file_perms getattr setattr };
 allow macloader wifi_efs_file:dir search;
 allow macloader wifi_efs_file:file r_file_perms;
 allow macloader system_data_file:dir { add_name search write };
+
+# /sys/module/dhd/parameters/nvram_path
+allow macloader sysfs:file rw_file_perms;
