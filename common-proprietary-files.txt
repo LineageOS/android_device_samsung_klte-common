@@ -32,7 +32,12 @@ vendor/lib/rfsa/adsp/libfastcvadsp.so
 vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
 # Bluetooth firmware
+vendor/firmware/bcm4350_V0375.0766_wisol.hcd
 vendor/firmware/bcm4350_V0375.0768.hcd
+vendor/firmware/bcm4350_V0375.0768_murata.hcd
+vendor/firmware/bcm4350_V0375.0768_semco.hcd
+vendor/firmware/bcm4350_V0375.0768_semcosh.hcd
+vendor/firmware/bcm4350_V0375.0768_semcove.hcd
 
 # Camera
 bin/mm-qcamera-daemon
