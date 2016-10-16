@@ -1,0 +1,7 @@
+allow cameraserver camera_socket:sock_file write;
+allow cameraserver init:unix_stream_socket connectto;
+allow cameraserver property_socket:sock_file write;
+allow cameraserver sysfs_camera:dir search;
+allow cameraserver sysfs_camera:file { open read };
+allow cameraserver system_file:file execmod;
+
