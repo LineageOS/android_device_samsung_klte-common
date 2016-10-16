@@ -1,0 +1,2 @@
+allow untrusted_app fuseblk:file { getattr read };
+
