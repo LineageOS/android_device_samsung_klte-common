@@ -1,0 +1,3 @@
+# neverallow is hit for the below rule
+#allow mpdecision self:capability sys_ptrace;
+allow mpdecision system_data_file:sock_file write;
