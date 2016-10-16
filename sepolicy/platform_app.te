@@ -1,0 +1,3 @@
+allow platform_app fuseblk:dir { open read remove_name search write };
+allow platform_app fuseblk:file { getattr unlink write };
+
