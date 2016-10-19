@@ -291,7 +291,7 @@ on boot
 
     #Audience ES705 UART
     chmod 0660 /dev/ttyHS3
-    chown media system /dev/ttyHS3
+    chown media audio /dev/ttyHS3
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
