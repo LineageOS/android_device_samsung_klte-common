@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_ec2ecda3",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-10-21T07:01:05Z",
+      "side": 1,
+      "message": "wouldn\u0027t it make sense to do this a little bit earlier? at least before ril service or all service starts?",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1073,
+        "endChar": 164
+      },
+      "revId": "e48d4bf57a0f679ed68bb823ea40a6a8c319ce26",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
