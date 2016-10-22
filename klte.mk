@@ -88,6 +88,10 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
+# IR Blaster
+PRODUCT_PACKAGES += \
+    consumerir.msm8974
+
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
