@@ -38,7 +38,12 @@
 #define IR_BUFFER_SIZE 0x1000
 
 static const consumerir_freq_range_t consumerir_freqs[] = {
-    {.min = 16000, .max = 60000},
+    {.min = 30000, .max = 30000},
+    {.min = 33000, .max = 33000},
+    {.min = 36000, .max = 36000},
+    {.min = 38000, .max = 38000},
+    {.min = 40000, .max = 40000},
+    {.min = 56000, .max = 56000},
 };
 
 static char *SEPARATOR_EOF = "\0";
