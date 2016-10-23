@@ -6,7 +6,8 @@ type_transition macloader system_data_file:file wifi_data_file;
 
 allow macloader efs_file:dir search;
 allow macloader self:capability { chown dac_override fowner fsetid };
+allow macloader sysfs_wifi_nv_path:file { open write };
+allow macloader system_data_file:dir { add_name search write };
 allow macloader wifi_data_file:file { create_file_perms getattr setattr };
 allow macloader wifi_efs_file:dir search;
 allow macloader wifi_efs_file:file r_file_perms;
-allow macloader system_data_file:dir { add_name search write };
