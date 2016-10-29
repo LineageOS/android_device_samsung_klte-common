@@ -767,6 +767,7 @@ on boot
 
     # NFC_NXP
     symlink /dev/pn547 /dev/pn544
+    symlink /dev/pn547 /dev/pn54x
 
     # NFC_BROADCOM
     mkdir /data/nfc
