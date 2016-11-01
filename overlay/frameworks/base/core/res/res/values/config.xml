@@ -297,6 +297,7 @@
     </string-array>
 
     <!-- Enable blur support -->
+    <add-resource type="bool" name="config_ui_blur_enabled">true</add-resource>
     <bool name="config_ui_blur_enabled">true</bool>
 
 </resources>
