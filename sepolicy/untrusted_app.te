@@ -1,3 +1,9 @@
 # These are safe for an untrusted_app -- they are the external SD card
 allow untrusted_app fuseblk:dir search;
 allow untrusted_app fuseblk:file { getattr read };
+
+# sdcardfs for external sdcard
+allow untrusted_app sdcard_posix:dir { add_name create remove_name rename rmdir write };
+allow untrusted_app sdcard_posix:file { create rename unlink };
+allow untrusted_app vfat:dir { add_name create remove_name rename rmdir write };
+allow untrusted_app vfat:file { create rename unlink };

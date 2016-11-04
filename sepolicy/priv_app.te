@@ -1,3 +1,9 @@
 allow priv_app device:dir { open read };
 allow priv_app fuseblk:dir { add_name open read search read write };
 allow priv_app fuseblk:file { create getattr open read write };
+
+# sdcardfs for external sdcard
+allow priv_app sdcard_posix:dir { add_name create remove_name rename rmdir write };
+allow priv_app sdcard_posix:file { create rename unlink };
+allow priv_app vfat:dir { add_name create remove_name rename rmdir write };
+allow priv_app vfat:file { create rename unlink };
