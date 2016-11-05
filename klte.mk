@@ -124,6 +124,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf
 
+# Widevine
+PRODUCT_PACKAGES += \
+    libshim_wvm
+
 # Wifi
 PRODUCT_PACKAGES += \
     libnetcmdiface \

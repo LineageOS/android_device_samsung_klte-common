@@ -29,7 +29,7 @@ import init.qcom.usb.rc
 import init.target.rc
 
 on early-init
-    export LD_SHIM_LIBS /system/lib/libril.so|libril_shim.so
+    export LD_SHIM_LIBS "/system/lib/libril.so|libril_shim.so:/system/vendor/lib/libwvm.so|libshim_wvm.so"
 
     # Increase max readahead size to 512 KB
     write /sys/block/mmcblk0/queue/read_ahead_kb 512
