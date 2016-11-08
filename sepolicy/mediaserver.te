@@ -3,3 +3,4 @@ allow mediaserver sensorservice_service:service_manager find;
 allow mediaserver sysfs_camera:dir search;
 allow mediaserver sysfs_camera:file { getattr open read };
 allow mediaserver system_file:file execmod; # for libmmjpeg
+allow mediaserver system_prop:property_service set;
