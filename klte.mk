@@ -109,7 +109,7 @@ PRODUCT_PACKAGES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libril_shim \
+    libshim_ril \
     libprotobuf-cpp-full
 
 # Ramdisk
