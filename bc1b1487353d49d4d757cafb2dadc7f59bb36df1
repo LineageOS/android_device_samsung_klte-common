@@ -16,6 +16,24 @@
       "revId": "bc1b1487353d49d4d757cafb2dadc7f59bb36df1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_ace00898",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 20
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 444
+      },
+      "writtenOn": "2016-11-10T17:29:34Z",
+      "side": 1,
+      "message": "early-boot is triggered after fs.",
+      "parentUuid": "ff2e2bb8_ccf46c89",
+      "revId": "bc1b1487353d49d4d757cafb2dadc7f59bb36df1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
