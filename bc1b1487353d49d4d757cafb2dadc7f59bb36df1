@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_ccf46c89",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 20
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2016-11-10T15:47:22Z",
+      "side": 1,
+      "message": "fwiw this does nothing, /data isn\u0027t mounted yet",
+      "revId": "bc1b1487353d49d4d757cafb2dadc7f59bb36df1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
