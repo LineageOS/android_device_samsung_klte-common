@@ -1,2 +1,3 @@
-allow mpdecision system_data_file:dir write;
+allow mpdecision system_data_file:dir { add_name write };
 allow mpdecision system_data_file:sock_file write;
+allow mpdecision self:capability sys_ptrace;
