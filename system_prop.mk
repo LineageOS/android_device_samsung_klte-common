@@ -48,6 +48,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.perf.cores_online=1
     ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
 
 # Radio
