@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_6768c086",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2016-11-17T16:45:16Z",
+      "side": 0,
+      "message": "if we need this i think this needs to be labaled",
+      "range": {
+        "startLine": 1086,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 58
+      },
+      "revId": "1d1e0634f53bac8e2458cd9452d8c4162a663c85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
