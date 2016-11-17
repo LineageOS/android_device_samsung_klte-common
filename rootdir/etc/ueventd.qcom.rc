@@ -41,9 +41,10 @@
 /dev/smd5                 0660   system     system
 /dev/smd6                 0660   system     system
 /dev/smd7                 0660   bluetooth  bluetooth
+/dev/ccid_bridge          0660   system     system
 
 #permissions for CSVT
-/dev/smd11                0660   radio      radio
+/dev/smd11                0660   loop_radio loop_radio
 
 /dev/radio0               0640   system     system
 /dev/rfcomm0              0660   bluetooth  bluetooth
@@ -109,7 +110,7 @@
 /dev/msm_vidc_dec_sec     0660   system     audio
 /dev/msm_vidc_enc         0660   system     audio
 /dev/msm_rotator          0660   system     system
-/dev/hw_random            0660   system     system
+/dev/hw_random            0600   root       root
 /dev/adsprpc-smd          0664   system     system
 
 #permissions for audio
@@ -136,9 +137,11 @@
 /dev/msm_preproc_ctl      0660   system     audio
 /dev/msm_rtac             0660   system     audio
 /dev/msm_voicememo        0660   system     audio
+*/
 /dev/radio0               0640   fm_radio   fm_radio
 /dev/smd3                 0660   bluetooth  net_bt_stack
 /dev/smd2                 0660   bluetooth  net_bt_stack
+/*
 /dev/ttyHSL1              0660   system     system
 /dev/mdm                  0660   system     radio
 /sys/devices/virtual/smdpkt/smdcntl*       open_timeout   0664 radio radio
@@ -146,6 +149,7 @@
 /dev/tty_sdio_00          0660   system     system
 /dev/ttyGS0               0660   system     system
 /dev/i2c-5                0660   media       media
+/dev/voice_svc            0660   system     audio
 
 # Fingerprint
 /dev/vfsspi               0660   system     system
@@ -159,15 +163,7 @@
 /dev/tsc_mux0             0660   media       media
 /dev/tsc_ci0              0660   media       media
 
-# NFC
-/dev/bcm2079x             0600   nfc         nfc
-/dev/pn547                0660   nfc         nfc
-
-# Vibrator
-/dev/tspdrv               0660   root        shell
-
 # sensors
-/dev/alps_io              0660   input       system
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
 /sys/devices/f9925000.i2c/i2c-0/0-* enable          0660     input     system
 /sys/devices/f9925000.i2c/i2c-0/0-* poll_delay      0660     input     system
@@ -181,6 +177,7 @@
 # wlan
 /dev/wcnss_wlan           0660   system     system
 /dev/wcnss_ctrl           0660   system     system
+
 #nfc permissions
 /dev/nfc-nci              0660    nfc         nfc
 /dev/assd                 0660    nfc         nfc
