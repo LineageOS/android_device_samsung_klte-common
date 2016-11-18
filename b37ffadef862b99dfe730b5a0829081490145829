@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_6f17f646",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-11-18T14:16:01Z",
+      "side": 1,
+      "message": "This doesn\u0027t exist",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 43
+      },
+      "revId": "b37ffadef862b99dfe730b5a0829081490145829",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2e2bb8_cf29e28a",
+        "filename": "rootdir/etc/ueventd.qcom.rc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-11-18T14:16:01Z",
+      "side": 1,
+      "message": "Doesn\u0027t exist",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 16
+      },
+      "revId": "b37ffadef862b99dfe730b5a0829081490145829",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
