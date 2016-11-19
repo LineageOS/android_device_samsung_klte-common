@@ -90,6 +90,11 @@ BOARD_SEPOLICY_DIRS += \
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
+# TWRP Support - Optional
+ifeq ($(WITH_TWRP),true)
+-include $(LOCAL_PATH)/twrp.mk
+endif
+
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI := true
 BOARD_WLAN_DEVICE := bcmdhd
