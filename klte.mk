@@ -132,6 +132,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf
 
+# TWRP Support - Optional
+ifeq ($(RECOVERY_VARIANT),twrp)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+endif
+
 # Wifi
 PRODUCT_PACKAGES += \
     libnetcmdiface \
