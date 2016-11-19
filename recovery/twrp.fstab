@@ -1,0 +1,13 @@
+/modem			vfat		/dev/block/platform/msm_sdcc.1/by-name/modem /dev/block/platform/msm_sdcc.1/by-name/mdm	flags=backup=1;display="Modem";fsflags=ro,context=u:object_r:firmware_file:s0
+/firmware		vfat		/dev/block/platform/msm_sdcc.1/by-name/apnhlos	flags=backup=1;subpartitionof=/modem;mounttodecrypt;fsflags=ro,context=u:object_r:firmware_file:s0
+/boot				emmc		/dev/block/platform/msm_sdcc.1/by-name/boot
+/recovery		emmc		/dev/block/platform/msm_sdcc.1/by-name/recovery
+/misc				emmc		/dev/block/platform/msm_sdcc.1/by-name/fota
+/system			ext4		/dev/block/platform/msm_sdcc.1/by-name/system
+/data				ext4		/dev/block/platform/msm_sdcc.1/by-name/userdata	flags=encryptable=footer;length=-16384
+/cache			ext4		/dev/block/platform/msm_sdcc.1/by-name/cache
+/efs				ext4		/dev/block/platform/msm_sdcc.1/by-name/efs		flags=backup=1;display="EFS"
+/modemst1		emmc		/dev/block/platform/msm_sdcc.1/by-name/modemst1	flags=backup=1;subpartitionof=/efs
+/modemst2		emmc		/dev/block/platform/msm_sdcc.1/by-name/modemst2	flags=backup=1;subpartitionof=/efs
+/external_sd	vfat		/dev/block/mmcblk1p1 /dev/block/mmcblk1			flags=display="Micro SDcard";storage;wipeingui;removable
+/usbstorage		vfat		/dev/block/sda1 /dev/block/sda				flags=display="USB Storage";storage;wipeingui;removable
