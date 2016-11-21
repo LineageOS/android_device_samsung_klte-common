@@ -31,21 +31,14 @@
 #define UNUSED __attribute__((unused))
 
 static int fd = 0;
-#ifdef USE_ONE_FREQ_RANGE
-static pthread_mutex_t g_mtx;
-#endif
 
 static const consumerir_freq_range_t consumerir_freqs[] = {
-#ifdef USE_ONE_FREQ_RANGE
-    {.min = 16000, .max = 60000},
-#else
     {.min = 30000, .max = 30000},
     {.min = 33000, .max = 33000},
     {.min = 36000, .max = 36000},
     {.min = 38000, .max = 38000},
     {.min = 40000, .max = 40000},
     {.min = 56000, .max = 56000},
-#endif
 };
 
 static bool try_append_number(char *buffer, int *len, int size, int number)
@@ -91,12 +84,7 @@ static int consumerir_transmit(UNUSED struct consumerir_device *dev,
     int buffer_len = 0;
     int buffer_size = 128;
     int i;
-    float factor;
     char *buffer;
-
-#ifdef USE_ONE_FREQ_RANGE
-    pthread_mutex_lock(&g_mtx);
-#endif
 
     buffer = malloc(buffer_size);
     if (buffer == NULL)
@@ -106,17 +94,9 @@ static int consumerir_transmit(UNUSED struct consumerir_device *dev,
     if (!append_number(&buffer, &buffer_len, &buffer_size, carrier_freq))
         goto error;
 
-#ifndef MS_IR_SIGNAL
-    // Calculate factor of conversion from microseconds to pulses
-    factor = 1000000 / carrier_freq;
-#else
-    factor = 1;
-#endif
-
     // Write out the timing pattern
     for (i = 0; i < pattern_len; i++) {
-        if (!append_number(&buffer, &buffer_len, &buffer_size,
-                (int) (pattern[i] / factor)))
+        if (!append_number(&buffer, &buffer_len, &buffer_size, pattern[i]))
             goto error;
     }
 
@@ -124,10 +104,6 @@ static int consumerir_transmit(UNUSED struct consumerir_device *dev,
     write(fd, buffer, buffer_len - 1);
 
     free(buffer);
-
-#ifdef USE_ONE_FREQ_RANGE
-    pthread_mutex_unlock(&g_mtx);
-#endif
 
     return 0;
 
@@ -150,9 +126,6 @@ static int consumerir_close(hw_device_t *dev)
 {
     free(dev);
     close(fd);
-#ifdef USE_ONE_FREQ_RANGE
-    pthread_mutex_destroy(&g_mtx);
-#endif
     return 0;
 }
 
@@ -186,10 +159,6 @@ static int consumerir_open(const hw_module_t* module, const char* name,
     dev->transmit = consumerir_transmit;
     dev->get_carrier_freqs = consumerir_get_carrier_freqs;
     dev->get_num_carrier_freqs = consumerir_get_num_carrier_freqs;
-
-#ifdef USE_ONE_FREQ_RANGE
-    pthread_mutex_init(&g_mtx, NULL);
-#endif
 
     *device = (hw_device_t*) dev;
     fd = open("/sys/class/sec/sec_ir/ir_send", O_RDWR);
