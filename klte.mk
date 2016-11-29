@@ -81,7 +81,7 @@ PRODUCT_PACKAGES += \
 
 # Gello
 PRODUCT_PACKAGES += \
-    Gello
+    Gello1
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
