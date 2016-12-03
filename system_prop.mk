@@ -52,6 +52,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.data.large_tcp_window_size=true \
     persist.data.netmgrd.qos.enable=true \
     persist.data.qmi.adb_logmask=0 \
     persist.radio.add_power_save=1 \
