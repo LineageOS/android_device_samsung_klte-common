@@ -1,1 +1,2 @@
 allow init sysfs_sec:lnk_file r_file_perms;
+allow init debugfs:file write;
