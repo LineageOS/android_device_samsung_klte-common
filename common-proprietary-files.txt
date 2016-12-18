@@ -1,7 +1,5 @@
 # Activity recognition
-vendor/lib/hw/activity_recognition.msm8974.so
 vendor/lib/libsensor1.so
-vendor/lib/libsensor_reg.so
 
 # Audio
 vendor/lib/libacdbloader.so
@@ -23,13 +21,7 @@ bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
-vendor/lib/libscve.so
-vendor/lib/libscve_stub.so
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so
-vendor/lib/rfsa/adsp/libdspCV_skel.so
-vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
-vendor/lib/rfsa/adsp/libfastcvadsp.so
-vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
 # Bluetooth firmware
 vendor/firmware/bcm4350_V0375.0766_wisol.hcd
@@ -248,11 +240,6 @@ vendor/lib/libSHIMDivxDrm.so
 
 # Perf
 vendor/lib/libqti-perfd-client.so
-
-# Postprocessing
-vendor/lib/libdisp-aba.so
--vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
 
 # Qualcomm
 vendor/lib/libxml.so
