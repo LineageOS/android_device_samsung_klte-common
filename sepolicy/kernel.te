@@ -1,1 +1,2 @@
 allow kernel audio_device:chr_file rw_file_perms;
+allow kernel efs_file:dir search;
