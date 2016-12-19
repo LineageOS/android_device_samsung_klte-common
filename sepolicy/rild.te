@@ -2,3 +2,4 @@ allow rild proc_net:file rw_file_perms;
 allow rild self:capability dac_override;
 allow rild sysfs_sec:file rw_file_perms;
 allow rild radio_data_file:lnk_file read;
+allow rild radio_prop:property_service set;

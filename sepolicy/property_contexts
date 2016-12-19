@@ -1,0 +1,5 @@
+##########################
+# property service keys
+#
+#
+persist.ril.radiocapa.tdscdma            u:object_r:radio_prop:s0
