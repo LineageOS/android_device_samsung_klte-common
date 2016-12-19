@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_35644c22",
+        "filename": "common-proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-12-19T16:04:25Z",
+      "side": 1,
+      "message": "Is there a reason you un-pinned these?\n\nAnd is something not finding libdrmwvplugin.so in vendor? Because everyone else that KANGed from bullhead has it in vendor.",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 37
+      },
+      "revId": "7d1b0fd5d7e5ea190391705ed6180f46fee67ba5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

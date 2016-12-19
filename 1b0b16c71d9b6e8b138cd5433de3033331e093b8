@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_557108e0",
+        "filename": "common-proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-12-19T16:04:25Z",
+      "side": 0,
+      "message": "Is there no more HAL for this? And all sensors still work?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 45
+      },
+      "revId": "1b0b16c71d9b6e8b138cd5433de3033331e093b8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
