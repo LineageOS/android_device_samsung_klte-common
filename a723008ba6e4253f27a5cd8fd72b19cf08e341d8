@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_168e762d",
+        "filename": "common-proprietary-files.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2016-12-20T16:45:58Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure that the only thing this really does is get rid of a logcat message. It\u0027s used for L1 WV, but we have no hope of that and fall back to L3.",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 26
+      },
+      "revId": "a723008ba6e4253f27a5cd8fd72b19cf08e341d8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
