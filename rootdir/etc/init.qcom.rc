@@ -133,10 +133,6 @@ on post-fs-data
     chmod 0666 /sys/class/leds/torch-sec1/brightness
     chown system camera /sys/class/leds/torch-sec1/brightness
 
-    # Touchscreen
-    chmod 0660 /sys/class/input/input2/enabled
-    chown system system /sys/class/input/input2/enabled
-
     #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     mkdir /data/system 0775 system system
 
@@ -285,13 +281,14 @@ on boot
     chmod 0660 /sys/module/hci_uart/parameters/ath_btwrite
     chmod 0660 /dev/ttyHS0
     chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
-    chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
-
     chmod 0660 /dev/ttyHS2
     chown bluetooth bluetooth /dev/ttyHS2
 
     # for BT MAC address
     mkdir /efs/bluetooth 0775 radio system
+    # if already exist
+    chown radio system /efs/bluetooth
+    chmod 0775 /efs/bluetooth
 
     # For WiFi
     chown wifi wifi /dev/rfkill
@@ -610,15 +607,14 @@ on boot
     chown system radio /sys/class/sensors/accelerometer_sensor/vendor
     chown system radio /sys/class/sensors/accelerometer_sensor/name
     chown system radio /sys/class/sensors/accelerometer_sensor/selftest
+    chown system radio /sys/class/sensors/accelerometer_sensor/lowpassfilter
 
     # Proximity_sensor
     chown system radio /sys/class/sensors/proximity_sensor/state
     chown system radio /sys/class/sensors/proximity_sensor/raw_data
     chown system radio /sys/class/sensors/proximity_sensor/prox_avg
     chown system radio /sys/class/sensors/proximity_sensor/prox_cal
-    chown system radio /sys/class/sensors/proximity_sensor/prox_cal2
     chown system radio /sys/class/sensors/proximity_sensor/prox_offset_pass
-    chown system radio /sys/class/sensors/proximity_sensor/prox_thresh
     chown system radio /sys/class/sensors/proximity_sensor/vendor
     chown system radio /sys/class/sensors/proximity_sensor/name
     chown system radio /sys/class/sensors/proximity_sensor/thresh_high
@@ -645,6 +641,7 @@ on boot
     chown system radio /sys/class/sensors/barometer_sensor/vendor
     chown system radio /sys/class/sensors/barometer_sensor/name
     chown system radio /sys/class/sensors/barometer_sensor/calibration
+    chown system radio /sys/class/sensors/barometer_sensor/temperature
 
     # Magnetic_sensor
     chown system radio /sys/class/sensors/magnetic_sensor/selftest
@@ -846,6 +843,8 @@ on boot
     # permission for Input Device(Touchkey).
     chmod 0660 /sys/class/input/input1/enabled
     chown system system /sys/class/input/input1/enabled
+    chmod 0660 /sys/class/input/input2/enabled
+    chown system system /sys/class/input/input2/enabled
     chown radio system /sys/class/sec/sec_touchkey/touch_sensitivity
     chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
     chown system radio /sys/class/sec/sec_touchkey/glove_mode
@@ -856,14 +855,15 @@ on boot
     # permissions for bluetooth.
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
     chown bluetooth net_bt_stack ro.bt.bdaddr_path
-
     chown radio net_bt_stack /efs/bluetooth/bt_addr
     chmod 0640 /efs/bluetooth/bt_addr
     restorecon_recursive /efs/bluetooth
-
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
+
+    # DualWave
+    chown system system /sys/kernel/DualWave/sound/DUALWAVE_CONFIG
 
     # bluetooth LPM
     chmod 0660 /proc/bluetooth/sleep/lpm
@@ -872,6 +872,9 @@ on boot
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
     chmod 0600 /dev/btlock
     chown bluetooth bluetooth /dev/btlock
+
+    # SSWAP
+    write /proc/sys/vm/swappiness 130
 
     # Sensors
     chown system system /efs/prox_cal
