@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2014-2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -61,7 +62,10 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/flp.conf:system/etc/flp.conf
+    $(LOCAL_PATH)/configs/clatd.conf:system/etc/clatd.conf \
+    $(LOCAL_PATH)/configs/flp.conf:system/etc/flp.conf \
+    $(LOCAL_PATH)/configs/izat.conf:system/etc/izat.conf \
+    $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf
 
 # Camera
 PRODUCT_PACKAGES += \
