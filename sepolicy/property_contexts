@@ -3,3 +3,4 @@
 #
 #
 persist.ril.radiocapa.tdscdma            u:object_r:radio_prop:s0
+persist.ril.modem.board                  u:object_r:radio_prop:s0
