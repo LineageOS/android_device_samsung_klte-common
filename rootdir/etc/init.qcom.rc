@@ -262,6 +262,7 @@ on early-boot
     # Will be recreated at end of boot
     rm /data/data/com.android.providers.telephony/databases/telephony.db
     rm /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
+    restorecon_recursive /data/data/com.android.providers.telephony
 
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
