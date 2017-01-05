@@ -1082,6 +1082,11 @@ on property:sys.boot_completed=1
     symlink /data/user_de/0/com.android.providers.telephony/databases/telephony.db /data/data/com.android.providers.telephony/databases/telephony.db
     symlink /data/user_de/0/com.android.providers.telephony/shared_prefs/preferred-apn.xml /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
 
+    # Fix file contexts for the directories; needed for upgrade from earlier
+    # 7.x versions, NOOP for clean flashes
+    restorecon /data/data/com.android.providers.telephony/databases
+    restorecon /data/data/com.android.providers.telephony/shared_prefs
+
 service charger /charger
     class charger
     seclabel u:r:healthd:s0

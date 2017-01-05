@@ -31,6 +31,10 @@
 /dev/bcm2079x                                           u:object_r:nfc_device:s0
 /dev/pn547                                              u:object_r:nfc_device:s0
 
+# RIL
+/data/data/com.android.providers.telephony/databases(/.*)?     u:object_r:radio_data_file:s0
+/data/data/com.android.providers.telephony/shared_prefs(/.*)?  u:object_r:radio_data_file:s0
+
 # SEC
 /sys/devices/virtual/sec/sec_key/hall_irq_ctrl          u:object_r:sysfs_sec:s0
 /sys/devices/virtual/sec/tsp(/.*)?                      u:object_r:sysfs_sec:s0
