@@ -131,13 +131,19 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
     if (strcmp (params.getPreviewFormat(), PIXEL_FORMAT_NV12_VENUS) == 0)
           params.setPreviewFormat(params.PIXEL_FORMAT_YUV420SP);
 
-    const char *videoSizeValues = params.get(
-            CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
-    if (videoSizeValues) {
-        char videoSizes[strlen(videoSizeValues) + 10 + 1];
-        sprintf(videoSizes, "3840x2160,%s", videoSizeValues);
+    if (CAMERA_ID(device) == BACK_CAMERA_ID) {
+        /* Disable 352x288 preview sizes, the combination of this preview size and larger resolutions stalls the HAL */
+        params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
+            "1920x1080,1440x1080,1280x720,720x480,640x480,320x240");
         params.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
-                videoSizes);
+            "4096x2160,3840x2160,1920x1080,1280x720,864x480,800x480,720x480,640x480,320x240,176x144");
+    } else if (CAMERA_ID(device) == FRONT_CAMERA_ID) { 
+        /* Inject all supported resolutions */
+        params.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
+            "1280x720,864x480,800x480,720x480,640x480,320x240,176x144");
+        params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
+            "1280x960,1280x720,720x480,640x480,576x432,320x240");
+        params.set("preview-fps-range-values", "(7500,30000),(8000,30000),(30000,30000)");
     }
 
     /* If the vendor has HFR values but doesn't also expose that
