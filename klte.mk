@@ -83,6 +83,10 @@ PRODUCT_PACKAGES += \
     fingerprintd \
     fingerprint.msm8974
 
+# FlipFlap
+PRODUCT_PACKAGES += \
+    FlipFlap
+
 # Gello
 PRODUCT_PACKAGES += \
     Gello
