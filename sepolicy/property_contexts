@@ -8,3 +8,4 @@ persist.ril.ims.eutranParam              u:object_r:radio_prop:s0
 persist.ril.ims.utranParam               u:object_r:radio_prop:s0
 persist.ril.xcap.pdnFailCause            u:object_r:radio_prop:s0
 persist.ril.ims.pdnFailCause             u:object_r:radio_prop:s0
+persist.sys.timeadjust                   u:object_r:timekeep_prop:s0
