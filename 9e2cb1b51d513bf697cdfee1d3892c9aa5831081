@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_0c5ba655",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 15402
+      },
+      "writtenOn": "2017-01-23T12:03:32Z",
+      "side": 0,
+      "message": "This results in an \"undefined identifier\" error because\ncamera_get_parameters/camera_set_parameters are used on\nlines 343/348 but only defined later on lines 446/432",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 83
+      },
+      "revId": "9e2cb1b51d513bf697cdfee1d3892c9aa5831081",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
