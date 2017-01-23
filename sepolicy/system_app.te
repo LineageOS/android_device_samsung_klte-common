@@ -1,0 +1,4 @@
+allow system_app time_data_file:dir search;
+allow system_app time_data_file:file rw_file_perms;
+
+set_prop(system_app, timekeep_prop)
