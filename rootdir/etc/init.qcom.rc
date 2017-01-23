@@ -930,10 +930,12 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-passive-client stream 0666 system system
    group root
 
-service time_daemon /system/bin/time_daemon
+service timekeep /system/bin/timekeep restore
     class late_start
     user root
     group root
+    oneshot
+    seclabel u:r:timekeep:s0
 
 service audiod /system/bin/audiod
     class late_start
