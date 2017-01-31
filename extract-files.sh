@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -50,6 +51,10 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$CM_ROOT" true
 
 extract "$MY_DIR"/common-proprietary-files.txt "$SRC"
+
+if [ ! -s "$CM_ROOT"/vendor/qcom/binaries/msm8974/graphics/graphics-vendor.mk ]; then
+    extract "$CM_ROOT"/device/qcom/common/extractors/graphics-msm8974.txt "$SRC"
+fi
 
 # Reinitialize the helper for device
 setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
