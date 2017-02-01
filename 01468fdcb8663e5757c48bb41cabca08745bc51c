@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_de652046",
+        "filename": "klte.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2017-02-01T12:24:48Z",
+      "side": 1,
+      "message": "you could check if\n\nRECOVERY_VARIANT :\u003d twrp\n\nfor this",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 24
+      },
+      "revId": "01468fdcb8663e5757c48bb41cabca08745bc51c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
