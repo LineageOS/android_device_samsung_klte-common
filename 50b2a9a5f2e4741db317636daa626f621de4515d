@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_2373f94e",
+        "filename": "mkbootimg.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 11604
+      },
+      "writtenOn": "2017-02-01T03:35:11Z",
+      "side": 1,
+      "message": "asserting max image size and then adding to the image looks like it could cause issues",
+      "revId": "50b2a9a5f2e4741db317636daa626f621de4515d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
