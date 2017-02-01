@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_5e79302e",
+        "filename": "twrp.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-02-01T11:39:25Z",
+      "side": 1,
+      "message": "cannot find this path...\ni only have /sys/devices/mdp.0/qcom,mdss_fb_primary.191/...",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 100
+      },
+      "revId": "e2fafd3a2905403ea7211350661776826e55a101",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
