@@ -26,10 +26,10 @@ vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 # Bluetooth firmware
 vendor/firmware/bcm4350_V0375.0766_wisol.hcd
 vendor/firmware/bcm4350_V0375.0768.hcd
-vendor/firmware/bcm4350_V0375.0768_murata.hcd
-vendor/firmware/bcm4350_V0375.0768_semco.hcd
-vendor/firmware/bcm4350_V0375.0768_semcosh.hcd
-vendor/firmware/bcm4350_V0375.0768_semcove.hcd
+vendor/firmware/bcm4350_V0375.0768_murata.hcd|01a291de2a89b10f494956ffb79357302e38152b
+vendor/firmware/bcm4350_V0375.0768_semco.hcd|01a291de2a89b10f494956ffb79357302e38152b
+vendor/firmware/bcm4350_V0375.0768_semcosh.hcd|01a291de2a89b10f494956ffb79357302e38152b
+vendor/firmware/bcm4350_V0375.0768_semcove.hcd|01a291de2a89b10f494956ffb79357302e38152b
 
 # Camera
 bin/mm-qcamera-daemon
