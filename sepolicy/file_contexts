@@ -24,6 +24,9 @@
 /dev/validity(/.*)?                                     u:object_r:vcs_device:s0
 /dev/vfsspi                                             u:object_r:vcs_device:s0
 
+# Graphic
+/sys/class/kgsl/kgsl-3d0/gpuclk                         u:object_r:sysfs_graphic:s0
+
 # Macloader
 /system/bin/macloader                                   u:object_r:macloader_exec:s0
 
