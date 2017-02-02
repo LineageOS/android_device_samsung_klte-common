@@ -22,6 +22,30 @@
       "revId": "01468fdcb8663e5757c48bb41cabca08745bc51c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_9dc43d41",
+        "filename": "klte.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2017-02-02T00:27:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a437d4f_de652046",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 24
+      },
+      "revId": "01468fdcb8663e5757c48bb41cabca08745bc51c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
