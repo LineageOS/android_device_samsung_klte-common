@@ -1,6 +1,7 @@
 type sensors_efs_file, file_type;
 type sysfs_camera, fs_type, sysfs_type;
 type sysfs_display, fs_type, sysfs_type;
+type sysfs_graphic, fs_type, sysfs_type;
 type sysfs_sec, fs_type, sysfs_type;
 type sysfs_vibeamp, fs_type, sysfs_type;
 type sysfs_wifi_nv_path, fs_type, sysfs_type;
