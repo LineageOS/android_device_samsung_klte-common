@@ -323,8 +323,6 @@ on boot
     # 4.3 requires this
     chmod 0644 /proc/cmdline
 
-    setprop ro.telephony.call_ring.multiple false
-
     #Set SUID bit for usbhub
     chmod 4755 /system/bin/usbhub
     chmod 755 /system/bin/usbhub_init
