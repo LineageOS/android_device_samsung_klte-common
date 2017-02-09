@@ -45,6 +45,9 @@
 /efs/gyro_cal_data                                      u:object_r:sensors_efs_file:s0
 /efs/prox_cal                                           u:object_r:sensors_efs_file:s0
 
+# Uncrypt
+/dev/block/platform/msm_sdcc.1/by-name/fota             u:object_r:misc_block_device:s0
+
 # WiFi
 /data/.cid.info                                         u:object_r:wifi_data_file:s0
 /data/.wifiver.info                                     u:object_r:wifi_data_file:s0
