@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a2585a7_336ed0ca",
+        "filename": "twrp.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 2320
+      },
+      "writtenOn": "2017-02-10T18:46:18Z",
+      "side": 1,
+      "message": "TARGET_RECOVERY_FSTAB :\u003d $(LOCAL_PATH)/recovery/twrp.fstab",
+      "range": {
+        "startLine": 16,
+        "startChar": 74,
+        "endLine": 16,
+        "endChar": 79
+      },
+      "revId": "b9c0a85948a3ee36608b1e951602d66595c5ffc5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
