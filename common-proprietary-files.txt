@@ -23,6 +23,10 @@ vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 
+# aptX
+vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so|b03772672144d4b750a5672c2922aded93bb0512
+vendor/lib/libaptXScheduler.so|6a0a2d564fde8434018b9840ce81d976b4d4ab28
+
 # Bluetooth firmware
 vendor/firmware/bcm4350_V0375.0766_wisol.hcd
 vendor/firmware/bcm4350_V0375.0768.hcd
