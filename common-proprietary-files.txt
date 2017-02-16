@@ -231,6 +231,27 @@ vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
 
+# Graphics
+vendor/lib/egl/eglsubAndroid.so|cefa669b1d8e0b05afb46d435e7c9f65bfabea02
+vendor/lib/egl/libEGL_adreno.so|c409c4d27935de4597c8d31d5a43fff09c550531
+vendor/lib/egl/libGLESv1_CM_adreno.so|5fd26236efa861bdb6d756472b6659de97fbcfb6
+vendor/lib/egl/libGLESv2_adreno.so|7d01651611e3478803ee3fd471f96a5bbd4cdaae
+vendor/lib/egl/libq3dtools_adreno.so|93e4959a96ab75642aeafade2bfbdfa84bf22b09
+vendor/lib/libC2D2.so|4bcc9bcb6acfde2b015249e3139b1aa78c6dfd12
+vendor/lib/libCB.so|c3315c47c7c1d89e1dfc3b8ebe688edcfecd67f1
+vendor/lib/libOpenCL.so|8f9131c992b83126171a3e64622baf3635ed5424
+vendor/lib/libRSDriver_adreno.so|dbdf3a7e1257a4c383f6990e2d5dfc24822c1ebc
+vendor/lib/libadreno_utils.so|35cfc92e07de8ac1c889fac32dc592a9974259dc
+vendor/lib/libbccQTI.so|e2c5ba0d6d6e0040ddf3a8981a8b9a521f9d1524
+vendor/lib/libc2d30-a3xx.so|45529c0a6d38a51234486810d57a43684f8adff1
+vendor/lib/libgsl.so|69ac0036c7e66431dbb4fb07dc5120f721c2458c
+vendor/lib/libllvm-qcom.so|deebd38f415f0888144cad9e5cbcbfa2439fe753
+vendor/lib/librs_adreno.so|06574dc89b1b9fd9832a109d3fd1afff7febc77f
+vendor/lib/librs_adreno_sha1.so|c53e83adfdc77192ed55503ba185858950c976d8
+vendor/lib/libsc-a3xx.so|9e6329f434fae0f4eec7c246c648dca499f89375
+vendor/lib/libscale.so|5cce434e527f9f392d4a98dd9474483a34a8c7ef
+vendor/lib/libuiblur.so|12dd942092c05d978a2a2db3ea37e0b410427b52
+
 # Graphics firmware
 etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
