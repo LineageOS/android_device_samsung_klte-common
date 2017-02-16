@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -41,11 +40,7 @@ write_headers "klte kltechn kltechnduo klteduos kltedv kltekdi kltekor kltespr k
 
 write_makefiles "$MY_DIR"/common-proprietary-files.txt
 
-if [ -s "$CM_ROOT"/vendor/qcom/binaries/msm8974/graphics/graphics-vendor.mk ]; then
-    printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8974/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
-else
-    write_makefiles "$MY_DIR"/../../qcom/common/extractors/graphics-msm8974.txt
-fi
+printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8974/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
 
 write_footers
 
