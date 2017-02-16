@@ -22,6 +22,30 @@
       "revId": "b9c0a85948a3ee36608b1e951602d66595c5ffc5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_04770ad6",
+        "filename": "twrp.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2017-02-16T12:23:13Z",
+      "side": 1,
+      "message": "releasetools pukes on the old fstab format if you happen to do a full build with twrp RECOVERY_VARIANT",
+      "parentUuid": "5a2585a7_336ed0ca",
+      "range": {
+        "startLine": 16,
+        "startChar": 74,
+        "endLine": 16,
+        "endChar": 79
+      },
+      "revId": "b9c0a85948a3ee36608b1e951602d66595c5ffc5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
