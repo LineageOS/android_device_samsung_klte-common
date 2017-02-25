@@ -4,6 +4,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := libloc_core
 LOCAL_MODULE_OWNER := qcom
+LOCAL_PROPRIETARY_MODULE := true
 
 LOCAL_MODULE_TAGS := optional
 
