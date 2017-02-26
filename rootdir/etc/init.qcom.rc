@@ -56,6 +56,7 @@ on init
 
 on fs
     mount_all fstab.qcom
+    write /proc/sys/vm/swappiness 100
     swapon_all fstab.qcom
 
     restorecon_recursive /efs
@@ -879,9 +880,6 @@ on boot
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
     chmod 0600 /dev/btlock
     chown bluetooth bluetooth /dev/btlock
-
-    # SSWAP
-    write /proc/sys/vm/swappiness 130
 
     # Sensors
     chown system system /efs/prox_cal
