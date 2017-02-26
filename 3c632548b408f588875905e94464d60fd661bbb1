@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa5d592f_c9e7b1e3",
+        "filename": "twrp.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-02-26T01:42:06Z",
+      "side": 1,
+      "message": "I\u0027ve always wondered why recovery needed some magic path, but in android (see klte-common lights header) we use fairly sane path names",
+      "revId": "3c632548b408f588875905e94464d60fd661bbb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
