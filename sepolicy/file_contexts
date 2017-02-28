@@ -35,6 +35,13 @@
 /data/data/com.android.providers.telephony/databases(/.*)?     u:object_r:radio_data_file:s0
 /data/data/com.android.providers.telephony/shared_prefs(/.*)?  u:object_r:radio_data_file:s0
 
+# RIL - Variant Blobs
+/system/blobs/(.*)/bin/ks                               u:object_r:mdm_helper_exec:s0
+/system/blobs/(.*)/bin/qmuxd                            u:object_r:qmuxd_exec:s0
+/system/blobs/(.*)/bin/rfs_access                       u:object_r:rfs_access_exec:s0
+/system/blobs/(.*)/bin/rild                             u:object_r:rild_exec:s0
+/system/blobs/(.*)/bin/rmt_storage                      u:object_r:rmt_storage_exec:s0
+
 # SEC
 /sys/devices/virtual/sec/sec_key/hall_irq_ctrl          u:object_r:sysfs_sec:s0
 /sys/devices/virtual/sec/tsp(/.*)?                      u:object_r:sysfs_sec:s0
