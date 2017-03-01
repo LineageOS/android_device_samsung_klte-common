@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa5d592f_a3ab7188",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-03-01T20:53:23Z",
+      "side": 1,
+      "message": "This line is fucked",
+      "range": {
+        "startLine": 44,
+        "startChar": 48,
+        "endLine": 44,
+        "endChar": 49
+      },
+      "revId": "b7554f9e330f1a317167124be5439c096d84032c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
