@@ -22,6 +22,30 @@
       "revId": "b7554f9e330f1a317167124be5439c096d84032c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_c61d5375",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2017-03-02T12:02:29Z",
+      "side": 1,
+      "message": "Yes, it most definitely is. Specifically, it is duplicate.",
+      "parentUuid": "fa5d592f_a3ab7188",
+      "range": {
+        "startLine": 44,
+        "startChar": 48,
+        "endLine": 44,
+        "endChar": 49
+      },
+      "revId": "b7554f9e330f1a317167124be5439c096d84032c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
