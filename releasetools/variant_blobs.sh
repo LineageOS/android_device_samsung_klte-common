@@ -33,6 +33,7 @@ better_copy()
 BOOTLOADER=`getprop ro.bootloader`
 
 case $BOOTLOADER in
+  G900AZ*)     VARIANT="gsm_legacy" ;;
   G900V*)      VARIANT="vzw" ;;
   *)           VARIANT="gsm" ;;
 esac
