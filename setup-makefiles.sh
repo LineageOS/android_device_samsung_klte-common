@@ -49,6 +49,8 @@ setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 # Copyright headers and guards
 write_headers
 
-write_makefiles "$MY_DIR"/../$DEVICE/device-proprietary-files.txt
+for BLOB_LIST in "$MY_DIR"/../$DEVICE/device-proprietary-files*.txt; do
+    write_makefiles $BLOB_LIST
+done
 
 write_footers
