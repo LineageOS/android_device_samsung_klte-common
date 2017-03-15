@@ -28,7 +28,7 @@
         <item>NTP_SERVER=north-america.pool.ntp.org</item>
         <item>SUPL_VER=0x20000</item>
         <item>SUPL_ES=0</item>
-        <item>CAPABILITIES=0x33</item>
+        <item>CAPABILITIES=0x31</item>
         <item>SUPL_HOST=supl.telusmobility.com</item>
         <item>SUPL_PORT=7275</item>
         <item>SUPL_MODE=1</item>
