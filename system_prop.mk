@@ -42,6 +42,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=true \
     media.stagefright.less-secure=true
 
+# Network
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.data.large_tcp_window_size=true
+
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.nfc.port=I2C

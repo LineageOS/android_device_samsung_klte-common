@@ -68,6 +68,14 @@ on fs
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
 
+    #change permissions on kmsg & sysrq-trigger so bugreports can grab kthread stacks
+    chown root system /proc/kmsg
+    chmod 0440 /proc/kmsg
+    chown root system /proc/sysrq-trigger
+    chmod 0220 /proc/sysrq-trigger
+    chown system log /proc/last_kmsg
+    chmod 0440 /proc/last_kmsg
+
 on post-fs
     # for controlling write performance boosting
     chown system radio /sys/block/mmcblk0/bkops_en
@@ -156,9 +164,6 @@ on post-fs-data
     # Enable the setgid bit on the directory
     chmod 2770 /data/audio
 
-    #Create a folder for SRS to be able to create a usercfg file
-    mkdir /data/data/media 0770 media media
-
     # Gpio DVS
     chown radio system /sys/class/secgpio_check/secgpio_check_all/secgpio_ctrl
 
@@ -208,8 +213,8 @@ on post-fs-data
     chmod 0660 /sys/class/host_notify/usb_otg/booster
 
     #Essential node for usbservice
-    mkdir /dev/bus/ 755 root root
-    mkdir /dev/bus/usb 755 root root
+    mkdir /dev/bus/ 0755 root root
+    mkdir /dev/bus/usb 0755 root root
 
     # wifi
     mkdir /efs/wifi 0775 system system
@@ -411,6 +416,8 @@ on boot
 
     # Fingerprint_sensor
     chown system radio /sys/class/fingerprint/fingerprint/type_check
+    chown system radio /sys/class/fingerprint/fingerprint/name
+    chown system radio /sys/class/fingerprint/fingerprint/vendor
 
     # SEC DVFS sysfs node
     chown radio system /sys/power/cpufreq_max_limit
@@ -575,10 +582,6 @@ on boot
     chown system radio /sys/class/host_notify/usb_otg/booster
     chmod 0660 /sys/class/host_notify/usb_otg/booster
 
-    #Essential node for usbservice
-    mkdir /dev/bus/ 755 root root
-    mkdir /dev/bus/usb 755 root root
-
     # Permissions for InputDevices.
     chown system radio /sys/class/sec/tsp/cmd
     chown system system /sys/class/sec/sec_touchkey/brightness
@@ -587,18 +590,19 @@ on boot
 
     # Permissions for Camera
     chown root system /sys/class/camera/rear/rear_camantibanding
-    chown system radio /sys/class/camera/rear/rear_camfw
-    chown system radio /sys/class/camera/rear/rear_camfw_full
-    chown system radio /sys/class/camera/rear/rear_camfw_load
-    chown system radio /sys/class/camera/rear/rear_camtype
-    chown system radio /sys/class/camera/rear/rear_corever
-    chown system radio /sys/class/camera/rear/rear_companionfw_full
-    chown system radio /sys/class/camera/rear/rear_calcheck
-    chown system radio /sys/class/camera/rear/rear_fwcheck
-    chown system radio /sys/class/camera/rear/isp_core
+    chown system system /sys/class/camera/rear/rear_camfw
+    chown system system /sys/class/camera/rear/rear_camfw_full
+    chown system system /sys/class/camera/rear/rear_camfw_load
+    chown system radio /sys/class/camera/rear/rear_latest_module_check
+    chown system system /sys/class/camera/rear/rear_camtype
+    chown system system /sys/class/camera/rear/rear_corever
+    chown system system /sys/class/camera/rear/rear_companionfw_full
+    chown system system /sys/class/camera/rear/rear_calcheck
+    chown system system /sys/class/camera/rear/rear_fwcheck
+    chown system system /sys/class/camera/rear/isp_core
     chown system radio /sys/class/camera/flash/rear_flash
-    chown system radio /sys/class/camera/front/front_camfw
-    chown system radio /sys/class/camera/front/front_camtype
+    chown system system /sys/class/camera/front/front_camfw
+    chown system system /sys/class/camera/front/front_camtype
 
     #OTG Test
     chown system radio /sys/class/host_notify/usb_otg/booster
@@ -671,17 +675,6 @@ on boot
     chown system radio /sys/class/sensors/temphumidity_sensor/cp_thm
     chown system radio /sys/class/sensors/temphumidity_sensor/send_accuracy
     chown system radio /sys/class/sensors/temphumidity_sensor/batt_temperature
-
-    # Grip_sensor
-    chown system radio /sys/class/sensors/grip_sensor/vendor
-    chown system radio /sys/class/sensors/grip_sensor/name
-    chown system radio /sys/class/sensors/grip_sensor/raw_data
-    chown system radio /sys/class/sensors/grip_sensor/reset
-    chown system radio /sys/class/sensors/grip_sensor/calibration
-    chown system radio /sys/class/sensors/grip_sensor/threshold
-    chown system radio /sys/class/sensors/grip_sensor/thresh_touch_check
-    chown system radio /sys/class/sensors/grip_sensor/onoff
-    chown system radio /sys/class/sensors/grip_sensor/erase_cal
 
     # HRM_sensor
     chown system radio /sys/class/sensors/hrm_sensor/eol_test
@@ -776,14 +769,20 @@ on boot
     # NFC_NXP
     symlink /dev/pn547 /dev/pn544
     symlink /dev/pn547 /dev/pn54x
+    chmod 0660 /dev/pn547
+    chown nfc nfc /dev/pn547
 
     # NFC_BROADCOM
-    mkdir /data/nfc
-    mkdir /data/nfc/param
-    chmod 0700 /data/nfc
-    chmod 0700 /data/nfc/param
-    chown nfc nfc /data/nfc
-    chown nfc nfc /data/nfc/param
+    chmod 0600 /dev/bcm2079x
+    chown nfc nfc /dev/bcm2079x
+    mkdir /data/bcmnfc 0700 nfc nfc
+    mkdir /data/bcmnfc/param 0700 nfc nfc
+
+    # NFC_SLSI
+    chmod 0660 /dev/sec-nfc
+    chown nfc nfc /dev/sec-nfc
+    mkdir /data/nfc 0700 nfc nfc
+    mkdir /data/nfc/param 0700 nfc nfc
 
     # Permissions for Charging
     chown system radio /sys/class/power_supply/battery/batt_reset_soc
@@ -912,9 +911,9 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     group camera system inet input graphics net_bt_stack
 
 service qseecomd /system/bin/qseecomd
-    class late_start
+    class core
     user root
-    group system
+    group root
 
 service mpdecision /system/bin/mpdecision --avg_comp
     class main
@@ -953,11 +952,12 @@ service rfs_access /system/bin/rfs_access
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
+    group system wacklock
 
 service qmuxd /system/bin/qmuxd
-    class core
-    user radio
-    group radio audio bluetooth gps qcom_diag log
+    class main
+    user root
+    group radio audio bluetooth gps qcom_diag log wakelock
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -1001,15 +1001,22 @@ service ril-daemon /system/bin/rild
     socket rild stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
     socket rild-debug stream 660 radio system
+    socket rild-cas stream 660 casdrm mmb
     user root
-    group radio cache inet misc audio log wakelock qcom_diag
+    group radio cache inet misc audio log system wakelock qcom_diag
 
 on property:wlan.driver.status=ok
     start macloader
 
 on property:init.svc.macloader=stopped
+    chown system root /data/.cid.info
+    chmod 0664 /data/.cid.info
     chown system root /data/.rev
     chmod 0664 /data/.rev
+
+on property:ro.data.large_tcp_window_size=true
+    # Adjust socket buffer to enlarge TCP receive window for high bandwidth
+    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
 on property:sys.boot_completed=1
     setprop sys.io.scheduler bfq
