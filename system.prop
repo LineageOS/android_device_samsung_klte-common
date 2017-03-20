@@ -58,9 +58,6 @@ ro.telephony.call_ring.multiple=0
 # Sensors
 debug.sensors=1
 
-# Storage
-ro.sys.sdcardfs=true
-
 # Tethering
 net.tethering.noprovisioning=true
 
