@@ -28,14 +28,19 @@ better_copy()
   fi
 }
 
+VAR_SELECT_HOOK=/tmp/install/bin/variant_blobs_hook.sh
 
 # Detect variant and copy its specific-blobs
 BOOTLOADER=`getprop ro.bootloader`
 
-case $BOOTLOADER in
-  G900V*)      VARIANT="vzw" ;;
-  *)           VARIANT="gsm" ;;
-esac
+if [ -f $VAR_SELECT_HOOK ] ; then
+  . $VAR_SELECT_HOOK
+else
+  echo "Could not find variant selector hook: $VAR_SELECT_HOOK"
+  exit 1
+fi
+
+echo "Device with bootloader $BOOTLOADER requires $VARIANT blobs"
 
 BLOBBASE=/system/blobs/$VARIANT
 
