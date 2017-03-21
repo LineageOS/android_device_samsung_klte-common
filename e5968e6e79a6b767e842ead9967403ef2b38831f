@@ -68,6 +68,52 @@
       "revId": "e5968e6e79a6b767e842ead9967403ef2b38831f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_cf169ff1",
+        "filename": "rootdir/etc/ueventd.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-21T05:54:12Z",
+      "side": 0,
+      "message": "move to init.qcom.rc",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 48
+      },
+      "revId": "e5968e6e79a6b767e842ead9967403ef2b38831f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_afd36b37",
+        "filename": "rootdir/etc/ueventd.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-21T05:54:12Z",
+      "side": 0,
+      "message": "doesn\u0027t exist",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 49
+      },
+      "revId": "e5968e6e79a6b767e842ead9967403ef2b38831f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
