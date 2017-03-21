@@ -44,7 +44,6 @@
 
 #permissions for CSVT
 /dev/smd11                0660   radio      radio
-
 /dev/radio0               0640   system     system
 /dev/rfcomm0              0660   bluetooth  bluetooth
 /dev/smdcntl0             0640   radio      radio
@@ -145,23 +144,47 @@
 /dev/sdio_tty_ciq_00      0660   system     system
 /dev/tty_sdio_00          0660   system     system
 /dev/ttyGS0               0660   system     system
-/dev/i2c-5                0660   media       media
+/dev/i2c-5                0660   media      media
+/dev/voice_svc            0660   system     audio
+
+#Audience ES705 UART
+/dev/ttyHS3               0660   media      audio
+
+# Bluetooth
+/dev/ttyHS0               0660   bluetooth  net_bt_stack
+/dev/ttyHS2               0660   bluetooth  bluetooth
+
+# bluetooth LPM
+/dev/btlock               0600   bluetooth  bluetooth
+
+# Broadcast devices
+/dev/tsc_mux0             0660   media      media
+/dev/tsc_ci0              0660   media      media
+
+# DVB devices
+/dev/dvb/adapter0/demux*  0440   media      media
+/dev/dvb/adapter0/dvr*    0660   media      media
+/dev/dvb/adapter0/video*  0660   media      media
 
 # Fingerprint
 /dev/vfsspi               0660   system     system
 
-# DVB devices
-/dev/dvb/adapter0/demux*  0440   media       media
-/dev/dvb/adapter0/dvr*    0660   media       media
-/dev/dvb/adapter0/video*  0660   media       media
+# IR_LED
+/dev/ice4_dev             0660   system     system
 
-# Broadcast devices
-/dev/tsc_mux0             0660   media       media
-/dev/tsc_ci0              0660   media       media
+# NFC_NXP
+/dev/pn547                0660   nfc        nfc
 
-# NFC
-/dev/bcm2079x             0600   nfc         nfc
-/dev/pn547                0660   nfc         nfc
+# SHTC1 BULK
+/dev/shtc1_sensor         0600   system     system
+
+# UIO devices
+/dev/uio0                 0660   system     system
+/dev/uio1                 0660   system     system
+/dev/uio2                 0660   system     system
+
+# wlan
+/dev/rfkill               0600   wifi       wifi
 
 # sensors
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
@@ -173,18 +196,6 @@
 /sys/devices/virtual/optical_sensors/lightsensor    ls_poll_delay  0660    input    system
 /sys/devices/virtual/input/input*                   poll           0660    input    system
 /sys/devices/virtual/input/input*                   pollrate_ms    0660    input    system
-
-# wlan
-/dev/wcnss_wlan           0660   system     system
-/dev/wcnss_ctrl           0660   system     system
-#nfc permissions
-/dev/nfc-nci              0660    nfc         nfc
-/dev/assd                 0660    nfc         nfc
-
-# UIO devices
-/dev/uio0                 0660   system     system
-/dev/uio1                 0660   system     system
-/dev/uio2                 0660   system     system
 
 # sensorhub
 /dev/batch_io             0660   system     system
