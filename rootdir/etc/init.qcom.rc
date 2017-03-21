@@ -404,6 +404,8 @@ on boot
 
     # Fingerprint_sensor
     chown system radio /sys/class/fingerprint/fingerprint/type_check
+    chown system radio /sys/class/fingerprint/fingerprint/name
+    chown system radio /sys/class/fingerprint/fingerprint/vendor
 
     # SEC DVFS sysfs node
     chown radio system /sys/power/cpufreq_max_limit
@@ -580,18 +582,19 @@ on boot
 
     # Permissions for Camera
     chown root system /sys/class/camera/rear/rear_camantibanding
-    chown system radio /sys/class/camera/rear/rear_camfw
-    chown system radio /sys/class/camera/rear/rear_camfw_full
-    chown system radio /sys/class/camera/rear/rear_camfw_load
-    chown system radio /sys/class/camera/rear/rear_camtype
-    chown system radio /sys/class/camera/rear/rear_corever
-    chown system radio /sys/class/camera/rear/rear_companionfw_full
-    chown system radio /sys/class/camera/rear/rear_calcheck
-    chown system radio /sys/class/camera/rear/rear_fwcheck
-    chown system radio /sys/class/camera/rear/isp_core
+    chown system system /sys/class/camera/rear/rear_camfw
+    chown system system /sys/class/camera/rear/rear_camfw_full
+    chown system system /sys/class/camera/rear/rear_camfw_load
+    chown system radio /sys/class/camera/rear/rear_latest_module_check
+    chown system system /sys/class/camera/rear/rear_camtype
+    chown system system /sys/class/camera/rear/rear_corever
+    chown system system /sys/class/camera/rear/rear_companionfw_full
+    chown system system /sys/class/camera/rear/rear_calcheck
+    chown system system /sys/class/camera/rear/rear_fwcheck
+    chown system system /sys/class/camera/rear/isp_core
     chown system radio /sys/class/camera/flash/rear_flash
-    chown system radio /sys/class/camera/front/front_camfw
-    chown system radio /sys/class/camera/front/front_camtype
+    chown system system /sys/class/camera/front/front_camfw
+    chown system system /sys/class/camera/front/front_camtype
 
     #OTG Test
     chown system radio /sys/class/host_notify/usb_otg/booster
@@ -894,9 +897,9 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     group camera system inet input graphics net_bt_stack
 
 service qseecomd /system/bin/qseecomd
-    class late_start
+    class core
     user root
-    group system
+    group root
 
 service mpdecision /system/bin/mpdecision --avg_comp
     class main
@@ -935,6 +938,7 @@ service rfs_access /system/bin/rfs_access
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
+    group system
 
 service qmuxd /system/bin/qmuxd
     class core
@@ -983,13 +987,16 @@ service ril-daemon /system/bin/rild
     socket rild stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
     socket rild-debug stream 660 radio system
+    socket rild-cas stream 660 casdrm mmb
     user root
-    group radio cache inet misc audio log wakelock qcom_diag
+    group radio cache inet misc audio log system wakelock qcom_diag
 
 on property:wlan.driver.status=ok
     start macloader
 
 on property:init.svc.macloader=stopped
+    chown system root /data/.cid.info
+    chmod 0664 /data/.cid.info
 
 on property:sys.boot_completed=1
     setprop sys.io.scheduler bfq
