@@ -145,7 +145,8 @@
 /dev/sdio_tty_ciq_00      0660   system     system
 /dev/tty_sdio_00          0660   system     system
 /dev/ttyGS0               0660   system     system
-/dev/i2c-5                0660   media       media
+/dev/i2c-5                0660   media      media
+/dev/voice_svc            0660   system     audio
 
 # Fingerprint
 /dev/vfsspi               0660   system     system
@@ -169,10 +170,6 @@
 /sys/devices/virtual/optical_sensors/lightsensor    ls_poll_delay  0660    input    system
 /sys/devices/virtual/input/input*                   poll           0660    input    system
 /sys/devices/virtual/input/input*                   pollrate_ms    0660    input    system
-
-# wlan
-/dev/wcnss_wlan           0660   system     system
-/dev/wcnss_ctrl           0660   system     system
 
 # UIO devices
 /dev/uio0                 0660   system     system
