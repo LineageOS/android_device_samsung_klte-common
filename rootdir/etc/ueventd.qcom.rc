@@ -159,10 +159,6 @@
 /dev/tsc_mux0             0660   media       media
 /dev/tsc_ci0              0660   media       media
 
-# NFC
-/dev/bcm2079x             0600   nfc         nfc
-/dev/pn547                0660   nfc         nfc
-
 # sensors
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
 /sys/devices/f9925000.i2c/i2c-0/0-* enable          0660     input     system
@@ -177,9 +173,6 @@
 # wlan
 /dev/wcnss_wlan           0660   system     system
 /dev/wcnss_ctrl           0660   system     system
-#nfc permissions
-/dev/nfc-nci              0660    nfc         nfc
-/dev/assd                 0660    nfc         nfc
 
 # UIO devices
 /dev/uio0                 0660   system     system
