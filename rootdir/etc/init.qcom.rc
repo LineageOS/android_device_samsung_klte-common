@@ -156,9 +156,6 @@ on post-fs-data
     # Enable the setgid bit on the directory
     chmod 2770 /data/audio
 
-    #Create a folder for SRS to be able to create a usercfg file
-    mkdir /data/data/media 0770 media media
-
     # Gpio DVS
     chown radio system /sys/class/secgpio_check/secgpio_check_all/secgpio_ctrl
 
@@ -672,17 +669,6 @@ on boot
     chown system radio /sys/class/sensors/temphumidity_sensor/send_accuracy
     chown system radio /sys/class/sensors/temphumidity_sensor/batt_temperature
 
-    # Grip_sensor
-    chown system radio /sys/class/sensors/grip_sensor/vendor
-    chown system radio /sys/class/sensors/grip_sensor/name
-    chown system radio /sys/class/sensors/grip_sensor/raw_data
-    chown system radio /sys/class/sensors/grip_sensor/reset
-    chown system radio /sys/class/sensors/grip_sensor/calibration
-    chown system radio /sys/class/sensors/grip_sensor/threshold
-    chown system radio /sys/class/sensors/grip_sensor/thresh_touch_check
-    chown system radio /sys/class/sensors/grip_sensor/onoff
-    chown system radio /sys/class/sensors/grip_sensor/erase_cal
-
     # HRM_sensor
     chown system radio /sys/class/sensors/hrm_sensor/eol_test
     chown system radio /sys/class/sensors/hrm_sensor/eol_test_result
@@ -1008,8 +994,6 @@ on property:wlan.driver.status=ok
     start macloader
 
 on property:init.svc.macloader=stopped
-    chown system root /data/.rev
-    chmod 0664 /data/.rev
 
 on property:sys.boot_completed=1
     setprop sys.io.scheduler bfq
