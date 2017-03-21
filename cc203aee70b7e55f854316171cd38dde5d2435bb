@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_4f14eff4",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-21T05:52:44Z",
+      "side": 1,
+      "message": "use same format for all",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 37
+      },
+      "revId": "cc203aee70b7e55f854316171cd38dde5d2435bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_6f26936a",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-21T05:52:44Z",
+      "side": 1,
+      "message": "m package",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 64
+      },
+      "revId": "cc203aee70b7e55f854316171cd38dde5d2435bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_8f31c7a4",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-21T05:52:44Z",
+      "side": 1,
+      "message": "m package",
+      "revId": "cc203aee70b7e55f854316171cd38dde5d2435bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_cfffbfa9",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-21T05:52:44Z",
+      "side": 1,
+      "message": "add all stock perms and those from uevent to match stock. look for all paths present",
+      "range": {
+        "startLine": 769,
+        "startChar": 0,
+        "endLine": 785,
+        "endChar": 38
+      },
+      "revId": "cc203aee70b7e55f854316171cd38dde5d2435bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_af2c8b4b",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-21T05:52:44Z",
+      "side": 1,
+      "message": "m package",
+      "range": {
+        "startLine": 913,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 14
+      },
+      "revId": "cc203aee70b7e55f854316171cd38dde5d2435bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_4f2bcf30",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-21T05:52:44Z",
+      "side": 1,
+      "message": "m package",
+      "range": {
+        "startLine": 958,
+        "startChar": 0,
+        "endLine": 959,
+        "endChar": 13
+      },
+      "revId": "cc203aee70b7e55f854316171cd38dde5d2435bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_2f209b48",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-21T05:52:44Z",
+      "side": 1,
+      "message": "m package",
+      "range": {
+        "startLine": 1004,
+        "startChar": 0,
+        "endLine": 1004,
+        "endChar": 41
+      },
+      "revId": "cc203aee70b7e55f854316171cd38dde5d2435bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_0f1dd70f",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-21T05:52:44Z",
+      "side": 1,
+      "message": "m package",
+      "range": {
+        "startLine": 1012,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 49
+      },
+      "revId": "cc203aee70b7e55f854316171cd38dde5d2435bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
