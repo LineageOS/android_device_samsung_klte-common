@@ -373,10 +373,6 @@ on boot
     # an ack packet comes out of order
     write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
 
-    # NFC local data and nfcee xml storage
-    mkdir /data/nfc 0770 nfc nfc
-    mkdir /data/nfc/param 0770 nfc nfc
-
     # Set the console loglevel to < KERN_INFO
     # Set the default message loglevel to KERN_INFO
     # modified by SEC, SEC use a loglevel path with another way.
@@ -761,14 +757,12 @@ on boot
     # NFC_NXP
     symlink /dev/pn547 /dev/pn544
     symlink /dev/pn547 /dev/pn54x
+    chmod 0660 /dev/pn547
+    chown nfc nfc /dev/pn547
 
-    # NFC_BROADCOM
-    mkdir /data/nfc
-    mkdir /data/nfc/param
-    chmod 0700 /data/nfc
-    chmod 0700 /data/nfc/param
-    chown nfc nfc /data/nfc
-    chown nfc nfc /data/nfc/param
+    # NFC_SLSI
+    mkdir /data/nfc 0700 nfc nfc
+    mkdir /data/nfc/param 0700 nfc nfc
 
     # Permissions for Charging
     chown system radio /sys/class/power_supply/battery/batt_reset_soc
