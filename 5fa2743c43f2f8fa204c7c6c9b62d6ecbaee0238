@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_441df10e",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-22T08:03:21Z",
+      "side": 1,
+      "message": "Need to fix denial: allow init socket_device:sock_file create;",
+      "range": {
+        "startLine": 990,
+        "startChar": 4,
+        "endLine": 990,
+        "endChar": 41
+      },
+      "revId": "5fa2743c43f2f8fa204c7c6c9b62d6ecbaee0238",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
