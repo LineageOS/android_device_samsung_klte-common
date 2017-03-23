@@ -91,6 +91,30 @@
       "revId": "f59baaba4da0cccf6495c67c69611d8a6cb0c794",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_d5bce96e",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-03-23T14:29:24Z",
+      "side": 1,
+      "message": "We can\u0027t do symlinks in ueventd.qcom.rc",
+      "parentUuid": "ba57610f_5ab0288b",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 48
+      },
+      "revId": "f59baaba4da0cccf6495c67c69611d8a6cb0c794",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
