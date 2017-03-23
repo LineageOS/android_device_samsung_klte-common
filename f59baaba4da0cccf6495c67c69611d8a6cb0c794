@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba57610f_7abbec72",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-23T05:49:32Z",
+      "side": 1,
+      "message": "dev",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 26
+      },
+      "revId": "f59baaba4da0cccf6495c67c69611d8a6cb0c794",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_bac164e6",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-23T05:49:32Z",
+      "side": 1,
+      "message": "dev",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 41
+      },
+      "revId": "f59baaba4da0cccf6495c67c69611d8a6cb0c794",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_dabc186f",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-23T05:49:32Z",
+      "side": 1,
+      "message": "dev",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 33
+      },
+      "revId": "f59baaba4da0cccf6495c67c69611d8a6cb0c794",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba57610f_5ab0288b",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-03-23T05:49:32Z",
+      "side": 1,
+      "message": "dev",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 48
+      },
+      "revId": "f59baaba4da0cccf6495c67c69611d8a6cb0c794",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
