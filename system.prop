@@ -36,6 +36,7 @@ ro.qc.sdk.izat.service_mask=0x0
 # Media
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
+persist.media.treble_omx=false
 
 # NFC
 ro.nfc.port=I2C
