@@ -288,10 +288,10 @@ lib/hw/sensors.msm8974.so
 lib/libhr.so
 
 # Time services
--app/TimeService/TimeService.apk
-bin/time_daemon
-vendor/lib/libTimeService.so
--vendor/lib/libtime_genoff.so
+-app/TimeService/TimeService.apk|6b9a70083c7e7144d56a08e5fc2d927a0f357dce
+bin/time_daemon|f71f1ef9ad1932a28d7fd361f2989f8edd062ceb
+vendor/lib/libTimeService.so|7200435a98567bdb589034ab110fff73d2773c3d
+-vendor/lib/libtime_genoff.so|7647c65a686d6ee16b3effbad27a3e0eb18779d9
 
 # Wi-Fi
 etc/wifi/bcmdhd_apsta.bin
