@@ -19,6 +19,7 @@ package com.android.internal.telephony;
 import static com.android.internal.telephony.RILConstants.*;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.telephony.Rlog;
 import android.os.AsyncResult;
 import android.os.Message;
@@ -55,6 +56,32 @@ public class KlteRIL extends RIL {
             int cdmaSubscription, Integer instanceId) {
         super(context, preferredNetworkType, cdmaSubscription, instanceId);
         mQANElements = 6;
+    }
+
+    private void
+    handleNitzTimeReceived(Parcel p) {
+        String responseVoid = (String) responseString(p);
+        long nitzReceiveTime = p.readLong();
+
+	if (TextUtils.isEmpty(responseVoid)) {
+            // We probably don't care about the data
+            return;
+        }
+
+        Object result[] = {String.valueOf(responseVoid), Long.valueOf(nitzReceiveTime)};
+
+        /* While TelephonyProperties.PROPERTY_IGNORE_NITZ = "telephony.test.ignore.nitz",
+           the actual name of the property is much shorter, so just use that */
+        if (SystemProperties.getBoolean("telephony.test.ignore.nitz", false)) {
+            if (RILJ_LOGD) riljLog("ignoring UNSOL_NITZ_TIME_RECEIVED");
+            return;
+        }
+
+        if (mNITZTimeRegistrant != null) {
+            mNITZTimeRegistrant.notifyRegistrant(new AsyncResult(null, result, null));
+        }
+
+        mLastNITZTimeInfo = result;
     }
 
     @Override
@@ -294,6 +321,9 @@ public class KlteRIL extends RIL {
         switch(response) {
             case RIL_UNSOL_ON_SS_LL:
                 newResponse = RIL_UNSOL_ON_SS;
+                break;
+            case RIL_UNSOL_NITZ_TIME_RECEIVED:
+                handleNitzTimeReceived(p);
                 break;
         }
         if (newResponse != response) {
