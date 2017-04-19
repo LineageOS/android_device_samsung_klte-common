@@ -57,6 +57,35 @@ public class KlteRIL extends RIL {
         mQANElements = 6;
     }
 
+    private void
+    handleNitzTimeReceived(Parcel p) {
+        String responseVoid = (String) responseString(p);
+        long nitzReceiveTime = p.readLong();
+
+        String fixedNitz = responseVoid;
+        String[] nitzParts = nitz.split(",");
+
+        if (nitzParts.length >= 4) {
+            // 0=date, 1=time+zone, 2=dst, 3+=garbage that confuses ServiceStateTracker (so remove it)
+            fixedNitz = nitzParts[0]+","+nitzParts[1]+","+nitzParts[2];
+        }
+
+        Object result[] = fixedNitz, Long.valueOf(nitzReceiveTime)};
+
+        /* While TelephonyProperties.PROPERTY_IGNORE_NITZ = "telephony.test.ignore.nitz",
+           the actual name of the property is much shorter, so just use that */
+        if (SystemProperties.getBoolean("telephony.test.ignore.nitz", false)) {
+            if (RILJ_LOGD) riljLog("ignoring UNSOL_NITZ_TIME_RECEIVED");
+            return;
+        }
+
+        if (mNITZTimeRegistrant != null) {
+            mNITZTimeRegistrant.notifyRegistrant(new AsyncResult(null, result, null));
+        }
+
+        mLastNITZTimeInfo = result;
+    }
+
     @Override
     public void
     dial(String address, int clirMode, UUSInfo uusInfo, Message result) {
@@ -292,6 +321,9 @@ public class KlteRIL extends RIL {
         int newResponse = response;
 
         switch(response) {
+            case RIL_UNSOL_NITZ_TIME_RECEIVED:
+                handleNitzTimeReceived(p);
+                break;
             case RIL_UNSOL_ON_SS_LL:
                 newResponse = RIL_UNSOL_ON_SS;
                 break;
