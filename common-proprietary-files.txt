@@ -4,10 +4,6 @@
 vendor/lib/libsensor1.so
 
 # Audio
-vendor/lib/libacdbloader.so
-vendor/lib/libacdbrtac.so
-vendor/lib/libadiertac.so
-vendor/lib/libaudcal.so
 etc/firmware/audience-es705-fw.bin
 etc/firmware/audience-es705-vs.bin
 etc/Bluetooth_cal.acdb
@@ -17,6 +13,22 @@ etc/Handset_cal.acdb
 etc/Hdmi_cal.acdb
 etc/Headset_cal.acdb
 etc/Speaker_cal.acdb
+lib/soundfx/libbundlewrapper.so
+lib/soundfx/libdownmix.so
+lib/soundfx/libeffectproxy.so
+lib/soundfx/libldnhncr.so
+lib/soundfx/libqcbassboost.so
+lib/soundfx/libqcompostprocbundle.so
+lib/soundfx/libqcomvoiceprocessing.so
+lib/soundfx/libqcomvisualizer.so
+lib/soundfx/libqcreverb.so
+lib/soundfx/libqcvirt.so
+lib/soundfx/libreverbwrapper.so
+lib/soundfx/libvisualizer.so
+vendor/lib/libacdbloader.so
+vendor/lib/libacdbrtac.so
+vendor/lib/libadiertac.so
+vendor/lib/libaudcal.so
 
 # ADSP
 bin/adsprpcd
