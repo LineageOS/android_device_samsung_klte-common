@@ -88,10 +88,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FlipFlap
 
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
-
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
