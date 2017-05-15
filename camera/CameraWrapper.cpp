@@ -197,6 +197,10 @@ static char *camera_fixup_setparams(int id, const char *settings)
         }
     }
 
+    if (id == FRONT_CAMERA_ID) {
+        params.set(CameraParameters::KEY_ROTATION, "270");
+    }
+
     ALOGV("%s: Fixed parameters:", __FUNCTION__);
     params.dump();
 
