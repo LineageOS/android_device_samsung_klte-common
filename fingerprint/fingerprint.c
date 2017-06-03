@@ -61,7 +61,6 @@ int sensor_uninit() {
     int ret = 0;
     if (!sensor.init)
         return ret;
-    ioctl(sensor.fd, VFSSPI_IOCTL_RESET_SPI_CONFIGURATION);
     ioctl(sensor.fd, VFSSPI_IOCTL_DISABLE_SPI_CLOCK);
     ioctl(sensor.fd, VFSSPI_IOCTL_DEVICE_SUSPEND);
     ioctl(sensor.fd, VFSSPI_IOCTL_POWER_OFF);
@@ -72,16 +71,12 @@ int sensor_uninit() {
 int sensor_init() {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
     int ret = 0;
-    int clock = 0;
+    int clock = 0xFFFF;
     if (sensor.init)
         return ret;
     ioctl(sensor.fd, VFSSPI_IOCTL_POWER_ON);
-    clock = 65535;
     ioctl(sensor.fd, VFSSPI_IOCTL_SET_CLK, &clock);
-    ioctl(sensor.fd, VFSSPI_IOCTL_DEVICE_RESET);
     ioctl(sensor.fd, VFSSPI_IOCTL_SET_SPI_CONFIGURATION);
-    clock = 4800;
-    ioctl(sensor.fd, VFSSPI_IOCTL_SET_CLK, &clock);
     sensor.init = true;
     return ret;
 }
@@ -703,15 +698,11 @@ static int fingerprint_open(const hw_module_t* module, const char __unused *id,
         ALOGE("Open sensor error!");
         return -1;
     }
-    sensor_init();
-    sensor_register();
-    sensor_uninit();
 
     pthread_mutex_lock(&vdev->lock);
     sensor_init();
+    sensor_register();
     db_init(vdev);
-    vcs_init();
-    vcs_uninit();
     vcs_init();
     vcs_start_auth_session();
     vcs_uninit();
