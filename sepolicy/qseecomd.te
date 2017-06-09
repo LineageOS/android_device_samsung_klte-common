@@ -1,0 +1,4 @@
+# Allow qseecomd to access widevine DRM files
+allow tee efs_file:dir search;
+allow tee widevine_drm_file:dir search;
+allow tee widevine_drm_file:file r_file_perms;
