@@ -16,6 +16,9 @@
 # Display
 /sys/devices/virtual/lcd/panel/power_reduce             u:object_r:sysfs_display:s0
 
+# DRM
+/efs/drm/widevine(/.*)?                                 u:object_r:widevine_drm_file:s0
+
 # EFS
 /dev/block/platform/msm_sdcc.1/by-name/efs              u:object_r:modem_efs_partition_device:s0
 
