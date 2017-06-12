@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_0e203cf6",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2017-06-12T09:46:00Z",
+      "side": 1,
+      "message": "Y U NO compile test? ;)\n\nI assume that this is supposed to be either \u0027fixedNitz\u0027 or \u0027responseVoid\u0027. I\u0027m testing this after locally changing to \u0027fixedNitz\u0027.",
+      "range": {
+        "startLine": 66,
+        "startChar": 29,
+        "endLine": 66,
+        "endChar": 33
+      },
+      "revId": "21db7dd1aa5c6e3d7059461ec88fb6101d3e0e9e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
