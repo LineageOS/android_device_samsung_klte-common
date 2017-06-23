@@ -1,4 +1,4 @@
-# Samsung Package Version: G900FXXS1CQD1_G900FOXA1CPJ6_BTU, unless pinned
+# Samsung Package Version: G900FXXU1CQE1_G900FPHE1CQE1_PHE, unless pinned
 
 # Activity recognition
 vendor/lib/libsensor1.so
@@ -25,17 +25,17 @@ vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 
-# aptX
+# aptX (Moto griffin - NCLS25.86-11-4-6-5)
 vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so|b03772672144d4b750a5672c2922aded93bb0512
 vendor/lib/libaptXScheduler.so|6a0a2d564fde8434018b9840ce81d976b4d4ab28
 
 # Bluetooth firmware
 vendor/firmware/bcm4350_V0375.0766_wisol.hcd
 vendor/firmware/bcm4350_V0375.0768.hcd
-vendor/firmware/bcm4350_V0375.0768_murata.hcd|01a291de2a89b10f494956ffb79357302e38152b
-vendor/firmware/bcm4350_V0375.0768_semco.hcd|01a291de2a89b10f494956ffb79357302e38152b
-vendor/firmware/bcm4350_V0375.0768_semcosh.hcd|01a291de2a89b10f494956ffb79357302e38152b
-vendor/firmware/bcm4350_V0375.0768_semcove.hcd|01a291de2a89b10f494956ffb79357302e38152b
+vendor/firmware/bcm4350_V0375.0768.hcd:vendor/firmware/bcm4350_V0375.0768_murata.hcd
+vendor/firmware/bcm4350_V0375.0768.hcd:vendor/firmware/bcm4350_V0375.0768_semco.hcd
+vendor/firmware/bcm4350_V0375.0768.hcd:vendor/firmware/bcm4350_V0375.0768_semcosh.hcd
+vendor/firmware/bcm4350_V0375.0768.hcd:vendor/firmware/bcm4350_V0375.0768_semcove.hcd
 
 # Camera
 bin/mm-qcamera-daemon
@@ -233,7 +233,7 @@ vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
 
-# Graphics
+# Graphics (OnePlus bacon - Cyanogen OS cm-13.1.2-ZNH2KAS3P0)
 vendor/lib/egl/eglsubAndroid.so|cefa669b1d8e0b05afb46d435e7c9f65bfabea02
 vendor/lib/egl/libEGL_adreno.so|c409c4d27935de4597c8d31d5a43fff09c550531
 vendor/lib/egl/libGLESv1_CM_adreno.so|5fd26236efa861bdb6d756472b6659de97fbcfb6
@@ -309,5 +309,5 @@ etc/wifi/nvram_net.txt_muratafem1
 etc/wifi/nvram_net.txt_semco3rd
 etc/wifi/wpa_supplicant.conf
 
-# Widevine (Samsung Package Version G920FXXU5EQBA_G920FOJV5EQBB_XSG)
+# Widevine (Samsung zero - G920FXXU5EQBA_G920FOJV5EQBB_XSG)
 vendor/lib/mediadrm/libwvdrmengine.so|e669e2fbc352b4e38f4c7ea27c805e1619e9d4ca
