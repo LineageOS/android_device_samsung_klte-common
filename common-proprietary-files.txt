@@ -233,25 +233,27 @@ vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
 
-# Graphics (OnePlus bacon - Cyanogen OS cm-13.1.2-ZNH2KAS3P0)
-vendor/lib/egl/eglsubAndroid.so|cefa669b1d8e0b05afb46d435e7c9f65bfabea02
-vendor/lib/egl/libEGL_adreno.so|c409c4d27935de4597c8d31d5a43fff09c550531
-vendor/lib/egl/libGLESv1_CM_adreno.so|5fd26236efa861bdb6d756472b6659de97fbcfb6
-vendor/lib/egl/libGLESv2_adreno.so|7d01651611e3478803ee3fd471f96a5bbd4cdaae
-vendor/lib/egl/libq3dtools_adreno.so|93e4959a96ab75642aeafade2bfbdfa84bf22b09
-vendor/lib/libC2D2.so|4bcc9bcb6acfde2b015249e3139b1aa78c6dfd12
-vendor/lib/libCB.so|c3315c47c7c1d89e1dfc3b8ebe688edcfecd67f1
-vendor/lib/libOpenCL.so|8f9131c992b83126171a3e64622baf3635ed5424
-vendor/lib/libRSDriver_adreno.so|dbdf3a7e1257a4c383f6990e2d5dfc24822c1ebc
-vendor/lib/libadreno_utils.so|35cfc92e07de8ac1c889fac32dc592a9974259dc
-vendor/lib/libbccQTI.so|e2c5ba0d6d6e0040ddf3a8981a8b9a521f9d1524
-vendor/lib/libc2d30-a3xx.so|45529c0a6d38a51234486810d57a43684f8adff1
-vendor/lib/libgsl.so|69ac0036c7e66431dbb4fb07dc5120f721c2458c
-vendor/lib/libllvm-qcom.so|deebd38f415f0888144cad9e5cbcbfa2439fe753
-vendor/lib/librs_adreno.so|06574dc89b1b9fd9832a109d3fd1afff7febc77f
-vendor/lib/librs_adreno_sha1.so|c53e83adfdc77192ed55503ba185858950c976d8
-vendor/lib/libsc-a3xx.so|9e6329f434fae0f4eec7c246c648dca499f89375
-vendor/lib/libscale.so|5cce434e527f9f392d4a98dd9474483a34a8c7ef
+# Graphics (OnePlus onyx - Oxygen OS 3.1.4 - OnePlusXOxygen_14_201611071506)
+vendor/lib/egl/eglsubAndroid.so|b8a5790c5b4ba4cf0018c94066104610c821ed8e
+vendor/lib/egl/libEGL_adreno.so|cd29673e990dba8158e961e287a79dfbd852d095
+vendor/lib/egl/libGLESv1_CM_adreno.so|ae86d16ba499ac6cdd3cecb91ae6b16b4c303984
+vendor/lib/egl/libGLESv2_adreno.so|445be60045ff86d1d27545692134eacf0d89a6dc
+vendor/lib/egl/libq3dtools_adreno.so|2c12919492f1146b58f4f1c379dfe10d3320d476
+vendor/lib/libC2D2.so|d34587d5143bd09f847cb6686b03461a6e62cd87
+vendor/lib/libCB.so|3d2ad5bbff1cf4019d89c38689ec2ce3c186a3c1
+vendor/lib/libOpenCL.so|2b4b9692b16729b880d7881e68208183943f9612
+vendor/lib/libRSDriver_adreno.so|371dc9e34dfb3b4f3352d285d7dbfdd2d30daf23
+vendor/lib/libadreno_utils.so|a109e06c933811c578d129c0772a612cf5d94367
+vendor/lib/libbccQTI.so|94132d5d8421428001c2201a8915949c531b0ad9
+vendor/lib/libc2d30-a3xx.so|3666e0bf418e7ea7480b27c2c1ddd1bc86037044
+vendor/lib/libgsl.so|fafee1adf0e89325b3a1ea83d5205c02ebf860f3
+vendor/lib/libllvm-qcom.so|fc96c949b662fb34b287a4c0aa194984fbb57d7d
+vendor/lib/librs_adreno.so|483b327e1a7fde0a898019d5958e43097fd87f98
+vendor/lib/librs_adreno_sha1.so|e254ee7df74b1f0ecd73fc6b02e5bd5367a83de6
+vendor/lib/libsc-a3xx.so|231201bcfead5f930537d2fba22d89b00e673386
+vendor/lib/libscale.so|b44f44c633fa404d10e76aaa23593b516e08e2b8
+
+# Graphics blur (OnePlus bacon - Cyanogen OS cm-13.1.2-ZNH2KAS3P0)
 vendor/lib/libuiblur.so|12dd942092c05d978a2a2db3ea37e0b410427b52
 
 # Graphics firmware
