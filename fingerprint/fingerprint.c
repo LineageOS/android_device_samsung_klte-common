@@ -633,8 +633,11 @@ static int fingerprint_close(hw_device_t* device) {
 
     vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
 
+    fingerprint_cancel(&vdev->device);
+
     pthread_mutex_lock(&vdev->lock);
     db_uninit(vdev);
+    sensor_init();
     vcs_init();
     vcs_stop_auth_session();
     vcs_uninit();
@@ -646,6 +649,12 @@ static int fingerprint_close(hw_device_t* device) {
     pthread_mutex_destroy(&tz.lock);
     pthread_mutex_destroy(&tz.timeout.lock);
     free(vdev);
+    vdev = NULL;
+
+    if (close(sensor.fd) < 0) {
+        ALOGE("Close sensor error!");
+    }
+    sensor.fd = -1;
 
     return 0;
 }
@@ -693,6 +702,7 @@ static int fingerprint_open(const hw_module_t* module, const char __unused *id,
     pthread_mutex_init(&tz.timeout.lock, NULL);
     pthread_cond_init(&tz.timeout.cond, NULL);
     pthread_cond_init(&sensor.cond, NULL);
+    sensor.signal = false;
     tz.timeout.timeout_thread = 0;
 
     *device = &vdev->device.common;
