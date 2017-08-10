@@ -43,6 +43,10 @@ write_makefiles "$MY_DIR"/common-proprietary-files.txt
 
 write_footers
 
+if [ ! -z $VARIANT_COPYRIGHT_YEAR ]; then
+    export INITIAL_COPYRIGHT_YEAR=$VARIANT_COPYRIGHT_YEAR
+fi
+
 # Reinitialize the helper for device
 setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 
