@@ -79,6 +79,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SamsungDoze
 
+# Encryption
+PRODUCT_PACKAGES += \
+    keystore.msm8974
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd \
