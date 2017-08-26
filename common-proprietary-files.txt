@@ -302,7 +302,7 @@ vendor/lib/libqmi_encdec.so|82e39ae7e4bb8651d06fdae99fc38e3fb390b62d
 vendor/lib/libqmiservices.so|0b90d67d7ec0b0bc3de2b5ccc3afcda13bd5ffd8
 
 # Sensors
-lib/hw/sensors.msm8974.so
+lib/hw/sensors.msm8974.so|48c6112bc4097e9176fcd53bf3f7ba0d643b27aa
 lib/libhr.so
 
 # Time services
