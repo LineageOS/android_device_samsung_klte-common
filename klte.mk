@@ -46,7 +46,6 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     camera.msm8974 \
     libshim_camera \
-    libstlport \
     libxml2 \
     Snap
 
