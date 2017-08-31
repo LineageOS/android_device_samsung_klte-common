@@ -209,6 +209,9 @@ etc/firmware/cpp_firmware_v1_1_1.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 
+# Camera/RIL Dependency
+lib/libstlport.so|18eddd8686b52696f7beba833938b93a43d6bab1
+
 # CPU
 bin/mpdecision
 vendor/bin/thermal-engine
