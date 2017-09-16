@@ -1,3 +1,4 @@
-allow platform_app fuseblk:dir { open read remove_name search write };
-allow platform_app fuseblk:file { getattr unlink write };
-
+allow platform_app exfat:dir create_dir_perms;
+allow platform_app exfat:file create_file_perms;
+allow platform_app fuseblk:dir create_dir_perms;
+allow platform_app fuseblk:file create_file_perms;
