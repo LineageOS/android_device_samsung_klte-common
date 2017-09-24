@@ -25,6 +25,7 @@
 #include <hidl/HidlTransportSupport.h>
 #include <utils/SystemClock.h>
 #include <inttypes.h>
+#include <cutils/properties.h>
 
 #define INVALID_HEX_CHAR 16
 
@@ -4351,20 +4352,21 @@ int radio::getAvailableNetworksResponse(int slotId,
 #if VDBG
     RLOGD("getAvailableNetworksResponse: serial %d", serial);
 #endif
+    int mqanelements = property_get_int32("ro.ril.telephony.mqanelements", 4);
 
     if (radioService[slotId]->mRadioResponse != NULL) {
         RadioResponseInfo responseInfo = {};
         populateResponseInfo(responseInfo, serial, responseType, e);
         hidl_vec<OperatorInfo> networks;
         if ((response == NULL && responseLen != 0)
-                || responseLen % (4 * sizeof(char *))!= 0) {
+                || responseLen % (mqanelements * sizeof(char *))!= 0) {
             RLOGE("getAvailableNetworksResponse Invalid response: NULL");
             if (e == RIL_E_SUCCESS) responseInfo.error = RadioError::INVALID_RESPONSE;
         } else {
             char **resp = (char **) response;
             int numStrings = responseLen / sizeof(char *);
-            networks.resize(numStrings/4);
-            for (int i = 0, j = 0; i < numStrings; i = i + 4, j++) {
+            networks.resize(numStrings/mqanelements);
+            for (int i = 0, j = 0; i < numStrings; i = i + mqanelements, j++) {
                 networks[j].alphaLong = convertCharPtrToHidlString(resp[i]);
                 networks[j].alphaShort = convertCharPtrToHidlString(resp[i + 1]);
                 networks[j].operatorNumeric = convertCharPtrToHidlString(resp[i + 2]);
