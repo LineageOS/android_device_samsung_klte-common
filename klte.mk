@@ -92,10 +92,6 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.0-service \
     fingerprint.msm8974
 
-# FlipFlap
-PRODUCT_PACKAGES += \
-    FlipFlap
-
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
