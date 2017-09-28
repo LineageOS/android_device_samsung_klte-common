@@ -29,7 +29,7 @@ import init.qcom.usb.rc
 import init.target.rc
 
 on early-init
-    export LD_SHIM_LIBS /system/lib/libril.so|libshim_ril.so
+    export LD_SHIM_LIBS "/system/lib/libril.so|libshim_ril.so:/system/vendor/lib/libril-qc-qmi-1.so|rild_socket.so"
 
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
@@ -112,6 +112,9 @@ on post-fs-data
     chmod 0660 /efs/wifi/.mac.info
     restorecon /efs/wifi/.mac.info
 
+    # Set permissions for firmware path control
+    chown wifi wifi /sys/module/dhd/parameters/firmware_path
+
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
@@ -145,8 +148,8 @@ on post-fs-data
     mkdir /data/fota 0771
     chown system system /data/fota
 
-    # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
+    # Create /data/vendor/time folder for time-services
+    mkdir /data/vendor/time/ 0700 system system
 
     mkdir /data/bluetooth 0770 bluetooth bluetooth
     # Enable the setgid bit on the directory
@@ -293,6 +296,8 @@ on boot
     chmod 2770 /dev/socket/qmux_bluetooth
     mkdir /dev/socket/qmux_gps 0770 gps gps
     chmod 2770 /dev/socket/qmux_gps
+
+    mkdir /persist/bluetooth 0770 bluetooth bluetooth
 
     # Allow QMUX daemon to assign port open wait time
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
@@ -818,13 +823,13 @@ on boot
 
     # permissions for bluetooth.
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
-    chown bluetooth net_bt_stack ro.bt.bdaddr_path
-    chown radio net_bt_stack /efs/bluetooth/bt_addr
+    chown bluetooth bluetooth ro.bt.bdaddr_path
+    chown radio bluetooth /efs/bluetooth/bt_addr
     chmod 0640 /efs/bluetooth/bt_addr
     restorecon_recursive /efs/bluetooth
     chmod 0660 /sys/class/rfkill/rfkill0/state
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
 
     # DualWave
     chown system system /sys/kernel/DualWave/sound/DUALWAVE_CONFIG
@@ -832,8 +837,8 @@ on boot
     # bluetooth LPM
     chmod 0660 /proc/bluetooth/sleep/lpm
     chmod 0220 /proc/bluetooth/sleep/btwrite
-    chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
-    chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
+    chown bluetooth bluetooth /proc/bluetooth/sleep/lpm
+    chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
 
     # Sensors
     chown system system /efs/prox_cal
@@ -848,29 +853,27 @@ on boot
     chmod 0640 /efs/gyro_cal_data
     restorecon /efs/gyro_cal_data
 
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
+
 # Services begin here
 
-service adsprpcd /system/bin/adsprpcd
+service adsprpcd /system/vendor/bin/adsprpcd
     class main
     user media
     group media
 
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
-    group input
-
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class main
     user camera
-    group camera system inet input graphics net_bt_stack
+    group camera system inet input graphics bluetooth
 
-service qseecomd /system/bin/qseecomd
+service qseecomd /system/vendor/bin/qseecomd
     class core
     user root
     group root
 
-service mpdecision /system/bin/mpdecision --avg_comp
+service mpdecision /system/vendor/bin/mpdecision --avg_comp
     class main
     user root
     group root readproc
@@ -894,7 +897,7 @@ service audiod /system/bin/audiod
     user system
     group system
 
-service irsc_util /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
@@ -904,7 +907,7 @@ service rfs_access /system/bin/rfs_access
     user system
     group system net_raw
 
-service rmt_storage /system/bin/rmt_storage
+service rmt_storage /system/vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
@@ -912,9 +915,9 @@ service rmt_storage /system/bin/rmt_storage
 service qmuxd /system/bin/qmuxd
     class core
     user radio
-    group radio audio bluetooth gps qcom_diag log
+    group radio audio bluetooth gps diag log
 
-service wpa_supplicant /system/bin/wpa_supplicant \
+service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
     -O/data/misc/wifi/sockets \
@@ -929,7 +932,7 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     group system wakelock
     oneshot
 
-service p2p_supplicant /system/bin/wpa_supplicant \
+service p2p_supplicant /system/vendor/bin/hw/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
@@ -951,14 +954,16 @@ service macloader /system/bin/macloader
     oneshot
     seclabel u:r:macloader:s0
 
-service ril-daemon /system/bin/rild
+service ril-daemon /system/vendor/bin/hw/rild
     class main
-    socket rild stream 660 root radio
-    socket sap_uim_socket1 stream 660 bluetooth bluetooth
-    socket rild-debug stream 660 radio system
-    socket rild-cas stream 660 casdrm mmb
-    user root
-    group radio cache inet misc audio log system wakelock qcom_diag
+    user radio
+    group radio cache inet misc audio log readproc wakelock oem_2901
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+
+service gatekeeperd /system/bin/gatekeeperd /data/misc/gatekeeper
+    class late_start
+    user system
+    writepid /dev/cpuset/system-background/tasks
 
 on property:wlan.driver.status=ok
     start macloader
@@ -1034,7 +1039,7 @@ on property:sys.boot_completed=1
 
 service charger /charger
     class charger
-    seclabel u:r:healthd:s0
+    seclabel u:r:charger:s0
 
 service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
     class main

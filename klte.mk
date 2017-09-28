@@ -21,7 +21,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product-if-exists, vendor/samsung/klte-common/klte-common-vendor.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS +=
+#    $(LOCAL_PATH)/overlay-lineage \
+    $(LOCAL_PATH)/overlay
 
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
@@ -73,23 +75,18 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    camera.device@1.0-impl \
+    camera.device@3.2-impl \
+    android.hardware.camera.provider@2.4-impl \
     camera.msm8974 \
-    libstlport \
     libxml2 \
     Snap
 
-# Doze
-PRODUCT_PACKAGES += \
-    SamsungDoze
-
 # Fingerprint
 PRODUCT_PACKAGES += \
-    fingerprintd \
+    android.hardware.biometrics.fingerprint@2.1-impl \
+    android.hardware.biometrics.fingerprint@2.1-service \
     fingerprint.msm8974
-
-# FlipFlap
-PRODUCT_PACKAGES += \
-    FlipFlap
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
@@ -107,6 +104,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
     lights.MSM8974
 
 # Media
@@ -122,7 +120,14 @@ PRODUCT_PACKAGES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libshim_ril
+    libshim_ril \
+    rild_socket \
+    android.hardware.radio@1.0 \
+    android.hardware.radio.deprecated@1.0
+
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/hidl/manifest.xml:system/vendor/manifest.xml
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -136,21 +141,41 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    libbt-vendor
+
+# [TEMP] Disable Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+	config.disable_bluetooth=true
+
+# Network
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0
+
+# WiFi HAL
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0 \
+    android.hardware.wifi@1.0-impl \
+    android.hardware.wifi@1.0-service
+
 # Wifi
 PRODUCT_PACKAGES += \
     libnetcmdiface \
-    macloader
-
-PRODUCT_PACKAGES += \
-    hostapd.accept \
-    hostapd.deny \
-    hostapd \
+    libwpa_client \
+    wifiloader \
+    wlutil \
+    wificond \
+    wifilogd \
+    macloader \
     wpa_supplicant \
     wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-   $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+   $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+   $(LOCAL_PATH)/configs/filter_ie:system/etc/wifi/filter_ie
 
 # common msm8974
 $(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
