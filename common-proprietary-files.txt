@@ -1,4 +1,4 @@
-# Samsung Package Version: G900FXXU1CQE1_G900FPHE1CQE1_PHE, unless pinned
+# Samsung Package Version: G900FXXS1CQI4_G900FPHN1CQI2_PHN, unless pinned
 
 # Activity recognition
 vendor/lib/libsensor1.so
@@ -29,13 +29,13 @@ vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so|b03772672144d4b750a5672c2922aded93bb0512
 vendor/lib/libaptXScheduler.so|6a0a2d564fde8434018b9840ce81d976b4d4ab28
 
-# Bluetooth firmware
-vendor/firmware/bcm4350_V0375.0766_wisol.hcd
-vendor/firmware/bcm4350_V0375.0768.hcd
-vendor/firmware/bcm4350_V0375.0768.hcd:vendor/firmware/bcm4350_V0375.0768_murata.hcd
-vendor/firmware/bcm4350_V0375.0768.hcd:vendor/firmware/bcm4350_V0375.0768_semco.hcd
-vendor/firmware/bcm4350_V0375.0768.hcd:vendor/firmware/bcm4350_V0375.0768_semcosh.hcd
-vendor/firmware/bcm4350_V0375.0768.hcd:vendor/firmware/bcm4350_V0375.0768_semcove.hcd
+# Bluetooth firmware - Pinned to G900VVRU2DQH2_G900VVZW2DQH2_VZW
+vendor/firmware/bcm4350_V0395.0797.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
+vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_murata.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
+vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_semco.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
+vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_semcosh.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
+vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_semcove.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
+vendor/firmware/bcm4350_V0395.0798_wisol.hcd|c4a2f642b274de774014aafacf3ed4253b000aa9
 
 # Camera
 bin/mm-qcamera-daemon
