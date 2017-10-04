@@ -21,14 +21,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
+    camera2.portability.force_api=1 \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true \
+    camera.disable_treble=true 
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdcp2.rx=tz \
     ro.qualcomm.cabl=1 \
     ro.secwvk=144 \
-    ro.sf.lcd_density=480
+    ro.sf.lcd_density=480 \
+    debug.hwui.use_buffer_age=false \
+    persist.sys.strictmode.visual=0 \
+    persist.sys.strictmode.disable=1
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -40,7 +46,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
+    media.stagefright.less-secure=true \
+    persist.media.treble_omx=false
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
