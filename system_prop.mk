@@ -28,7 +28,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdcp2.rx=tz \
     ro.qualcomm.cabl=1 \
     ro.secwvk=144 \
-    ro.sf.lcd_density=480
+    ro.sf.lcd_density=480 \
+    debug.hwui.use_buffer_age=false
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -40,7 +41,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
+    media.stagefright.less-secure=true \
+    persist.media.treble_omx=false
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \

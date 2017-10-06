@@ -21,6 +21,10 @@
 
 #include <utils/Log.h>
 
+#define MAX_SOCKET_NAME_LENGTH 6
+
+char rild[MAX_SOCKET_NAME_LENGTH] = "rild";
+
 //various funcs we'll need to call, in their mangled form
 
 //android::Parcel::writeString16(char16_t const*, unsigned int)
