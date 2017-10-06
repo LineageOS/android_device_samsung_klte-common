@@ -17,9 +17,12 @@ etc/Handset_cal.acdb
 etc/Hdmi_cal.acdb
 etc/Headset_cal.acdb
 etc/Speaker_cal.acdb
+vendor/lib/soundfx/libqcbassboost.so
+vendor/lib/soundfx/libqcvirt.so
+vendor/lib/soundfx/libqcreverb.so
 
 # ADSP
-bin/adsprpcd
+bin/adsprpcd:vendor/bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
@@ -38,7 +41,7 @@ vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_semcov
 vendor/firmware/bcm4350_V0395.0798_wisol.hcd|c4a2f642b274de774014aafacf3ed4253b000aa9
 
 # Camera
-bin/mm-qcamera-daemon
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon 
 lib/hw/camera.msm8974.so:lib/hw/camera.vendor.msm8974.so
 lib/libarcsoft_nighthawk.so
 lib/libliveframework.so
@@ -206,14 +209,17 @@ etc/firmware/cpp_firmware_v1_1_1.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 
+# Camera/RIL Dependency
+lib/libstlport.so|18eddd8686b52696f7beba833938b93a43d6bab1
+
 # CPU
-bin/mpdecision
+bin/mpdecision:vendor/bin/mpdecision
 vendor/bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
 # DRM
-bin/qseecomd
+bin/qseecomd:vendor/bin/qseecomd
 vendor/lib/libdrmdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
@@ -258,11 +264,11 @@ etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
 # IPC router security
-bin/irsc_util
+bin/irsc_util:vendor/bin/irsc_util 
 etc/sec_config
 
 # IPv6 Tethering
-bin/radish
+bin/radish:vendor/bin/radish
 
 # Media
 vendor/lib/libOmxAacDec.so
@@ -302,7 +308,7 @@ lib/libhr.so
 
 # Time services
 -app/TimeService/TimeService.apk
-bin/time_daemon
+bin/time_daemon:vendor/bin/time_daemon
 vendor/lib/libTimeService.so
 -vendor/lib/libtime_genoff.so
 

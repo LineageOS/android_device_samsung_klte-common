@@ -14,6 +14,7 @@ LOCAL_CFLAGS += -DPDK_FEATURE_SET
 endif
 
 LOCAL_SHARED_LIBRARIES := \
+    liblog \
     libutils \
     libcutils \
     libgps.utils \
@@ -46,7 +47,5 @@ LOCAL_COPY_HEADERS:= \
     gps_extended.h \
     loc_core_log.h \
     LocAdapterProxyBase.h
-
-LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
