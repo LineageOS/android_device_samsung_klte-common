@@ -125,6 +125,10 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
+
 # Radio
 PRODUCT_PACKAGES += \
     libshim_ril
