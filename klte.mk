@@ -85,6 +85,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.0-service \
     fingerprintd \
     fingerprint.msm8974
 
