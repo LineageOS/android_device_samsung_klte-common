@@ -112,6 +112,7 @@ PRODUCT_PACKAGES += \
 
 # IR Blaster
 PRODUCT_PACKAGES += \
+    android.hardware.ir@1.0-impl \
     consumerir.msm8974
 
 # Keylayouts
