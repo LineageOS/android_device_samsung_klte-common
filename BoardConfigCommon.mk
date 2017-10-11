@@ -58,6 +58,9 @@ BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
 # Extended Filesystem Support
 TARGET_KERNEL_HAVE_EXFAT := true
 
+# HIDL
+DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
+
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
