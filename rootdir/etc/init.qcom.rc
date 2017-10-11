@@ -848,6 +848,9 @@ on boot
     chmod 0640 /efs/gyro_cal_data
     restorecon /efs/gyro_cal_data
 
+    # Set permissions for firmware path control
+    chown wifi wifi /sys/module/dhd/parameters/firmware_path
+
 # Services begin here
 
 service adsprpcd /system/bin/adsprpcd
