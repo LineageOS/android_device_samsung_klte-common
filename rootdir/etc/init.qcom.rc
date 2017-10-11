@@ -112,6 +112,9 @@ on post-fs-data
     chmod 0660 /efs/wifi/.mac.info
     restorecon /efs/wifi/.mac.info
 
+    # Set permissions for firmware path control
+    chown wifi wifi /sys/module/dhd/parameters/firmware_path
+
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
