@@ -93,6 +93,9 @@ BOARD_SEPOLICY_DIRS += \
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
+# HIDL
+DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
+
 # TWRP Support - Optional
 ifeq ($(WITH_TWRP),true)
 -include $(LOCAL_PATH)/twrp.mk
