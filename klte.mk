@@ -84,7 +84,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    fingerprintd \
+    android.hardware.biometrics.fingerprint@2.1-service.2.0 \
     fingerprint.msm8974
 
 # FlipFlap
