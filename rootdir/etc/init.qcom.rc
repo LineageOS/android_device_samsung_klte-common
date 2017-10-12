@@ -856,11 +856,6 @@ service adsprpcd /system/bin/adsprpcd
     user media
     group media
 
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
-    group input
-
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class main
     user camera
