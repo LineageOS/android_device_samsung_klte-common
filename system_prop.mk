@@ -69,7 +69,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=false
+    ro.sys.sdcardfs=true
 
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
