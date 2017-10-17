@@ -44,17 +44,13 @@ public class KlteRIL extends RIL {
 
     private static final int RIL_UNSOL_ON_SS_LL = 11055;
 
-    private boolean mIsGsm = false;
-
     public KlteRIL(Context context, int networkMode, int cdmaSubscription) {
         super(context, networkMode, cdmaSubscription, null);
-        mQANElements = 6;
     }
 
     public KlteRIL(Context context, int preferredNetworkType,
             int cdmaSubscription, Integer instanceId) {
         super(context, preferredNetworkType, cdmaSubscription, instanceId);
-        mQANElements = 6;
     }
 
     private void
@@ -78,7 +74,6 @@ public class KlteRIL extends RIL {
     @Override
     public void
     dial(String address, int clirMode, UUSInfo uusInfo, Message result) {
-
         RILRequest rr = RILRequest.obtain(RIL_REQUEST_DIAL, result);
 
         rr.mParcel.writeString(address);
@@ -140,36 +135,6 @@ public class KlteRIL extends RIL {
             p.readInt(); // puk2_num_retries
             p.readInt(); // perso_unblock_retries
             cardStatus.mApplications[i] = appStatus;
-        }
-        // For Sprint LTE only SIM
-        if (numApplications==1 && !mIsGsm && appStatus.app_type == appStatus.AppTypeFromRILInt(2)) {
-            cardStatus.mApplications = new IccCardApplicationStatus[numApplications+2];
-            cardStatus.mGsmUmtsSubscriptionAppIndex = 0;
-            cardStatus.mApplications[cardStatus.mGsmUmtsSubscriptionAppIndex]=appStatus;
-            cardStatus.mCdmaSubscriptionAppIndex = 1;
-            cardStatus.mImsSubscriptionAppIndex = 2;
-
-            IccCardApplicationStatus appStatus2 = new IccCardApplicationStatus();
-            appStatus2.app_type       = appStatus2.AppTypeFromRILInt(4); // csim state
-            appStatus2.app_state      = appStatus.app_state;
-            appStatus2.perso_substate = appStatus.perso_substate;
-            appStatus2.aid            = appStatus.aid;
-            appStatus2.app_label      = appStatus.app_label;
-            appStatus2.pin1_replaced  = appStatus.pin1_replaced;
-            appStatus2.pin1           = appStatus.pin1;
-            appStatus2.pin2           = appStatus.pin2;
-            cardStatus.mApplications[cardStatus.mCdmaSubscriptionAppIndex] = appStatus2;
-
-            IccCardApplicationStatus appStatus3 = new IccCardApplicationStatus();
-            appStatus3.app_type       = appStatus3.AppTypeFromRILInt(5); // ims state
-            appStatus3.app_state      = appStatus.app_state;
-            appStatus3.perso_substate = appStatus.perso_substate;
-            appStatus3.aid            = appStatus.aid;
-            appStatus3.app_label      = appStatus.app_label;
-            appStatus3.pin1_replaced  = appStatus.pin1_replaced;
-            appStatus3.pin1           = appStatus.pin1;
-            appStatus3.pin2           = appStatus.pin2;
-            cardStatus.mApplications[cardStatus.mImsSubscriptionAppIndex] = appStatus3;
         }
         return cardStatus;
     }
@@ -296,14 +261,8 @@ public class KlteRIL extends RIL {
     }
 
     @Override
-    public void setPhoneType(int phoneType) {
-        super.setPhoneType(phoneType);
-        mIsGsm = (phoneType != RILConstants.CDMA_PHONE);
-    }
-
-    @Override
     protected void
-    processUnsolicited (Parcel p, int type) {
+    processUnsolicited(Parcel p, int type) {
         Object ret;
         int dataPosition = p.dataPosition();
         int response = p.readInt();
@@ -327,7 +286,7 @@ public class KlteRIL extends RIL {
 
     @Override
     public void
-    acceptCall (Message result) {
+    acceptCall(Message result) {
         RILRequest rr
                 = RILRequest.obtain(RIL_REQUEST_ANSWER, result);
 
@@ -337,78 +296,5 @@ public class KlteRIL extends RIL {
         if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
 
         send(rr);
-    }
-
-    @Override
-    protected RILRequest
-    processSolicited (Parcel p, int type) {
-        int serial, error;
-        boolean found = false;
-        int dataPosition = p.dataPosition(); // save off position within the Parcel
-        serial = p.readInt();
-        error = p.readInt();
-        RILRequest rr = null;
-        /* Pre-process the reply before popping it */
-        synchronized (mRequestList) {
-            RILRequest tr = mRequestList.get(serial);
-            if (tr != null && tr.mSerial == serial) {
-                if (error == 0 || p.dataAvail() > 0) {
-                    try {switch (tr.mRequest) {
-                            /* Get those we're interested in */
-                        case RIL_REQUEST_DATA_REGISTRATION_STATE:
-                            rr = tr;
-                            break;
-                    }} catch (Throwable thr) {
-                        // Exceptions here usually mean invalid RIL responses
-                        if (tr.mResult != null) {
-                            AsyncResult.forMessage(tr.mResult, null, thr);
-                            tr.mResult.sendToTarget();
-                        }
-                        return tr;
-                    }
-                }
-            }
-        }
-        if (rr == null) {
-            /* Nothing we care about, go up */
-            p.setDataPosition(dataPosition);
-            // Forward responses that we are not overriding to the super class
-            return super.processSolicited(p, type);
-        }
-        rr = findAndRemoveRequestFromList(serial);
-        if (rr == null) {
-            return rr;
-        }
-        Object ret = null;
-        if (error == 0 || p.dataAvail() > 0) {
-            switch (rr.mRequest) {
-                case RIL_REQUEST_DATA_REGISTRATION_STATE: ret = responseDataRegistrationState(p); break;
-                default:
-                    throw new RuntimeException("Unrecognized solicited response: " + rr.mRequest);
-            }
-            //break;
-        }
-        if (RILJ_LOGD) riljLog(rr.serialString() + "< " + requestToString(rr.mRequest)
-                               + " " + retToString(rr.mRequest, ret));
-        if (rr.mResult != null) {
-            AsyncResult.forMessage(rr.mResult, ret, null);
-            rr.mResult.sendToTarget();
-        }
-        return rr;
-    }
-
-    private Object
-    responseDataRegistrationState(Parcel p) {
-        String response[] = (String[])responseStrings(p);
-        /* DANGER WILL ROBINSON
-         * In some cases from Vodaphone we are receiving a RAT of 102
-         * while in tunnels of the metro. Lets Assume that if we
-         * receive 102 we actually want a RAT of 2 for EDGE service */
-        if (response.length > 4 &&
-            response[0].equals("1") &&
-            response[3].equals("102")) {
-            response[3] = "2";
-        }
-        return response;
     }
 }

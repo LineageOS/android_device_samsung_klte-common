@@ -57,6 +57,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.add_power_save=1 \
     persist.radio.lte_vrat_report=1 \
     ro.telephony.mms_data_profile=5 \
+    ro.ril.telephony.mqanelements=6 \
     ro.telephony.ril_class=KlteRIL
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
