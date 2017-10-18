@@ -50,12 +50,6 @@
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">65</integer>
 
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
-
-    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveNotificationLed">true</bool>
-
     <!-- Enable blur support -->
     <bool name="config_uiBlurEnabled">true</bool>
 
