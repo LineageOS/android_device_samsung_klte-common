@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f88c7d93_0e6dcca8",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-10-18T10:38:57Z",
+      "side": 0,
+      "message": "This isn\u0027t in the stock class",
+      "revId": "2709d261419654ad8a105a39ab400ab9c448134b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e93f2b5_3335a947",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-10-18T10:38:57Z",
+      "side": 0,
+      "message": "Neither is this",
+      "revId": "2709d261419654ad8a105a39ab400ab9c448134b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
