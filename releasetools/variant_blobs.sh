@@ -17,15 +17,9 @@
 
 set -e
 
-better_copy()
+copy()
 {
-  cp -dp "$1" "$2"
-  # symlinks don't have a context
-  if [ ! -L "$1" ]; then
-    # it is assumed that every label starts with 'u:object_r' and has no white-spaces
-    local context=`ls -Z "$1" | grep -o 'u:object_r:[^ ]*' | head -1`
-    chcon -v "$context" "$2"
-  fi
+  LD_LIBRARY_PATH=/system/lib /system/bin/toybox cp --preserve=a "$1" "$2"
 }
 
 VAR_SELECT_HOOK=/tmp/install/bin/variant_blobs_hook.sh
@@ -49,7 +43,7 @@ if [ -d $BLOBBASE ]; then
 
   for FILE in `find . -type f` ; do
     mkdir -p `dirname /system/$FILE`
-    better_copy $FILE /system/$FILE
+    copy $FILE /system/$FILE
   done
 
   for FILE in bin/* ; do
