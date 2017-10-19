@@ -46,6 +46,30 @@
       "revId": "d5144dab3c7d39af887f355373aadc6dca91c1cf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fb1d94d_2d5b101e",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-10-19T10:37:36Z",
+      "side": 1,
+      "message": "or rather, 2 lines after",
+      "parentUuid": "25319ffe_742db0a7",
+      "range": {
+        "startLine": 148,
+        "startChar": 8,
+        "endLine": 148,
+        "endChar": 51
+      },
+      "revId": "d5144dab3c7d39af887f355373aadc6dca91c1cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
