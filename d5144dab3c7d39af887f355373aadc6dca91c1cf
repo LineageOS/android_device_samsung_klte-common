@@ -22,6 +22,30 @@
       "revId": "d5144dab3c7d39af887f355373aadc6dca91c1cf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25319ffe_742db0a7",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-10-19T10:36:15Z",
+      "side": 1,
+      "message": "nope, i think i just derped the removal of the sprint lte sim hack. It was for the sprint lte sim hacks, on i \u003d\u003d 0 they needed to get more info into appStatus. This line should be a no-op as we do the exact same thing about 2 lines before.",
+      "parentUuid": "ed11f25d_b313b5eb",
+      "range": {
+        "startLine": 148,
+        "startChar": 8,
+        "endLine": 148,
+        "endChar": 51
+      },
+      "revId": "d5144dab3c7d39af887f355373aadc6dca91c1cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
