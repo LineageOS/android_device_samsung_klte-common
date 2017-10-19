@@ -1,0 +1,4 @@
+allow shell exfat:dir create_dir_perms;
+allow shell exfat:file create_file_perms;
+allow shell fuseblk:dir create_dir_perms;
+allow shell fuseblk:file create_file_perms;
