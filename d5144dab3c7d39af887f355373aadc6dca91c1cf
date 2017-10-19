@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed11f25d_b313b5eb",
+        "filename": "ril/telephony/java/com/android/internal/telephony/KlteRIL.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2017-10-19T10:32:58Z",
+      "side": 1,
+      "message": "I don\u0027t see any reason to keep this instantiation outside the loop. Is my coffee not working yet?",
+      "range": {
+        "startLine": 148,
+        "startChar": 8,
+        "endLine": 148,
+        "endChar": 51
+      },
+      "revId": "d5144dab3c7d39af887f355373aadc6dca91c1cf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
