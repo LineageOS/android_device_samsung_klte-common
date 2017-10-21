@@ -70,6 +70,7 @@ TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(LOCAL_PATH)/power/power_ext.c
 TARGET_POWERHAL_VARIANT := qcom
 
 # Radio
+BOARD_PROVIDES_LIBRIL := true
 BOARD_RIL_CLASS := ../../../device/samsung/klte-common/ril
 
 # Recovery

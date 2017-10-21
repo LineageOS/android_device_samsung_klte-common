@@ -244,27 +244,6 @@ public class KlteRIL extends RIL {
     }
 
     @Override
-    protected Object responseSignalStrength(Parcel p) {
-        int numInts = 12;
-        int response[];
-
-        // Get raw data
-        response = new int[numInts];
-        for (int i = 0; i < numInts; i++) {
-            response[i] = p.readInt();
-        }
-        //gsm
-        response[0] &= 0xff;
-        //cdma
-        response[2] %= 256;
-        response[4] %= 256;
-        response[7] &= 0xff;
-
-        return new SignalStrength(response[0], response[1], response[2], response[3], response[4], response[5], response[6], response[7], response[8], response[9], response[10], response[11], true);
-
-    }
-
-    @Override
     protected void notifyRegistrantsCdmaInfoRec(CdmaInformationRecords infoRec) {
         final int response = RIL_UNSOL_CDMA_INFO_REC;
 
