@@ -136,7 +136,7 @@ PRODUCT_PACKAGES += \
 # Radio
 PRODUCT_PACKAGES += \
     libsecnativefeature \
-    libshim_ril
+    libshim_cutils_atomic
 
 # Ramdisk
 PRODUCT_PACKAGES += \
