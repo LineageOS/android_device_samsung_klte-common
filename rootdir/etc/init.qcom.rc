@@ -29,6 +29,8 @@ import init.qcom.usb.rc
 import init.target.rc
 
 on early-init
+    export LD_SHIM_LIBS /system/lib/libcutils.so|libshim_cutils_atomic.so
+
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
@@ -926,15 +928,6 @@ service macloader /system/bin/macloader
     class late_start
     oneshot
     seclabel u:r:macloader:s0
-
-service ril-daemon /system/bin/rild
-    class main
-    socket rild stream 660 root radio
-    socket sap_uim_socket1 stream 660 bluetooth bluetooth
-    socket rild-debug stream 660 radio system
-    socket rild-cas stream 660 casdrm mmb
-    user root
-    group radio cache inet misc audio log system wakelock qcom_diag
 
 on property:wlan.driver.status=ok
     start macloader
