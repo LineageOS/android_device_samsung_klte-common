@@ -288,6 +288,7 @@ static void dispatchOpenChannelWithP2(Parcel &p, RequestInfo *pRI);
 static void dispatchAdnRecord(Parcel &p, RequestInfo *pRI);
 static int responseInts(Parcel &p, void *response, size_t responselen);
 static int responseFailCause(Parcel &p, void *response, size_t responselen);
+static int responseNitzString(Parcel &p, void *response, size_t responselen);
 static int responseStrings(Parcel &p, void *response, size_t responselen);
 static int responseString(Parcel &p, void *response, size_t responselen);
 static int responseVoid(Parcel &p, void *response, size_t responselen);
@@ -2572,6 +2573,34 @@ static int responseFailCause(Parcel &p, void *response, size_t responselen) {
             "RIL_LastCallFailCauseInfo", (int)responselen);
       return RIL_ERRNO_INVALID_RESPONSE;
     }
+
+    return 0;
+}
+
+/** response is a char * that contains NITZ info.
+    This is a comma seperated array, and frameworks
+    expects 3 elements, but the modem can send more.
+    This causes frameworks to set timezone to UTC+0.
+    Truncate the string if it contains too much data. */
+static int responseNitzString(Parcel &p, void *response, size_t responselen) {
+    char *resp = strndup((char *) response, responselen);
+    char *tmp = resp;
+
+    for (int i = 0; i < 3; i++) {
+        if (tmp != NULL) {
+            tmp = strchr(tmp + 1, ',');
+        }
+    }
+
+    /* String has too much data, trim off extra */
+    if (tmp != NULL) {
+        *tmp = '\0';
+    }
+
+    /* Forward fixed string to responseString */
+    responseString(p, resp, strlen(resp));
+
+    free(resp);
 
     return 0;
 }
