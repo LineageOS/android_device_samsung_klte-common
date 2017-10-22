@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ad2df2b_cc70f20b",
+        "filename": "libril/ril.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2435,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-10-22T07:31:13Z",
+      "side": 1,
+      "message": "Wrong indentation here and below",
+      "range": {
+        "startLine": 2435,
+        "startChar": 0,
+        "endLine": 2435,
+        "endChar": 3
+      },
+      "revId": "141e39dc5d95f346461c199d4050dc968c366560",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
