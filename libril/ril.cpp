@@ -288,6 +288,7 @@ static void dispatchOpenChannelWithP2(Parcel &p, RequestInfo *pRI);
 static void dispatchAdnRecord(Parcel &p, RequestInfo *pRI);
 static int responseInts(Parcel &p, void *response, size_t responselen);
 static int responseFailCause(Parcel &p, void *response, size_t responselen);
+static int responseNitzString(Parcel &p, void *response, size_t responselen);
 static int responseStrings(Parcel &p, void *response, size_t responselen);
 static int responseString(Parcel &p, void *response, size_t responselen);
 static int responseVoid(Parcel &p, void *response, size_t responselen);
@@ -2572,6 +2573,37 @@ static int responseFailCause(Parcel &p, void *response, size_t responselen) {
             "RIL_LastCallFailCauseInfo", (int)responselen);
       return RIL_ERRNO_INVALID_RESPONSE;
     }
+
+    return 0;
+}
+
+// response is a char * that contains NITZ info
+// This is a comma separated array, and frameworks
+// expects 3 elements, but the modem can send more
+// This causes frameworks to set timezone to UTC+0,
+// because it misinterprets the extra data
+// Truncate the string at the 3rd comma (if it
+// exists) to stop confusing the frameworks
+static int responseNitzString(Parcel &p, void *response, size_t responselen) {
+    char *resp = strndup((char *) response, responselen);
+    char *tmp = resp;
+
+    /* Find the 3rd comma */
+    for (int i = 0; i < 3; i++) {
+        if (tmp != NULL) {
+            tmp = strchr(tmp + 1, ',');
+        }
+    }
+
+    /* Make the 3rd comma the end of the string */
+    if (tmp != NULL) {
+        *tmp = '\0';
+    }
+
+    /* Forward fixed string to responseString */
+    responseString(p, resp, strlen(resp));
+
+    free(resp);
 
     return 0;
 }
