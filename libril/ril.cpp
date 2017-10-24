@@ -3154,7 +3154,7 @@ static void marshallSignalInfoRecord(Parcel &p,
 
 static int responseCdmaInformationRecords(Parcel &p,
             void *response, size_t responselen) {
-    int num;
+    int num, ret = 0;
     char* string8 = NULL;
     int buffer_lenght;
     RIL_CDMA_InformationRecord *infoRec;
@@ -3247,6 +3247,17 @@ static int responseCdmaInformationRecords(Parcel &p,
                 p.writeInt32(infoRec->rec.number.si);
                 break;
             case RIL_CDMA_SIGNAL_INFO_REC:
+                if (infoRec->rec.signal.isPresent
+                        /* IS95_CONST_IR_SIGNAL_IS54B */
+                        && infoRec->rec.signal.signalType == 2
+                        /* IS95_CONST_IR_ALERT_MED */
+                        && infoRec->rec.signal.alertPitch == 0
+                        /* IS95_CONST_IR_SIG_IS54B_L */
+                        && infoRec->rec.signal.signal == 1) {
+                    /* Drop the response to workaround the "ring of death" bug */
+                    ret = 1;
+                }
+
                 p.writeInt32(infoRec->rec.signal.isPresent);
                 p.writeInt32(infoRec->rec.signal.signalType);
                 p.writeInt32(infoRec->rec.signal.alertPitch);
@@ -3332,7 +3343,7 @@ static int responseCdmaInformationRecords(Parcel &p,
     }
     closeResponse;
 
-    return 0;
+    return ret;
 }
 
 static void responseRilSignalStrengthV5(Parcel &p, RIL_SignalStrength_v10 *p_cur) {
