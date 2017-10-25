@@ -2747,13 +2747,18 @@ static int responseSMS(Parcel &p, void *response, size_t responselen) {
         return RIL_ERRNO_INVALID_RESPONSE;
     }
 
-    if (responselen != sizeof (RIL_SMS_Response) ) {
-        RLOGE("invalid response length %d expected %d",
-                (int)responselen, (int)sizeof (RIL_SMS_Response));
+    RIL_SMS_Response *p_cur;
+
+    if (responselen == sizeof (RIL_SMS_Response)) {
+        p_cur = (RIL_SMS_Response *) response;
+    } else if (responselen == sizeof (RIL_SMS_Response_Ext)) {
+        p_cur = &(((RIL_SMS_Response_Ext *) response)->response);
+    } else {
+        RLOGE("invalid response length %d expected %d or %d",
+                (int)responselen, (int)sizeof (RIL_SMS_Response),
+                (int)sizeof (RIL_SMS_Response_Ext));
         return RIL_ERRNO_INVALID_RESPONSE;
     }
-
-    RIL_SMS_Response *p_cur = (RIL_SMS_Response *) response;
 
     p.writeInt32(p_cur->messageRef);
     writeStringToParcel(p, p_cur->ackPDU);
