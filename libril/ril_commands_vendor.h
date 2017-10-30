@@ -30,7 +30,7 @@
     {RIL_REQUEST_LOCK_INFO, dispatchVoid, responseVoid}, // 10013
     {RIL_REQUEST_STK_SIM_INIT_EVENT, dispatchVoid, responseVoid}, // 10014
     {RIL_REQUEST_SET_PREFERRED_NETWORK_LIST, dispatchVoid, responseVoid}, // 10015
-    {RIL_REQUEST_GET_PREFERRED_NETWORK_LIST, dispatchDial, responseVoid}, // 10016
+    {RIL_REQUEST_GET_PREFERRED_NETWORK_LIST, dispatchVoid, responseVoid}, // 10016
     {RIL_REQUEST_CHANGE_SIM_PERSO, dispatchVoid, responseVoid}, // 10017
     {RIL_REQUEST_ENTER_SIM_PERSO, dispatchVoid, responseVoid}, // 10018
     {RIL_REQUEST_SEND_ENCODED_USSD, dispatchVoid, responseVoid}, // 10019
