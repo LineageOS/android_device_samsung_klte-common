@@ -88,8 +88,8 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/klte-common/sepolicy
+#BOARD_SEPOLICY_DIRS += \
+#    device/samsung/klte-common/sepolicy
 
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
