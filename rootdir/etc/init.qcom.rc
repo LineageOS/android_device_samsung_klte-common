@@ -925,7 +925,6 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
 service macloader /system/bin/macloader
     class late_start
     oneshot
-    seclabel u:r:macloader:s0
 
 service ril-daemon /system/bin/rild
     class main
@@ -1010,7 +1009,6 @@ on property:sys.boot_completed=1
 
 service charger /charger
     class charger
-    seclabel u:r:healthd:s0
 
 service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
     class main
