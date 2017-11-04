@@ -101,6 +101,9 @@ ifeq ($(WITH_TWRP),true)
 -include $(LOCAL_PATH)/twrp.mk
 endif
 
+# NFC
+BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
+
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI := true
 BOARD_WLAN_DEVICE := bcmdhd
