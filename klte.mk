@@ -123,9 +123,7 @@ PRODUCT_PACKAGES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libsecnativefeature \
-    libsecril-client-sap \
-    libsecril-client
+    libsecnativefeature
 
 # Ramdisk
 PRODUCT_PACKAGES += \
