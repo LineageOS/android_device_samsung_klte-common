@@ -3647,6 +3647,8 @@ int radio::getDataRegistrationStateResponse(int slotId,
 #if VDBG
     RLOGD("getDataRegistrationStateResponse: serial %d", serial);
 #endif
+    int dataRegRespStrings =
+         property_get_int32("ro.ril.telephony.data_reg_resp_strings", 6);
 
     if (radioService[slotId]->mRadioResponse != NULL) {
         RadioResponseInfo responseInfo = {};
@@ -3657,7 +3659,7 @@ int radio::getDataRegistrationStateResponse(int slotId,
             if (e == RIL_E_SUCCESS) responseInfo.error = RadioError::INVALID_RESPONSE;
         } else if (s_vendorFunctions->version <= 14) {
             int numStrings = responseLen / sizeof(char *);
-            if ((numStrings != 6) && (numStrings != 11)) {
+            if ((numStrings != dataRegRespStrings) && (numStrings != 11)) {
                 RLOGE("getDataRegistrationStateResponse Invalid response: NULL");
                 if (e == RIL_E_SUCCESS) responseInfo.error = RadioError::INVALID_RESPONSE;
             } else {
