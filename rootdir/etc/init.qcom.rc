@@ -909,7 +909,7 @@ service rmt_storage /vendor/bin/rmt_storage
 service qmuxd /vendor/bin/qmuxd
     class core
     user radio
-    group radio audio bluetooth gps qcom_diag log
+    group radio audio bluetooth gps oem_2950 log
 
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
