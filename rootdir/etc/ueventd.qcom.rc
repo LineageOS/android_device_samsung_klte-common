@@ -175,7 +175,7 @@
 # NFC_NXP
 /dev/pn547                0660   nfc        nfc
 
-# NFC bcm2079x (kltespr, kltedv)
+# NFC bcm2079x (kltedv. kltesprsports)
 /dev/bcm2079x             0660   nfc        nfc
 
 # SHTC1 BULK
