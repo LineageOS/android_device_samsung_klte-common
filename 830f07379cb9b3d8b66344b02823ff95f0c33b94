@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e186cff0_17846da6",
+        "filename": "rootdir/etc/ueventd.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2017-11-30T03:16:55Z",
+      "side": 1,
+      "message": "You recently found that Samsung used their own NFC chip for sprsports... \n\nThese would appear to be the proper kltesprsports NFC device nodes:\n#nfc permissions\n/dev/nfc-nci              0660    nfc         nfc\n/dev/assd                 0660    nfc         nfc",
+      "range": {
+        "startLine": 178,
+        "startChar": 22,
+        "endLine": 178,
+        "endChar": 37
+      },
+      "revId": "830f07379cb9b3d8b66344b02823ff95f0c33b94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
