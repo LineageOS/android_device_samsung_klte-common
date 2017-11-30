@@ -22,6 +22,30 @@
       "revId": "830f07379cb9b3d8b66344b02823ff95f0c33b94",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fb1bc7b_c4bf9c83",
+        "filename": "rootdir/etc/ueventd.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-11-30T12:04:48Z",
+      "side": 1,
+      "message": "Yeah, I was going to fix that later.",
+      "parentUuid": "e186cff0_17846da6",
+      "range": {
+        "startLine": 178,
+        "startChar": 22,
+        "endLine": 178,
+        "endChar": 37
+      },
+      "revId": "830f07379cb9b3d8b66344b02823ff95f0c33b94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
