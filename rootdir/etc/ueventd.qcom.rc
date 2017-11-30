@@ -178,6 +178,9 @@
 # NFC bcm2079x (kltespr, kltedv)
 /dev/bcm2079x             0660   nfc        nfc
 
+# NFC_SLSI
+/dev/sec-nfc              0660   nfc        nfc
+
 # SHTC1 BULK
 /dev/shtc1_sensor         0600   system     system
 

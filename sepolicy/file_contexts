@@ -30,6 +30,7 @@
 # NFC
 /dev/bcm2079x                                           u:object_r:nfc_device:s0
 /dev/pn547                                              u:object_r:nfc_device:s0
+/dev/sec-nfc                                            u:object_r:nfc_device:s0
 
 # RIL
 /data/data/com.android.providers.telephony/databases(/.*)?     u:object_r:radio_data_file:s0
