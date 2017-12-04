@@ -43,7 +43,6 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml \
-    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml \
@@ -83,7 +82,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SamsungDoze
 
+ifneq ($(TARGET_DEVICE),kltesprsports)
 # Fingerprint
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
 PRODUCT_PACKAGES += \
     fingerprintd \
     fingerprint.msm8974
@@ -91,6 +93,7 @@ PRODUCT_PACKAGES += \
 # FlipFlap
 PRODUCT_PACKAGES += \
     FlipFlap
+endif
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
