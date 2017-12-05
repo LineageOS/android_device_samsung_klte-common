@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b47705d_64734e2f",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-12-05T22:43:13Z",
+      "side": 1,
+      "message": "Need a null check here",
+      "revId": "c91c6e7fdc4389511d4dffec75d6e66728f151f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
