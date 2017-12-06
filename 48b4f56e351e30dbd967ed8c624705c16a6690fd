@@ -22,6 +22,30 @@
       "revId": "48b4f56e351e30dbd967ed8c624705c16a6690fd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31fe62fd_d5a628a9",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-12-06T17:58:25Z",
+      "side": 1,
+      "message": "This is perfectly fine: It casts it to a char **, which can be/is an array of char *\u0027s of length 2. Then, the free is called on fixed_set_params[id], so it frees the appropriate portion of that memory, not the entire thing.",
+      "parentUuid": "294ce203_784292c0",
+      "range": {
+        "startLine": 557,
+        "startChar": 8,
+        "endLine": 557,
+        "endChar": 74
+      },
+      "revId": "48b4f56e351e30dbd967ed8c624705c16a6690fd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
