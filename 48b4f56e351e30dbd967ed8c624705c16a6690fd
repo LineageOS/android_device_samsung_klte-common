@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "294ce203_784292c0",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 15579
+      },
+      "writtenOn": "2017-12-06T17:49:12Z",
+      "side": 1,
+      "message": "ancient bug: only one malloc for all cams, but free is called for each cam individually -\u003e can\u0027t work, might cause crashes",
+      "range": {
+        "startLine": 557,
+        "startChar": 8,
+        "endLine": 557,
+        "endChar": 74
+      },
+      "revId": "48b4f56e351e30dbd967ed8c624705c16a6690fd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

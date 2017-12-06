@@ -46,6 +46,29 @@
       "revId": "de91f559fb75afb455ea204871538d9f3d6e1bc2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03a098f2_fa0e9ad8",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 15579
+      },
+      "writtenOn": "2017-12-06T17:49:12Z",
+      "side": 0,
+      "message": "IIRC crash happened when turning off torch via quick settings icon, did you test it?",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 183,
+        "endChar": 41
+      },
+      "revId": "de91f559fb75afb455ea204871538d9f3d6e1bc2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
