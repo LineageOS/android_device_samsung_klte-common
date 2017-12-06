@@ -46,6 +46,7 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on init
+    export LD_SHIM_LIBS /system/lib/hw/camera.vendor.msm8974.so|libshim_camera.so
 
     # Support legacy paths
     symlink /sdcard /storage/sdcard0
