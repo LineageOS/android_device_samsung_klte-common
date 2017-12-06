@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "181a023d_7bbc9bf6",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-12-06T10:35:55Z",
+      "side": 1,
+      "message": "shouldn\u0027t be needed",
+      "range": {
+        "startLine": 122,
+        "startChar": 32,
+        "endLine": 122,
+        "endChar": 41
+      },
+      "revId": "1850aaaf7a065b00056f657928689c8d8ae44b01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77b686eb_94558e71",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-12-06T10:35:55Z",
+      "side": 1,
+      "message": "shouldn\u0027t be needed",
+      "range": {
+        "startLine": 124,
+        "startChar": 19,
+        "endLine": 124,
+        "endChar": 28
+      },
+      "revId": "1850aaaf7a065b00056f657928689c8d8ae44b01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7fa80a1_5734e526",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-12-06T10:35:55Z",
+      "side": 1,
+      "message": "no need to do this as long as you don\u0027t change all the other returns containing VENDOR_CALL. Doesn\u0027t look sane like this.",
+      "range": {
+        "startLine": 408,
+        "startChar": 4,
+        "endLine": 408,
+        "endChar": 13
+      },
+      "revId": "1850aaaf7a065b00056f657928689c8d8ae44b01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78cc2f3f_2d72a303",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-12-06T10:35:55Z",
+      "side": 1,
+      "message": "is here a return missing?",
+      "range": {
+        "startLine": 461,
+        "startChar": 4,
+        "endLine": 461,
+        "endChar": 33
+      },
+      "revId": "1850aaaf7a065b00056f657928689c8d8ae44b01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

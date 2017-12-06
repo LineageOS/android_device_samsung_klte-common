@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9625612_c3998807",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-12-06T10:35:55Z",
+      "side": 0,
+      "message": "why remove this check?",
+      "range": {
+        "startLine": 152,
+        "startChar": 21,
+        "endLine": 152,
+        "endChar": 53
+      },
+      "revId": "de91f559fb75afb455ea204871538d9f3d6e1bc2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
