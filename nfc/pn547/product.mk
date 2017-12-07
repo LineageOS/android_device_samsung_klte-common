@@ -23,5 +23,5 @@ PRODUCT_PACKAGES += \
     nfc_nci.msm8974
 
 PRODUCT_COPY_FILES += \
-    device/samsung/klte-common/nfc/pn547/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
+    device/samsung/klte-common/nfc/pn547/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     device/samsung/klte-common/nfc/pn547/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
