@@ -891,15 +891,6 @@ on property:sys.usb.config=ncm,adb
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
-on property:sys.usb.config=charging
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 04E8
-    write /sys/class/android_usb/android0/idProduct 6860
-    write /sys/class/android_usb/android0/f_acm/instances 1
-    write /sys/class/android_usb/android0/functions acm
-    write /sys/class/android_usb/android0/enable 1
-    setprop sys.usb.state ${sys.usb.config}
-
 on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
     restart adbd
