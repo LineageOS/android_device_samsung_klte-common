@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "710d848a_2ad109b9",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 14088
+      },
+      "writtenOn": "2017-12-07T09:08:33Z",
+      "side": 1,
+      "message": "i\u0027m still convinced this is not needed because no other param needs it and i added L40. but if you are unable to think about i will test it on my own.",
+      "range": {
+        "startLine": 123,
+        "startChar": 43,
+        "endLine": 123,
+        "endChar": 52
+      },
+      "revId": "a29cffdfce02ee4f87669db687223a8694fba6b4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
