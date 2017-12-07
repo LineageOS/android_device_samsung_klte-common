@@ -22,6 +22,30 @@
       "revId": "a29cffdfce02ee4f87669db687223a8694fba6b4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56617e5a_9be9871a",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-12-07T11:54:50Z",
+      "side": 1,
+      "message": "This is not a new hack. We force nv12-venus as the preview format for 4K video recording, but we need to hide it from android because it doesn\u0027t know what nv12-venus is. See here: https://review.lineageos.org/#/c/29182/.",
+      "parentUuid": "710d848a_2ad109b9",
+      "range": {
+        "startLine": 123,
+        "startChar": 43,
+        "endLine": 123,
+        "endChar": 52
+      },
+      "revId": "a29cffdfce02ee4f87669db687223a8694fba6b4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
