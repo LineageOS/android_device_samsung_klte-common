@@ -41,7 +41,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
+    media.stagefright.less-secure=true \
+    persist.media.treble_omx=false
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -58,8 +59,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.add_power_save=1 \
     rild.libpath=/system/vendor/lib/libsec-ril.so \
     ro.telephony.mms_data_profile=5 \
-    ro.ril.telephony.mqanelements=6 \
-    ro.telephony.ril_class=KlteRIL
+    ro.ril.telephony.mqanelements=6
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
 PRODUCT_PROPERTY_OVERRIDES += \
