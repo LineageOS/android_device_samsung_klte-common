@@ -29,8 +29,7 @@ vendor/lib/libfastcvopt.so
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 
 # aptX (Moto griffin - NCLS25.86-11-4-6-5)
-vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so|b03772672144d4b750a5672c2922aded93bb0512
-vendor/lib/libaptXScheduler.so|6a0a2d564fde8434018b9840ce81d976b4d4ab28
+vendor/lib/libaptX_encoder.so|b03772672144d4b750a5672c2922aded93bb0512
 
 # Bluetooth firmware - Pinned to G900VVRU2DQH2_G900VVZW2DQH2_VZW
 vendor/firmware/bcm4350_V0395.0797.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
