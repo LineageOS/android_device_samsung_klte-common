@@ -23,6 +23,11 @@
 	<ctl name="SLIM_0_RX_Voice Mixer CSVoice" value="0" />
 	<ctl name="SLIM_0_RX_Voice Mixer Voip" value="0" />
 
+	<!-- cp2 call part -->
+	<ctl name="SLIM_0_RX_Voice Mixer Voice2" value="0" />
+	<ctl name="AUX_PCM_RX_Voice Mixer Voice2" value="0" />
+	<!-- end of cp2 call part -->
+
 	<ctl name="AUX_PCM_RX_Voice Mixer CSVoice" value="0" />
 	<ctl name="AUX_PCM_RX_Voice Mixer Voip" value="0" />
 
@@ -98,6 +103,11 @@
 
 	<ctl name="Voice_Tx Mixer SLIM_0_TX_Voice" value="0" />
 	<ctl name="Voice_Tx Mixer AUX_PCM_TX_Voice" value="0" />
+
+	<!-- cp2 call part -->
+	<ctl name="Voice2_Tx Mixer SLIM_0_TX_Voice2" value="0" />
+	<ctl name="Voice2_Tx Mixer AUX_PCM_TX_Voice2" value="0" />
+	<!-- end of cp2 call part -->
 
 	<ctl name="Voip_Tx Mixer SLIM_0_TX_Voip" value="0" />
 	<ctl name="Voip_Tx Mixer AUX_PCM_TX_Voip" value="0" />
@@ -287,6 +297,17 @@
 	<path name="incall-rec-uplink-and-downlink">
 		<ctl name="MultiMedia1 Mixer VOC_REC_UL" value="1" />
 		<ctl name="MultiMedia1 Mixer VOC_REC_DL" value="1" />
+	</path>
+
+	<!-- cp2 call part -->
+	<path name="voice2-call">
+		<ctl name="SLIM_0_RX_Voice Mixer Voice2" value="1" />
+		<ctl name="Voice2_Tx Mixer SLIM_0_TX_Voice2" value="1" />
+	</path>
+
+	<path name="voice2-call bt-sco">
+		<ctl name="AUX_PCM_RX_Voice Mixer Voice2" value="1" />
+		<ctl name="Voice2_Tx Mixer AUX_PCM_TX_Voice2" value="1" />
 	</path>	
 
 	<path name="bt-call-forwarding">
