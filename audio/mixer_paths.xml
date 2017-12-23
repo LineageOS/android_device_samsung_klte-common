@@ -178,6 +178,16 @@
 	<ctl name="AUXPCM_RX Port Mixer SLIM_0_TX" value="0" />
 
 	<ctl name="TTY Mode" value="OFF" />
+
+	<!-- fm -->
+	<ctl name="SLIMBUS_0_RX Port Mixer INTERNAL_FM_TX" value="0" />
+	<ctl name="SLIMBUS_DL_HL Switch" value="0" />
+	<ctl name="MultiMedia1 Mixer INTERNAL_FM_TX" value="0" />
+	<ctl name="MultiMedia2 Mixer INTERNAL_FM_TX" value="0" />
+	<ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia1" value="0" />
+	<ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia5" value="0" />
+	<!-- fm end -->
+
 	<!-- end of initial mixer settings -->
 
 	<!-- ================================================================ -->
@@ -206,6 +216,10 @@
 		<path name="deep-buffer-playback" />
 	</path>
 
+	<path name="deep-buffer-playback transmission-fm">
+		<ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia1" value="1" />
+	</path>
+
 	<!-- low latency -->
 	<path name="low-latency-playback">
 		<ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia5" value="1" />
@@ -222,6 +236,10 @@
 
 	<path name="low-latency-playback bt-sco">
 		<ctl name="AUX_PCM_RX Audio Mixer MultiMedia5" value="1" />
+	</path>
+
+	<path name="low-latency-playback transmission-fm">
+		<ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia5" value="1" />
 	</path>
 
 	<!-- low latency(JAM) -->
@@ -263,6 +281,14 @@
 
 	<path name="audio-record bt-sco">
 		<ctl name="MultiMedia1 Mixer AUX_PCM_UL_TX" value="1" />
+	</path>
+
+	<path name="audio-record capture-fm">
+		<ctl name="MultiMedia1 Mixer INTERNAL_FM_TX" value="1" />
+	</path>
+
+	<path name="fm-virtual-record capture-fm">
+		<ctl name="MultiMedia2 Mixer INTERNAL_FM_TX" value="1" />
 	</path>
 
 	<!-- call part -->
@@ -317,6 +343,12 @@
 		<ctl name="Voice Stub Tx Mixer AUX_PCM_UL_TX" value="1" />
 		<ctl name="AUXPCM_RX Port Mixer SLIM_0_TX" value="1" />
 		<ctl name="SLIMBUS_0_RX Port Mixer AUX_PCM_UL_TX" value="1" />
+	</path>
+
+	<path name="play-fm">
+		<ctl name="Internal FM RX Volume" value="1" />
+		<ctl name="SLIMBUS_0_RX Port Mixer INTERNAL_FM_TX" value="1" />
+		<ctl name="SLIMBUS_DL_HL Switch" value="1" />
 	</path>
 
 	<!-- end of Verb -->
@@ -1645,6 +1677,12 @@
 	<!-- end of Factory Scenario -->
 	<path name="dummy">
 		<!-- not exsit -->
+	</path>
+
+	<path name="transmission-fm">
+	</path>
+
+	<path name="capture-fm">
 	</path>
 
 </mixer>
