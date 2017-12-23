@@ -162,7 +162,7 @@
 	<ctl name="ES705 Voice LPM Enable" value="0" />
 	<ctl name="Internal Route Config" value="5" />
 
-      <ctl name="MultiMedia1 Mixer AUX_PCM_UL_TX" value="0" />
+        <ctl name="MultiMedia1 Mixer AUX_PCM_UL_TX" value="0" />
 	<ctl name="AUX_PCM_RX_Voice Mixer Voice Stub" value="0" />
 	<ctl name="Voice Stub Tx Mixer SLIM_0_TX" value="0" />
 	<ctl name="AUXPCM_RX Port Mixer SLIM_0_TX" value="0" />
@@ -290,14 +290,14 @@
 	</path>	
 
 	<path name="bt-call-forwarding">
-       	 <ctl name="SLIM_0_RX_Voice Mixer Voice Stub" value="1" />
-              <ctl name="AUX_PCM_RX_Voice Mixer Voice Stub" value="1" />
-	  	 <ctl name="Voice Stub Tx Mixer SLIM_0_TX" value="1" />
-              <ctl name="Voice Stub Tx Mixer AUX_PCM_UL_TX" value="1" />
-	       <ctl name="AUXPCM_RX Port Mixer SLIM_0_TX" value="1" />
-	       <ctl name="SLIMBUS_0_RX Port Mixer AUX_PCM_UL_TX" value="1" />
-      </path>
-	
+		<ctl name="SLIM_0_RX_Voice Mixer Voice Stub" value="1" />
+		<ctl name="AUX_PCM_RX_Voice Mixer Voice Stub" value="1" />
+		<ctl name="Voice Stub Tx Mixer SLIM_0_TX" value="1" />
+		<ctl name="Voice Stub Tx Mixer AUX_PCM_UL_TX" value="1" />
+		<ctl name="AUXPCM_RX Port Mixer SLIM_0_TX" value="1" />
+		<ctl name="SLIMBUS_0_RX Port Mixer AUX_PCM_UL_TX" value="1" />
+	</path>
+
 	<!-- end of Verb -->
 
 	<!-- ================================================================ -->
@@ -549,7 +549,7 @@
 		<ctl name="RX7 Digital Volume" value="80" />
 		<ctl name="SPK DRV Volume" value="8" />
 	</path>
-		
+
 	<!-- end of Play Scenario -->
 
 	<!-- ================================================================ -->
