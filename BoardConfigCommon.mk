@@ -77,6 +77,9 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(LOCAL_PATH)/power/power_ext.c
 TARGET_POWERHAL_VARIANT := qcom
 
+# Properties
+TARGET_SYSTEM_PROP += device/samsung/klte-common/system.prop
+
 # Radio
 BOARD_RIL_CLASS := ../../../device/samsung/klte-common/ril
 
