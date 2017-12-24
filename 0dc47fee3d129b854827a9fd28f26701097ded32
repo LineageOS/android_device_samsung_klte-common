@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adc1909b_7dae3c48",
+        "filename": "libril/ril_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3718,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-12-24T22:18:16Z",
+      "side": 1,
+      "message": "tbh, this is probably a different property, this just breaks the existing logic if we make this mqanelements-2",
+      "revId": "0dc47fee3d129b854827a9fd28f26701097ded32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e11d5be_42994992",
+        "filename": "libril/ril_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3725,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-12-24T22:18:16Z",
+      "side": 1,
+      "message": "This shouldn\u0027t need to be changed",
+      "revId": "0dc47fee3d129b854827a9fd28f26701097ded32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0318d92e_15995d45",
+        "filename": "libril/ril_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4361,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-12-24T22:18:16Z",
+      "side": 1,
+      "message": "again, property_get_int32 should be a thing",
+      "revId": "0dc47fee3d129b854827a9fd28f26701097ded32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9125ee58_6f97a3ec",
+        "filename": "libril/ril_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4378,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-12-24T22:18:16Z",
+      "side": 1,
+      "message": "shouldn\u0027t be needed",
+      "revId": "0dc47fee3d129b854827a9fd28f26701097ded32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
