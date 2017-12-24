@@ -8,8 +8,8 @@ vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
-etc/firmware/audience-es705-fw.bin
-etc/firmware/audience-es705-vs.bin
+etc/firmware/audience-es705-fw.bin:vendor/firmware/audience-es705-fw.bin
+etc/firmware/audience-es705-vs.bin:vendor/firmware/audience-es705-vs.bin
 etc/Bluetooth_cal.acdb
 etc/General_cal.acdb
 etc/Global_cal.acdb
@@ -22,7 +22,7 @@ vendor/lib/soundfx/libqcvirt.so
 vendor/lib/soundfx/libqcreverb.so
 
 # ADSP
-bin/adsprpcd
+bin/adsprpcd:vendor/bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
@@ -41,21 +41,21 @@ vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_semcov
 vendor/firmware/bcm4350_V0395.0798_wisol.hcd|c4a2f642b274de774014aafacf3ed4253b000aa9
 
 # Camera
-bin/mm-qcamera-daemon
-lib/hw/camera.msm8974.so:lib/hw/camera.vendor.msm8974.so
-lib/libarcsoft_nighthawk.so
-lib/libliveframework.so
-lib/libmmcamera2_stats_algorithm.so
-lib/libmmcamera_cac3_lib.so
-lib/libmmcamera_fidelix_eeprom.so
-lib/libmmcamera_interface.so
-lib/libmmipl.so
-lib/libmmjpeg_interface.so
-lib/libmmjpeg.so
-lib/libmmqjpeg_codec.so
-lib/libqomx_core.so
-lib/libqomx_jpegenc.so
-lib/libvdis.so
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
+lib/hw/camera.msm8974.so:vendor/lib/hw/camera.vendor.msm8974.so
+lib/libarcsoft_nighthawk.so:vendor/lib/libarcsoft_nighthawk.so
+lib/libliveframework.so:vendor/lib/libliveframework.so
+lib/libmmcamera2_stats_algorithm.so:vendor/lib/libmmcamera2_stats_algorithm.so
+lib/libmmcamera_cac3_lib.so:vendor/lib/libmmcamera_cac3_lib.so
+lib/libmmcamera_fidelix_eeprom.so:vendor/lib/libmmcamera_fidelix_eeprom.so
+lib/libmmcamera_interface.so:vendor/lib/libmmcamera_interface.so
+lib/libmmipl.so:vendor/lib/libmmipl.so
+lib/libmmjpeg_interface.so:vendor/lib/libmmjpeg_interface.so
+lib/libmmjpeg.so:vendor/lib/libmmjpeg.so
+lib/libmmqjpeg_codec.so:vendor/lib/libmmqjpeg_codec.so
+lib/libqomx_core.so:vendor/lib/libqomx_core.so
+lib/libqomx_jpegenc.so:vendor/lib/libqomx_jpegenc.so
+lib/libvdis.so:vendor/lib/libvdis.so
 vendor/lib/libactuator_ak7345_camcorder.so
 vendor/lib/libactuator_ak7345_camera.so
 vendor/lib/libactuator_dw9714_camcorder.so
@@ -86,84 +86,84 @@ vendor/lib/libmmcamera_s5k8b1yx.so
 vendor/lib/liboemcamera.so
 
 # Camera chromatix
-lib/C16QL_libchromatix_s5k2p2xx_default_video.so
-lib/C16QL_libchromatix_s5k2p2xx_golfshot.so
-lib/C16QL_libchromatix_s5k2p2xx_hdr_liveshot.so
-lib/C16QL_libchromatix_s5k2p2xx_hdr_preview.so
-lib/C16QL_libchromatix_s5k2p2xx_hdr_uhd_video.so
-lib/C16QL_libchromatix_s5k2p2xx_hdr_video.so
-lib/C16QL_libchromatix_s5k2p2xx_hdr_zslshot.so
-lib/C16QL_libchromatix_s5k2p2xx_hfr_120.so
-lib/C16QL_libchromatix_s5k2p2xx_hfr_1080p_b.so
-lib/C16QL_libchromatix_s5k2p2xx_hfr_1080p_s.so
-lib/C16QL_libchromatix_s5k2p2xx_liveshot.so
-lib/C16QL_libchromatix_s5k2p2xx_pip.so
-lib/C16QL_libchromatix_s5k2p2xx_preview.so
-lib/C16QL_libchromatix_s5k2p2xx_shotmode_preview.so
-lib/C16QL_libchromatix_s5k2p2xx_shotmode_zslshot.so
-lib/C16QL_libchromatix_s5k2p2xx_snapshot.so
-lib/C16QL_libchromatix_s5k2p2xx_uhd_video.so
-lib/C16QL_libchromatix_s5k2p2xx_vt.so
-lib/C16QL_libchromatix_s5k2p2xx_vt_hd.so
-lib/C16QL_libchromatix_s5k2p2xx_zslshot.so
-lib/C16QL_libTsAe.so
-lib/C16QL_libTsAf.so
-lib/C16QL_libTs_J_Accm.so
-lib/C16QL_libTs_J_Awb.so
-lib/F16QL_libchromatix_s5k2p2xx_default_video.so
-lib/F16QL_libchromatix_s5k2p2xx_golfshot.so
-lib/F16QL_libchromatix_s5k2p2xx_hdr_liveshot.so
-lib/F16QL_libchromatix_s5k2p2xx_hdr_preview.so
-lib/F16QL_libchromatix_s5k2p2xx_hdr_uhd_video.so
-lib/F16QL_libchromatix_s5k2p2xx_hdr_video.so
-lib/F16QL_libchromatix_s5k2p2xx_hdr_zslshot.so
-lib/F16QL_libchromatix_s5k2p2xx_hfr_120.so
-lib/F16QL_libchromatix_s5k2p2xx_hfr_1080p_b.so
-lib/F16QL_libchromatix_s5k2p2xx_hfr_1080p_s.so
-lib/F16QL_libchromatix_s5k2p2xx_liveshot.so
-lib/F16QL_libchromatix_s5k2p2xx_lowres_zslshot.so
-lib/F16QL_libchromatix_s5k2p2xx_pip.so
-lib/F16QL_libchromatix_s5k2p2xx_preview.so
-lib/F16QL_libchromatix_s5k2p2xx_shotmode_preview.so
-lib/F16QL_libchromatix_s5k2p2xx_shotmode_zslshot.so
-lib/F16QL_libchromatix_s5k2p2xx_snapshot.so
-lib/F16QL_libchromatix_s5k2p2xx_uhd_video.so
-lib/F16QL_libchromatix_s5k2p2xx_vt.so
-lib/F16QL_libchromatix_s5k2p2xx_vt_hd.so
-lib/F16QL_libchromatix_s5k2p2xx_zslshot.so
-lib/F16QL_libTsAe.so
-lib/F16QL_libTsAf.so
-lib/F16QL_libTs_J_Accm.so
-lib/F16QL_libTs_J_Awb.so
-lib/F16QS_libchromatix_imx240_default_video.so
-lib/F16QS_libchromatix_imx240_golfshot.so
-lib/F16QS_libchromatix_imx240_hdr_liveshot.so
-lib/F16QS_libchromatix_imx240_hdr_preview.so
-lib/F16QS_libchromatix_imx240_hdr_uhd_video.so
-lib/F16QS_libchromatix_imx240_hdr_video.so
-lib/F16QS_libchromatix_imx240_hdr_zslshot.so
-lib/F16QS_libchromatix_imx240_hfr_120.so
-lib/F16QS_libchromatix_imx240_hfr_1080p_b.so
-lib/F16QS_libchromatix_imx240_hfr_1080p_s.so
-lib/F16QS_libchromatix_imx240_liveshot.so
-lib/F16QS_libchromatix_imx240_lowres_zslshot.so
-lib/F16QS_libchromatix_imx240_pip.so
-lib/F16QS_libchromatix_imx240_preview.so
-lib/F16QS_libchromatix_imx240_shotmode_preview.so
-lib/F16QS_libchromatix_imx240_shotmode_zslshot.so
-lib/F16QS_libchromatix_imx240_snapshot.so
-lib/F16QS_libchromatix_imx240_uhd_video.so
-lib/F16QS_libchromatix_imx240_vt.so
-lib/F16QS_libchromatix_imx240_vt_hd.so
-lib/F16QS_libchromatix_imx240_zslshot.so
-lib/F16QS_libTsAe.so
-lib/F16QS_libTsAf.so
-lib/F16QS_libTs_J_Accm.so
-lib/F16QS_libTs_J_Awb.so
-lib/libTsAe.so
-lib/libTsAf.so
-lib/libTs_J_Accm.so
-lib/libTs_J_Awb.so
+lib/C16QL_libchromatix_s5k2p2xx_default_video.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_default_video.so
+lib/C16QL_libchromatix_s5k2p2xx_golfshot.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_golfshot.so
+lib/C16QL_libchromatix_s5k2p2xx_hdr_liveshot.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_hdr_liveshot.so
+lib/C16QL_libchromatix_s5k2p2xx_hdr_preview.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_hdr_preview.so
+lib/C16QL_libchromatix_s5k2p2xx_hdr_uhd_video.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_hdr_uhd_video.so
+lib/C16QL_libchromatix_s5k2p2xx_hdr_video.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_hdr_video.so
+lib/C16QL_libchromatix_s5k2p2xx_hdr_zslshot.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_hdr_zslshot.so
+lib/C16QL_libchromatix_s5k2p2xx_hfr_120.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_hfr_120.so
+lib/C16QL_libchromatix_s5k2p2xx_hfr_1080p_b.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_hfr_1080p_b.so
+lib/C16QL_libchromatix_s5k2p2xx_hfr_1080p_s.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_hfr_1080p_s.so
+lib/C16QL_libchromatix_s5k2p2xx_liveshot.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_liveshot.so
+lib/C16QL_libchromatix_s5k2p2xx_pip.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_pip.so
+lib/C16QL_libchromatix_s5k2p2xx_preview.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_preview.so
+lib/C16QL_libchromatix_s5k2p2xx_shotmode_preview.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_shotmode_preview.so
+lib/C16QL_libchromatix_s5k2p2xx_shotmode_zslshot.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_shotmode_zslshot.so
+lib/C16QL_libchromatix_s5k2p2xx_snapshot.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_snapshot.so
+lib/C16QL_libchromatix_s5k2p2xx_uhd_video.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_uhd_video.so
+lib/C16QL_libchromatix_s5k2p2xx_vt.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_vt.so
+lib/C16QL_libchromatix_s5k2p2xx_vt_hd.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_vt_hd.so
+lib/C16QL_libchromatix_s5k2p2xx_zslshot.so:vendor/lib/C16QL_libchromatix_s5k2p2xx_zslshot.so
+lib/C16QL_libTsAe.so:vendor/lib/C16QL_libTsAe.so
+lib/C16QL_libTsAf.so:vendor/lib/C16QL_libTsAf.so
+lib/C16QL_libTs_J_Accm.so:vendor/lib/C16QL_libTs_J_Accm.so
+lib/C16QL_libTs_J_Awb.so:vendor/lib/C16QL_libTs_J_Awb.so
+lib/F16QL_libchromatix_s5k2p2xx_default_video.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_default_video.so
+lib/F16QL_libchromatix_s5k2p2xx_golfshot.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_golfshot.so
+lib/F16QL_libchromatix_s5k2p2xx_hdr_liveshot.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_hdr_liveshot.so
+lib/F16QL_libchromatix_s5k2p2xx_hdr_preview.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_hdr_preview.so
+lib/F16QL_libchromatix_s5k2p2xx_hdr_uhd_video.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_hdr_uhd_video.so
+lib/F16QL_libchromatix_s5k2p2xx_hdr_video.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_hdr_video.so
+lib/F16QL_libchromatix_s5k2p2xx_hdr_zslshot.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_hdr_zslshot.so
+lib/F16QL_libchromatix_s5k2p2xx_hfr_120.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_hfr_120.so
+lib/F16QL_libchromatix_s5k2p2xx_hfr_1080p_b.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_hfr_1080p_b.so
+lib/F16QL_libchromatix_s5k2p2xx_hfr_1080p_s.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_hfr_1080p_s.so
+lib/F16QL_libchromatix_s5k2p2xx_liveshot.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_liveshot.so
+lib/F16QL_libchromatix_s5k2p2xx_lowres_zslshot.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_lowres_zslshot.so
+lib/F16QL_libchromatix_s5k2p2xx_pip.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_pip.so
+lib/F16QL_libchromatix_s5k2p2xx_preview.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_preview.so
+lib/F16QL_libchromatix_s5k2p2xx_shotmode_preview.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_shotmode_preview.so
+lib/F16QL_libchromatix_s5k2p2xx_shotmode_zslshot.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_shotmode_zslshot.so
+lib/F16QL_libchromatix_s5k2p2xx_snapshot.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_snapshot.so
+lib/F16QL_libchromatix_s5k2p2xx_uhd_video.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_uhd_video.so
+lib/F16QL_libchromatix_s5k2p2xx_vt.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_vt.so
+lib/F16QL_libchromatix_s5k2p2xx_vt_hd.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_vt_hd.so
+lib/F16QL_libchromatix_s5k2p2xx_zslshot.so:vendor/lib/F16QL_libchromatix_s5k2p2xx_zslshot.so
+lib/F16QL_libTsAe.so:vendor/lib/F16QL_libTsAe.so
+lib/F16QL_libTsAf.so:vendor/lib/F16QL_libTsAf.so
+lib/F16QL_libTs_J_Accm.so:vendor/lib/F16QL_libTs_J_Accm.so
+lib/F16QL_libTs_J_Awb.so:vendor/lib/F16QL_libTs_J_Awb.so
+lib/F16QS_libchromatix_imx240_default_video.so:vendor/lib/F16QS_libchromatix_imx240_default_video.so
+lib/F16QS_libchromatix_imx240_golfshot.so:vendor/lib/F16QS_libchromatix_imx240_golfshot.so
+lib/F16QS_libchromatix_imx240_hdr_liveshot.so:vendor/lib/F16QS_libchromatix_imx240_hdr_liveshot.so
+lib/F16QS_libchromatix_imx240_hdr_preview.so:vendor/lib/F16QS_libchromatix_imx240_hdr_preview.so
+lib/F16QS_libchromatix_imx240_hdr_uhd_video.so:vendor/lib/F16QS_libchromatix_imx240_hdr_uhd_video.so
+lib/F16QS_libchromatix_imx240_hdr_video.so:vendor/lib/F16QS_libchromatix_imx240_hdr_video.so
+lib/F16QS_libchromatix_imx240_hdr_zslshot.so:vendor/lib/F16QS_libchromatix_imx240_hdr_zslshot.so
+lib/F16QS_libchromatix_imx240_hfr_120.so:vendor/lib/F16QS_libchromatix_imx240_hfr_120.so
+lib/F16QS_libchromatix_imx240_hfr_1080p_b.so:vendor/lib/F16QS_libchromatix_imx240_hfr_1080p_b.so
+lib/F16QS_libchromatix_imx240_hfr_1080p_s.so:vendor/lib/F16QS_libchromatix_imx240_hfr_1080p_s.so
+lib/F16QS_libchromatix_imx240_liveshot.so:vendor/lib/F16QS_libchromatix_imx240_liveshot.so
+lib/F16QS_libchromatix_imx240_lowres_zslshot.so:vendor/lib/F16QS_libchromatix_imx240_lowres_zslshot.so
+lib/F16QS_libchromatix_imx240_pip.so:vendor/lib/F16QS_libchromatix_imx240_pip.so
+lib/F16QS_libchromatix_imx240_preview.so:vendor/lib/F16QS_libchromatix_imx240_preview.so
+lib/F16QS_libchromatix_imx240_shotmode_preview.so:vendor/lib/F16QS_libchromatix_imx240_shotmode_preview.so
+lib/F16QS_libchromatix_imx240_shotmode_zslshot.so:vendor/lib/F16QS_libchromatix_imx240_shotmode_zslshot.so
+lib/F16QS_libchromatix_imx240_snapshot.so:vendor/lib/F16QS_libchromatix_imx240_snapshot.so
+lib/F16QS_libchromatix_imx240_uhd_video.so:vendor/lib/F16QS_libchromatix_imx240_uhd_video.so
+lib/F16QS_libchromatix_imx240_vt.so:vendor/lib/F16QS_libchromatix_imx240_vt.so
+lib/F16QS_libchromatix_imx240_vt_hd.so:vendor/lib/F16QS_libchromatix_imx240_vt_hd.so
+lib/F16QS_libchromatix_imx240_zslshot.so:vendor/lib/F16QS_libchromatix_imx240_zslshot.so
+lib/F16QS_libTsAe.so:vendor/lib/F16QS_libTsAe.so
+lib/F16QS_libTsAf.so:vendor/lib/F16QS_libTsAf.so
+lib/F16QS_libTs_J_Accm.so:vendor/lib/F16QS_libTs_J_Accm.so
+lib/F16QS_libTs_J_Awb.so:vendor/lib/F16QS_libTs_J_Awb.so
+lib/libTsAe.so:vendor/lib/libTsAe.so
+lib/libTsAf.so:vendor/lib/libTsAf.so
+lib/libTs_J_Accm.so:vendor/lib/libTs_J_Accm.so
+lib/libTs_J_Awb.so:vendor/lib/libTs_J_Awb.so
 vendor/lib/C16QL_libchromatix_s5k2p2xx_common.so
 vendor/lib/C16QL_libchromatix_s5k2p2xx_common_res0.so
 vendor/lib/C16QL_libchromatix_s5k2p2xx_common_res1.so
@@ -191,32 +191,32 @@ vendor/lib/libchromatix_s5k8b1yx_vt.so
 vendor/lib/libchromatix_s5k8b1yx_zslshot.so
 
 # Camera firmware
-cameradata/C16QL_Isp0_s5k2p2xx.bin
-cameradata/C16QL_Isp1_s5k2p2xx.bin
-cameradata/F16QL_Isp0_s5k2p2xx.bin
-cameradata/F16QL_Isp1_s5k2p2xx.bin
-cameradata/F16QS_Isp0_imx240.bin
-cameradata/F16QS_Isp1_imx240.bin
-cameradata/Master0.bin
-cameradata/Master1.bin
-cameradata/cal_data_LSCmaster.bin
-cameradata/datapattern_420sp.yuv
-cameradata/datapattern_front_420sp.yuv
-etc/C16QL_s5k2p2xx_module_info.xml
-etc/F16QL_s5k2p2xx_module_info.xml
-etc/F16QS_imx240_module_info.xml
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
+cameradata/C16QL_Isp0_s5k2p2xx.bin:vendor/cameradata/C16QL_Isp0_s5k2p2xx.bin
+cameradata/C16QL_Isp1_s5k2p2xx.bin:vendor/cameradata/C16QL_Isp1_s5k2p2xx.bin
+cameradata/F16QL_Isp0_s5k2p2xx.bin:vendor/cameradata/F16QL_Isp0_s5k2p2xx.bin
+cameradata/F16QL_Isp1_s5k2p2xx.bin:vendor/cameradata/F16QL_Isp1_s5k2p2xx.bin
+cameradata/F16QS_Isp0_imx240.bin:vendor/cameradata/F16QS_Isp0_imx240.bin
+cameradata/F16QS_Isp1_imx240.bin:vendor/cameradata/F16QS_Isp1_imx240.bin
+cameradata/Master0.bin:vendor/cameradata/Master0.bin
+cameradata/Master1.bin:vendor/cameradata/Master1.bin
+cameradata/cal_data_LSCmaster.bin:vendor/cameradata/cal_data_LSCmaster.bin
+cameradata/datapattern_420sp.yuv:vendor/cameradata/datapattern_420sp.yuv
+cameradata/datapattern_front_420sp.yuv:vendor/cameradata/datapattern_front_420sp.yuv
+etc/C16QL_s5k2p2xx_module_info.xml:vendor/etc/C16QL_s5k2p2xx_module_info.xml
+etc/F16QL_s5k2p2xx_module_info.xml:vendor/etc/F16QL_s5k2p2xx_module_info.xml
+etc/F16QS_imx240_module_info.xml:vendor/etc/F16QS_imx240_module_info.xml
+etc/firmware/cpp_firmware_v1_1_1.fw:vendor/firmware/cpp_firmware_v1_1_1.fw
+etc/firmware/cpp_firmware_v1_1_6.fw:vendor/firmware/cpp_firmware_v1_1_6.fw
+etc/firmware/cpp_firmware_v1_2_0.fw:vendor/firmware/cpp_firmware_v1_2_0.fw
 
 # CPU
-bin/mpdecision
+bin/mpdecision:vendor/bin/mpdecision
 vendor/bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
 # DRM
-bin/qseecomd
+bin/qseecomd:vendor/bin/qseecomd
 vendor/lib/libdrmdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
@@ -225,8 +225,8 @@ vendor/lib/librpmb.so
 vendor/lib/libssd.so
 
 # GPS (OnePlus bacon - lineage-14.1-20170807-nightly-bacon-signed.zip)
-lib/libloc_api_v02.so|9a8401afc86b54e73aa29995f228fd0243cee793
-lib/libloc_ds_api.so|ccce9d3c3fa4cadafd13b63c90d3ab8c115dd7b0
+vendor/lib/libloc_api_v02.so|9a8401afc86b54e73aa29995f228fd0243cee793
+vendor/lib/libloc_ds_api.so|ccce9d3c3fa4cadafd13b63c90d3ab8c115dd7b0
 vendor/lib/hw/flp.default.so|c36ec0a3e6563fa8ddb96aaa7d0129249ce1d305
 vendor/lib/libflp.so|20994b3ac3ecd2094698ac98463aed97e3ce54ef
 vendor/lib/libgeofence.so|953c2720c98825cdfb2757839f5f86400c11a2d5
@@ -254,15 +254,15 @@ vendor/lib/libscale.so|b44f44c633fa404d10e76aaa23593b516e08e2b8
 vendor/lib/libuiblur.so|12dd942092c05d978a2a2db3ea37e0b410427b52
 
 # Graphics firmware
-etc/firmware/a330_pfp.fw
-etc/firmware/a330_pm4.fw
+etc/firmware/a330_pfp.fw:vendor/firmware/a330_pfp.fw
+etc/firmware/a330_pm4.fw:vendor/firmware/a330_pm4.fw
 
 # IPC router security
-bin/irsc_util
-etc/sec_config
+bin/irsc_util:vendor/bin/irsc_util
+etc/sec_config:vendor/etc/sec_config
 
 # IPv6 Tethering
-bin/radish
+bin/radish:vendor/bin/radish
 
 # Media
 vendor/lib/libOmxAacDec.so
@@ -278,8 +278,8 @@ vendor/lib/libqti-perfd-client.so
 vendor/lib/libxml.so
 
 # Qualcomm Framework - Pinned to G900FXXS1BPCL_G900FOXA1BOJ1_BTU
-lib/libmdmdetect.so|9c19d5aacc094597c166529386f83ac721ac1979
-lib/libperipheral_client.so|7107a8e656fabc5ff6b7a33740be80a1add6abbd
+lib/libmdmdetect.so:vendor/lib/libmdmdetect.so|9c19d5aacc094597c166529386f83ac721ac1979
+lib/libperipheral_client.so:vendor/lib/libperipheral_client.so|7107a8e656fabc5ff6b7a33740be80a1add6abbd
 vendor/lib/libconfigdb.so|a7eedfbb0ffa070c9239f0d293262e268342da1d
 vendor/lib/libdiag.so|2dd30d2de57567aa4575f98e4679cdbd625bbbe6
 vendor/lib/libdsi_netctrl.so|d5d25fd5b1ea250bdfcb64059eafaf609fe2e32c
@@ -297,42 +297,40 @@ vendor/lib/libqmi_encdec.so|82e39ae7e4bb8651d06fdae99fc38e3fb390b62d
 vendor/lib/libqmiservices.so|0b90d67d7ec0b0bc3de2b5ccc3afcda13bd5ffd8
 
 # Radio - Pinned to G900FXXS1BPCL_G900FOXA1BOJ1_BTU
-bin/efsks|2c366ac7ab878068c77e5598c411a48cf47b056a
-bin/ks|949406ae5d1b74034b3828af1905a181e4b69961
-bin/qcks|9026c84f32e1ee5121024c72b878c09dfde95e5b
-bin/qmuxd|e257d63996812e2eb23810bda59913f558ee03d2
-bin/rfs_access|49a8516ed01b609a9e5079d8135b75db5b024236
-bin/rmt_storage|000ddcabfc9416e9a27ba6d04860cc14b6803cdd
+bin/efsks:vendor/bin/efsks|2c366ac7ab878068c77e5598c411a48cf47b056a
+bin/ks:vendor/bin/ks|949406ae5d1b74034b3828af1905a181e4b69961
+bin/qcks:vendor/bin/qcks|9026c84f32e1ee5121024c72b878c09dfde95e5b
+bin/qmuxd:vendor/bin/qmuxd|e257d63996812e2eb23810bda59913f558ee03d2
+bin/rfs_access:vendor/bin/rfs_access|49a8516ed01b609a9e5079d8135b75db5b024236
+bin/rmt_storage:vendor/bin/rmt_storage|000ddcabfc9416e9a27ba6d04860cc14b6803cdd
 vendor/lib/libril-qcril-hook-oem.so|6a73ed46f4fbcb283eea5fb44b24a7d14522bfe5
 
 # STLport (Camera/RIL) - local compile LineageOS/external/stlport@984b8432
 vendor/lib/libstlport.so|0be0a0d13e12fbf95d97d309dcbc25d3f969a469
 
 # Sensors
-lib/hw/sensors.msm8974.so|48c6112bc4097e9176fcd53bf3f7ba0d643b27aa
-lib/libhr.so
+lib/hw/sensors.msm8974.so:vendor/lib/hw/sensors.msm8974.so|48c6112bc4097e9176fcd53bf3f7ba0d643b27aa
+lib/libhr.so:vendor/lib/libhr.so
 
 # Time services
 -app/TimeService/TimeService.apk
-bin/time_daemon
+bin/time_daemon:vendor/bin/time_daemon
 vendor/lib/libTimeService.so
 -vendor/lib/libtime_genoff.so
 
 # Wi-Fi
-etc/wifi/bcmdhd_apsta.bin
-etc/wifi/bcmdhd_ibss.bin
-etc/wifi/bcmdhd_mfg.bin
-etc/wifi/bcmdhd_sta.bin
-etc/wifi/cred.conf
-etc/wifi/nvram_mfg.txt
-etc/wifi/nvram_mfg.txt_a0
-etc/wifi/nvram_mfg.txt_muratafem1
-etc/wifi/nvram_mfg.txt_semco3rd
-etc/wifi/nvram_net.txt
-etc/wifi/nvram_net.txt_a0
-etc/wifi/nvram_net.txt_muratafem1
-etc/wifi/nvram_net.txt_semco3rd
-etc/wifi/wpa_supplicant.conf
+etc/wifi/bcmdhd_apsta.bin:vendor/etc/wifi/bcmdhd_apsta.bin
+etc/wifi/bcmdhd_ibss.bin:vendor/etc/wifi/bcmdhd_ibss.bin
+etc/wifi/bcmdhd_mfg.bin:vendor/etc/wifi/bcmdhd_mfg.bin
+etc/wifi/bcmdhd_sta.bin:vendor/etc/wifi/bcmdhd_sta.bin
+etc/wifi/nvram_mfg.txt:vendor/etc/wifi/nvram_mfg.txt
+etc/wifi/nvram_mfg.txt_a0:vendor/etc/wifi/nvram_mfg.txt_a0
+etc/wifi/nvram_mfg.txt_muratafem1:vendor/etc/wifi/nvram_mfg.txt_muratafem1
+etc/wifi/nvram_mfg.txt_semco3rd:vendor/etc/wifi/nvram_mfg.txt_semco3rd
+etc/wifi/nvram_net.txt:vendor/etc/wifi/nvram_net.txt
+etc/wifi/nvram_net.txt_a0:vendor/etc/wifi/nvram_net.txt_a0
+etc/wifi/nvram_net.txt_muratafem1:vendor/etc/wifi/nvram_net.txt_muratafem1
+etc/wifi/nvram_net.txt_semco3rd:vendor/etc/wifi/nvram_net.txt_semco3rd
 
 # Widevine (Samsung zero - G920FXXU5EQBA_G920FOJV5EQBB_XSG)
 vendor/lib/mediadrm/libwvdrmengine.so|e669e2fbc352b4e38f4c7ea27c805e1619e9d4ca

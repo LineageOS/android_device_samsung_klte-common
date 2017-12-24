@@ -52,6 +52,13 @@ setup_vendor "$DEVICE_COMMON" "$VENDOR" "$CM_ROOT" true
 
 extract "$MY_DIR"/common-proprietary-files.txt "$SRC"
 
+COMMON_BLOB_ROOT="$CM_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
+
+MMCAMERA2_SENSOR_MODULES="$COMMON_BLOB_ROOT"/vendor/lib/libmmcamera2_sensor_modules.so
+sed -i 's|system/etc|vendor/etc|g;
+        s|/system/lib|/vendor/lib|g;
+        s|/system/cameradata|/vendor/cameradata|g' "$MMCAMERA2_SENSOR_MODULES"
+
 # Reinitialize the helper for device
 setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 
