@@ -1,5 +1,1 @@
 allow priv_app device:dir { open read };
-allow priv_app exfat:dir create_dir_perms;
-allow priv_app exfat:file create_file_perms;
-allow priv_app fuseblk:dir create_dir_perms;
-allow priv_app fuseblk:file create_file_perms;
