@@ -1,0 +1,5 @@
+# Required to load shim libraries
+allow init cameraserver:process { noatsecure };
+allow init hal_camera:process { noatsecure };
+allow init mm-qcamerad:process { noatsecure };
+allow init rild:process { noatsecure };
