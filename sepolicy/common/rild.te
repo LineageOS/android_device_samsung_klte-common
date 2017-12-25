@@ -1,0 +1,8 @@
+set_prop(rild, net_radio_prop)
+
+allow rild radio_data_file:dir rw_dir_perms;
+allow rild radio_data_file:file create_file_perms;
+allow rild radio_data_file:lnk_file read;
+
+allow rild proc_net:file w_file_perms;
+allow rild sysfs_sec:file rw_file_perms;
