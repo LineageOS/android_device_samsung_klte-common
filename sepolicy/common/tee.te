@@ -1,0 +1,1 @@
+allow tee vcs_data_file:file r_file_perms;
