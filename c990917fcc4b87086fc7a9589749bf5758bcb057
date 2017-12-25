@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b004e60_f3cbc0e1",
+        "filename": "libril/ril_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3661,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-12-25T15:55:37Z",
+      "side": 1,
+      "message": "tempted to say just replace the hardcoded 6 with nstrings instead.",
+      "range": {
+        "startLine": 3661,
+        "startChar": 31,
+        "endLine": 3661,
+        "endChar": 32
+      },
+      "revId": "c990917fcc4b87086fc7a9589749bf5758bcb057",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
