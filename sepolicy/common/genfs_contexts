@@ -1,0 +1,1 @@
+genfscon proc /bluetooth/sleep u:object_r:proc_bt_sleep:s0

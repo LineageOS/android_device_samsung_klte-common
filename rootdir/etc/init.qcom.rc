@@ -111,6 +111,10 @@ on post-fs-data
     chmod 0660 /efs/wifi/.mac.info
     restorecon /efs/wifi/.mac.info
 
+    # for WIFI Front End Module
+    chown system system /data/.cid.info
+    chmod 0664 /data/.cid.info
+
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
@@ -273,6 +277,14 @@ on boot
     # if already exist
     chown radio system /efs/bluetooth
     chmod 0775 /efs/bluetooth
+
+    # Audience ES705 UART
+    # Note: DO NOT move this to ueventd.qcom.rc. Samsung thoughtfully has
+    #       the kernel write directly to /dev/ttyHS3 (!) to load the audience
+    #       firmware. Setting ownership immediately with ueventd would require
+    #       allowing the kernel dac_override, which is an sepolicy neverallow.
+    chmod 0660 /dev/ttyHS3
+    chown media audio /dev/ttyHS3
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
@@ -840,6 +852,7 @@ on boot
 
     # Set permissions for firmware path control
     chown wifi wifi /sys/module/dhd/parameters/firmware_path
+    chown wifi wifi /sys/module/dhd/parameters/nvram_path
 
 # Services begin here
 
@@ -917,14 +930,12 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
 service macloader /vendor/bin/macloader
     class late_start
     oneshot
+    user system
+    group system wifi
     seclabel u:r:macloader:s0
 
 on property:wlan.driver.status=ok
     start macloader
-
-on property:init.svc.macloader=stopped
-    chown system root /data/.cid.info
-    chmod 0664 /data/.cid.info
 
 on property:sys.boot_completed=1
     setprop sys.io.scheduler bfq
