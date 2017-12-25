@@ -1,0 +1,6 @@
+# /dev/cpuctl/cpu.notify_on_migrate
+allow mpdecision cgroup:file read;
+
+allow mpdecision freq_prop:file r_file_perms;
+allow mpdecision mpctl_data_file:dir w_dir_perms;
+allow mpdecision mpctl_data_file:sock_file create_file_perms;
