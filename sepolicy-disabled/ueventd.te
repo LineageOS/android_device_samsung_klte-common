@@ -1,0 +1,1 @@
+allow ueventd vcs_device:chr_file create_file_perms;
