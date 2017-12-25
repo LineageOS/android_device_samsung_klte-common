@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a88799a_b96e2057",
+        "filename": "libril/ril_service.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 3784,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-12-25T15:24:18Z",
+      "side": 1,
+      "message": "no space after sizeof, please",
+      "revId": "241310dcd32bc8a4bea5b0ed385aac04d3b8ba77",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
