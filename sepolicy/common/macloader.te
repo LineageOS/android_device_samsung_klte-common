@@ -1,0 +1,8 @@
+type macloader, domain;
+type macloader_exec, exec_type, file_type;
+init_daemon_domain(macloader)
+
+allow macloader sysfs_wifi_nv_path:file w_file_perms;
+allow macloader wifi_data_file:file create_file_perms;
+allow macloader wifi_efs_file:dir r_dir_perms;
+allow macloader wifi_efs_file:file r_file_perms;
