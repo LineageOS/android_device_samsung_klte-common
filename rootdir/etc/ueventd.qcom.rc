@@ -147,8 +147,9 @@
 /dev/i2c-5                0660   media      media
 /dev/voice_svc            0660   system     audio
 
-#Audience ES705 UART
-/dev/ttyHS3               0660   media      audio
+# Audience ES705 UART - do not be tempted to uncomment the below unless you
+#   want firmware loading to be blocked by selinux
+#/dev/ttyHS3               0660   media      audio
 
 # Bluetooth
 /dev/ttyHS0               0660   bluetooth  bluetooth
