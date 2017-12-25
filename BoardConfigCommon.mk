@@ -101,10 +101,7 @@ BOARD_RECOVERY_SWIPE := true
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.full
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += \
-    $(COMMON_PATH)/sepolicy
+include device/samsung/klte-common/sepolicy/sepolicy.mk
 
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true

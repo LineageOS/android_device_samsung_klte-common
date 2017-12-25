@@ -148,7 +148,7 @@
 /dev/voice_svc            0660   system     audio
 
 #Audience ES705 UART
-/dev/ttyHS3               0660   media      audio
+#/dev/ttyHS3               0660   media      audio
 
 # Bluetooth
 /dev/ttyHS0               0660   bluetooth  bluetooth
