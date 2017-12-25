@@ -7,7 +7,6 @@
 /efs/bluetooth(/.*)?                                    u:object_r:bluetooth_efs_file:s0
 
 # Camera
-/data/cam_socket.*                                      u:object_r:camera_socket:s0
 /sys/devices/virtual/camera(/.*)?                       u:object_r:sysfs_camera:s0
 
 # CMHW
@@ -16,16 +15,10 @@
 # Display
 /sys/devices/virtual/lcd/panel/power_reduce             u:object_r:sysfs_display:s0
 
-# EFS
-/dev/block/platform/msm_sdcc.1/by-name/efs              u:object_r:modem_efs_partition_device:s0
-
 # Fingerprint
 /data/validity(/.*)?                                    u:object_r:vcs_data_file:s0
 /dev/validity(/.*)?                                     u:object_r:vcs_device:s0
 /dev/vfsspi                                             u:object_r:vcs_device:s0
-
-# Macloader
-/system/bin/macloader                                   u:object_r:macloader_exec:s0
 
 # NFC
 /dev/bcm2079x                                           u:object_r:nfc_device:s0
