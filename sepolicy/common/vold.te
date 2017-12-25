@@ -1,0 +1,2 @@
+allow vold efs_file:dir rw_dir_perms;
+allow vold efs_file:file create;
