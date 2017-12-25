@@ -1,0 +1,7 @@
+allow bluetooth bluetooth_device:chr_file rw_file_perms;
+allow bluetooth bt_fw_file:file r_file_perms;
+allow bluetooth firmware_file:dir r_dir_perms;
+allow bluetooth proc_bt_sleep:dir search;
+allow bluetooth proc_bt_sleep:file w_file_perms;
+allow bluetooth sysfs_bt_rfkill_state:file w_file_perms;
+allow bluetooth wifi_data_file:file r_file_perms;
