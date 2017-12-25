@@ -1,0 +1,2 @@
+allow mediaextractor exfat:file r_file_perms;
+allow mediaextractor sdcardfs:file r_file_perms;
