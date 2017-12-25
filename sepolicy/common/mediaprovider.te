@@ -1,0 +1,2 @@
+allow mediaprovider cache_private_backup_file:dir getattr;
+allow mediaprovider cache_recovery_file:dir r_dir_perms;
