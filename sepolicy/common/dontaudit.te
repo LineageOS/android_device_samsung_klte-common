@@ -1,0 +1,25 @@
+# These will be deleted before committing, I just don't want to keep
+# seeing them during policy bringup
+
+dontaudit shell kernel:system syslog_read;
+
+#dontaudit system_server dalvikcache_data_file:file execute;
+
+dontaudit untrusted_app net_dns_prop:file { open read };
+dontaudit untrusted_app proc:file r_file_perms;
+
+dontaudit untrusted_app_25 camera_prop:file r_file_perms;
+dontaudit untrusted_app_25 debugfs:file r_file_perms;
+dontaudit untrusted_app_25 hal_memtrack_hwservice:hwservice_manager find;
+dontaudit untrusted_app_25 mnt_media_rw_file:dir r_dir_perms;
+dontaudit untrusted_app_25 proc:file r_file_perms;
+dontaudit untrusted_app_25 proc_stat:file r_file_perms;
+dontaudit untrusted_app_25 rootfs:dir r_file_perms;
+dontaudit untrusted_app_25 selinuxfs:file r_file_perms;
+dontaudit untrusted_app_25 serialno_prop:file r_file_perms;
+dontaudit untrusted_app_25 sysfs:file { r_file_perms setattr };
+dontaudit untrusted_app_25 sysfs_devices_system_cpu:file setattr;
+dontaudit untrusted_app_25 sysfs_lowmemorykiller:dir search;
+dontaudit untrusted_app_25 sysfs_lowmemorykiller:file r_file_perms;
+dontaudit untrusted_app_25 userdata_block_device:blk_file getattr;
+dontaudit untrusted_app_25 usermodehelper:file r_file_perms;
