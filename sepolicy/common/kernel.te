@@ -1,0 +1,4 @@
+# Samsung literally vfs_write()s to the es705 UART at /dev/ttyHS3 to
+# load the firmware. Without crafting a userspace helper or re-doing
+# the whole path, there is no way around this.
+allow kernel audio_device:chr_file rw_file_perms;

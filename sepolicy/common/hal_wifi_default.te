@@ -1,0 +1,4 @@
+r_dir_file(hal_wifi_default, wifi_efs_file)
+
+allow hal_wifi_default sysfs_wifi_fw_path:file w_file_perms;
+allow hal_wifi_default wifi_data_file:file r_file_perms;
