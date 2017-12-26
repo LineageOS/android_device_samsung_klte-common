@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ac58502_ce701fa9",
+        "filename": "libril/ril.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 15579
+      },
+      "writtenOn": "2017-12-26T17:37:27Z",
+      "side": 1,
+      "message": "s_commands_v",
+      "range": {
+        "startLine": 467,
+        "startChar": 19,
+        "endLine": 467,
+        "endChar": 29
+      },
+      "revId": "af70674edb0f732e63ad7874659433ef63cb8be2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a8a9de7_e71dbea6",
+        "filename": "libril/ril.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 15579
+      },
+      "writtenOn": "2017-12-26T17:37:27Z",
+      "side": 1,
+      "message": "s_unsolResponses_v",
+      "range": {
+        "startLine": 477,
+        "startChar": 19,
+        "endLine": 477,
+        "endChar": 35
+      },
+      "revId": "af70674edb0f732e63ad7874659433ef63cb8be2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
