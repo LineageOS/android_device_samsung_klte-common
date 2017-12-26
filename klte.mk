@@ -59,7 +59,7 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Doze
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     SamsungDoze
 
 # Fingerprint
@@ -147,9 +147,17 @@ PRODUCT_PACKAGES += \
     init.sec.boot.sh \
     ueventd.qcom.rc
 
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl
+
+# Thermal HAL
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.1-impl
 
 # Thermal
 PRODUCT_COPY_FILES += \
@@ -176,8 +184,8 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-   $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+   $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/vendor/etc/wifi/wpa_supplicant_overlay.conf \
+   $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/vendor/etc/wifi/p2p_supplicant_overlay.conf
 
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/samsung/klte-common/klte-common-vendor.mk)
