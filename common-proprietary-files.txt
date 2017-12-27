@@ -331,5 +331,5 @@ etc/wifi/nvram_net.txt_a0:vendor/etc/wifi/nvram_net.txt_a0
 etc/wifi/nvram_net.txt_muratafem1:vendor/etc/wifi/nvram_net.txt_muratafem1
 etc/wifi/nvram_net.txt_semco3rd:vendor/etc/wifi/nvram_net.txt_semco3rd
 
-# Widevine (Samsung zero - G920FXXU5EQBA_G920FOJV5EQBB_XSG)
-vendor/lib/mediadrm/libwvdrmengine.so|e669e2fbc352b4e38f4c7ea27c805e1619e9d4ca
+# Widevine (Google angler - OPR6.170623.017)
+vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
