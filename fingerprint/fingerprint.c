@@ -25,7 +25,6 @@
 #include <inttypes.h>
 #include <malloc.h>
 #include <signal.h>
-#include <sqlite3.h>
 #include <string.h>
 #include <unistd.h>
 
@@ -38,19 +37,7 @@
 #include "fp_klte.h"
 #include "fingerprint_tz.h"
 #include "hash.h"
-
-typedef struct vcs_fingerprint_device_t {
-    fingerprint_device_t device;  // "inheritance"
-    uint64_t op_id;
-    uint64_t challenge;
-    uint64_t user_id;
-    uint64_t group_id;
-    uint64_t secure_user_id;
-    uint64_t authenticator_id;
-    uint32_t active_gid;
-    sqlite3 *db;
-    pthread_mutex_t lock;
-} vcs_fingerprint_device_t;
+#include "fingerprint.h"
 
 extern trust_zone_t tz;
 vcs_sensor_t sensor;
@@ -399,8 +386,8 @@ void send_remove_notice(void* device, int fid) {
 
 /***************************************HAL function***************************************/
 
-static uint64_t fingerprint_get_auth_id(struct fingerprint_device* device) {
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+uint64_t fingerprint_get_auth_id() {
+    vcs_fingerprint_device_t* vdev;
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
     uint64_t authenticator_id = 0;
     pthread_mutex_lock(&vdev->lock);
@@ -411,10 +398,9 @@ static uint64_t fingerprint_get_auth_id(struct fingerprint_device* device) {
     return authenticator_id;
 }
 
-static int fingerprint_set_active_group(struct fingerprint_device *device, uint32_t gid,
-        const char __unused *path) {
+int fingerprint_set_active_group(uint32_t gid, const char __unused *path) {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    vcs_fingerprint_device_t* vdev;
     pthread_mutex_lock(&vdev->lock);
     vdev->active_gid = gid;
     db_read_to_tz(vdev);
@@ -423,11 +409,10 @@ static int fingerprint_set_active_group(struct fingerprint_device *device, uint3
     return 0;
 }
 
-static int fingerprint_authenticate(struct fingerprint_device *device,
-    uint64_t operation_id, __unused uint32_t gid)
+int fingerprint_authenticate(uint64_t operation_id, __unused uint32_t gid)
 {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    vcs_fingerprint_device_t* vdev;
     int ret = 0;
     ALOGI("auth: op_id=%llu ",operation_id);
 
@@ -441,12 +426,10 @@ static int fingerprint_authenticate(struct fingerprint_device *device,
     return ret;
 }
 
-static int fingerprint_enroll(struct fingerprint_device *device,
-        const hw_auth_token_t *hat,
-        uint32_t __unused gid,
+int fingerprint_enroll(const hw_auth_token_t *hat, uint32_t __unused gid,
         uint32_t timeout_sec) {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    vcs_fingerprint_device_t* vdev;
     int ret = -EINVAL;
     int idx = 1;
 
@@ -489,10 +472,10 @@ static int fingerprint_enroll(struct fingerprint_device *device,
     return ret;
 }
 
-static uint64_t fingerprint_pre_enroll(struct fingerprint_device *device) {
+uint64_t fingerprint_pre_enroll() {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
     uint64_t challenge = 0;
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    vcs_fingerprint_device_t* vdev;
 
     challenge = hash_string(tz.auth_token);
 
@@ -503,9 +486,9 @@ static uint64_t fingerprint_pre_enroll(struct fingerprint_device *device) {
     return challenge;
 }
 
-static int fingerprint_post_enroll(struct fingerprint_device* device) {
+int fingerprint_post_enroll() {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    vcs_fingerprint_device_t* vdev;
 
     pthread_mutex_lock(&vdev->lock);
     vdev->challenge = 0;
@@ -514,9 +497,9 @@ static int fingerprint_post_enroll(struct fingerprint_device* device) {
     return 0;
 }
 
-static int fingerprint_cancel(struct fingerprint_device *device) {
+int fingerprint_cancel() {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    vcs_fingerprint_device_t* vdev;
     int ret = 0;
     int flag = 0;
 
@@ -543,16 +526,12 @@ static int fingerprint_cancel(struct fingerprint_device *device) {
     return ret;
 }
 
-static int fingerprint_enumerate(struct fingerprint_device *device) {
+int fingerprint_enumerate() {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    if (device == NULL) {
-        ALOGE("Cannot enumerate saved fingerprints with uninitialized params");
-        return -1;
-    }
 
     int num = 0;
 
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    vcs_fingerprint_device_t* vdev;
 
     pthread_mutex_lock(&vdev->lock);
     num = vcs_get_enrolled_finger_num();
@@ -561,18 +540,11 @@ static int fingerprint_enumerate(struct fingerprint_device *device) {
     return num;
 }
 
-static int fingerprint_remove(struct fingerprint_device *device,
-        uint32_t __unused gid, uint32_t fid) {
+int fingerprint_remove(uint32_t __unused gid, uint32_t fid) {
     int ret = 0;
     ALOGV("----------------> %s -----------------> fid %d", __FUNCTION__, fid);
-    if (device == NULL) {
-        ALOGE("Can't remove fingerprint (gid=%d, fid=%d); "
-              "device not initialized properly",
-              gid, fid);
-        return -1;
-    }
 
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    vcs_fingerprint_device_t* vdev;
 
     if (fid == 0) {
         // Delete all fingerprints
@@ -605,34 +577,26 @@ static int fingerprint_remove(struct fingerprint_device *device,
     return ret;
 }
 
-static int set_notify_callback(struct fingerprint_device *device,
-                               fingerprint_notify_t notify) {
+/* UNUSED */
+int set_notify_callback(fingerprint_notify_t notify) {
     ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    if (device == NULL || notify == NULL) {
-        ALOGE("Failed to set notify callback @ %p for fingerprint device %p",
-              device, notify);
+    if (notify == NULL) {
+        ALOGE("Failed to set notify callback %p for fingerprint device",
+              notify);
         return -1;
     }
 
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
+    vcs_fingerprint_device_t* vdev;
     pthread_mutex_lock(&vdev->lock);
-    device->notify = notify;
+    //device->notify = notify;
     pthread_mutex_unlock(&vdev->lock);
     ALOGD("fingerprint callback notification set");
 
     return 0;
 }
 
-static int fingerprint_close(hw_device_t* device) {
-    ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    if (device == NULL) {
-        ALOGE("fingerprint hw device is NULL");
-        return -1;
-    }
-
-    vcs_fingerprint_device_t* vdev = (vcs_fingerprint_device_t*)device;
-
-    fingerprint_cancel(&vdev->device);
+void fingerprint_deinit(void) {
+    vcs_fingerprint_device_t* vdev;
 
     pthread_mutex_lock(&vdev->lock);
     db_uninit(vdev);
@@ -654,69 +618,21 @@ static int fingerprint_close(hw_device_t* device) {
         ALOGE("Close sensor error!");
     }
     sensor.fd = -1;
-
-    return 0;
 }
 
-static int fingerprint_open(const hw_module_t* module, const char __unused *id,
-                            hw_device_t** device)
-{
-
-    ALOGV("----------------> %s ----------------->", __FUNCTION__);
-    if (device == NULL) {
-        ALOGE("NULL device on open");
-        return -EINVAL;
-    }
-    vcs_fingerprint_device_t *vdev = (vcs_fingerprint_device_t*)calloc(
-            1, sizeof(vcs_fingerprint_device_t));
-
-    if (vdev == NULL) {
-        ALOGE("Insufficient memory for fingerprint device");
-        return -ENOMEM;
-    }
-
-    vdev->device.common.tag = HARDWARE_DEVICE_TAG;
-    vdev->device.common.version = FINGERPRINT_MODULE_API_VERSION_2_1;
-    vdev->device.common.module = (struct hw_module_t*)module;
-    vdev->device.common.close = fingerprint_close;
-
-    vdev->device.pre_enroll = fingerprint_pre_enroll;
-    vdev->device.enroll = fingerprint_enroll;
-    vdev->device.post_enroll = fingerprint_post_enroll;
-    vdev->device.get_authenticator_id = fingerprint_get_auth_id;
-    vdev->device.set_active_group = fingerprint_set_active_group;
-    vdev->device.authenticate = fingerprint_authenticate;
-    vdev->device.cancel = fingerprint_cancel;
-    vdev->device.enumerate = fingerprint_enumerate;
-    vdev->device.remove = fingerprint_remove;
-    vdev->device.set_notify = set_notify_callback;
-    vdev->device.notify = NULL;
-
-    vdev->active_gid = 0;
-    memset(&tz, 0, sizeof(trust_zone_t));
-
-    pthread_mutex_init(&vdev->lock, NULL);
-    pthread_mutex_init(&sensor.lock, NULL);
-    pthread_mutex_init(&tz.lock, NULL);
-    pthread_mutex_init(&tz.timeout.lock, NULL);
-    pthread_cond_init(&tz.timeout.cond, NULL);
-    pthread_cond_init(&sensor.cond, NULL);
-    sensor.signal = false;
-    tz.timeout.timeout_thread = 0;
-
-    *device = &vdev->device.common;
+void fingerprint_init(void) {
+    vcs_fingerprint_device_t* vdev;
 
     memset(&sensor, 0, sizeof(vcs_sensor_t));
     sensor.fd = open(SENSOR_FILE_NAME, O_RDWR);
     if (sensor.fd < 0) {
         ALOGE("Open sensor error!");
-        return -1;
+        return;
     }
     sensor_init();
     sensor_register();
     sensor_uninit();
 
-    pthread_mutex_lock(&vdev->lock);
     sensor_init();
     db_init(vdev);
     vcs_init();
@@ -725,23 +641,4 @@ static int fingerprint_open(const hw_module_t* module, const char __unused *id,
     vcs_start_auth_session();
     vcs_uninit();
     sensor_uninit();
-    pthread_mutex_unlock(&vdev->lock);
-
-    return 0;
 }
-
-static struct hw_module_methods_t fingerprint_module_methods = {
-    .open = fingerprint_open,
-};
-
-fingerprint_module_t HAL_MODULE_INFO_SYM = {
-    .common = {
-        .tag                = HARDWARE_MODULE_TAG,
-        .module_api_version = FINGERPRINT_MODULE_API_VERSION_2_1,
-        .hal_api_version    = HARDWARE_HAL_API_VERSION,
-        .id                 = FINGERPRINT_HARDWARE_MODULE_ID,
-        .name               = "KLTE Fingerprint HAL",
-        .author             = "ljzyal(ljzyal@gmail.com)",
-        .methods            = &fingerprint_module_methods,
-    },
-};

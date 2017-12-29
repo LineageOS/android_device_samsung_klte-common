@@ -19,9 +19,12 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := fingerprint.msm8974
+LOCAL_MODULE := android.hardware.biometrics.fingerprint@2.1-service.klte
+LOCAL_INIT_RC := android.hardware.biometrics.fingerprint@2.1-service.klte.rc
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_SRC_FILES := \
+    service.cpp \
+    BiometricsFingerprint.cpp \
     fingerprint.c \
     fingerprint_tz.c \
     QSEEComAPI.c \
@@ -31,10 +34,18 @@ LOCAL_C_INCLUDES += \
     external/sqlite/dist
 
 LOCAL_SHARED_LIBRARIES := \
-        liblog \
-        libsqlite
+    liblog \
+    libsqlite \
+    libcutils \
+    libdl \
+    libxml2 \
+    libhidlbase \
+    libhidltransport \
+    libhardware \
+    libutils \
+    android.hardware.biometrics.fingerprint@2.1
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
 
-include $(BUILD_SHARED_LIBRARY)
+include $(BUILD_EXECUTABLE)
