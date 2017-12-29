@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_RECOVERY_DEVICE_DIRS += device/samsung/klte-common/twrp
+TARGET_RECOVERY_DEVICE_DIRS += $(COMMON_PATH)/twrp
 
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
