@@ -1,0 +1,5 @@
+# RIL
+persist.radio.multisim.config=dsds
+ro.multisim.simslotcount=2
+ro.multisim.set_audio_params=true
+ro.telephony.ril.config=simactivation
