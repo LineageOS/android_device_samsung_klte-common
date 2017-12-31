@@ -58,3 +58,5 @@ for BLOB_LIST in "$MY_DIR"/../$DEVICE/device-proprietary-files*.txt; do
 done
 
 write_footers
+
+./../msm8974-common/setup-makefiles.sh $@
