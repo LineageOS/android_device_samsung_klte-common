@@ -69,4 +69,6 @@ for BLOB_LIST in "$MY_DIR"/../$DEVICE/device-proprietary-files*.txt; do
     extract $BLOB_LIST "$SRC"
 done
 
+./../msm8974-common/extract-files.sh $@
+
 "$MY_DIR"/setup-makefiles.sh
