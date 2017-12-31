@@ -28,9 +28,6 @@ vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 
-# aptX (Moto griffin - NCLS25.86-11-4-6-5)
-vendor/lib/libaptX_encoder.so|b03772672144d4b750a5672c2922aded93bb0512
-
 # Bluetooth firmware - Pinned to G900VVRU2DQH2_G900VVZW2DQH2_VZW
 vendor/firmware/bcm4350_V0395.0797.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
 vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_murata.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
@@ -232,30 +229,6 @@ vendor/lib/libgeofence.so|953c2720c98825cdfb2757839f5f86400c11a2d5
 vendor/lib/libizat_core.so|8d1b8f5c26cc9bcdacb402e253048211a6c07ba1
 vendor/lib/liblbs_core.so|3dea19e84a0d226ea3e5c92ec169f7e0fdbe5699
 
-# Graphics (OnePlus onyx - Oxygen OS 3.1.4 - OnePlusXOxygen_14_201611071506)
-vendor/lib/egl/eglsubAndroid.so|b8a5790c5b4ba4cf0018c94066104610c821ed8e
-vendor/lib/egl/libEGL_adreno.so|cd29673e990dba8158e961e287a79dfbd852d095
-vendor/lib/egl/libGLESv1_CM_adreno.so|ae86d16ba499ac6cdd3cecb91ae6b16b4c303984
-vendor/lib/egl/libGLESv2_adreno.so|445be60045ff86d1d27545692134eacf0d89a6dc
-vendor/lib/egl/libq3dtools_adreno.so|2c12919492f1146b58f4f1c379dfe10d3320d476
-vendor/lib/libC2D2.so|d34587d5143bd09f847cb6686b03461a6e62cd87
-vendor/lib/libCB.so|3d2ad5bbff1cf4019d89c38689ec2ce3c186a3c1
-vendor/lib/libOpenCL.so|2b4b9692b16729b880d7881e68208183943f9612
-vendor/lib/libadreno_utils.so|a109e06c933811c578d129c0772a612cf5d94367
-vendor/lib/libbccQTI.so|94132d5d8421428001c2201a8915949c531b0ad9
-vendor/lib/libc2d30-a3xx.so|3666e0bf418e7ea7480b27c2c1ddd1bc86037044
-vendor/lib/libgsl.so|fafee1adf0e89325b3a1ea83d5205c02ebf860f3
-vendor/lib/libllvm-qcom.so|fc96c949b662fb34b287a4c0aa194984fbb57d7d
-vendor/lib/libsc-a3xx.so|231201bcfead5f930537d2fba22d89b00e673386
-vendor/lib/libscale.so|b44f44c633fa404d10e76aaa23593b516e08e2b8
-
-# Graphics blur (OnePlus bacon - Cyanogen OS cm-13.1.2-ZNH2KAS3P0)
-vendor/lib/libuiblur.so|12dd942092c05d978a2a2db3ea37e0b410427b52
-
-# Graphics firmware
-etc/firmware/a330_pfp.fw:vendor/firmware/a330_pfp.fw
-etc/firmware/a330_pm4.fw:vendor/firmware/a330_pm4.fw
-
 # IPC router security
 bin/irsc_util:vendor/bin/irsc_util
 etc/sec_config:vendor/etc/sec_config
@@ -304,9 +277,6 @@ bin/rfs_access:vendor/bin/rfs_access|49a8516ed01b609a9e5079d8135b75db5b024236
 bin/rmt_storage:vendor/bin/rmt_storage|000ddcabfc9416e9a27ba6d04860cc14b6803cdd
 vendor/lib/libril-qcril-hook-oem.so|6a73ed46f4fbcb283eea5fb44b24a7d14522bfe5
 
-# STLport (Camera/RIL) - local compile LineageOS/external/stlport@984b8432
-vendor/lib/libstlport.so|0be0a0d13e12fbf95d97d309dcbc25d3f969a469
-
 # Sensors
 lib/hw/sensors.msm8974.so:vendor/lib/hw/sensors.msm8974.so|48c6112bc4097e9176fcd53bf3f7ba0d643b27aa
 lib/libhr.so:vendor/lib/libhr.so
@@ -330,6 +300,3 @@ etc/wifi/nvram_net.txt:vendor/etc/wifi/nvram_net.txt
 etc/wifi/nvram_net.txt_a0:vendor/etc/wifi/nvram_net.txt_a0
 etc/wifi/nvram_net.txt_muratafem1:vendor/etc/wifi/nvram_net.txt_muratafem1
 etc/wifi/nvram_net.txt_semco3rd:vendor/etc/wifi/nvram_net.txt_semco3rd
-
-# Widevine (Google angler - OPR6.170623.017)
-vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
