@@ -1,6 +1,5 @@
 #
-# Copyright 2016 The CyanogenMod Project
-# Copyright 2017-2018 The LineageOS Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,4 +14,12 @@
 # limitations under the License.
 #
 
-include $(call first-makefiles-under,$(call my-dir))
+# NFC
+$(call inherit-product, device/samsung/klte-common/nfc/product.mk)
+
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.0-impl
+
+PRODUCT_COPY_FILES += \
+    device/samsung/klte-common/nfc/s3fwrn5/libnfc-sec.conf:system/vendor/etc/libnfc-brcm.conf \
+    device/samsung/klte-common/nfc/s3fwrn5/libnfc-sec-hal.conf:system/vendor/etc/sec-nfc.conf
