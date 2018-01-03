@@ -1,5 +1,5 @@
 # Copyright (c) 2009-2012, Code Aurora Forum. All rights reserved.
-#               2017, The LineageOS Project. All rights reserved.
+#               2017-2018, The LineageOS Project. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -1019,7 +1019,7 @@ on property:sys.boot_completed=1
 
 service charger /charger
     class charger
-    seclabel u:r:healthd:s0
+    seclabel u:r:charger:s0
 
 service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
     class main
