@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da804af5_fb9c09e9",
+        "filename": "libril/ril_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3875,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-04T23:53:52Z",
+      "side": 1,
+      "message": "nope",
+      "parentUuid": "6c908bf5_a3af316f",
+      "range": {
+        "startLine": 3875,
+        "startChar": 32,
+        "endLine": 3875,
+        "endChar": 53
+      },
+      "revId": "ca5c34592c0a51c760348ece1662959a568a1328",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "143f0015_9c73f9fe",
         "filename": "libril/ril_service.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-04T23:35:33Z",
       "side": 1,
       "message": "Should this be \u0027%\u0027?",
+      "range": {
+        "startLine": 8196,
+        "startChar": 44,
+        "endLine": 8196,
+        "endChar": 46
+      },
+      "revId": "ca5c34592c0a51c760348ece1662959a568a1328",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ef4d86e_6aacadbe",
+        "filename": "libril/ril_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8196,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-01-04T23:53:52Z",
+      "side": 1,
+      "message": "yep, my bad",
+      "parentUuid": "143f0015_9c73f9fe",
       "range": {
         "startLine": 8196,
         "startChar": 44,
