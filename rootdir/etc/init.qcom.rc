@@ -255,6 +255,11 @@ on post-fs-data
     rmdir /data/data/com.android.providers.telephony/databases
     rmdir /data/data/com.android.providers.telephony/shared_prefs
 
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+
     setprop vold.post_fs_data_done 1
 
 on early-boot
