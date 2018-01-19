@@ -1,8 +1,0 @@
-# Camera
-/data/cam_socket.*                                      u:object_r:camera_socket:s0
-
-# EFS
-/dev/block/platform/msm_sdcc.1/by-name/efs              u:object_r:modem_efs_partition_device:s0
-
-# Macloader
-/system/bin/macloader                                   u:object_r:macloader_exec:s0

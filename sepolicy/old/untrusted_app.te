@@ -1,5 +1,0 @@
-# These are safe for an untrusted_app -- they are the external SD card
-allow untrusted_app exfat:dir create_dir_perms;
-allow untrusted_app exfat:file create_file_perms;
-allow untrusted_app fuseblk:dir create_dir_perms;
-allow untrusted_app fuseblk:file create_file_perms;

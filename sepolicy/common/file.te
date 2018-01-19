@@ -9,8 +9,3 @@ type bt_fw_file, file_type;
 type nfc_fw_file, file_type;
 type vcs_data_file, file_type, data_file_type;
 type wifi_efs_file, file_type;
-
-#type sensors_efs_file, file_type;
-#type sysfs_camera, fs_type, sysfs_type;
-#type sysfs_display, fs_type, sysfs_type;
-#type sysfs_vibeamp, fs_type, sysfs_type;

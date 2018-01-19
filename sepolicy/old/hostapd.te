@@ -1,1 +1,0 @@
-allow hostapd bluetooth_device:chr_file { open read };

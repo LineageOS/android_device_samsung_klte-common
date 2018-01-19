@@ -1,2 +1,0 @@
-allow mpdecision system_data_file:dir { add_name remove_name write };
-allow mpdecision system_data_file:sock_file write;

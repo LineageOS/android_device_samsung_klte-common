@@ -1,3 +1,0 @@
-allow init sysfs_sec:lnk_file r_file_perms;
-allow init debugfs:file write;
-allow init socket_device:sock_file { create write setattr };

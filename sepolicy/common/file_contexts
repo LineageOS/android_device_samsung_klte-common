@@ -38,23 +38,3 @@
 /sys/module/dhd/parameters/nvram_path                            u:object_r:sysfs_wifi_nv_path:s0
 /sys/devices/platform/bcm4354_bluetooth/rfkill/rfkill0/state     u:object_r:sysfs_bt_rfkill_state:s0
 /sys/devices/virtual/sec/sec_key/hall_irq_ctrl                   u:object_r:sysfs_sec:s0
-
-# Camera
-#/sys/devices/virtual/camera(/.*)?                       u:object_r:sysfs_camera:s0
-
-# CMHW
-#/sys/devices/virtual/timed_output/vibrator(/.*)?        u:object_r:sysfs_vibeamp:s0
-
-# Display
-#/sys/devices/virtual/lcd/panel/power_reduce             u:object_r:sysfs_display:s0
-
-# Fingerprint
-#/dev/validity(/.*)?                                     u:object_r:vcs_device:s0
-
-# SEC
-#/sys/devices/virtual/sec/tsp(/.*)?                      u:object_r:sysfs_sec:s0
-
-# Sensors
-#/efs/FactoryApp/baro_delta                              u:object_r:sensors_efs_file:s0
-#/efs/gyro_cal_data                                      u:object_r:sensors_efs_file:s0
-#/efs/prox_cal                                           u:object_r:sensors_efs_file:s0

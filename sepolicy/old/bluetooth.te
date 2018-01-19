@@ -1,3 +1,0 @@
-allow bluetooth bluetooth_device:chr_file rw_file_perms;
-allow bluetooth proc_bluetooth_writable:dir search;
-allow bluetooth wifi_data_file:file r_file_perms;
