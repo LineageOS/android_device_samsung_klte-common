@@ -27,7 +27,6 @@
 #
 
 import init.qcom.usb.rc
-import init.dsds.rc
 
 on early-init
     export LD_SHIM_LIBS /system/vendor/lib/hw/camera.vendor.msm8974.so|libshim_camera.so:/system/lib/libcutils.so|libshim_cutils_atomic.so
