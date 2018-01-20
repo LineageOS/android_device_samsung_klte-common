@@ -52,3 +52,7 @@ void power_set_interactive_ext(int on) {
     sysfs_write(TK_POWER, on ? "1" : "0");
     sysfs_write(TS_POWER, on ? "1" : "0");
 }
+
+void cm_power_set_interactive_ext(int on) {
+    power_set_interactive_ext(on);
+}
