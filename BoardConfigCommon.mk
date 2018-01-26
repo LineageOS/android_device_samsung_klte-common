@@ -43,9 +43,6 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Extended Filesystem Support
 TARGET_KERNEL_HAVE_EXFAT := true
 
-# Filesystem
-TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
-
 # HIDL
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
 
