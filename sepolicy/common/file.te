@@ -1,11 +1,1 @@
-type proc_bt_sleep, fs_type;
-
-type sysfs_bt_rfkill_state, fs_type, sysfs_type;
-type sysfs_sec, fs_type, sysfs_type;
-type sysfs_wifi_fw_path, fs_type, sysfs_type;
-type sysfs_wifi_nv_path, fs_type, sysfs_type;
-
-type bt_fw_file, file_type;
-type nfc_fw_file, file_type;
 type vcs_data_file, file_type, data_file_type;
-type wifi_efs_file, file_type;

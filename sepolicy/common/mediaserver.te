@@ -1,4 +1,0 @@
-allow mediaserver camera_socket:sock_file write;
-allow mediaserver mm-qcamerad:unix_dgram_socket sendto;
-allow mediaserver thermal-engine:unix_stream_socket connectto;
-allow mediaserver vendor_file:file execmod;

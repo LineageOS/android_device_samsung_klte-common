@@ -1,1 +1,0 @@
-allow nfc nfc_fw_file:file rx_file_perms;

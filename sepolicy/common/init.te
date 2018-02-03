@@ -1,2 +1,0 @@
-# Required to load shim libraries
-allow init { domain -lmkd -crash_dump }:process noatsecure;

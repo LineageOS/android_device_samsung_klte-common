@@ -1,40 +1,6 @@
-# block devices
-/dev/block/platform/msm_sdcc\.1/by-name/efs             u:object_r:efs_block_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/fota            u:object_r:misc_block_device:s0
-
 # data files
-/data/.cid.info                                         u:object_r:wifi_data_file:s0
-/data/.wifiver.info                                     u:object_r:wifi_data_file:s0
-/data/(misc|system)/perfd(/.*)?                         u:object_r:mpctl_data_file:s0
 /data/validity(/.*)?                                    u:object_r:vcs_data_file:s0
 
 # device nodes
-/dev/batch_io                                           u:object_r:sensors_device:s0
-/dev/bcm2079x                                           u:object_r:nfc_device:s0
-/dev/btlock                                             u:object_r:bluetooth_device:s0
-/dev/pn547                                              u:object_r:nfc_device:s0
-/dev/rfkill                                             u:object_r:wlan_device:s0
-/dev/sec-nfc                                            u:object_r:nfc_device:s0
 /dev/ttyHS3                                             u:object_r:audio_device:s0
 /dev/vfsspi                                             u:object_r:vcs_device:s0
-
-# efs files
-/efs/bluetooth(/.*)?                                    u:object_r:bluetooth_efs_file:s0
-/efs/wifi(/.*)?                                         u:object_r:wifi_efs_file:s0
-
-# executeables
-/system/vendor/bin/macloader                            u:object_r:macloader_exec:s0
-
-# firmware
-/system/vendor/firmware/bcm4350(.*).hcd                 u:object_r:bt_fw_file:s0
-/system/vendor/firmware/libpn547_fw.so                  u:object_r:nfc_fw_file:s0
-
-# sockets
-/data/cam_socket(.*)                                    u:object_r:camera_socket:s0
-
-# sysfs
-/sys/devices/battery.[0-9]+/power_supply/battery(/.*)?           u:object_r:sysfs_batteryinfo:s0
-/sys/module/dhd/parameters/firmware_path                         u:object_r:sysfs_wifi_fw_path:s0
-/sys/module/dhd/parameters/nvram_path                            u:object_r:sysfs_wifi_nv_path:s0
-/sys/devices/platform/bcm4354_bluetooth/rfkill/rfkill0/state     u:object_r:sysfs_bt_rfkill_state:s0
-/sys/devices/virtual/sec/sec_key/hall_irq_ctrl                   u:object_r:sysfs_sec:s0
