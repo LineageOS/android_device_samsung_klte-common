@@ -48,8 +48,8 @@ on init
     write /proc/sys/vm/page-cluster 0
 
 on fs
-    mount_all fstab.qcom
-    swapon_all fstab.qcom
+    mount_all /vendor/etc/fstab.qcom
+    swapon_all /vendor/etc/fstab.qcom
 
     restorecon_recursive /efs
 
