@@ -4,19 +4,19 @@
 vendor/lib/libsensor1.so
 
 # Audio
-vendor/lib/libacdbloader.so
+vendor/lib/libacdbloader.so|27ceba70917afc0e9b26877354c8404dae5af09c
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
 etc/firmware/audience-es705-fw.bin:vendor/firmware/audience-es705-fw.bin
 etc/firmware/audience-es705-vs.bin:vendor/firmware/audience-es705-vs.bin
-etc/Bluetooth_cal.acdb
-etc/General_cal.acdb
-etc/Global_cal.acdb
-etc/Handset_cal.acdb
-etc/Hdmi_cal.acdb
-etc/Headset_cal.acdb
-etc/Speaker_cal.acdb
+etc/Bluetooth_cal.acdb:vendor/etc/acdbdata/Bluetooth_cal.acdb
+etc/General_cal.acdb:vendor/etc/acdbdata/General_cal.acdb
+etc/Global_cal.acdb:vendor/etc/acdbdata/Global_cal.acdb
+etc/Handset_cal.acdb:vendor/etc/acdbdata/Handset_cal.acdb
+etc/Hdmi_cal.acdb:vendor/etc/acdbdata/Hdmi_cal.acdb
+etc/Headset_cal.acdb:vendor/etc/acdbdata/Headset_cal.acdb
+etc/Speaker_cal.acdb:vendor/etc/acdbdata/Speaker_cal.acdb
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcvirt.so
 vendor/lib/soundfx/libqcreverb.so
