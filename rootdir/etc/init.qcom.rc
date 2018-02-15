@@ -29,8 +29,6 @@
 import init.qcom.usb.rc
 
 on early-init
-    export LD_SHIM_LIBS /system/vendor/lib/hw/camera.vendor.msm8974.so|libshim_camera.so:/system/lib/libcutils.so|libshim_cutils_atomic.so
-
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
