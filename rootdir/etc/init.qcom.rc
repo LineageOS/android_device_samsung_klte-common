@@ -97,6 +97,7 @@ on post-fs-data
     write /data/.wifiver.info 0
     chown system root /data/.wifiver.info
     chmod 0664 /data/.wifiver.info
+    restorecon /data/.wifiver.info
 
     # for WIFI Cert
     chmod 0664 /data/.bustxglom.info
