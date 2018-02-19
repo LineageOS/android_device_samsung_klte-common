@@ -42,6 +42,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Extended Filesystem Support
 TARGET_EXFAT_DRIVER := sdfat
+TARGET_VFAT_DRIVER := sdfat
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
