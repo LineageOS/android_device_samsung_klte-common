@@ -456,16 +456,16 @@ on boot
     # LCD mdnie and panel work
     chown system system  /sys/class/mdnie/mdnie/lcdtype
     chown system system  /sys/class/mdnie/mdnie/lcd_power
-    chown system media_rw /sys/class/mdnie/mdnie/scenario
+    chown system system /sys/class/mdnie/mdnie/scenario
     chmod 0660 /sys/class/mdnie/mdnie/scenario
 
     chown system system /sys/class/mdnie/mdnie/tuning
-    chown system media_rw /sys/class/mdnie/mdnie/outdoor
+    chown system system /sys/class/mdnie/mdnie/outdoor
     chown system system  /sys/class/mdnie/mdnie/mdnie_temp
     chown system system /sys/class/mdnie/mdnie/mode
     chown system system /sys/class/mdnie/mdnie/negative
-    chown system media_rw /sys/class/mdnie/mdnie/playspeed
-    chown system media_rw /sys/class/mdnie/mdnie/accessibility
+    chown system system /sys/class/mdnie/mdnie/playspeed
+    chown system system /sys/class/mdnie/mdnie/accessibility
     chown system system  /sys/class/mdnie/mdnie/cabc
     chown system system  /sys/class/mdnie/mdnie/bypass
 
