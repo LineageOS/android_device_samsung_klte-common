@@ -55,6 +55,15 @@ on fs
     mount_all fstab.qcom
     swapon_all fstab.qcom
 
+    # Firmware partitions
+    wait /dev/block/platform/msm_sdcc.1/by-name/efs
+    check_fs /dev/block/platform/msm_sdcc.1/by-name/efs ext4
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/efs /efs rw nosuid,nodev,noatime,noauto_da_alloc,journal_async_commit,errors=panic
+    wait /dev/block/platform/msm_sdcc.1/by-name/apnhlos
+    mount vfat /dev/block/platform/msm_sdcc.1/by-name/apnhlos /firmware ro shortname=lower,uid=1000,gid=1026,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+    wait /dev/block/platform/msm_sdcc.1/by-name/modem
+    mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware-modem ro shortname=lower,uid=1000,gid=1026,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+
     restorecon_recursive /efs
 
     write /sys/kernel/boot_adsp/boot 1
