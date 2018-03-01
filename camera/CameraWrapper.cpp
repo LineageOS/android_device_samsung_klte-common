@@ -33,8 +33,13 @@
 static const char KEY_DIS[] = "dis";
 static const char DIS_DISABLE[] = "disable";
 static const char KEY_ZSL[] = "zsl";
-static const char ZSL_ON[] = "on";
-static const char ZSL_OFF[] = "off";
+static const char ON[] = "on";
+static const char OFF[] = "off";
+static const char KEY_PHASE_AF[] = "phase-af";
+static const char KEY_DYNAMIC_RANGE_CONTROL[] = "dynamic-range-control";
+static const char KEY_QC_RT_HDR[] = "rt-hdr";
+static const char KEY_QC_VIDEO_HDR[] = "video-hdr";
+static const char KEY_QC_VIDEO_HDR_VALUES[] = "video-hdr-values";
 
 #define BACK_CAMERA_ID 0
 #define FRONT_CAMERA_ID 1
@@ -166,6 +171,10 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
         params.set(CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
     }
 
+    /* advertise video HDR mode support */
+    if (id == BACK_CAMERA_ID)
+        params.set(KEY_QC_VIDEO_HDR_VALUES, "on,off");
+
     ALOGV("%s: Fixed parameters:", __FUNCTION__);
     params.dump();
 
@@ -203,9 +212,19 @@ static char *camera_fixup_setparams(int id, const char *settings)
     if (!isTorch && !wasTorch) {
         if (isVideo) {
             params.set(KEY_DIS, DIS_DISABLE);
-            params.set(KEY_ZSL, ZSL_OFF);
+            params.set(KEY_ZSL, OFF);
         } else {
-            params.set(KEY_ZSL, ZSL_ON);
+            params.set(KEY_ZSL, ON);
+        }
+    }
+
+    if (id == BACK_CAMERA_ID) {
+        params.set(KEY_PHASE_AF, ON);
+        params.set(KEY_DYNAMIC_RANGE_CONTROL, ON);
+        if (isVideo) {
+            /* need to translate video-hdr to rt-hdr */
+            const char *vhdr = params.get(KEY_QC_VIDEO_HDR);
+            params.set(KEY_QC_RT_HDR, vhdr && !strcmp(vhdr, "on") ? ON : OFF);
         }
     }
 
