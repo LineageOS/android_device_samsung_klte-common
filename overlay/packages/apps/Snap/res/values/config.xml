@@ -20,4 +20,7 @@
 
     <!-- QC-denoise -->
     <string name="pref_camera_denoise_default" translatable="false">denoise-on</string>
+
+    <!-- ISO values use numbers.  Example: 50 instead of ISO50 -->
+    <bool name="iso_values_use_numbers">true</bool>
 </resources>
