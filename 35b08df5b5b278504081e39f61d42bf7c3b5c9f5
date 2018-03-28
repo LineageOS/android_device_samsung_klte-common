@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e8b02cdc_74939834",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-03-28T13:02:50Z",
+      "side": 1,
+      "message": "Err...didn\u0027t I? It looks like the flags and options line up to all the other ones",
+      "parentUuid": "3455fcea_89a03349",
+      "range": {
+        "startLine": 11,
+        "startChar": 152,
+        "endLine": 11,
+        "endChar": 160
+      },
+      "revId": "35b08df5b5b278504081e39f61d42bf7c3b5c9f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7db0814_d9831637",
         "filename": "rootdir/etc/fstab.qcom",
         "patchSetId": 4
