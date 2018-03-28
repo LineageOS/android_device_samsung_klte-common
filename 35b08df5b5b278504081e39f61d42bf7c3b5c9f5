@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "495287a5_ea6c19d5",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-03-28T18:06:53Z",
+      "side": 1,
+      "message": "I don\u0027t see \"wait\" aligned with the other fs_mgr_flags. Maybe I\u0027m just blind. :p",
+      "parentUuid": "e8b02cdc_74939834",
+      "range": {
+        "startLine": 11,
+        "startChar": 152,
+        "endLine": 11,
+        "endChar": 160
+      },
+      "revId": "35b08df5b5b278504081e39f61d42bf7c3b5c9f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7db0814_d9831637",
         "filename": "rootdir/etc/fstab.qcom",
         "patchSetId": 4
