@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3455fcea_89a03349",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-03-28T12:59:24Z",
+      "side": 1,
+      "message": "You might want to keep this aligned with the rest.",
+      "range": {
+        "startLine": 11,
+        "startChar": 152,
+        "endLine": 11,
+        "endChar": 160
+      },
+      "revId": "35b08df5b5b278504081e39f61d42bf7c3b5c9f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7db0814_d9831637",
+        "filename": "rootdir/etc/fstab.qcom",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-03-28T12:59:24Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 12,
+        "startChar": 152,
+        "endLine": 12,
+        "endChar": 160
+      },
+      "revId": "35b08df5b5b278504081e39f61d42bf7c3b5c9f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
