@@ -15,4 +15,4 @@
 #
 
 # NFC
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/nfc/manifest-passthrough.xml
+include $(COMMON_PATH)/nfc/board.mk

@@ -15,7 +15,8 @@
 #
 
 # NFC
+include $(COMMON_PATH)/nfc/board.mk
+
+# PN547 specific flags
 BOARD_NFC_CHIPSET := pn547
 BOARD_NFC_HAL_SUFFIX := msm8974
-
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/nfc/manifest-passthrough.xml

@@ -15,4 +15,4 @@
 #
 
 # NFC
-include $(COMMON_PATH)/nfc/board.mk
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/nfc/manifest.xml
