@@ -1,9 +1,9 @@
 # data files
-/data/validity(/.*)?                                    u:object_r:vcs_data_file:s0
+/data/validity(/.*)?                                    u:object_r:vfsspi_data_file:s0
 
 # device nodes
 /dev/ttyHS3                                             u:object_r:audio_device:s0
-/dev/vfsspi                                             u:object_r:vcs_device:s0
+/dev/vfsspi                                             u:object_r:vfsspi_device:s0
 
 # sysfs
 /sys/devices(/.*)?/input/input[1-2]/enabled             u:object_r:sysfs_hal_pwr:s0
