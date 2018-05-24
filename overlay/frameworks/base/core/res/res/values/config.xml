@@ -273,4 +273,7 @@
          2 - The device DOES NOT have a permanent menu key; ignore autodetection. -->
     <integer name="config_overrideHasPermanentMenuKey">2</integer>
 
+    <!-- If true, the display will be shifted around in ambient mode. -->
+<bool name="config_enableBurnInProtection">true</bool>
+
 </resources>
