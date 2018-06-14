@@ -56,7 +56,9 @@ TARGET_KERNEL_SOURCE := kernel/samsung/msm8974
 
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
-TARGET_LD_SHIM_LIBS := /system/vendor/lib/hw/camera.vendor.msm8974.so|libshim_camera.so:/system/lib/libcutils.so|libshim_cutils_atomic.so
+TARGET_LD_SHIM_LIBS += \
+    /system/vendor/lib/hw/camera.vendor.msm8974.so|libshim_camera.so \
+    /system/vendor/lib/libsec-ril.so|libshim_cutils_atomic.so
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 13631488
