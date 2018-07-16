@@ -23,4 +23,7 @@
 
     <!-- ISO values use numbers.  Example: 50 instead of ISO50 -->
     <bool name="iso_values_use_numbers">true</bool>
+
+    <!-- Use profile for HSR recording instead -->
+    <bool name="use_profile_for_hsr">true</bool>
 </resources>
