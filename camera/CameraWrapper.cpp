@@ -49,6 +49,9 @@ using namespace android;
 static Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
+static int hfr = 0;
+static int hsr = 0;
+
 static camera_notify_callback gUserNotifyCb = NULL;
 static camera_data_callback gUserDataCb = NULL;
 static camera_data_timestamp_callback gUserDataCbTimestamp = NULL;
@@ -117,7 +120,10 @@ static int check_vendor_module()
     return rv;
 }
 
+#define KEY_VIDEO_HFR "video-hfr"
 #define KEY_VIDEO_HFR_VALUES "video-hfr-values"
+#define KEY_VIDEO_HSR "video-hsr"
+#define KEY_VIDEO_FAST_FPS_MODE "fast-fps-mode"
 
 // nv12-venus is needed for blobs, but
 // framework has no idea what it is
@@ -128,6 +134,96 @@ static bool is_4k_video(CameraParameters &params) {
     params.getVideoSize(&video_width, &video_height);
     ALOGV("%s : VideoSize is %x", __FUNCTION__, video_width * video_height);
     return video_width * video_height == 3840 * 2160;
+}
+
+static void setHfrParameters(struct camera_device * device, bool reset) {
+    int id = CAMERA_ID(device);
+    if ((!hfr && !hsr) || (id == FRONT_CAMERA_ID)) return;
+
+    VENDOR_CALL(device, cancel_auto_focus);
+    VENDOR_CALL(device, stop_preview);
+
+    CameraParameters params;
+    params.unflatten(String8(fixed_set_params[id]));
+    params.set(CameraParameters::KEY_RECORDING_HINT, "false");
+
+    const char *flashMode = params.get(CameraParameters::KEY_FLASH_MODE);
+    bool isTorch = flashMode && !strcmp(flashMode, CameraParameters::FLASH_MODE_TORCH);
+    if (isTorch)
+        params.set(CameraParameters::KEY_FLASH_MODE, CameraParameters::FLASH_MODE_OFF);
+
+    free(fixed_set_params[id]);
+    fixed_set_params[id] = strdup(params.flatten().string());
+    VENDOR_CALL(device, set_parameters, fixed_set_params[id]);
+
+    if (reset) {
+        params.set(KEY_PHASE_AF, ON);
+        params.set(KEY_VIDEO_FAST_FPS_MODE, "0");
+        params.set(CameraParameters::KEY_PREVIEW_FPS_RANGE, "30000,30000");
+    } else {
+        // must set phase-af to off to fix hfr/hsr focusing
+        params.set(KEY_PHASE_AF, OFF);
+        if (hfr) {
+            switch (hfr) {
+                case 1:
+                    params.set(KEY_VIDEO_HFR, "60");
+                    params.set(KEY_VIDEO_FAST_FPS_MODE, "1");
+                    params.set(CameraParameters::KEY_PREVIEW_FPS_RANGE, "60000,60000");
+                    params.set(CameraParameters::KEY_PICTURE_SIZE, "1920x1080");
+                    break;
+                case 2:
+                    params.set(KEY_VIDEO_HFR, "120");
+                    params.set(KEY_VIDEO_FAST_FPS_MODE, "2");
+                    params.set(CameraParameters::KEY_PREVIEW_FPS_RANGE, "120000,120000");
+                    params.set(CameraParameters::KEY_PICTURE_SIZE, "1280x720");
+                    break;
+            }
+        }
+        if (hsr) {
+            switch (hsr) {
+                case 1:
+                    params.set(KEY_VIDEO_HSR, "60");
+                    params.set(KEY_VIDEO_FAST_FPS_MODE, "0");
+                    params.set(CameraParameters::KEY_PREVIEW_FPS_RANGE, "60000,60000");
+                    params.set(CameraParameters::KEY_PICTURE_SIZE, "1920x1080");
+                    break;
+                case 2:
+                    params.set(KEY_VIDEO_HSR, "120");
+                    params.set(KEY_VIDEO_FAST_FPS_MODE, "1");
+                    params.set(CameraParameters::KEY_PREVIEW_FPS_RANGE, "120000,120000");
+                    params.set(CameraParameters::KEY_PICTURE_SIZE, "1280x720");
+                    break;
+            }
+        }
+    }
+
+    params.set(CameraParameters::KEY_RECORDING_HINT, "true");
+
+    if (isTorch)
+        params.set(CameraParameters::KEY_FLASH_MODE, CameraParameters::FLASH_MODE_TORCH);
+
+    free(fixed_set_params[id]);
+    fixed_set_params[id] = strdup(params.flatten().string());
+    VENDOR_CALL(device, set_parameters, fixed_set_params[id]);
+
+    VENDOR_CALL(device, start_preview);
+}
+
+static void setTorch(struct camera_device *device, bool on) {
+    int id = CAMERA_ID(device);
+    if ((id == BACK_CAMERA_ID) && fixed_set_params[id]) {
+        CameraParameters params;
+        params.unflatten(String8(fixed_set_params[id]));
+        const char *flashMode = params.get(CameraParameters::KEY_FLASH_MODE);
+        bool isTorch = flashMode && !strcmp(flashMode, CameraParameters::FLASH_MODE_TORCH);
+        if (isTorch) {
+            params.set(CameraParameters::KEY_FLASH_MODE, (on ?
+                CameraParameters::FLASH_MODE_TORCH : CameraParameters::FLASH_MODE_OFF));
+            free(fixed_set_params[id]);
+            fixed_set_params[id] = strdup(params.flatten().string());
+            VENDOR_CALL(device, set_parameters, fixed_set_params[id]);
+        }
+    }
 }
 
 static char *camera_fixup_getparams(int __attribute__((unused)) id,
@@ -155,19 +251,36 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
                 videoSizes);
     }
 
-    /* If the vendor has HFR values but doesn't also expose that
-     * this can be turned off, fixup the params to tell the Camera
-     * that it really is okay to turn it off.
-     */
-    const char *hfrModeValues = params.get(KEY_VIDEO_HFR_VALUES);
-    if (hfrModeValues && !strstr(hfrModeValues, "off")) {
-        char hfrModes[strlen(hfrModeValues) + 4 + 1];
-        sprintf(hfrModes, "%s,off", hfrModeValues);
-        params.set(KEY_VIDEO_HFR_VALUES, hfrModes);
+    // set hfr values
+    if (id == BACK_CAMERA_ID) {
+        params.set(KEY_VIDEO_HFR_VALUES, "60,120,off");
+        params.set(KEY_VIDEO_HFR, OFF);
+        params.set(KEY_VIDEO_HSR, OFF);
+        params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES, "15,24,30,60,120");
+
+        switch (hfr) {
+            case 1:
+                params.set(KEY_VIDEO_HFR, "60");
+                break;
+            case 2:
+                params.set(KEY_VIDEO_HFR, "120");
+                break;
+        }
+
+        switch (hsr) {
+            case 1:
+                params.set(KEY_VIDEO_HSR, "60");
+                break;
+            case 2:
+                params.set(KEY_VIDEO_HSR, "120");
+                break;
+        }
     }
 
-    /* Enforce video-snapshot-supported to true */
-    if (videoMode) {
+    /* Enforce video-snapshot-supported to true
+       Ignore for HFR modes, taking a snapshot during HFR currently stops the video from saving
+        */
+    if (videoMode && (!hfr && !hsr)) {
         params.set(CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
     }
 
@@ -225,7 +338,37 @@ static char *camera_fixup_setparams(int id, const char *settings)
             /* need to translate video-hdr to rt-hdr */
             const char *vhdr = params.get(KEY_QC_VIDEO_HDR);
             params.set(KEY_QC_RT_HDR, vhdr && !strcmp(vhdr, "on") ? ON : OFF);
+
+            // handle HFR setting
+            const char* videoHfr = params.get(KEY_VIDEO_HFR);
+            if (videoHfr && strcmp(videoHfr, OFF) != 0) {
+                if (strcmp(videoHfr,"120") == 0) {
+                    hfr = 2;
+                } else if (strcmp(videoHfr,"60") == 0) {
+                    hfr = 1;
+                }
+                hsr = 0;
+            } else {
+                hfr = 0;
+            }
+
+            // handle HSR setting
+            const char* videoHsr = params.get(KEY_VIDEO_HSR);
+            if (videoHsr && strcmp(videoHsr, OFF) != 0) {
+                if (strcmp(videoHsr,"120") == 0) {
+                    hsr = 2;
+                } else if (strcmp(videoHsr,"60") == 0) {
+                    hsr = 1;
+                }
+                hfr = 0;
+            } else {
+                hsr = 0;
+            }
         }
+    } else {
+        // not supported in front camera
+        params.set(KEY_PHASE_AF, OFF);
+        params.set(KEY_DYNAMIC_RANGE_CONTROL, OFF);
     }
 
     ALOGV("%s: Fixed parameters:", __FUNCTION__);
@@ -344,6 +487,8 @@ static int camera_start_preview(struct camera_device *device)
     ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device,
             (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
 
+    setTorch(device, true);
+
     return VENDOR_CALL(device, start_preview);
 }
 
@@ -354,6 +499,8 @@ static void camera_stop_preview(struct camera_device *device)
 
     ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device,
             (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
+
+    setTorch(device, false);
 
     VENDOR_CALL(device, stop_preview);
 }
@@ -398,6 +545,8 @@ static int camera_start_recording(struct camera_device *device)
         camera_set_parameters(device, strdup(parameters.flatten().string()));
     }
 
+    setHfrParameters(device, false);
+
     return VENDOR_CALL(device, start_recording);
 }
 
@@ -408,6 +557,8 @@ static void camera_stop_recording(struct camera_device *device)
 
     ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device,
             (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
+
+    setHfrParameters(device, true);
 
     VENDOR_CALL(device, stop_recording);
 }
@@ -567,6 +718,10 @@ static int camera_device_close(hw_device_t *device)
         ret = -EINVAL;
         goto done;
     }
+
+    // set back to default so other apps run normally
+    hsr = 0;
+    hfr = 0;
 
     for (int i = 0; i < camera_get_number_of_cameras(); i++) {
         if (fixed_set_params[i])
