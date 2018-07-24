@@ -25,4 +25,7 @@
          out of setting a batch size, which fixes rotation. -->
     <bool name="config_useDefaultBatchingForAccel">false</bool>
 
+    <!-- Cap accelerometer batch value, fixes rotation on
+         devices where accel stops reporting -->
+    <bool name="config_capAccelBatch">true</bool>
 </resources>
