@@ -273,4 +273,6 @@
          2 - The device DOES NOT have a permanent menu key; ignore autodetection. -->
     <integer name="config_overrideHasPermanentMenuKey">2</integer>
 
+    <!-- Deny specific batch setting to fix accelerometer freezing -->
+    <bool name="config_denySpecificBatch">true</bool>
 </resources>
