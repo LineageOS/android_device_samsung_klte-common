@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "564f5016_e964cf46",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 15579
+      },
+      "writtenOn": "2018-07-29T20:50:39Z",
+      "side": 1,
+      "message": "gratuituous change?",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 102
+      },
+      "revId": "914a360dec5f3e769d13297d0850a12b761d2cb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf845d59_8cb80a7f",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 15579
+      },
+      "writtenOn": "2018-07-29T20:50:39Z",
+      "side": 1,
+      "message": "added param is unused?",
+      "range": {
+        "startLine": 296,
+        "startChar": 64,
+        "endLine": 296,
+        "endChar": 95
+      },
+      "revId": "914a360dec5f3e769d13297d0850a12b761d2cb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f71e1f0_035565ca",
+        "filename": "configs/media_profiles.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 15579
+      },
+      "writtenOn": "2018-07-29T20:50:39Z",
+      "side": 1,
+      "message": "please check whitespace / indentation",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 33
+      },
+      "revId": "914a360dec5f3e769d13297d0850a12b761d2cb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e17bc202_7bd5b8d8",
+        "filename": "overlay/packages/apps/Snap/res/values/config.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 15579
+      },
+      "writtenOn": "2018-07-29T20:50:39Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 48
+      },
+      "revId": "914a360dec5f3e769d13297d0850a12b761d2cb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
