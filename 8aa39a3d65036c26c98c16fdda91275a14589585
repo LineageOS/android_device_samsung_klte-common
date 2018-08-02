@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ae166ca_b6e3d4ac",
+        "filename": "common-proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2018-08-02T23:08:48Z",
+      "side": 1,
+      "message": "this needs to stay pinned. the modification was hex-editing the hal to incessantly scream to logcat when in low light",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 65
+      },
+      "revId": "8aa39a3d65036c26c98c16fdda91275a14589585",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3319afeb_6a93237d",
+        "filename": "klte.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2018-08-02T23:08:48Z",
+      "side": 1,
+      "message": "This is unnecessary, it\u0027s in samsung/msm8974-common already",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 39
+      },
+      "revId": "8aa39a3d65036c26c98c16fdda91275a14589585",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
