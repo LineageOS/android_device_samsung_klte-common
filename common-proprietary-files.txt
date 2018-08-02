@@ -269,7 +269,7 @@ bin/rmt_storage:vendor/bin/rmt_storage|000ddcabfc9416e9a27ba6d04860cc14b6803cdd
 vendor/lib/libril-qcril-hook-oem.so|6a73ed46f4fbcb283eea5fb44b24a7d14522bfe5
 
 # Sensors
-lib/hw/sensors.msm8974.so:vendor/lib/hw/sensors.msm8974.so|48c6112bc4097e9176fcd53bf3f7ba0d643b27aa
+lib/hw/sensors.msm8974.so:vendor/lib/hw/sensors.vendor.msm8974.so|48c6112bc4097e9176fcd53bf3f7ba0d643b27aa
 lib/libhr.so:vendor/lib/libhr.so
 
 # Time services
