@@ -930,7 +930,6 @@ service macloader /vendor/bin/macloader
     oneshot
     user system
     group system wifi
-    seclabel u:r:macloader:s0
 
 on property:wlan.driver.status=ok
     start macloader

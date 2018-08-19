@@ -46,11 +46,11 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Doze
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     SamsungDoze
 
 # FlipFlap
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     FlipFlap
 
 # IPv6 tethering
