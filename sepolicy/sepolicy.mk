@@ -15,5 +15,5 @@
 #
 
 # Board specific SELinux policy variable definitions
-BOARD_SEPOLICY_DIRS += \
+#BOARD_SEPOLICY_DIRS += \
     device/samsung/klte-common/sepolicy/common

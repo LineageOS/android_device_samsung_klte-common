@@ -15,11 +15,11 @@
 #
 
 # NFC
-$(call inherit-product, device/samsung/klte-common/nfc/product.mk)
+#$(call inherit-product, device/samsung/klte-common/nfc/product.mk)
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl
 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     device/samsung/klte-common/nfc/s3fwrn5/libnfc-sec.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
     device/samsung/klte-common/nfc/s3fwrn5/libnfc-sec-hal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sec-nfc.conf
