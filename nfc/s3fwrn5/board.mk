@@ -15,4 +15,4 @@
 #
 
 # NFC
-include $(COMMON_PATH)/nfc/board.mk
+#include $(COMMON_PATH)/nfc/board.mk
