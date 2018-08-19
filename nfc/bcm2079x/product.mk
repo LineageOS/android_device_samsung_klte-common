@@ -15,14 +15,14 @@
 #
 
 # NFC
-$(call inherit-product, device/samsung/klte-common/nfc/product.mk)
+#$(call inherit-product, device/samsung/klte-common/nfc/product.mk)
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl-bcm \
     android.hardware.nfc@1.0-service \
     nfc_nci.bcm2079x.default
 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     device/samsung/klte-common/nfc/bcm2079x/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     device/samsung/klte-common/nfc/bcm2079x/libnfc-brcm-20791b04.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm-20791b04.conf \
     device/samsung/klte-common/nfc/bcm2079x/libnfc-brcm-20791b05.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm-20791b05.conf
