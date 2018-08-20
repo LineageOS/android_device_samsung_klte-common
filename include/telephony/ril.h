@@ -696,6 +696,8 @@ typedef struct {
     int             toa;         /* "type" from TS 27.007 7.11 */
     char *          number;      /* "number" from TS 27.007 7.11. May be NULL */
     int             timeSeconds; /* for CF no reply only */
+    char *          startTime;   /* SEC addition */
+    char *          endTime;     /* SEC addition */
 }RIL_CallForwardInfo;
 
 typedef struct {
