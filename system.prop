@@ -3,19 +3,19 @@ dalvik.vm.dex2oat-swap=false
 
 # Audio
 af.fast_track_multiplier=1
-audio_hal.period_size=192
-audio.offload.video=true
-persist.audio.fluence.speaker=true
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-ro.qc.sdk.audio.fluencetype=fluence
-use.voice.path.for.pcm.voip=false
-use.dedicated.device.for.voip=true
 audio.deep_buffer.media=true
+audio.offload.buffer.size.kb=32
 audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
-audio.offload.multiple.enabled=false
-audio.offload.buffer.size.kb=32
+audio.offload.video=true
+persist.vendor.audio.fluence.speaker=true
+persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicerec=false
+ro.vendor.audio.sdk.fluencetype=fluence
+vendor.audio.offload.multiple.enabled=false
+vendor.audio_hal.period_size=192
+vendor.dedicated.device.for.voip=true
+vendor.voice.path.for.pcm.voip=false
 
 # Camera
 camera2.portability.force_api=1
