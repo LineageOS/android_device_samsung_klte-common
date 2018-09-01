@@ -41,6 +41,10 @@ write_headers "klte klteactivexx kltechn kltechnduo klteduos kltedv kltekdi klte
 
 write_makefiles "$MY_DIR"/common-proprietary-files.txt
 
+echo "ifeq (\$(strip \$(BOARD_NFC_CHIPSET)),pn547)" >> "$ANDROIDMK"
+write_makefiles "$MY_DIR"/common-proprietary-files-pn547.txt
+echo "endif" >> "$ANDROIDMK"
+
 write_footers
 
 if [ ! -z $VARIANT_COPYRIGHT_YEAR ]; then

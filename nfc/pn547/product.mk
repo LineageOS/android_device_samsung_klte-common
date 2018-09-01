@@ -19,8 +19,7 @@ $(call inherit-product, device/samsung/klte-common/nfc/product.mk)
 
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl \
-    libpn547_fw \
-    nfc_nci.msm8974
+    libpn547_fw
 
 PRODUCT_COPY_FILES += \
     device/samsung/klte-common/nfc/pn547/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
