@@ -16,7 +16,3 @@
 
 # NFC
 include $(COMMON_PATH)/nfc/board.mk
-
-# PN547 specific flags
-BOARD_NFC_CHIPSET := pn547
-BOARD_NFC_HAL_SUFFIX := msm8974

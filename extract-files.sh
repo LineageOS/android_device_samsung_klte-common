@@ -51,6 +51,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$CM_ROOT" true
 
 extract "$MY_DIR"/common-proprietary-files.txt "$SRC"
+extract "$MY_DIR"/common-proprietary-files-pn547.txt "$SRC"
 
 COMMON_BLOB_ROOT="$CM_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
 
