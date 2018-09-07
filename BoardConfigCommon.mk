@@ -21,7 +21,6 @@ COMMON_PATH := device/samsung/klte-common
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
 # Audio
-BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
