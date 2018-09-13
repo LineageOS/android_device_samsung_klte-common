@@ -23,7 +23,7 @@
     <!-- Values for GPS configuration (Reliance) -->
     <string-array translatable="false" name="config_gpsParameters">
         <item>NTP_SERVER=asia.pool.ntp.org</item>
-        <item>SUPL_ES=0</item>
+        <item>SUPL_ES=1</item>
         <item>SUPL_HOST=supl.google.com</item>
         <item>SUPL_PORT=7275</item>
         <item>SUPL_MODE=1</item>
