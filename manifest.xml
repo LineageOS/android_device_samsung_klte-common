@@ -1,14 +1,5 @@
 <manifest version="1.0" type="device">
     <hal format="hidl">
-        <name>android.hardware.camera.provider</name>
-        <transport arch="32">passthrough</transport>
-        <version>2.4</version>
-        <interface>
-            <name>ICameraProvider</name>
-            <instance>legacy/0</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.light</name>
         <transport arch="32">passthrough</transport>
         <version>2.0</version>
