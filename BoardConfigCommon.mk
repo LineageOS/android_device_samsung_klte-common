@@ -32,9 +32,6 @@ BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
-# Camera
-USE_DEVICE_SPECIFIC_CAMERA := true
-
 # Extended Filesystem Support
 TARGET_EXFAT_DRIVER := sdfat
 
