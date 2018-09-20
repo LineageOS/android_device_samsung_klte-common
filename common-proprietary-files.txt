@@ -1,4 +1,4 @@
-# Samsung Package Version: G900FXXU1CRA2_G900FOXA1CRA2_BTU, unless pinned
+# Samsung Package Version: G900FXXU1CRH1_G900FOXA1CRH1_BTU, unless pinned
 
 # Activity recognition
 vendor/lib/libsensor1.so
