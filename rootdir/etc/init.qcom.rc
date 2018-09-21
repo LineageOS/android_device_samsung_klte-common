@@ -42,9 +42,6 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on init
-    # Support legacy paths
-    symlink /sdcard /storage/sdcard0
-
     write /proc/sys/vm/page-cluster 0
 
 on fs
