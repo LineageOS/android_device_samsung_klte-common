@@ -56,7 +56,8 @@ TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib/hw/camera.vendor.msm8974.so|libshim_camera.so
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/bin/mediaserver=22 \
-    /system/vendor/bin/mm-qcamera-daemon=22
+    /system/vendor/bin/mm-qcamera-daemon=22 \
+    /system/vendor/bin/hw/rild=27
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 13631488
