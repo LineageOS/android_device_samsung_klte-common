@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "934592e3_54e84a71",
+        "filename": "nfc/pn547/product.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2018-10-08T12:34:10Z",
+      "side": 1,
+      "message": "I\u0027m not happy with this, but guarding in vendor makefiles doesn\u0027t work, with the requisite var here, unless this fragment is included in variant device.mk (it\u0027s currently inherited via inherit-product).",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 127
+      },
+      "revId": "fd0fca9b457684f2d013a29facb466ec0c7f5e74",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
