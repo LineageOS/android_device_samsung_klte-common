@@ -11,3 +11,6 @@
 # sysfs - audio
 /sys/devices/[a-f0-9]+\.slim/es705-codec-gen0(/.*)?     u:object_r:sysfs_audio:s0
 /sys/kernel/DualWave/sound(/.*)?                        u:object_r:sysfs_audio:s0
+
+# sysfs - fingerprint
+/sys/devices/virtual/fingerprint(/.*)?                  u:object_r:sysfs_fingerprint:s0

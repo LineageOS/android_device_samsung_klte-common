@@ -1,1 +1,2 @@
+type sysfs_fingerprint, fs_type, sysfs_type;
 type vfsspi_data_file, file_type, data_file_type;
