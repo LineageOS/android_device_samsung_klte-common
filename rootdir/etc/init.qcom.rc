@@ -276,14 +276,6 @@ on boot
     chown radio system /efs/bluetooth
     chmod 0775 /efs/bluetooth
 
-    # Audience ES705 UART
-    # Note: DO NOT move this to ueventd.qcom.rc. Samsung thoughtfully has
-    #       the kernel write directly to /dev/ttyHS3 (!) to load the audience
-    #       firmware. Setting ownership immediately with ueventd would require
-    #       allowing the kernel dac_override, which is an sepolicy neverallow.
-    chmod 0660 /dev/ttyHS3
-    chown media audio /dev/ttyHS3
-
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
@@ -936,6 +928,14 @@ on property:wlan.driver.status=ok
     start macloader
 
 on property:sys.boot_completed=1
+    # Audience ES705 UART
+    # Note: DO NOT move this to ueventd.qcom.rc. Samsung thoughtfully has
+    #       the kernel write directly to /dev/ttyHS3 (!) to load the audience
+    #       firmware. Setting ownership immediately with ueventd would require
+    #       allowing the kernel dac_override, which is an sepolicy neverallow.
+    chmod 0660 /dev/ttyHS3
+    chown media audio /dev/ttyHS3
+
     setprop sys.io.scheduler bfq
 
     # Configure the hardware properly
