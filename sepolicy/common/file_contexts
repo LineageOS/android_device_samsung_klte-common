@@ -7,3 +7,7 @@
 
 # sysfs
 /sys/devices(/.*)?/input/input[1-2]/enabled             u:object_r:sysfs_hal_pwr:s0
+
+# sysfs - audio
+/sys/devices/[a-f0-9]+\.slim/es705-codec-gen0(/.*)?     u:object_r:sysfs_audio:s0
+/sys/kernel/DualWave/sound(/.*)?                        u:object_r:sysfs_audio:s0
