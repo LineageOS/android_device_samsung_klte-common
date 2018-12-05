@@ -34,9 +34,6 @@ BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
-# Extended Filesystem Support
-TARGET_EXFAT_DRIVER := sdfat
-
 # HIDL
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
 
