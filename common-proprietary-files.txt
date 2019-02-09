@@ -34,10 +34,10 @@ vendor/lib/libaptXScheduler.so|6a0a2d564fde8434018b9840ce81d976b4d4ab28
 
 # Bluetooth firmware - Pinned to G900VVRU2DQH2_G900VVZW2DQH2_VZW
 vendor/firmware/bcm4350_V0395.0797.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
-vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_murata.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
-vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_semco.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
-vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_semcosh.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
-vendor/firmware/bcm4350_V0395.0797.hcd:vendor/firmware/bcm4350_V0395.0797_semcove.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
+vendor/firmware/bcm4350_V0395.0797_murata.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
+vendor/firmware/bcm4350_V0395.0797_semco.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
+vendor/firmware/bcm4350_V0395.0797_semco3rd.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
+vendor/firmware/bcm4350_V0395.0797_semcosh.hcd|ff51604a8fc4cd1179d1ac869f517a413baad27f
 vendor/firmware/bcm4350_V0395.0798_wisol.hcd|c4a2f642b274de774014aafacf3ed4253b000aa9
 
 # Camera
