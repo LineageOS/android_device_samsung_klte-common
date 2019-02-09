@@ -323,11 +323,11 @@ etc/wifi/bcmdhd_sta.bin
 etc/wifi/cred.conf
 etc/wifi/nvram_mfg.txt
 etc/wifi/nvram_mfg.txt_a0
-etc/wifi/nvram_mfg.txt_muratafem1
+etc/wifi/nvram_mfg.txt_muratafem1:etc/wifi/nvram_mfg.txt_murata
 etc/wifi/nvram_mfg.txt_semco3rd
 etc/wifi/nvram_net.txt
 etc/wifi/nvram_net.txt_a0
-etc/wifi/nvram_net.txt_muratafem1
+etc/wifi/nvram_net.txt_muratafem1:etc/wifi/nvram_net.txt_murata
 etc/wifi/nvram_net.txt_semco3rd
 etc/wifi/wpa_supplicant.conf
 
