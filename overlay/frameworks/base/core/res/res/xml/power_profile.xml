@@ -34,23 +34,23 @@
         <value>422400</value>
         <value>300000</value>
     </array>
-    <item name="cpu.idle">3.1</item>
+    <item name="cpu.idle">4</item>
+    <item name="wakeup.power">0.15</item>
     <array name="cpu.active">
-        <value>348</value>
-        <value>313</value>
-        <value>265</value>
-        <value>232</value>
-        <value>213</value>
-        <value>203</value>
-        <value>176</value>
-        <value>132</value>
-        <value>122</value>
-        <value>114</value>
+        <value>433</value>
+        <value>353</value>
+        <value>315</value>
+        <value>289</value>
+        <value>275</value>
+        <value>250</value>
+        <value>195</value>
+        <value>194</value>
+        <value>193</value>
+        <value>148</value>
+        <value>137</value>
         <value>97</value>
-        <value>92</value>
-        <value>84</value>
-        <value>74</value>
-        <value>56</value>
+        <value>78</value>
+        <value>51</value>
     </array>
     <item name="battery.capacity">2800</item>
     <array name="wifi.batchedscan">
