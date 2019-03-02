@@ -20,6 +20,8 @@ COMMON_PATH := device/samsung/klte-common
 
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
+BUILD_FINGERPRINT := samsung/kltexx/klte:6.0.1/MMB29M/G900FXXU1CRH1:user/release-keys
+
 # Audio
 USE_CUSTOM_AUDIO_POLICY := 1
 
