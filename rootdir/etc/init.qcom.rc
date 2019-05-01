@@ -996,8 +996,9 @@ on property:sys.boot_completed=1
     restorecon /data/data/com.android.providers.telephony/databases
     restorecon /data/data/com.android.providers.telephony/shared_prefs
 
-service charger /charger
+service charger /system/bin/charger
     class charger
+    group system graphics
     seclabel u:r:charger:s0
 
 on property:persist.sys.ssr.restart_level=1
