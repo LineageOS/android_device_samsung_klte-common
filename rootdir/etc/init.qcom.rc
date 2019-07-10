@@ -457,12 +457,6 @@ on boot
     chown radio system /sys/class/lcd/panel/siop_enable
     chown radio system /sys/class/lcd/panel/temperature
     chown radio system /sys/class/lcd/panel/tuning
-
-    chown system system /sys/class/lcd/panel/window_type
-    chown radio system /sys/class/lcd/panel/power_reduce
-    chown radio system /sys/class/lcd/panel/siop_enable
-    chown radio system /sys/class/lcd/panel/temperature
-    chown radio system /sys/class/lcd/panel/tuning
     chown radio system /sys/class/lcd/panel/lux
 
     chown radio system /sys/class/lcd/panel/partial_disp
@@ -493,10 +487,6 @@ on boot
     # LCD ALPM Mode
     chown system system /sys/class/lcd/panel/alpm
     chmod 0660 /sys/class/lcd/panel/alpm
-
-    # Auto Brightness
-    chown system system  /sys/class/backlight/panel/auto_brightness
-    chmod 0660 /sys/class/backlight/panel/auto_brightness
 
     # Permissions for TCON
     chown system system /sys/class/tcon/tcon/lux
