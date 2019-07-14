@@ -82,10 +82,6 @@ on post-fs-data
     mkdir /data/connectivity 0771 system system
     chown system system /data/connectivity
 
-    # for WIFI TRP/TIS
-    chown system root /data/.psm.info
-    chmod 0664 /data/.psm.info
-
     # for WIFI Antena Selection
     chown system root /data/.ant.info
     chmod 0664 /data/.ant.info
@@ -194,15 +190,12 @@ on post-fs-data
     chmod 0644 /efs/redata.bin
     chown radio radio /efs/h2k.dat
     chmod 0644 /efs/h2k.dat
+    chown radio system /efs/redata.bin
 
     # DRK permission
     mkdir /efs/prov 0770 radio system
     chown radio system /efs/prov/libdevkm.lock
     chmod 0660 /efs/prov/libd
-
-    #OTG Test
-    chown system radio /sys/class/host_notify/usb_otg/booster
-    chmod 0660 /sys/class/host_notify/usb_otg/booster
 
     # wifi
     mkdir /efs/wifi 0775 system system
@@ -254,8 +247,6 @@ on early-boot
 
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /proc/bluetooth/sleep/proto
     chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_lpm
     chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_btwrite
@@ -263,7 +254,6 @@ on boot
     chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
     chmod 0660 /sys/module/bluetooth_power/parameters/power
     chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /proc/bluetooth/sleep/proto
     chmod 0660 /sys/module/hci_uart/parameters/ath_lpm
     chmod 0660 /sys/module/hci_uart/parameters/ath_btwrite
@@ -457,12 +447,6 @@ on boot
     chown radio system /sys/class/lcd/panel/siop_enable
     chown radio system /sys/class/lcd/panel/temperature
     chown radio system /sys/class/lcd/panel/tuning
-
-    chown system system /sys/class/lcd/panel/window_type
-    chown radio system /sys/class/lcd/panel/power_reduce
-    chown radio system /sys/class/lcd/panel/siop_enable
-    chown radio system /sys/class/lcd/panel/temperature
-    chown radio system /sys/class/lcd/panel/tuning
     chown radio system /sys/class/lcd/panel/lux
 
     chown radio system /sys/class/lcd/panel/partial_disp
@@ -493,10 +477,6 @@ on boot
     # LCD ALPM Mode
     chown system system /sys/class/lcd/panel/alpm
     chmod 0660 /sys/class/lcd/panel/alpm
-
-    # Auto Brightness
-    chown system system  /sys/class/backlight/panel/auto_brightness
-    chmod 0660 /sys/class/backlight/panel/auto_brightness
 
     # Permissions for TCON
     chown system system /sys/class/tcon/tcon/lux
@@ -557,10 +537,6 @@ on boot
     chown system radio /sys/class/camera/flash/rear_flash
     chown system system /sys/class/camera/front/front_camfw
     chown system system /sys/class/camera/front/front_camtype
-
-    #OTG Test
-    chown system radio /sys/class/host_notify/usb_otg/booster
-    chmod 0660 /sys/class/host_notify/usb_otg/booster
 
     # Permissions for Audio
     chown system system /sys/devices/fe12f000.slim/es705-codec-gen0/keyword_grammar_path
@@ -747,9 +723,6 @@ on boot
     chown system radio /sys/class/power_supply/ps/status
     chmod 0664 /sys/class/power_supply/ps/status
 
-    # Permission for fast dormancy for RIL
-    chown system radio /sys/devices/virtual/sec/bamdmux/waketime
-
     # Permissions for gpio_keys
     chown system radio /sys/class/sec/sec_key/wakeup_keys
     write /sys/class/sec/sec_key/wakeup_keys 114,115,116,172
@@ -764,11 +737,6 @@ on boot
 
     # HDCP 2.x
     mkdir /data/system/hdcp2 0775 system system
-
-    # h2k permission
-    chown radio system /efs/redata.bin
-    chmod 0644 /efs/h2k.dat
-    mkdir /data/misc/radio/hatp 0775 radio system
 
     # Vibrator
     chmod 0660 /sys/class/timed_output/vibrator/pwm_value
