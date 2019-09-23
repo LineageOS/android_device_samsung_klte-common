@@ -1000,6 +1000,7 @@ service charger /system/bin/charger
     class charger
     user system
     group system graphics input
+    capabilities SYS_BOOT
     seclabel u:r:charger:s0
 
 on property:persist.sys.ssr.restart_level=1
