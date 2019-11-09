@@ -17,7 +17,7 @@
  */
 
 #define LOG_TAG "FingerprintHal_msm8974"
-#define LOG_NDEBUG 1
+#define LOG_NDEBUG 0
 
 #include <errno.h>
 #include <endian.h>
@@ -538,6 +538,8 @@ static int fingerprint_cancel(struct fingerprint_device *device) {
             if (tz.state == STATE_IDLE)
                 break;
         }
+        // Not really an error, but framework expects us to send it.
+        send_error_notice(vdev, FINGERPRINT_ERROR_CANCELED);
     }
 
     return ret;
