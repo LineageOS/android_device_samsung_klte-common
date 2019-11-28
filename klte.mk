@@ -63,6 +63,9 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
     lights.MSM8974
 
+# MDNIE Features
+$(call inherit-product, device/samsung/msm8974-common/display/product.mk)
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
@@ -93,9 +96,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/_hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/_hals.conf
 
+# Sensora HAL wrapper
+$(call inherit-product, device/samsung/msm8974-common/sensors/product.mk)
+
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8974.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8974.conf
+
+# Touchscreen features
+$(call inherit-product, device/samsung/msm8974-common/touch/product.mk)
 
 # Vibrator
 PRODUCT_PACKAGES += \
