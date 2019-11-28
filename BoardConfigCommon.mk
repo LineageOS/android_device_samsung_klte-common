@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # inherit from common msm8974
--include device/samsung/msm8974-common/BoardConfigCommon.mk
+include device/samsung/msm8974-common/BoardConfigCommon.mk
 
 COMMON_PATH := device/samsung/klte-common
 
