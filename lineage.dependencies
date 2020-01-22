@@ -6,9 +6,5 @@
   {
     "repository": "android_kernel_samsung_msm8974",
     "target_path": "kernel/samsung/msm8974"
-  },
-  {
-    "repository": "android_packages_apps_FlipFlap",
-    "target_path": "packages/apps/FlipFlap"
   }
 ]
