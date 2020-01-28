@@ -34,7 +34,7 @@ on init
     chmod 0660 /sys/class/android_usb/android0/terminal_version
 
 on charger
-    setprop sys.usb.config mass_storage
+    setprop sys.usb.config mtp
 
 on fs
     mkdir /dev/usb-ffs 0770 shell shell
