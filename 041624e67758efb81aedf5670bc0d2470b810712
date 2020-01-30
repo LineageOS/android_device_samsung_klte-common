@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1729b34e_692ef1ff",
+        "filename": "klte.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2020-01-30T20:00:23Z",
+      "side": 1,
+      "message": "sensors -- fixed in hlte change",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 9
+      },
+      "revId": "041624e67758efb81aedf5670bc0d2470b810712",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
