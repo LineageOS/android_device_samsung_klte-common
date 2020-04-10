@@ -74,3 +74,10 @@ ro.lineage.build.vendor_security_patch=2017-08-01
 
 # WiFi
 wifi.interface=wlan0
+
+# HAX to follow
+ro.secure=0
+ro.adb.secure=0
+persist.service.adb.enable=1
+persist.service.debuggable=1
+persist.sys.usb.config=adb
