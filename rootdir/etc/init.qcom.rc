@@ -33,7 +33,6 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
     # Increase max readahead size to 512 KB
-    restorecon --recursive /sys/block/mmcblk0/queue
     write /sys/block/mmcblk0/queue/read_ahead_kb 512
     write /sys/block/mmcblk0/queue/scheduler noop
 
