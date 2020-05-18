@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf55cb31_bce84311",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2020-05-18T15:50:09Z",
+      "side": 1,
+      "message": "Seems to me a simple \"This board flag hasn\u0027t been valid since cm-11\" is more accurate and descriptive.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 44
+      },
+      "revId": "eab9b6111db72b9b2d4a25135833d7e224736db3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
