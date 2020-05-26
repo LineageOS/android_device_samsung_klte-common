@@ -272,9 +272,6 @@ lib/hw/sensors.msm8974.so:vendor/lib/hw/sensors.vendor.msm8974.so|48c6112bc4097e
 lib/libhr.so:vendor/lib/libhr.so
 
 # Time services
--app/TimeService/TimeService.apk
-bin/time_daemon:vendor/bin/time_daemon
-vendor/lib/libTimeService.so
 -vendor/lib/libtime_genoff.so
 
 # Wi-Fi
