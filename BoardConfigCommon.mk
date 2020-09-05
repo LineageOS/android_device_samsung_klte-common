@@ -99,9 +99,6 @@ include $(COMMON_PATH)/sepolicy/sepolicy.mk
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
-# Use Snapdragon LLVM if available on build server
-TARGET_USE_SDCLANG := true
-
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI := true
 BOARD_WLAN_DEVICE := bcmdhd
