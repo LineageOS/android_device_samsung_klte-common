@@ -1,0 +1,27 @@
+# Samsung Package Version: G900FXXU1CSA1_G900FVIA1CSC1_VIA, unless pinned
+
+# Qualcomm Framework
+lib/libmdmdetect.so:vendor/lib/libmdmdetect.so
+vendor/lib/libconfigdb.so
+vendor/lib/libdiag.so
+vendor/lib/libdsutils.so
+vendor/lib/libidl.so
+vendor/lib/libnetmgr.so
+vendor/lib/libqcci_legacy.so
+vendor/lib/libqmi.so
+vendor/lib/libqmi_cci.so
+vendor/lib/libqmi_client_qmux.so
+vendor/lib/libqmi_common_so.so
+vendor/lib/libqmi_csi.so
+vendor/lib/libqmi_encdec.so
+vendor/lib/libqmiservices.so
+
+# Radio
+bin/efsks:vendor/bin/efsks
+bin/ks:vendor/bin/ks
+bin/qcks:vendor/bin/qcks
+bin/qmuxd:vendor/bin/qmuxd
+bin/rfs_access:vendor/bin/rfs_access
+bin/rmt_storage:vendor/bin/rmt_storage
+lib/libprotobuf-cpp-full.so:vendor/lib/libprotobuf-cpp-haxx.so
+vendor/lib/libril-qcril-hook-oem.so

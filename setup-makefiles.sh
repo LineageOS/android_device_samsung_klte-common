@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2017-2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -42,6 +42,13 @@ write_headers "klte klteactivexx kltechn kltechnduo klteduos kltedv kltekdi klte
 write_makefiles "$MY_DIR"/common-proprietary-files.txt
 
 write_footers
+
+# This is the "common" M radio/QC framework stack. Most variants will inherit
+# this file. If they cannot then they will ship their own stack
+PRODUCTMK="$(echo $PRODUCTMK | sed -e 's|-vendor.mk|-vendor-ril-m.mk|g')"
+write_makefile_header "$PRODUCTMK"
+parse_file_list "$MY_DIR"/common-proprietary-files-ril-m.txt
+write_product_copy_files
 
 if [ ! -z $VARIANT_COPYRIGHT_YEAR ]; then
     export INITIAL_COPYRIGHT_YEAR=$VARIANT_COPYRIGHT_YEAR
