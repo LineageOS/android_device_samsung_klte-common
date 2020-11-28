@@ -23,5 +23,5 @@ bin/qcks:vendor/bin/qcks
 bin/qmuxd:vendor/bin/qmuxd
 bin/rfs_access:vendor/bin/rfs_access
 bin/rmt_storage:vendor/bin/rmt_storage
-lib/libprotobuf-cpp-full.so:vendor/lib/libprotobuf-cpp-haxx.so
+lib/libprotobuf-cpp-full.so:vendor/lib/libprotobuf-cpp-full-v23.so
 vendor/lib/libril-qcril-hook-oem.so
