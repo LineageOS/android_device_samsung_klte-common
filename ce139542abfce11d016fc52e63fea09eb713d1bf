@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84dfd3a3_9aebc8f5",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2020-12-23T19:04:24Z",
+      "side": 1,
+      "message": "This doesn\u0027t look the first bit correct to me...\nhttps://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-11.0.0_r19/core/proto/android/hardware/biometrics/enums.proto#28",
+      "range": {
+        "startLine": 228,
+        "startChar": 16,
+        "endLine": 228,
+        "endChar": 17
+      },
+      "revId": "ce139542abfce11d016fc52e63fea09eb713d1bf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
