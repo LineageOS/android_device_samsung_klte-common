@@ -28,15 +28,6 @@ dalvik.vm.heaptargetutilization=0.75
 dalvik.vm.heapminfree=2m
 dalvik.vm.heapmaxfree=8m
 
-# Display
-ro.hdcp2.rx=tz
-ro.qualcomm.cabl=1
-ro.secwvk=144
-ro.sf.lcd_density=480
-debug.hwui.use_buffer_age=false
-debug.sf.enable_gl_backpressure=1
-debug.sf.latch_unsignaled=1
-
 # GPS
 persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
