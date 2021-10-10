@@ -43,6 +43,9 @@ on early-init
 on init
     write /proc/sys/vm/page-cluster 0
 
+    # Fix permissions for keydisabler node
+    chown system system /sys/class/sec/sec_touchkey/keypad_enable
+
 on fs
     mount_all /vendor/etc/fstab.qcom
     swapon_all /vendor/etc/fstab.qcom
